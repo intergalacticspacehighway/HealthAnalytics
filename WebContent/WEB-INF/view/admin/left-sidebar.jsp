@@ -14,7 +14,7 @@
 				</div> <!-- /input-group -->
 			</li>
 			<li class="user-pro"><a href="#" class="waves-effect"><img
-					src="https://gitlab.com/uploads/user/avatar/56386/tt_avatar_small.jpg" alt="user-img"
+					src="resources/images/deepak.jpg" alt="user-img"
 					class="img-circle"> <span class="hide-menu">Admin name</a>
 				<ul class="nav nav-second-level">
 					<li><a href="javascript:void(0)">
@@ -25,7 +25,7 @@
 							Account Setting</a></li>
 					<li><a href="javascript:void(0)"> Logout</a></li>
 				</ul></li>
-			<li class="nav-small-cap m-t-10">--- Main Menu</li>
+			<li class="nav-small-cap m-t-10">&nbsp&nbsp&nbsp Main Menu</li>
 			<li><a href="index.html" class="waves-effect"> <span class="hide-menu">Dashboard</span></a>
 			</li>
 			
@@ -38,15 +38,19 @@
 					<li><a href="inbox-detail.html">Inbox detail</a></li>
 					<li><a href="compose.html">Compose mail</a></li>
 				</ul></li>
-			<li class="nav-small-cap m-t-10">--- Professional</li>
-			<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+			<li class="nav-small-cap m-t-10">&nbsp&nbsp&nbsp Manage</li>
+			
+			<li><a href="javascript:void(0);" class="waves-effect">
+			<i class="fa fa-hospital-o" aria-hidden="true"></i> &nbsp &nbsp<span class="hide-menu" >
+			
 						Hospital
 				</span></a>
 				<ul class="nav nav-second-level">
-					<li><a href="addHospital">Add</a></li>
+					<li><a href="addHospital.html">Add</a></li>
 					<li><a href="viewHospital.html">View</a></li>
 				</ul></li>
-					<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+					<li><a href="javascript:void(0);" class="waves-effect">
+					<i class="fa fa-globe" aria-hidden="true"></i>&nbsp &nbsp <span class="hide-menu">
 						Country
 				</span></a>
 				<ul class="nav nav-second-level">
@@ -54,14 +58,15 @@
 					<li><a href="viewCountry.html">View</a></li>
 				
 				</ul></li>
-			<li><a href="javascript:void(0);" class="waves-effect"> <span
+			<li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp &nbsp <span
 					class="hide-menu"> State </span></a>
 				<ul class="nav nav-second-level">
 					<li><a href="addState.html">Add</a></li>
 					<li><a href="viewState.html">View</a></li>
 
 				</ul></li>
-						<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+						<li><a href="javascript:void(0);" class="waves-effect"> 
+						<i class="fa fa-globe" aria-hidden="true"></i>&nbsp &nbsp<span class="hide-menu">
 						City
 				</span></a>
 				<ul class="nav nav-second-level">
@@ -71,7 +76,8 @@
 				</ul></li>
 				
 
-			<li><a href="javascript:void(0);" class="waves-effect">
+			<li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user-md" aria-hidden="true"></i>
+			&nbsp &nbsp
 				 <span class="hide-menu">
 						Doctors 
 				</span></a>
@@ -79,14 +85,17 @@
 					<li><a href="addDoctor.html">Add</a></li>
 					<li><a href="viewDoctor.html">View</a></li>
 				</ul></li>
-			<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+			<li><a href="javascript:void(0);" class="waves-effect">
+			<i class="fa fa-user" aria-hidden="true"></i>&nbsp &nbsp
+			<span class="hide-menu">
 						Patients
 				</span></a>
 				<ul class="nav nav-second-level">
 				<li><a href="addPatient.html">Add</a></li>
 					<li><a href="viewPatient.html">View</a></li>
 				</ul></li>
-			<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+			<li><a href="javascript:void(0);" class="waves-effect"> 
+			<i class="fa fa-heartbeat" aria-hidden="true"></i>&nbsp &nbsp<span class="hide-menu">
 						Symptoms 
 				</span></a>
 				<ul class="nav nav-second-level">
@@ -94,7 +103,8 @@
 					<li><a href="viewSymptom.html">View</a></li>
 				
 				</ul></li>
-				<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+				<li><a href="javascript:void(0);" class="waves-effect">
+				<i class="fa fa-wheelchair" aria-hidden="true"></i>&nbsp &nbsp  <span class="hide-menu">
 						Disease
 				</span></a>
 				<ul class="nav nav-second-level">
@@ -102,7 +112,8 @@
 					<li><a href="viewDisease.html">View</a></li>
 				
 				</ul></li>
-			<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+			<li><a href="javascript:void(0);" class="waves-effect">
+			<i class="fa fa-medkit" aria-hidden="true"></i>&nbsp&nbsp <span class="hide-menu">
 						Medicines
 				</span></a>
 				<ul class="nav nav-second-level">
@@ -111,14 +122,16 @@
 				
 			
 			</ul></li>
-						<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+						<li><a href="javascript:void(0);" class="waves-effect"> 
+						<i class="fa fa-comment-o" aria-hidden="true"></i>&nbsp &nbsp<span class="hide-menu">
 						Feedback
 				</span></a>
 				<ul class="nav nav-second-level">
 				<li><a href="viewFeedback.html">View</a></li>
 				
 				</ul></li>
-				<li><a href="javascript:void(0);" class="waves-effect"> <span class="hide-menu">
+				<li><a href="javascript:void(0);" class="waves-effect"> 
+				<i class="fa fa-commenting-o" aria-hidden="true"></i>&nbsp &nbsp<span class="hide-menu">
 						Complaint
 				</span></a>
 				<ul class="nav nav-second-level">

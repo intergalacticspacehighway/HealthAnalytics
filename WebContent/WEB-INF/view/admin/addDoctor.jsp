@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
-    <title>Elite Hospital Admin Template - Hospital admin dashboard web app kit</title>
+     <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+    <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
@@ -114,6 +114,54 @@
                                             <textarea class="form-control" rows="3"></textarea>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" for="Address">Address</span></label>
+                                        <div class="col-md-12">
+                                            <input type="text" id="special" name="address" class="form-control" placeholder="Enter Street address here">
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="col-sm-6">Country</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control">
+                                                <option>Select Country</option>
+                                                <option>India</option>
+                                                <option>USA</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                      <div class="form-group">
+                                        <label class="col-sm-6">State</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control">
+                                                <option>Select State</option>
+                                                <option>Gujarat</option>
+                                                <option>Bihar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="col-sm-6">City</label>
+                                        <div class="col-sm-3">
+                                            <select class="form-control">
+                                                <option>Select City</option>
+                                                <option>Ahmedabad</option>
+                                                <option>Surat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                    	<label class="col-sm-6">Pin</label>
+                                    	<div class="col-sm-3">
+                                    		<input type="text" id="pin" name="pinCode" class="form-control" placeholder="e.g. 380008">
+                                    	</div>
+                                    
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12">Description</label>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="url">Website URL</span></label>
                                         <div class="col-md-12">
