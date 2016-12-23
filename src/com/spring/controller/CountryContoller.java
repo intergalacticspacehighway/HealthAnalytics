@@ -24,16 +24,26 @@ public class CountryContoller {
 	}
 
 	@RequestMapping(value="/addCountry.html" , method=RequestMethod.GET)
-	public String addCountry()
+	public ModelAndView addCountry()
 	{
-		return("admin/addCountry");
+		
+		return new ModelAndView("admin/addCountry","insertCountry",new CountryVO());
 		
 	}
 	
-	@RequestMapping(value="/insertCountry.html" , method=RequestMethod.GET)
+	@RequestMapping(value="/insertCountry.html" , method=RequestMethod.POST)
 	public ModelAndView insertCountry(@ModelAttribute CountryVO insertCountry)
-	{
-		ModelAndView model = new ModelAndView("admin/addCountry");
+	{	
+		
+		try {
+			this.country.insertCountry(insertCountry);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		ModelAndView model = new ModelAndView("redirect:/addCountry.html");
 		
 		return model;
 		
