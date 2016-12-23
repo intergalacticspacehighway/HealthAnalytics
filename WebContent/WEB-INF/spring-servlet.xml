@@ -15,5 +15,39 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         <property name="prefix" value="WEB-INF/view/" />  
         <property name="suffix" value=".jsp" />  
     </bean>  
-   
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/healthanalytics"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+		 <property name="annotatedClasses">
+            <list>
+                <value>com.spring.VO.CityVO</value>
+                <value>com.spring.VO.ComplainVO</value>
+                <value>com.spring.VO.CountryVO</value>
+                <value>com.spring.VO.DiseaseVO</value>
+                <value>com.spring.VO.DoctorVO</value>
+                <value>com.spring.VO.FeedbackVO</value>
+                <value>com.spring.VO.HospitalVO</value>
+                <value>com.spring.VO.MedicineVO</value>
+                <value>com.spring.VO.PatientVO</value>
+                <value>com.spring.VO.StateVO</value>
+                <value>com.spring.VO.SymptomVO</value>
+                
+                <!-- <value>com.malhar.model.Login</value> -->
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>  	 
+    
 </beans>
