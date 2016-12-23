@@ -12,16 +12,17 @@ import javax.persistence.Table;
 public class CountryVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Countryid;
+	private int countryId;
 	@Column
 	private String countryName;
 
-	public int getCountryid() {
-		return Countryid;
+	
+	public int getCountryId() {
+		return countryId;
 	}
 
-	public void setCountryid(int countryid) {
-		Countryid = countryid;
+	public void setCountryId(int countryId) {
+		this.countryId = countryId;
 	}
 
 	public String getCountryName() {
