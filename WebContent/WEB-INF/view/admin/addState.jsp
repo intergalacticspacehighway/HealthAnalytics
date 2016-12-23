@@ -1,3 +1,5 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>  
 <html lang="en">
 
@@ -72,28 +74,29 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">State Information</h3>
-                                <form class="form-material form-horizontal">
+                                <form:form class="form-material form-horizontal" action="insertState.html" method="post" modelAttribute="insertState">
                                 
                                      <div class="form-group">
                                         <label class="col-sm-6">Select Country First</label>
                                         <div class="col-sm-3">
                                             <select class="form-control">
-                                                <option>Select Country</option>
-                                                <option>India</option>
-                                                <option>USA</option>
+
+                                               <c:forEach items="${sessionScope.ls}" var="i">
+                                               <option value="${i.countryId}">${i.countryName}</option>
+                                               </c:forEach>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">State Name</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="stateName" name="stateName" class="form-control" placeholder="Enter state name">
+                                            <form:input type="text" id="stateName" path="stateName" class="form-control" placeholder="Enter state name"/>
                                         </div>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
+                                </form:form>
                             </div>
                         </div> 
                     
