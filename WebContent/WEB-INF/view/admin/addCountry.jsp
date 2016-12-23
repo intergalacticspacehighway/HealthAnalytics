@@ -1,6 +1,6 @@
 <!DOCTYPE html>  
 <html lang="en">
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,17 +71,17 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Country Information</h3>
-                                <form class="form-material form-horizontal">
+                                <form:form class="form-material form-horizontal" action="insertCountry.html" method="post" modelAttribute="insertcountry">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Country Name</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="countryName" name="countryName" class="form-control" placeholder="Enter country name">
+                                            <form:input type="text" id="countryName" path="countryName" class="form-control" placeholder="Enter country name"/>
                                         </div>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
+                                </form:form>
                             </div>
                         </div> 
                     
