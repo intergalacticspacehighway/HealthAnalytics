@@ -89,6 +89,7 @@
                                         <label class="col-sm-6">Select State First</label>
                                         <div class="col-sm-3">
                                             <form:select id="stateMenu" class="form-control" path="state.stateId">
+                                            <option value="">Select State</option>
                                            <%--  <c:forEach items="${sessionScope.stateList}" var="i">
 											<form:option value="${i.stateId}">${i.stateName}</form:option> --%>
 											<%-- </c:forEach> --%>
@@ -137,7 +138,6 @@
         function getState(val){
         	
         	$.ajax({
-        		
         		type: "POST",
         		url: "getStateUsingAjax.html",
         		data: 'countryId='+val,

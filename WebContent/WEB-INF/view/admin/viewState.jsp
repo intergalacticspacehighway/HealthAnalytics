@@ -89,8 +89,11 @@
 								</thead>
 								<tbody>
 									<c:set var = "count" value="0"></c:set>
+									<c:set var = "countActive" value="0"></c:set>
 									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
-									
+										<c:if test="${i.isActive == 'yes' }">
+										<c:set var = "countActive" value="${countActive+1 }"></c:set>
+										</c:if>
 									<tr>
 										<td>${myindex.index +1 }</td>
 										<td>${i.country.countryName}</td>
@@ -112,6 +115,16 @@
 										<td></td>
 										<td></td>
 										<td><strong><c:out value="${count }"/></strong></td>
+										
+									</tr>
+									<tr>
+									
+										<td color="bg-primary"><strong>Total Active Records</strong></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><strong><c:out value="${countActive }"/></strong></td>
 										
 									</tr>
 								</tbody>
