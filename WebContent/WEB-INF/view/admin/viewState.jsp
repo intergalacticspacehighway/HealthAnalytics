@@ -97,7 +97,7 @@
 										<td>${i.stateName}</td>
 										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
 										<td><a href ="deleteState.html?id=${i.stateId}">Delete</a></td>
-										<td>${i.isActive}</td>
+										<td class="active">${i.isActive}</td>
 									</tr>
 									<c:set var = "count" value="${count+1 }"></c:set>
 									</c:forEach>
@@ -143,7 +143,7 @@
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
     
-      
+      	$(".active:contains('No')").css("color","red");	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

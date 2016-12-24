@@ -37,7 +37,7 @@ public class StateDAO {
 
 	public List<Object> getAllState() throws Exception {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from StateVO order by stateName");
+		Query query = session.createQuery("from StateVO order by country ");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
 		return list;
