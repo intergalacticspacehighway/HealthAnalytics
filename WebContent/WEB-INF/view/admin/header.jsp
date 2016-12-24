@@ -14,8 +14,8 @@
 			<li><a href="javascript:void(0)"
 				class="open-close hidden-xs waves-effect waves-light"><span><i id="bars" class="fa fa-bars" aria-hidden="true"></i></span></a></li>
 			<li>
-				<form role="search" class="app-search hidden-xs">
-					<input type="text" placeholder="Search..." class="form-control">
+				<form role="search" id="searchForm" class="app-search hidden-xs">
+					<input type="text" placeholder="Search..." id="searchBox" name="keywords" class="form-control">
 					<a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
 				</form>
 			</li>

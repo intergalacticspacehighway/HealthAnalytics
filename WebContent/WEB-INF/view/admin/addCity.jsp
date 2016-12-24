@@ -150,6 +150,7 @@
         	});
         	
         }
+        
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

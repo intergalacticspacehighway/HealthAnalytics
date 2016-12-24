@@ -87,14 +87,14 @@
 										
 									</tr>
 								</thead>
-								<tbody>
+								<tbody class="rowBody">
 									<c:set var = "count" value="0"></c:set>
 									<c:set var = "countActive" value="0"></c:set>
 									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
 										<c:if test="${i.isActive == 'yes' }">
 										<c:set var = "countActive" value="${countActive+1 }"></c:set>
 										</c:if>
-									<tr>
+									<tr class="rowContent">
 										<td>${myindex.index +1 }</td>
 										<td>${i.country.countryName}</td>
 										<td>${i.stateName}</td>
@@ -107,7 +107,7 @@
 								
 									
 									
-									<tr>
+									<tr class="rowCountTotal">
 									
 										<td color="bg-primary"><strong>Total Records</strong></td>
 										<td></td>
@@ -117,7 +117,7 @@
 										<td><strong><c:out value="${count }"/></strong></td>
 										
 									</tr>
-									<tr>
+									<tr class="rowCountActive">
 									
 										<td color="bg-primary"><strong>Total Active Records</strong></td>
 										<td></td>
@@ -157,7 +157,27 @@
         <script type="text/javascript">
     
       	$(".active:contains('No')").css("color","#d9534f");	
-      	$(".active:contains('yes')").css("color","#5cb85c");	
+      	$(".active:contains('yes')").css("color","#5cb85c");
+      	
+      	$("#searchBox").animate({width:"450px"},function(){
+      		$(this).attr("placeholder","Search Using State Name");
+      	}).focus();
+/*       	$("#searchBox").keyup(function(){
+      		
+      		$.ajax({
+      			type: "POST",
+      			url: "searchStateDataUsingAjax.html",
+      			data: 'keywords='+$(this).val(),
+      			sucess: function(data){
+      				alert("hello");
+      				$(".rowBody").replaceWith(data);
+      				
+      			}
+      		});
+      	}); */
+      	
+      	$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
+      	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

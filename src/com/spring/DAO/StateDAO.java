@@ -26,12 +26,11 @@ public class StateDAO {
 
 	public List<Object> getState(StateVO state) throws Exception {
 		Session session = sessionFactory.openSession();
-		
+
 		Query query = session
 				.createQuery("from StateVO where country.countryId="
 						+ state.getCountry().getCountryId());
 		@SuppressWarnings("unchecked")
-	
 		List<Object> list = query.list();
 		session.close();
 		return list;
@@ -39,12 +38,10 @@ public class StateDAO {
 
 	public List<Object> getStateAjax(int id) throws Exception {
 		Session session = sessionFactory.openSession();
-		
+
 		Query query = session
-				.createQuery("from StateVO where country.countryId="
-						+ id);
+				.createQuery("from StateVO where country.countryId=" + id);
 		@SuppressWarnings("unchecked")
-	
 		List<Object> list = query.list();
 		session.close();
 		return list;
@@ -61,25 +58,40 @@ public class StateDAO {
 
 	public void deleteState(int id) throws Exception {
 		Session session = sessionFactory.openSession();
-		/*Query query = session
-				.createQuery("delete from StateVO where id =" + id);
-		query.executeUpdate();*/
-		Query query = session
-				.createQuery("UPDATE StateVO set isActive = :x "  + 
-			             "WHERE id = :id");
+		/*
+		 * Query query = session .createQuery("delete from StateVO where id =" +
+		 * id); query.executeUpdate();
+		 */
+		Query query = session.createQuery("UPDATE StateVO set isActive = :x "
+				+ "WHERE id = :id");
 		query.setParameter("x", "No");
 		query.setParameter("id", id);
 		query.executeUpdate();
 		session.close();
 
 	}
+
 	public List editState(int id) throws Exception {
 		Session session = sessionFactory.openSession();
-		Query query = session
-				.createQuery("from StateVO where id =" + id);
+		Query query = session.createQuery("from StateVO where id =" + id);
 		List<Object> ls = query.list();
 		session.close();
 		return ls;
+
+	}
+
+	public List searchStateAjax(String keyword) throws Exception {
+
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("from StateVO where stateName like :keyword");
+		query.setParameter("keyword", keyword + "%");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		// System.out.println(list.toString());
+		session.close();
+		return list;
 
 	}
 

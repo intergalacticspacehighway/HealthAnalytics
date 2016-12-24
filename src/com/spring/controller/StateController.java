@@ -114,7 +114,25 @@ public class StateController {
 		
 		
 		return ("admin/getStateUsingAjax");
+		
+		
 	}
+	@RequestMapping(value="/searchStateDataUsingAjax.html", method=RequestMethod.POST)
+	public String searchStateUsingAjax(@RequestParam("keywords") String keywords,HttpSession session){
+
+	
+		try {
+			List list = state.searchStateAjax(keywords);
+			session.setAttribute("list", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
+		return ("admin/searchStateDataUsingAjax");
+	}
+
 	
 	
 }
