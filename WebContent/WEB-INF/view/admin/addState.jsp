@@ -89,8 +89,11 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">State Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="stateName" path="stateName" class="form-control" placeholder="Enter state name"/>
-                                        </div>
+										<form:input type="text" id="stateName" path="stateName"
+											class="form-control" placeholder="Enter state name" />
+										<form:input type="hidden" id="stateName" path="isActive" class="form-control" value="yes"/>
+                                        
+										</div>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>

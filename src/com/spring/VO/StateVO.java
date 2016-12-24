@@ -17,6 +17,15 @@ public class StateVO {
 	private int stateId;
 	@Column
 	private String stateName;
+	@Column
+	private String isActive;
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
 
 	@ManyToOne
 	CountryVO country;

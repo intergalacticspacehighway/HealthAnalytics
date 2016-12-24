@@ -22,9 +22,21 @@ public class CountryContoller {
 	CountryDAO country;
 
 	@RequestMapping(value="/viewCountry.html" , method=RequestMethod.GET)
-	public String loadCountry(HttpSession session)
+	public ModelAndView loadCountry(HttpSession session)
 	{
-		return("admin/viewCountry");
+
+		try {
+			List<Object> ls = this.country.getCountry();
+			session.setAttribute("list", ls);
+			
+			
+			
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ModelAndView("admin/viewCountry","editCountry",new CountryVO());
 		
 	}
 

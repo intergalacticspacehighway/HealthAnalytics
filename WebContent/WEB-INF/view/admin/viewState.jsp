@@ -1,15 +1,15 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <!DOCTYPE html>  
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="health">
     <meta name="author" content="">
- 	<link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -60,51 +60,42 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Add Symptom</h4> </div>
+                        <h4 class="page-title">Add Country</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
-                            <li class="active">Add Symptom</li>
+                            <li class="active">Add Country</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
                     </div>
-                 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="white-box">
-                                <h3 class="box-title">city Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertCity" method="post" modelAttribute="insertCity">
-                                
-                                     <div class="form-group">
-                                      <label class="col-sm-6">Select Country First</label>
-                                        <div class="col-sm-3">
-                                            <form:select class="form-control" path="country.countryId">
-                                            <c:forEach items="${sessionScope.countryList}" var="i">
-											<form:option value="${i.countryId}">${i.countryName}</form:option>
-											</c:forEach>
-                                            </form:select>
-                                        </div>
-                                        <label class="col-sm-6">Select State First</label>
-                                        <div class="col-sm-3">
-                                            <form:select class="form-control" path="state.stateId">
-                                            <c:forEach items="${sessionScope.stateList}" var="i">
-											<form:option value="${i.stateId}">${i.stateName}</form:option>
-											</c:forEach>
-                                            </form:select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="example-text">City Name</span></label>
-                                        <div class="col-md-12">
-                                            <form:input type="text" id="cityName" path="cityName" class="form-control" placeholder="Enter city name"/>
-                                        </div>
-                                    </div>
-                                   
-                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form:form>
-                            </div>
+                                <h3 class="box-title">State Information</h3>
+							<table class="table">
+								<thead>
+									<tr>
+										
+										<th>State Name</th>
+										<th>Edit</th>
+										<th>Delete</th>
+										<th>isActive</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${sessionScope.list }" var = "i">
+									<tr>
+										
+										<td>${i.stateName}</td>
+										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
+										<td><a href ="deleteState.html?id=${i.stateId}">Delete</a></td>
+										<td>${i.isActive}</td>
+									</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
                         </div> 
                     
                          

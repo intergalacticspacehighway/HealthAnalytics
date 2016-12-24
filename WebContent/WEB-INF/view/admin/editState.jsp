@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="health">
     <meta name="author" content="">
- 	<link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -73,36 +73,27 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="white-box">
-                                <h3 class="box-title">city Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertCity" method="post" modelAttribute="insertCity">
+                                <h3 class="box-title">State Information</h3>
+                                <form:form class="form-material form-horizontal" action="updateState.html" method="post" modelAttribute="updateState">
                                 
-                                     <div class="form-group">
-                                      <label class="col-sm-6">Select Country First</label>
-                                        <div class="col-sm-3">
-                                            <form:select class="form-control" path="country.countryId">
-                                            <c:forEach items="${sessionScope.countryList}" var="i">
-											<form:option value="${i.countryId}">${i.countryName}</form:option>
-											</c:forEach>
-                                            </form:select>
-                                        </div>
-                                        <label class="col-sm-6">Select State First</label>
-                                        <div class="col-sm-3">
-                                            <form:select class="form-control" path="state.stateId">
-                                            <c:forEach items="${sessionScope.stateList}" var="i">
-											<form:option value="${i.stateId}">${i.stateName}</form:option>
-											</c:forEach>
-                                            </form:select>
-                                        </div>
-                                    </div>
+                           
+									<c:forEach items="${sessionScope.list}" var="i">
+											
+                           
                                     <div class="form-group">
-                                        <label class="col-md-12" for="example-text">City Name</span></label>
+                                        <label class="col-md-12" for="example-text">State Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="cityName" path="cityName" class="form-control" placeholder="Enter city name"/>
+                                            <form:input type="hidden" path="stateId" class="form-control" value="${i.stateId }"/> 
+                                            <form:input type="hidden" path="country.countryId" class="form-control" value="${i.country.countryId }"/> 
+                                            <form:input type="hidden" path="isActive" class="form-control" value="yes"/> 
+                                            
+                                            <form:input type="text" id="stateName" path="stateName" class="form-control" value="${i.stateName }"/>
                                         </div>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                </c:forEach>
                                 </form:form>
                             </div>
                         </div> 

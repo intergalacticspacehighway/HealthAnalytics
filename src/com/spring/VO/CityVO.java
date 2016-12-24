@@ -20,8 +20,16 @@ public class CityVO {
 	private String cityName;
 	@ManyToOne
 	StateVO state;
-	@Autowired
+	@ManyToOne
 	CountryVO country;
+
+	public CountryVO getCountry() {
+		return country;
+	}
+
+	public void setCountry(CountryVO country) {
+		this.country = country;
+	}
 
 	public int getCityId() {
 		return cityId;
