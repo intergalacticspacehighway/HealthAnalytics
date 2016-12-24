@@ -77,6 +77,14 @@
                                 <form:form class="form-material form-horizontal" action="insertCity" method="post" modelAttribute="insertCity">
                                 
                                      <div class="form-group">
+                                      <label class="col-sm-6">Select Country First</label>
+                                        <div class="col-sm-3">
+                                            <form:select class="form-control" path="country.countryId">
+                                            <c:forEach items="${sessionScope.countryList}" var="i">
+											<form:option value="${i.countryId}">${i.countryName}</form:option>
+											</c:forEach>
+                                            </form:select>
+                                        </div>
                                         <label class="col-sm-6">Select State First</label>
                                         <div class="col-sm-3">
                                             <form:select class="form-control" path="state.stateId">
