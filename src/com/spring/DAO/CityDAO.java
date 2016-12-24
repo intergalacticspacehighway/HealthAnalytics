@@ -21,6 +21,7 @@ public class CityDAO {
 		Transaction tr = session.beginTransaction();
 		session.saveOrUpdate(object);
 		tr.commit();
+		session.close();
 	}
 
 	public List<Object> getCity(CityVO city) throws Exception {
@@ -29,6 +30,7 @@ public class CityDAO {
 				+ city.getState().getStateId());
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
+		session.close();
 		return list;
 	}
 

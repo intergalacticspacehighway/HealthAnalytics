@@ -143,7 +143,7 @@
         		data: 'countryId='+val,
         		success: function(data){
         		
-        			$("#stateMenu").append(data);
+        		$("#stateMenu").html(data);
         			
         			
         		}

@@ -19,6 +19,7 @@ public class CountryDAO {
 		Transaction tr = session.beginTransaction();
 		session.saveOrUpdate(object);
 		tr.commit();
+		session.close();
 	}
 
 	public List<Object> getCountry() throws Exception {
@@ -26,7 +27,9 @@ public class CountryDAO {
 		Query query = session.createQuery("from CountryVO");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
+		session.close();
 		return list;
+
 	}
 
 }

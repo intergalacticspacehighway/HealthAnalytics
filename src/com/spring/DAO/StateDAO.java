@@ -21,6 +21,7 @@ public class StateDAO {
 		Transaction tr = session.beginTransaction();
 		session.saveOrUpdate(object);
 		tr.commit();
+		session.close();
 	}
 
 	public List<Object> getState(StateVO state) throws Exception {
@@ -32,6 +33,7 @@ public class StateDAO {
 		@SuppressWarnings("unchecked")
 	
 		List<Object> list = query.list();
+		session.close();
 		return list;
 	}
 
@@ -44,6 +46,7 @@ public class StateDAO {
 		@SuppressWarnings("unchecked")
 	
 		List<Object> list = query.list();
+		session.close();
 		return list;
 	}
 
@@ -52,6 +55,7 @@ public class StateDAO {
 		Query query = session.createQuery("from StateVO order by country ");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
+		session.close();
 		return list;
 	}
 
@@ -66,6 +70,7 @@ public class StateDAO {
 		query.setParameter("x", "No");
 		query.setParameter("id", id);
 		query.executeUpdate();
+		session.close();
 
 	}
 	public List editState(int id) throws Exception {
@@ -73,6 +78,7 @@ public class StateDAO {
 		Query query = session
 				.createQuery("from StateVO where id =" + id);
 		List<Object> ls = query.list();
+		session.close();
 		return ls;
 
 	}
