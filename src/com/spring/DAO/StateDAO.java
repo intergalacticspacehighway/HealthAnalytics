@@ -31,5 +31,12 @@ public class StateDAO {
 		List<Object> list = query.list();
 		return list;
 	}
+	public List<Object> getAllState() throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from StateVO");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		return list;
+	}
 
 }

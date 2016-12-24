@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name = "city")
 public class CityVO {
@@ -18,6 +20,8 @@ public class CityVO {
 	private String cityName;
 	@ManyToOne
 	StateVO state;
+	@Autowired
+	CountryVO country;
 
 	public int getCityId() {
 		return cityId;
