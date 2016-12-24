@@ -16,20 +16,11 @@ public class CountryVO {
 	@Column
 	private String countryName;
 
-<<<<<<< HEAD
-	
 	public int getCountryId() {
 		return countryId;
 	}
 
 	public void setCountryId(int countryId) {
-=======
-	public int getCountryid() {
-		return countryId;
-	}
-
-	public void setCountryid(int countryId) {
->>>>>>> origin/master
 		this.countryId = countryId;
 	}
 

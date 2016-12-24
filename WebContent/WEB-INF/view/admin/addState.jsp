@@ -79,12 +79,11 @@
                                      <div class="form-group">
                                         <label class="col-sm-6">Select Country First</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-
-                                               <c:forEach items="${sessionScope.ls}" var="i">
-                                               <option value="${i.countryId}">${i.countryName}</option>
-                                               </c:forEach>
-                                            </select>
+                                            <form:select class="form-control"  path="country.countryId">
+											<c:forEach items="${sessionScope.list}" var="i">
+											<form:option value="${i.countryId}">${i.countryName}</form:option>
+											</c:forEach>
+                                            </form:select>
                                         </div>
                                     </div>
                                     <div class="form-group">

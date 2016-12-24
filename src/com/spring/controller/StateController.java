@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.CountryDAO;
 import com.spring.DAO.StateDAO;
+import com.spring.VO.CountryVO;
 import com.spring.VO.StateVO;
 
 @Controller
@@ -20,7 +21,11 @@ public class StateController {
 
 	@Autowired
 	StateDAO state;
+	
+	@Autowired
 	CountryDAO country;
+
+
 	
 	@RequestMapping(value="/viewState.html" , method=RequestMethod.GET)
 	public String loadState()
@@ -34,7 +39,7 @@ public class StateController {
 	{	
 		try {
 			List<Object> ls = this.country.getCountry();
-			session.setAttribute("ls", ls);
+			session.setAttribute("list", ls);
 			
 			
 		
@@ -42,24 +47,21 @@ public class StateController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return new ModelAndView("admin/addState","insertState",new StateVO());
 		
-	}
-	@RequestMapping(value="/insertState.html" , method=RequestMethod.POST)
-	public String insertState(@ModelAttribute StateVO insertState)
-	{
 		
+		
+	}
+	@RequestMapping(value="insertState.html",method=RequestMethod.POST)
+	public ModelAndView insertState(@ModelAttribute StateVO insertState)
+	{
 		try {
-			state.insertState(insertState);
+			this.state.insertState(insertState);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return ("redirect:/addState.html");	
-		
-		
+		return new ModelAndView("redirect:/addState.html");
 		
 	}
 }
