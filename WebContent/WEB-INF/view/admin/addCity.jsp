@@ -1,3 +1,5 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>  
 <html lang="en">
 
@@ -72,28 +74,28 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">city Information</h3>
-                                <form class="form-material form-horizontal">
+                                <form:form class="form-material form-horizontal" action="insertCity" method="post" modelAttribute="insertCity">
                                 
                                      <div class="form-group">
                                         <label class="col-sm-6">Select State First</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option>Select State</option>
-                                                <option>Gujarat</option>
-                                                <option>New York</option>
-                                            </select>
+                                            <form:select class="form-control" path="state.stateId">
+                                            <c:forEach items="${sessionScope.ls}" var="i">
+											<form:option value="${i.stateId}">${i.stateName}</form:option>
+											</c:forEach>
+                                            </form:select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">City Name</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="cityName" name="cityName" class="form-control" placeholder="Enter city name">
+                                            <form:input type="text" id="cityName" path="cityName" class="form-control" placeholder="Enter city name"/>
                                         </div>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
+                                </form:form>
                             </div>
                         </div> 
                     
