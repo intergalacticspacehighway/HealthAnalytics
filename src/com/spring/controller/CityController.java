@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,38 +25,38 @@ public class CityController {
 	StateDAO state;
 	@Autowired
 	CountryDAO country;
-	
-	
 
-	@RequestMapping(value="/addCity.html", method=RequestMethod.GET)
-	public ModelAndView addCity(HttpSession session)
-	{	
+	@RequestMapping(value = "/addCity.html", method = RequestMethod.GET)
+	public ModelAndView addCity(HttpSession session) {
 		List<Object> countryList;
 		try {
 			countryList = this.country.getCountry();
-			session.setAttribute("countryList",countryList);
+			session.setAttribute("countryList", countryList);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
+
 		try {
 			List<Object> stateList = this.state.getAllState();
-			session.setAttribute("stateList",stateList);
+			session.setAttribute("stateList", stateList);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		return new ModelAndView("admin/addCity","insertCity", new CityVO());
+
+		return new ModelAndView("admin/addCity", "insertCity", new CityVO());
 	}
-	
-	@RequestMapping(value="/viewCity.html", method=RequestMethod.GET)
-	public String loadCity()
-	{
+
+	@RequestMapping(value = "/viewCity.html", method = RequestMethod.GET)
+	public String loadCity() {
 		return ("admin/viewCity");
 	}
+
+	@RequestMapping(value = "/insertCity.html", method = RequestMethod.POST)
+	public String insertCity(@ModelAttribute CityVO insertCity) {
+		city.insertCity(insertCity);
+		return ("redirect:/addCity.html");
+	}
+
 }

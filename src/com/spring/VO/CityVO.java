@@ -22,6 +22,15 @@ public class CityVO {
 	StateVO state;
 	@ManyToOne
 	CountryVO country;
+	private String isActive;
+	
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
 
 	public CountryVO getCountry() {
 		return country;

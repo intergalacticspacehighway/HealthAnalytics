@@ -102,5 +102,19 @@ public class StateController {
 		return new ModelAndView("redirect:/viewState.html");
 
 	}
+	@RequestMapping(value="/getStateUsingAjax.html", method=RequestMethod.POST)
+	public String getStateUsingAjax(@RequestParam("countryId") int countryId, HttpSession session){
+		try {
+			List list = state.getStateAjax(countryId);
+			session.setAttribute("list", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return ("admin/getStateUsingAjax");
+	}
+	
 	
 }

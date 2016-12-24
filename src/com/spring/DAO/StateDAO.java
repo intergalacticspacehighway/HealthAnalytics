@@ -35,6 +35,18 @@ public class StateDAO {
 		return list;
 	}
 
+	public List<Object> getStateAjax(int id) throws Exception {
+		Session session = sessionFactory.openSession();
+		
+		Query query = session
+				.createQuery("from StateVO where country.countryId="
+						+ id);
+		@SuppressWarnings("unchecked")
+	
+		List<Object> list = query.list();
+		return list;
+	}
+
 	public List<Object> getAllState() throws Exception {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from StateVO order by country ");

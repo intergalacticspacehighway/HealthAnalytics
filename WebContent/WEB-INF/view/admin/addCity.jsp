@@ -74,12 +74,13 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">city Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertCity" method="post" modelAttribute="insertCity">
+                                <form:form class="form-material form-horizontal" action="insertCity.html" method="post" modelAttribute="insertCity">
                                 
                                      <div class="form-group">
                                       <label class="col-sm-6">Select Country First</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="country.countryId">
+                                            <form:select id = "countryMenu" class="form-control" path="country.countryId" onChange="getState(this.value)">
+                                            <form:option value="">Select Country</form:option>
                                             <c:forEach items="${sessionScope.countryList}" var="i">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
 											</c:forEach>
@@ -87,10 +88,10 @@
                                         </div>
                                         <label class="col-sm-6">Select State First</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="state.stateId">
-                                            <c:forEach items="${sessionScope.stateList}" var="i">
-											<form:option value="${i.stateId}">${i.stateName}</form:option>
-											</c:forEach>
+                                            <form:select id="stateMenu" class="form-control" path="state.stateId">
+                                           <%--  <c:forEach items="${sessionScope.stateList}" var="i">
+											<form:option value="${i.stateId}">${i.stateName}</form:option> --%>
+											<%-- </c:forEach> --%>
                                             </form:select>
                                         </div>
                                     </div>
@@ -99,6 +100,8 @@
                                         <div class="col-md-12">
                                             <form:input type="text" id="cityName" path="cityName" class="form-control" placeholder="Enter city name"/>
                                         </div>
+                                          <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
+                                        
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
@@ -130,6 +133,23 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+        
+        function getState(val){
+        	
+        	$.ajax({
+        		
+        		type: "POST",
+        		url: "getStateUsingAjax.html",
+        		data: 'countryId='+val,
+        		success: function(data){
+        		
+        			$("#stateMenu").append(data);
+        			
+        			
+        		}
+        	});
+        	
+        }
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

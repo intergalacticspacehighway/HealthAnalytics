@@ -143,7 +143,8 @@
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
     
-      	$(".active:contains('No')").css("color","red");	
+      	$(".active:contains('No')").css("color","#d9534f");	
+      	$(".active:contains('yes')").css("color","#5cb85c");	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
