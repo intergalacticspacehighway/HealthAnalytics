@@ -25,17 +25,19 @@ public class StateDAO {
 
 	public List<Object> getState(StateVO state) throws Exception {
 		Session session = sessionFactory.openSession();
+		
 		Query query = session
 				.createQuery("from StateVO where country.countryId="
 						+ state.getCountry().getCountryId());
 		@SuppressWarnings("unchecked")
+	
 		List<Object> list = query.list();
 		return list;
 	}
 
 	public List<Object> getAllState() throws Exception {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from StateVO");
+		Query query = session.createQuery("from StateVO order by stateName");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
 		return list;

@@ -19,6 +19,7 @@
     <!-- animation CSS -->
     <link href="resources/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
+    
     <link href="resources/css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="resources/css/megna.css" id="theme" rel="stylesheet">
@@ -26,6 +27,7 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
     <script>
@@ -73,26 +75,45 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">State Information</h3>
-							<table class="table">
-								<thead>
+							<table class="table table-hover">
+								<thead class="thead-inverse">
 									<tr>
-										
+										<th>Count</th>
+										<th>Country</th>
 										<th>State Name</th>
 										<th>Edit</th>
 										<th>Delete</th>
 										<th>isActive</th>
+										
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${sessionScope.list }" var = "i">
+									<c:set var = "count" value="0"></c:set>
+									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
+									
 									<tr>
-										
+										<td>${myindex.index +1 }</td>
+										<td>${i.country.countryName}</td>
 										<td>${i.stateName}</td>
 										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
 										<td><a href ="deleteState.html?id=${i.stateId}">Delete</a></td>
 										<td>${i.isActive}</td>
 									</tr>
+									<c:set var = "count" value="${count+1 }"></c:set>
 									</c:forEach>
+								
+									
+									
+									<tr>
+									
+										<td color="bg-primary"><strong>Total Records</strong></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><strong><c:out value="${count }"/></strong></td>
+										
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -121,6 +142,8 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+    
+      
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
