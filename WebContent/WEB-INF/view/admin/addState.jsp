@@ -74,12 +74,13 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">State Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertState.html" method="post" modelAttribute="insertState">
+                                <form:form id="stateForm" class="form-material form-horizontal has-danger has-success " action="insertState.html" method="post" modelAttribute="insertState">
                                 
                                      <div class="form-group">
                                         <label class="col-sm-6">Select Country First</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control"  path="country.countryId">
+                                            <form:select id="countryMenu" class="form-control"  path="country.countryId">
+                                            <form:option value="">Select Country</form:option>
 											<c:forEach items="${sessionScope.list}" var="i">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
 											</c:forEach>
@@ -87,7 +88,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="example-text">State Name</span></label>
+                                        <label class="col-md-12" for="example-text">State Name<span id="verifyState"></span></label>
                                         <div class="col-md-12">
 										<form:input type="text" id="stateName" path="stateName"
 											class="form-control" placeholder="Enter state name" />
@@ -96,8 +97,8 @@
 										</div>
                                     </div>
                                    
-                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                    <button id="submit" type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button id="cancel" type="cancel" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
                                 </form:form>
                             </div>
                         </div> 
@@ -125,6 +126,32 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+        $("#countryMenu").focus();
+		$("#stateName").change(function(){
+				
+	      	 $.ajax({
+	      			type: "GET",
+	      			url: "verifyStateExist.html",
+	      			data: 'keywords='+$(this).val(),
+	      			success: function(data){
+	      				
+	      				
+	      				$("#verifyState").text(data).css("color","red");
+	      				
+	      				$("#submit").prop( "disabled", true );
+	      				
+	      				
+	      				
+	      			}
+	      		}); 
+	      	 $("#cancel").on("click",function(){
+	      		 $("#stateName").val("");
+	      		 
+	      		 $("#verifyState").val("");
+	      		 return false;
+	      	 });
+				//$("#verifyState").load("verifyStateExist.html",$(),callback);
+	      	});
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
