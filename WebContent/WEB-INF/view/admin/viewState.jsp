@@ -160,7 +160,7 @@
       	$(".active:contains('yes')").css("color","#5cb85c");
       	
       	$("#searchBox").animate({width:"450px"},function(){
-      		$(this).attr("placeholder","Search Using State Name");
+      		$(this).attr("placeholder","Search Using Country/State Name");
       	}).focus();
 /*       	$("#searchBox").keyup(function(){
       		

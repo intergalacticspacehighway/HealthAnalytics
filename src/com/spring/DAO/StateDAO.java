@@ -85,7 +85,8 @@ public class StateDAO {
 		Session session = sessionFactory.openSession();
 
 		Query query = session
-				.createQuery("from StateVO where stateName like :keyword");
+				.createQuery("from StateVO where stateName like :keyword or country.countryName like :keyword");
+		query.setParameter("keyword",keyword + "%");
 		query.setParameter("keyword", keyword + "%");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
