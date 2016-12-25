@@ -96,8 +96,8 @@
 										</c:if>
 									<tr class="rowContent">
 										<td>${myindex.index +1 }</td>
-										<td>${i.country.countryName}</td>
-										<td>${i.stateName}</td>
+										<td class="jqueryCheck">${i.country.countryName}</td>
+										<td class="jqueryCheck2">${i.stateName}</td>
 										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
 										<td><a href ="deleteState.html?id=${i.stateId}">Delete</a></td>
 										<td class="active">${i.isActive}</td>
@@ -114,17 +114,17 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<td><strong><c:out value="${count }"/></strong></td>
+										<td><strong id="totalCount"><c:out value="${count}"/></strong></td>
 										
 									</tr>
 									<tr class="rowCountActive">
 									
-										<td color="bg-primary"><strong>Total Active Records</strong></td>
+										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
 										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>
-										<td><strong><c:out value="${countActive }"/></strong></td>
+										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
 										
 									</tr>
 								</tbody>
@@ -175,8 +175,35 @@
       			}
       		});
       	}); */
+      	$("#searchBox").on("keyup",function(){
       	
-      	$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
+      		//$this = $(".jqueryCheck");
+      		$var = $.trim($(this).val().toLowerCase());
+      		$(".jqueryCheck").each(function(){
+      			$this = $(this).text().toLowerCase();
+      			//alert($this);
+      			if($this.indexOf($var) === -1 && $(this).siblings(".jqueryCheck2").text().toLowerCase().indexOf($var) === -1){
+      				$(this).closest(".rowContent").hide();
+      			}
+      			else{
+      				$(this).closest(".rowContent").show();
+      			}
+      		
+      			
+      			
+      			//alert($activeCount);
+      			$("#countActive").text( $(".active:visible:contains('yes')").length);
+      			 
+          		$("#totalCount").text($(".rowContent:visible").length);
+      		
+      			
+      		});
+      		
+      		
+      		
+      		
+      	});
+      	//$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
       	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
