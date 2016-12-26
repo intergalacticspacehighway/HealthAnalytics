@@ -24,14 +24,36 @@ public class CityDAO {
 		session.close();
 	}
 
-	public List<Object> getCity(CityVO city) throws Exception {
+	public List<Object> getCity() throws Exception {
 		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from CityVO where state.stateId="
-				+ city.getState().getStateId());
+		Query query = session.createQuery("from CityVO order by state ");
 		@SuppressWarnings("unchecked")
 		List<Object> list = query.list();
 		session.close();
 		return list;
+	}
+	
+	public void deleteCity(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE CityVO set isActive = :x "
+				+ "WHERE id = :id");
+		query.setParameter("x","No");
+		query.setParameter("id",id);
+		query.executeUpdate();
+		session.close();
+	}
+	
+	public List<Object> editCity(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from CityVO where id =" + id);
+		@SuppressWarnings("unchecked")
+		List<Object> ls = query.list();
+		session.close();
+		return ls;
+	
+		
 	}
 
 }

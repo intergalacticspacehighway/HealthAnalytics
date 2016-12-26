@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,7 +50,10 @@ public class CityController {
 	}
 
 	@RequestMapping(value = "/viewCity.html", method = RequestMethod.GET)
-	public String loadCity() {
+	public String loadCity(HttpSession session) throws Exception {
+		
+		List<Object> CityList=this.city.getCity();
+		session.setAttribute("list",CityList);
 		return ("admin/viewCity");
 	}
 
@@ -57,6 +61,30 @@ public class CityController {
 	public String insertCity(@ModelAttribute CityVO insertCity) {
 		city.insertCity(insertCity);
 		return ("redirect:/addCity.html");
+	}
+	
+	@RequestMapping(value="/deleteCity.html" , method=RequestMethod.GET)
+	public String deleteCity(@Param int id)
+	{
+		city.deleteCity(id);
+		return("redirect:/viewCity.html");
+		
+	}
+	
+	@RequestMapping(value="/editCity.html" , method=RequestMethod.GET)
+	public ModelAndView editCity(@Param int id, HttpSession session)
+	{
+		List<Object> list=this.city.editCity(id);
+		session.setAttribute("CityList",list);
+		return new ModelAndView("admin/editCity","updateCity",new CityVO());
+		
+	}
+	@RequestMapping(value="updateCity.html" , method=RequestMethod.POST)
+	public String updateCity(@ModelAttribute CityVO updateCity)
+	{
+		this.city.insertCity(updateCity);
+		return("redirect:/viewCity.html");
+		
 	}
 
 }
