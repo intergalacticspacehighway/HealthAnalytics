@@ -19,6 +19,7 @@
     <!-- animation CSS -->
     <link href="resources/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
+    
     <link href="resources/css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="resources/css/megna.css" id="theme" rel="stylesheet">
@@ -26,6 +27,7 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
     <script>
@@ -60,7 +62,7 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Add Country</h4> </div>
+                        <h4 class="page-title">View Country</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
@@ -73,24 +75,54 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Country Information</h3>
-							<table class="table">
-								<thead>
+							<table class="table table-hover">
+								<thead class="thead-inverse">
 									<tr>
-										
-										<th>Country Name</th>
+										<th>Count</th>
+										<th>Country</th>
 										<th>Edit</th>
 										<th>Delete</th>
+										<th>isActive</th>
+										
 									</tr>
 								</thead>
-								<tbody>
-									<c:forEach items="${sessionScope.list }" var = "i">
-									<tr>
-										
-										<td>${i.countryName}</td>
-										<td><a  href ="editCountry.html?id=${i.countryId}">Edit</a></td>
+								<tbody class="rowBody">
+									<c:set var = "count" value="0"></c:set>
+									<c:set var = "countActive" value="0"></c:set>
+									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
+										<c:if test="${i.isActive == 'Yes' }">
+										<c:set var = "countActive" value="${countActive+1 }"></c:set>
+										</c:if>
+									<tr class="rowContent">
+										<td>${myindex.index +1 }</td>
+										<td class="jqueryCheck">${i.countryName}</td>
+										<td><a href ="editCountry.html?id=${i.countryId}">Edit</a></td>
 										<td><a href ="deleteCountry.html?id=${i.countryId}">Delete</a></td>
+										<td class="active">${i.isActive}</td>
 									</tr>
+									<c:set var = "count" value="${count+1 }"></c:set>
 									</c:forEach>
+								
+									
+									
+									<tr class="rowCountTotal">
+									
+										<td color="bg-primary"><strong>Total Records</strong></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><strong id="totalCount"><c:out value="${count}"/></strong></td>
+										
+									</tr>
+									<tr class="rowCountActive">
+									
+										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
+										
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -119,6 +151,56 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+    
+      	$(".active:contains('No')").css("color","#d9534f");	
+      	$(".active:contains('Yes')").css("color","#5cb85c");
+      	
+      	$("#searchBox").animate({width:"450px"},function(){
+      		$(this).attr("placeholder","Search Using Country/State Name/City Name");
+      	}).focus();
+/*       	$("#searchBox").keyup(function(){
+      		
+      		$.ajax({
+      			type: "POST",
+      			url: "searchStateDataUsingAjax.html",
+      			data: 'keywords='+$(this).val(),
+      			sucess: function(data){
+      				alert("hello");
+      				$(".rowBody").replaceWith(data);
+      				
+      			}
+      		});
+      	}); */
+      	$("#searchBox").on("keyup",function(){
+      	
+      		//$this = $(".jqueryCheck");
+      		$var = $.trim($(this).val().toLowerCase());
+      		$(".jqueryCheck").each(function(){
+      			$this = $(this).text().toLowerCase();
+      			//alert($this);
+      			if($this.indexOf($var) === -1 && $(this).siblings(".jqueryCheck2").text().toLowerCase().indexOf($var) === -1){
+      				$(this).closest(".rowContent").hide();
+      			}
+      			else{
+      				$(this).closest(".rowContent").show();
+      			}
+      		
+      			
+      			
+      			//alert($activeCount);
+      			$("#countActive").text( $(".active:visible:contains('Yes')").length);
+      			 
+          		$("#totalCount").text($(".rowContent:visible").length);
+      		
+      			
+      		});
+      		
+      		
+      		
+      		
+      	});
+      	//$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
+      	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

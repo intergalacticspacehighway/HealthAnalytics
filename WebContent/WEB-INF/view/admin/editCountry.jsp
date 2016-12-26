@@ -1,14 +1,15 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>  
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="health">
     <meta name="author" content="">
-	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -59,30 +60,39 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Add Country</h4> </div>
+                        <h4 class="page-title">Edit Country</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
-                            <li class="active">Add Country</li>
+                            <li class="active">Add Symptom</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
                     </div>
+                 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Country Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertCountry.html" method="post" modelAttribute="insertCountry">
+                                <form:form class="form-material form-horizontal" action="updateCountry.html" method="post" modelAttribute="updateCountry">
+                                
+                           
+									<c:forEach items="${sessionScope.list}" var="i">
+											
+                           
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Country Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="countryName" path="countryName" class="form-control" placeholder="Enter country name"/>
+                                            <form:input type="hidden" path="countryId" class="form-control" value="${i.countryId }"/>  
+                                            <form:input type="hidden" path="isActive" class="form-control" value="Yes"/> 
+                                            
+                                            <form:input type="text" id="countryName" path="countryName" class="form-control" value="${i.countryName }"/>
                                         </div>
-                                        <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                </c:forEach>
                                 </form:form>
                             </div>
                         </div> 

@@ -31,5 +31,28 @@ public class CountryDAO {
 		return list;
 
 	}
+	
+	public void deleteCountry(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE CountryVO set isActive = :x "
+				+ "WHERE id = :id");
+		query.setParameter("x","No");
+		query.setParameter("id",id);
+		query.executeUpdate();
+		session.close();
+	}
+	
+	public List<Object> editCountry(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from CountryVO where id =" + id);
+		@SuppressWarnings("unchecked")
+		List<Object> ls = query.list();
+		session.close();
+		return ls;
+	
+		
+	}
 
 }

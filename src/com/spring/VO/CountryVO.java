@@ -15,6 +15,17 @@ public class CountryVO {
 	private int countryId;
 	@Column
 	private String countryName;
+	@Column
+	private String isActive;
+	
+
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
 
 	public int getCountryId() {
 		return countryId;

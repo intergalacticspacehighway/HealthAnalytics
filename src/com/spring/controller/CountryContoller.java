@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -63,6 +64,38 @@ public class CountryContoller {
 		ModelAndView model = new ModelAndView("redirect:/addCountry.html");
 		
 		return model;
+		
+		
+	}
+	
+	@RequestMapping(value="/deleteCountry.html" , method=RequestMethod.GET)
+	public String deleteCountry(@Param int id)
+	{
+		country.deleteCountry(id);
+		return("redirect:/viewCountry.html");
+		
+	}
+	
+	@RequestMapping(value="/editCountry.html" , method=RequestMethod.GET)
+	public ModelAndView editCountry(@Param int id, HttpSession session)
+	{
+		List<Object> CountryList=this.country.editCountry(id);
+		session.setAttribute("list",CountryList);
+		
+			return new ModelAndView("admin/editCountry","updateCountry",new CountryVO()); 
+		
+	}
+	
+	@RequestMapping(value="/updateCountry.html" , method=RequestMethod.POST)
+	public String updateCountry(@ModelAttribute CountryVO updateCountry)
+	{
+		try {
+			this.country.insertCountry(updateCountry);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return("redirect:/viewCountry.html");
 		
 		
 	}
