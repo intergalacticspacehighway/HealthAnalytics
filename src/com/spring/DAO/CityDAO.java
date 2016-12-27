@@ -55,5 +55,16 @@ public class CityDAO {
 	
 		
 	}
+	
+	public List<Object> getCityAjax(int id) throws Exception {
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("from CityVO where state.stateId=" + id);
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
 
 }
