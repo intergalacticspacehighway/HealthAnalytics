@@ -77,34 +77,26 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Hospital Name</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="hospitalNameId" name="hospitalName" class="form-control" placeholder="Enter your name">
+                                            <form:input type="text" id="hospitalName" path="hospitalName" class="form-control" placeholder="Enter your name"/>
                                         </div>
                                     </div>
                                		
                                     <div class="form-group">
-                                        <label class="col-sm-12">Profile Image</label>
-                                        <div class="col-sm-12">
-                                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                            <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
-                                            <input type="file" name="..."> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-12" for="special">Speciality</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="special" name="special" class="form-control" placeholder="e.g. Dental Clinic">
+                                            <form:input type="text" id="hospitalSpeciality" path="hospitalSpeciality" class="form-control" placeholder="e.g. Dental Clinic"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="special" name="address" class="form-control" placeholder="Enter Street address here">
+                                            <form:input type="text" id="hospitalAddress" path="hospitalAddress" class="form-control" placeholder="Enter Street address here"/>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="${i.country.CountryId}" id="countryMenu" onchange="getState(this.value)">
+                                            <form:select class="form-control" path="country.CountryId" id="countryMenu" onchange="getState(this.value)">
                                             <option>Select Country</option>
                                             <c:forEach items="${sessionScope.list}" var="i">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
@@ -133,94 +125,76 @@
                                     <div class="form-group">
                                     	<label class="col-sm-6">Pin</label>
                                     	<div class="col-sm-3">
-                                    		<input type="text" id="pin" name="pinCode" class="form-control" placeholder="e.g. 380008">
+                                    		<form:input type="text" id="hospitalZipCode" path="hospitalZipCode" class="form-control" placeholder="e.g. 380008"/>
                                     	</div>
                                     
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <form:textarea class="form-control" rows="3" path="hospitalDescription"></form:textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="url">Website URL</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="url" name="url" class="form-control" placeholder="your website">
+                                            <form:input type="text" id="hospitalWebsiteUrl" path="hospitalWebsiteUrl" class="form-control" placeholder="your website"/>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
-                                </form:form>    
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="white-box">
-                                <h3 class="box-title">Hospital's Account Information</h3>
-                                <form class="form-material form-horizontal">
+                                        
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <input type="email" id="example-email" name="example-email" class="form-control" placeholder="enter your email">
+                                            <form:input type="email" id="hospitalEmail" path="hospitalEmail" class="form-control" placeholder="enter your email"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="example-phone" name="example-phone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999">
+                                            <form:input type="text" id="hospitalPhone" path="hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="pwd">Password</span></label>
                                         <div class="col-md-12">
-                                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="enter your password">
+                                            <form:input type="password" id="hospitalPassword" path="hospitalPassword" class="form-control" placeholder="enter your password"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="cpwd">Confirm Password</span></label>
                                         <div class="col-md-12">
-                                            <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="confirm your password">
+                                            <form:input type="password" id="hospitalPassword" path="hospitalPassword" class="form-control" placeholder="confirm your password"/>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
-                            </div>
-                        </div> 
-                    
-                        <div class="col-sm-6">
-                            <div class="white-box">
-                                <h3 class="box-title">Hospital's Social Information</h3>
-                                <form class="form-material form-horizontal">
+                                    
                                     <div class="form-group">
                                         <label class="col-md-12" for="furl">Facebook URL</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="furl" name="furl" class="form-control">
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="turl">Twitter URL</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="turl" name="turl" class="form-control">
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="gurl">Google Plus URL</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="gurl" name="gurl" class="form-control">
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="inurl">LinkedIN URL</span></label>
                                         <div class="col-md-12">
-                                            <input type="text" id="inurl" name="inurl" class="form-control">
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
                                         </div>
+                                        <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
                                     </div>
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
+                                </form:form>
                             </div>
                         </div> 
                     </div>

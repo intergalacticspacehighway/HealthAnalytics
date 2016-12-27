@@ -35,6 +35,8 @@ public class HospitalVO {
 	private String hospitalDescription;
 	@Column
 	private int hospitalZipCode;
+	@Column
+	private String isActive;
 	@ManyToOne
 	CountryVO country;
 	@ManyToOne
@@ -152,6 +154,14 @@ public class HospitalVO {
 
 	public void setHospitalZipCode(int hospitalZipCode) {
 		this.hospitalZipCode = hospitalZipCode;
+	}
+
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
 	}
 
 }

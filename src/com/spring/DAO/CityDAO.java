@@ -9,8 +9,6 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.spring.VO.CityVO;
-
 @Repository
 public class CityDAO {
 	@Autowired
