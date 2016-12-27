@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.CityDAO;
@@ -84,6 +85,22 @@ public class CityController {
 	{
 		this.city.insertCity(updateCity);
 		return("redirect:/viewCity.html");
+		
+	}
+	
+	@RequestMapping(value="/getCityUsingAjax.html", method=RequestMethod.POST)
+	public String getStateUsingAjax(@Param int stateId, HttpSession session){
+		try {
+			List<Object> list = this.city.getCityAjax(stateId);
+			session.setAttribute("list", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return ("admin/getCityUsingAjax");
+		
 		
 	}
 

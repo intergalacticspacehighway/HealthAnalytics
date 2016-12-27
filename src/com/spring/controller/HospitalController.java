@@ -1,13 +1,24 @@
 package com.spring.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spring.DAO.CountryDAO;
+import com.spring.VO.HospitalVO;
 
 @Controller
 public class HospitalController {
 	
-
+	@Autowired
+	CountryDAO country;
+ 	
 	@RequestMapping(value="/viewHospital.html" , method=RequestMethod.GET)
 	public String loadHospital()
 	{
@@ -16,9 +27,11 @@ public class HospitalController {
 	}
 
 	@RequestMapping(value="/addHospital.html" , method=RequestMethod.GET)
-	public String addHospital()
+	public ModelAndView addHospital(HttpSession session) throws Exception
 	{
-		return("admin/addHospital");
+		List<Object> list = this.country.getCountry();
+		session.setAttribute("list",list);
+		return new ModelAndView("admin/addHospital","insertHospital",new HospitalVO());
 		
 	}
 }

@@ -1,3 +1,5 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>  
 <html lang="en">
 
@@ -71,7 +73,7 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Basic Information</h3>
-                                <form class="form-material form-horizontal">
+                                <form:form class="form-material form-horizontal" action="insertHospital.html" method="post" modelAttribute="insertHospital">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Hospital Name</span></label>
                                         <div class="col-md-12">
@@ -102,31 +104,30 @@
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option>Select Country</option>
-                                                <option>India</option>
-                                                <option>USA</option>
-                                            </select>
+                                            <form:select class="form-control" path="${i.country.CountryId}" id="countryMenu" onchange="getState(this.value)">
+                                            <option>Select Country</option>
+                                            <c:forEach items="${sessionScope.list}" var="i">
+											<form:option value="${i.countryId}">${i.countryName}</form:option>
+											</c:forEach>
+                                            </form:select>
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-sm-6">State</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
+                                             <form:select class="form-control" path="state.StateId" id="stateMenu" onchange="getCity(this.value)">
                                                 <option>Select State</option>
-                                                <option>Gujarat</option>
-                                                <option>Bihar</option>
-                                            </select>
+                                               
+                                            </form:select>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">City</label>
                                         <div class="col-sm-3">
-                                            <select class="form-control">
-                                                <option>Select City</option>
-                                                <option>Ahmedabad</option>
-                                                <option>Surat</option>
-                                            </select>
+                                             <form:select class="form-control" path="city.cityId" id="cityMenu">
+                                                <option>Select city</option>
+                                               
+                                            </form:select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -150,7 +151,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
-                                </form>    
+                                </form:form>    
                             </div>
                         </div>
                     </div>
@@ -317,6 +318,38 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+        
+function getState(val){
+        	
+        	$.ajax({
+        		type: "POST",
+        		url: "getStateUsingAjax.html",
+        		data: 'countryId='+val,
+        		success: function(data){
+        		
+        		$("#stateMenu").html(data);
+        			
+        			
+        		}
+        	});
+        	
+        }
+        
+function getCity(val){
+	
+	$.ajax({
+		type: "POST",
+		url: "getCityUsingAjax.html",
+		data: 'stateId='+val,
+		success: function(data){
+		
+		$("#cityMenu").html(data);
+			
+			
+		}
+	});
+	
+}
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
