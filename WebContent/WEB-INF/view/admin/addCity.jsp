@@ -134,7 +134,7 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
-        
+     
         function getState(val){
         	
         	$.ajax({
@@ -144,12 +144,14 @@
         		success: function(data){
         		
         		$("#stateMenu").html(data);
+        		
         			
         			
         		}
         	});
         	
         }
+        $("#countryMenu").focus();
         
         // Date Picker
         jQuery('.mydatepicker').datepicker();
