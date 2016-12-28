@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.CountryDAO;
 import com.spring.DAO.HospitalDAO;
+import com.spring.DAO.SpecialityDAO;
 import com.spring.VO.HospitalVO;
 
 @Controller
@@ -22,6 +23,8 @@ public class HospitalController {
 	CountryDAO country;
 	@Autowired
 	HospitalDAO hospital;
+	@Autowired
+	SpecialityDAO Speciality;
 	
  	
 	@RequestMapping(value="/viewHospital.html" , method=RequestMethod.GET)
@@ -36,6 +39,8 @@ public class HospitalController {
 	{
 		List<Object> list = this.country.getCountry();
 		session.setAttribute("list",list);
+		List<Object> slist=this.Speciality.getSpeciality();
+		session.setAttribute("slist",slist);
 		return new ModelAndView("admin/addHospital","insertHospital",new HospitalVO());
 		
 	}

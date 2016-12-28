@@ -12,6 +12,8 @@
  <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
+    
+   	<link href="resources/css/bootstrap-chosen.css" rel="stylesheet">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
@@ -27,6 +29,9 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 <![endif]-->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -80,43 +85,20 @@
                                             <form:input type="text" id="hospitalName" path="hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
                                         </div>
                                     </div>
-                               		
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="special">Speciality</span></label>
-                                        <div class="col-md-12">
-                                           <%--  <form:input type="text" id="hospitalSpeciality" path="hospitalSpeciality" class="form-control" placeholder="e.g. Dental Clinic" required="required"/>
-                                         --%></div>
-                                         <br/>
-									<div class="container">
+                                    <div class="container,form-group">
 										<div class="row">
-											<div class="col-lg-12">
-												<div class="button-group">
-													<button type="button"
-														class="btn btn-default btn-sm dropdown-toggle"
-														data-toggle="dropdown">
-														<span class="glyphicon glyphicon-cog"></span> <span
-															class="caret"></span>
-													</button>
-													<ul class="dropdown-menu">
-														<li><a href="#" class="small" data-value="option1"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 1</a></li>
-														<li><a href="#" class="small" data-value="option2"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 2</a></li>
-														<li><a href="#" class="small" data-value="option3"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 3</a></li>
-														<li><a href="#" class="small" data-value="option4"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 4</a></li>
-														<li><a href="#" class="small" data-value="option5"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 5</a></li>
-														<li><a href="#" class="small" data-value="option6"
-															tabIndex="-1"><input type="checkbox" />&nbsp;Option 6</a></li>
-													</ul>
-												</div>
+										<label class="col-sm-6">Speciality</label>
+											<div class="col-md-6">
+												<select  multiple class="chosen-select" required="required">
+													<c:forEach items="${sessionScope.slist}" var="i">
+													<option value="${i.specialityId}">${i.specialityName}</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 									</div>
-								</div>
-                                    <div class="form-group">
+									<hr>
+									<div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
                                             <form:input type="text" id="hospitalAddress" path="hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
@@ -309,6 +291,9 @@
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
         <script src="resources/js/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="resources/js/bootstrap.min.js"></script>
@@ -320,6 +305,13 @@
         <script src="resources/js/waves.js"></script>
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
+   
+        <script src="resources/js/chosen.jquery.js"></script>
+	<script >
+	
+	$('.chosen-select').chosen();
+	
+	</script>
         <script type="text/javascript">
         
 function getState(val){
