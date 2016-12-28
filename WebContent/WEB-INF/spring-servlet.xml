@@ -36,6 +36,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                 <value>com.spring.VO.MedicineVO</value>
                 <value>com.spring.VO.PatientVO</value>
                 <value>com.spring.VO.StateVO</value>
+                <value>com.spring.VO.SpecialityVO</value>
                 <value>com.spring.VO.SymptomVO</value>
                 
                 <!-- <value>com.malhar.model.Login</value> -->

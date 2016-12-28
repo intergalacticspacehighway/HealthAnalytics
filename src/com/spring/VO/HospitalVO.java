@@ -17,8 +17,7 @@ public class HospitalVO {
 	private int hospitalId;
 	@Column
 	private String hospitalName;
-	@Column
-	private String hospitalSpeciality;
+
 	@Column
 	private String hospitalAddress;
 	@Column
@@ -60,13 +59,6 @@ public class HospitalVO {
 		this.hospitalName = hospitalName;
 	}
 
-	public String getHospitalSpeciality() {
-		return hospitalSpeciality;
-	}
-
-	public void setHospitalSpeciality(String hospitalSpeciality) {
-		this.hospitalSpeciality = hospitalSpeciality;
-	}
 
 	public String getHospitalAddress() {
 		return hospitalAddress;
