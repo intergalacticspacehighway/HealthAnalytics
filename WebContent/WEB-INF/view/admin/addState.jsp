@@ -88,11 +88,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="example-text">State Name<span id="verifyState"></span></label>
+                                        <label class="col-md-12" for="stateName">State Name<span id="verifyState"></span></label>
                                         <div class="col-md-12">
-										<form:input type="text" id="stateName" path="stateName"
+										<form:input type="text" id="stateName"  path="stateName"
 											class="form-control" placeholder="Enter state name" />
-										<form:input type="hidden" id="stateName" path="isActive" class="form-control" value="yes"/>
+										<form:input type="hidden"  path="isActive" class="form-control" value="yes"/>
                                         
 										</div>
                                     </div>
@@ -138,8 +138,7 @@
 	      				
 	      				$("#verifyState").text(data).css("color","red");
 	      				
-	      				$("#submit").prop( "disabled", true );
-	      				
+	      			
 	      				
 	      				
 	      			}

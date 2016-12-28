@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -136,7 +137,7 @@ public class StateController {
 	}
 	@RequestMapping(value="/verifyStateExist.html", method=RequestMethod.GET)
 
-	public String verifyStateUsingAjax(@RequestParam("keywords") String keywords,HttpSession session,Model model) throws Exception{
+	public String verifyStateUsingAjax(@Param String keywords,HttpSession session,Model model) throws Exception{
 		
 		
 			List list = state.searchStateAjax(keywords);
