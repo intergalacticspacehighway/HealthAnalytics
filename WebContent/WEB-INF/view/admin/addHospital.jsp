@@ -77,26 +77,26 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Hospital Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalName" path="hospitalName" class="form-control" placeholder="Enter your name"/>
+                                            <form:input type="text" id="hospitalName" path="hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
                                         </div>
                                     </div>
                                		
                                     <div class="form-group">
                                         <label class="col-md-12" for="special">Speciality</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalSpeciality" path="hospitalSpeciality" class="form-control" placeholder="e.g. Dental Clinic"/>
+                                            <form:input type="text" id="hospitalSpeciality" path="hospitalSpeciality" class="form-control" placeholder="e.g. Dental Clinic" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalAddress" path="hospitalAddress" class="form-control" placeholder="Enter Street address here"/>
+                                            <form:input type="text" id="hospitalAddress" path="hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="country.CountryId" id="countryMenu" onchange="getState(this.value)">
+                                            <form:select class="form-control" path="country.CountryId" id="countryMenu" onchange="getState(this.value)" required="required">
                                             <option>Select Country</option>
                                             <c:forEach items="${sessionScope.list}" var="i">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
@@ -107,7 +107,7 @@
                                       <div class="form-group">
                                         <label class="col-sm-6">State</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="state.StateId" id="stateMenu" onchange="getCity(this.value)">
+                                             <form:select class="form-control" path="state.StateId" id="stateMenu" onchange="getCity(this.value)" required="required">
                                                 <option>Select State</option>
                                                
                                             </form:select>
@@ -116,7 +116,7 @@
                                      <div class="form-group">
                                         <label class="col-sm-6">City</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="city.cityId" id="cityMenu">
+                                             <form:select class="form-control" path="city.cityId" id="cityMenu" required="required">
                                                 <option>Select city</option>
                                                
                                             </form:select>
@@ -125,14 +125,14 @@
                                     <div class="form-group">
                                     	<label class="col-sm-6">Pin</label>
                                     	<div class="col-sm-3">
-                                    		<form:input type="text" id="hospitalZipCode" path="hospitalZipCode" class="form-control" placeholder="e.g. 380008"/>
+                                    		<form:input type="text" id="hospitalZipCode" path="hospitalZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
                                     	</div>
                                     
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <form:textarea class="form-control" rows="3" path="hospitalDescription"></form:textarea>
+                                            <form:textarea class="form-control" rows="3" path="hospitalDescription" required="required"></form:textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -145,25 +145,25 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="email" id="hospitalEmail" path="hospitalEmail" class="form-control" placeholder="enter your email"/>
+                                            <form:input type="email" id="hospitalEmail" path="hospitalEmail" class="form-control" placeholder="enter your email" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalPhone" path="hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999"/>
+                                            <form:input type="text" id="hospitalPhone" path="hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="pwd">Password</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="hospitalPassword" path="hospitalPassword" class="form-control" placeholder="enter your password"/>
+                                            <form:input type="password" id="password" path="hospitalPassword" class="form-control" placeholder="enter your password" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="cpwd">Confirm Password</span></label>
+                                        <label class="col-md-12" for="cpwd">Confirm Password</span>&nbsp &nbsp<span id="verifyPassword"></span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="hospitalPassword" path="hospitalPassword" class="form-control" placeholder="confirm your password"/>
+                                            <form:input type="password" id="confirmPassword" path="hospitalPassword" class="form-control" placeholder="confirm your password" required="required"/>
                                         </div>
                                     </div>
                                     
@@ -192,7 +192,7 @@
                                         </div>
                                         <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
                                     </div>
-                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button type="submit" id="submitBtn" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
                                 </form:form>
                             </div>
@@ -324,6 +324,33 @@ function getCity(val){
 	});
 	
 }
+	$("#confirmPassword").on("change", function(){
+		//alert($(this).val());
+		$("#verifyPassword").text("");
+		if($(this).val()!=$("#password").val()){
+			$("#verifyPassword").text("Password doesnt match with the above field!!").css("color","#01c0c8");
+			$("#submitBtn").prop("disabled",true);
+			}
+		else{
+			$("#verifyPassword").text("");
+			$("#submitBtn").prop("disabled",false);
+			
+		}
+		
+		
+	});
+	$("#confirmPassword").on("keyup", function(){
+		//alert($(this).val());
+		
+		if($(this).val()=== ""){
+			
+			$("#verifyPassword").text("");
+			$("#submitBtn").prop("disabled",false);
+			
+		}
+		
+		
+	});
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
