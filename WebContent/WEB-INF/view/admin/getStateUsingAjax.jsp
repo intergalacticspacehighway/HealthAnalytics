@@ -3,7 +3,8 @@
 <!-- <select id="stateMenu" name="stateName" class="form-control"> -->
 <option value="">Select State</option> 
 <c:forEach items="${sessionScope.list }" var = "i">
+<c:if test="${i.isActive == 'yes' }">
 <option value="${i.stateId}">${i.stateName}</option> 
-
+</c:if>
 </c:forEach>
 <!-- </select> -->

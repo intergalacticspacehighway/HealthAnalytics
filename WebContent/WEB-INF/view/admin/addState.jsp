@@ -79,12 +79,15 @@
                                      <div class="form-group">
                                         <label class="col-sm-6">Select Country First</label>
                                         <div class="col-sm-3">
-                                            <form:select id="countryMenu" class="form-control"  path="country.countryId">
-                                            <form:option value="">Select Country</form:option>
-											<c:forEach items="${sessionScope.list}" var="i">
+                                       		<form:select id="countryMenu" class="form-control"  path="country.countryId">
+                                           	<form:option value="">Select Country</form:option>
+											 <c:forEach items="${sessionScope.list}" var="i">
+											<c:if test="${i.isActive == 'Yes' }">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
+											</c:if>
 											</c:forEach>
                                             </form:select>
+                                            
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -110,7 +110,9 @@
                                             <form:select class="form-control" path="country.CountryId" id="countryMenu" onchange="getState(this.value)" required="required">
                                             <option>Select Country</option>
                                             <c:forEach items="${sessionScope.list}" var="i">
+                                            <c:if test="${i.isActive == 'Yes' }">
 											<form:option value="${i.countryId}">${i.countryName}</form:option>
+											</c:if>
 											</c:forEach>
                                             </form:select>
                                         </div>

@@ -31,4 +31,27 @@ public class SpecialityDAO {
 		session.close();
 		return list;
 	}
+	
+	public void deleteSpeciality(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE SpecialityVO set isActive = :x "
+				+ "WHERE id = :id");
+		query.setParameter("x","No");
+		query.setParameter("id",id);
+		query.executeUpdate();
+		session.close();
+	}
+	
+	public List<Object> editSpeciality(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from SpecialityVO where id =" + id);
+		@SuppressWarnings("unchecked")
+		List<Object> ls = query.list();
+		session.close();
+		return ls;
+	
+		
+	}
 }

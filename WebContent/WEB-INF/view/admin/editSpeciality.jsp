@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="health">
     <meta name="author" content="">
- 	<link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +60,7 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Add city</h4> </div>
+                        <h4 class="page-title">Add Speciality</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
@@ -73,42 +73,26 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="white-box">
-                                <h3 class="box-title">city Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertCity.html" method="post" modelAttribute="insertCity">
+                                <h3 class="box-title">Speciality Information</h3>
+                                <form:form class="form-material form-horizontal" action="updateSpeciality.html" method="post" modelAttribute="updateSpeciality">
                                 
-                                     <div class="form-group">
-                                      <label class="col-sm-6">Select Country First</label>
-                                        <div class="col-sm-3">
-                                            <form:select id = "countryMenu" class="form-control" path="country.countryId" onChange="getState(this.value)">
-                                            <form:option value="">Select Country</form:option>
-                                            <c:forEach items="${sessionScope.countryList}" var="i">
-                                            <c:if test="${i.isActive == 'Yes' }">
-											<form:option value="${i.countryId}">${i.countryName}</form:option>
-											</c:if>
-											</c:forEach>
-                                            </form:select>
-                                        </div>
-                                        <label class="col-sm-6">Select State First</label>
-                                        <div class="col-sm-3">
-                                            <form:select id="stateMenu" class="form-control" path="state.stateId">
-                                            <option value="">Select State</option>
-                                           <%--  <c:forEach items="${sessionScope.stateList}" var="i">
-											<form:option value="${i.stateId}">${i.stateName}</form:option> --%>
-											<%-- </c:forEach> --%>
-                                            </form:select>
-                                        </div>
-                                    </div>
+                           
+									<c:forEach items="${sessionScope.list}" var="i">
+											
+                           
                                     <div class="form-group">
-                                        <label class="col-md-12" for="example-text">City Name</span></label>
-                                        <div class="col-md-12">
-                                            <form:input type="text" id="cityName" path="cityName" class="form-control" placeholder="Enter city name"/>
+                                        <label class="col-md-12" for="example-text">Speciality Name</span></label>
+                                        <div class="col-md-12"> 
+                                            <form:input type="hidden" path="specialityId" class="form-control" value="${i.specialityId}"/> 
+                                            <form:input type="hidden" path="isActive" class="form-control" value="Yes"/> 
+                                            
+                                            <form:input type="text" id="specialityName" path="specialityName" class="form-control" value="${i.specialityName}"/>
                                         </div>
-                                          <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
-                                        
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                </c:forEach>
                                 </form:form>
                             </div>
                         </div> 
@@ -136,25 +120,6 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
-     
-        function getState(val){
-        	
-        	$.ajax({
-        		type: "POST",
-        		url: "getStateUsingAjax.html",
-        		data: 'countryId='+val,
-        		success: function(data){
-        		
-        		$("#stateMenu").html(data);
-        		
-        			
-        			
-        		}
-        	});
-        	
-        }
-        $("#countryMenu").focus();
-        
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
