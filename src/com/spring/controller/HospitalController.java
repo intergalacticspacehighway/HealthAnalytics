@@ -64,6 +64,8 @@ public class HospitalController {
 				SpecialityVO specialityVO = new SpecialityVO();
 				specialityVO.setSpecialityId(x);
 				hospitalSpecialityVO.setSpeciality(specialityVO);
+				hospitalSpecialityVO.setIsActive(insertHospitalSpeciality.getIsActive());
+				//hospitalSpecialityVO.setIsActive();
 			
 				this.hospital.insertHospital(hospitalSpecialityVO);
 			}
