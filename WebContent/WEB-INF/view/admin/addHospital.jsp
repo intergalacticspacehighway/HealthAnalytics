@@ -78,36 +78,49 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Basic Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertHospital.html" method="post" modelAttribute="insertHospital">
+                                <form:form class="form-material form-horizontal" action="insertHospital.html" method="post" modelAttribute="insertHospitalSpeciality">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Hospital Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalName" path="hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
+                                            <form:input type="text" id="hospitalName" path="hospital.hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="container,form-group">
 										<div class="row">
 										<label class="col-sm-6">Speciality</label>
 											<div class="col-md-6">
-												<select  multiple class="chosen-select" required="required">
+												<%-- <form:select  multiple="true" class="hosen-select" path="speciality.specialityId" required="required">
+													
 													<c:forEach items="${sessionScope.slist}" var="i">
 													<option value="${i.specialityId}">${i.specialityName}</option>
 													</c:forEach>
-												</select>
-											</div>
+												</form:select> --%>
+											 <%-- <form:select  multiple="multiple" class="chosen-select" path="speciality.specialityId" required="required">
+													
+													<c:forEach items="${sessionScope.slist}" var="i">
+													<option value="${i.specialityId}">${i.specialityName}</option>
+													</c:forEach>
+												</form:select>  --%>
+												<select  multiple="multiple" class="chosen-select" name="specMenu" required="required">
+													
+													<c:forEach items="${sessionScope.slist}" var="i">
+													<option value="${i.specialityId}">${i.specialityName}</option>
+													</c:forEach>
+												</select>  
+										</div>
 										</div>
 									</div>
 									<hr>
 									<div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalAddress" path="hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
+                                            <form:input type="text" id="hospitalAddress" path="hospital.hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="country.CountryId" id="countryMenu" onchange="getState(this.value)" required="required">
+                                            <form:select class="form-control" path="hospital.country.countryId" id="countryMenu" onchange="getState(this.value)" required="required">
                                             <option>Select Country</option>
                                             <c:forEach items="${sessionScope.list}" var="i">
                                             <c:if test="${i.isActive == 'Yes' }">
@@ -120,7 +133,7 @@
                                       <div class="form-group">
                                         <label class="col-sm-6">State</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="state.StateId" id="stateMenu" onchange="getCity(this.value)" required="required">
+                                             <form:select class="form-control" path="hospital.state.stateId" id="stateMenu" onchange="getCity(this.value)" required="required">
                                                 <option>Select State</option>
                                                
                                             </form:select>
@@ -129,7 +142,7 @@
                                      <div class="form-group">
                                         <label class="col-sm-6">City</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="city.cityId" id="cityMenu" required="required">
+                                             <form:select class="form-control" path="hospital.city.cityId" id="cityMenu" required="required">
                                                 <option>Select city</option>
                                                
                                             </form:select>
@@ -138,70 +151,70 @@
                                     <div class="form-group">
                                     	<label class="col-sm-6">Pin</label>
                                     	<div class="col-sm-3">
-                                    		<form:input type="text" id="hospitalZipCode" path="hospitalZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
+                                    		<form:input type="text" id="hospitalZipCode" path="hospital.hospitalZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
                                     	</div>
                                     
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <form:textarea class="form-control" rows="3" path="hospitalDescription" required="required"></form:textarea>
+                                            <form:textarea class="form-control" rows="3" path="hospital.hospitalDescription" required="required"></form:textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="url">Website URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalWebsiteUrl" path="hospitalWebsiteUrl" class="form-control" placeholder="your website"/>
+                                            <form:input type="text" id="hospitalWebsiteUrl" path="hospital.hospitalWebsiteUrl" class="form-control" placeholder="your website"/>
                                         </div>
                                     </div>
                                         
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="email" id="hospitalEmail" path="hospitalEmail" class="form-control" placeholder="enter your email" required="required"/>
+                                            <form:input type="email" id="hospitalEmail" path="hospital.hospitalEmail" class="form-control" placeholder="enter your email" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalPhone" path="hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
+                                            <form:input type="text" id="hospitalPhone" path="hospital.hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="pwd">Password</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="password" path="hospitalPassword" class="form-control" placeholder="enter your password" required="required"/>
+                                            <form:input type="password" id="password" path="hospital.hospitalPassword" class="form-control" placeholder="enter your password" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="cpwd">Confirm Password</span>&nbsp &nbsp<span id="verifyPassword"></span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="confirmPassword" path="hospitalPassword" class="form-control" placeholder="confirm your password" required="required"/>
+                                            <form:input type="password" id="confirmPassword" path="hospital.hospitalPassword" class="form-control" placeholder="confirm your password" required="required"/>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label class="col-md-12" for="furl">Facebook URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospital.hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="turl">Twitter URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospital.hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="gurl">Google Plus URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospital.hospitalSocialInformation" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="inurl">LinkedIN URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalSocialInformation" path="hospitalSocialInformation" class="form-control"/>
+                                            <form:input type="text" id="hospitalSocialInformation" path="hospital.hospitalSocialInformation" class="form-control"/>
                                         </div>
                                         <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
                                     </div>
