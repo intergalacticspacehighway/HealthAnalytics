@@ -79,7 +79,7 @@
 								<thead class="thead-inverse">
 									<tr>
 										<th>Count</th>
-										<th>HospitalName</th>
+										<th>Hospital Name</th>
 										<th>Speciality</th>
 										<th>Edit</th>
 										<th>Delete</th>
@@ -90,21 +90,44 @@
 								<tbody class="rowBody">
 									<c:set var = "count" value="0"></c:set>
 									<c:set var = "countActive" value="0"></c:set>
-									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
-										<c:if test="${i.isActive == 'yes' }">
+									<%-- <c:set value="${sessionScope.list}" var = "i"></c:set> --%>
+									
+									
+							<c:forEach items="${sessionScope.hospitalList}" var="hospital" varStatus="myindex">
+									
+									
+										<%-- <c:if test="${hospital.isActive == 'yes' }">
 										<c:set var = "countActive" value="${countActive+1 }"></c:set>
-										</c:if>
+										</c:if> --%>
 									<tr class="rowContent">
 										<td>${myindex.index +1 }</td>
-										<td class="jqueryCheck">${i.hospital.hospitalName}</td>
-										<td class="jqueryCheck">${i.speciality.specialityName}</td>
+										<td class="jqueryCheck">${hospital.hospitalName}</td>
 										
-										<td><a href ="editHospital.html?hospitalId=${i.hospital.hospitalId}">Edit</a></td>
-										<td><a href ="deleteHospital.html?id=${i.hospital.hospitalName}">Delete</a></td>
-										<td class="active">${i.isActive}</td> 
+										<td class="jqueryCheck2">
+										
+								<c:forEach items="${sessionScope.list}" var="i" varStatus="status">
+										
+										<c:if test="${i.hospital.hospitalId == hospital.hospitalId }">
+										
+										${i.speciality.specialityName}
+									 	<%-- <c:if test="${sessionList[status.index].hospital.hospitalId != null }">,&nbsp</c:if> --%>
+									
+										</c:if>
+									
+								</c:forEach>
+										
+										</td>
+										
+										<td><a href ="editHospital.html?hospitalId=${hospital.hospitalId}">Edit</a></td>
+										<td><a href ="deleteHospital.html?id=${hospital.hospitalName}">Delete</a></td>
+										<td class="active">${hospital.isActive}</td> 
+										
 									</tr>
 									<c:set var = "count" value="${count+1 }"></c:set>
-									</c:forEach>
+									
+							</c:forEach>
+									
+									
 								
 									
 									
@@ -125,7 +148,7 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
+										<td><strong id = "countActive"><%-- <c:out value="${countActive }"/> --%></strong></td>
 										
 									</tr>
 								</tbody>
@@ -156,6 +179,8 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+        
+        $("#countActive").text( $(".active:visible:contains('Yes')").length);
     
       	$(".active:contains('No')").css("color","#d9534f");	
       	$(".active:contains('Yes')").css("color","#5cb85c");
@@ -205,7 +230,17 @@
       		
       	});
       	//$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
-      	
+      	$(".jqueryCheck2").each(function(){
+      		
+      		//alert($(this).text());
+      		var split = $(this).text().split(" ").join(",");
+      		//var newDone = $(this).text().split(/[ ,]+/).join(',')
+      		//$(this).text(newDone);
+      		split = $.trim(split);
+      		split = split.substring(0, split.length-1);
+      		
+      		$(this).text(split);
+      	});
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
