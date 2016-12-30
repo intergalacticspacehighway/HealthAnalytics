@@ -115,7 +115,6 @@
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
                                             <form:input type="text" id="hospitalAddress" path="hospital.hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
-                                             <form:input type="hidden" value="Yes" id="hospitalAddress" path="hospital.isActive" class="form-control"/>
                                         </div>
                                     </div>
                                      <div class="form-group">
@@ -178,7 +177,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="number" id="hospitalPhone" path="hospital.hospitalPhone" class="form-control" placeholder="enter your phone"  required="required"/>
+                                            <form:input type="text" id="hospitalPhone" path="hospital.hospitalPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">

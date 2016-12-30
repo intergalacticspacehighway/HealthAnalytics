@@ -128,14 +128,5 @@
 					<li><a href="viewComplaint.html">View</a></li>
 
 				</ul></li>
-				<li><a href="javascript:void(0);" class="waves-effect"> <i
-					class="fa fa-globe" aria-hidden="true"></i>&nbsp &nbsp<span
-					class="hide-menu"> ImageTest</span></a>
-				<ul class="nav nav-second-level">
-					<li><a href="addImage.html">Add</a></li>
-					<li><a href="viewCity.html">View</a></li>
-
-				</ul></li>
-				
 	</div>
 </div>
