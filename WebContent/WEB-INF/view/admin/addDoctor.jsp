@@ -1,5 +1,3 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>  
 <html lang="en">
 
@@ -9,11 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
- <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+     <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
-    
-   	<link href="resources/css/bootstrap-chosen.css" rel="stylesheet">
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
@@ -29,9 +25,6 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
 <![endif]-->
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -69,7 +62,7 @@
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
-                            <li class="active">Add Hospital</li>
+                            <li class="active">Add Doctor</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -78,166 +71,175 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Basic Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertDoctor.html" method="post" modelAttribute="insertDoctorSpeciality">
+                                <form class="form-material form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-md-12" for="example-text">Doctor Name</span></label>
+                                        <label class="col-md-12" for="example-text">Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorName" path="doctor.doctorName" class="form-control" placeholder="Enter your name" required="required"/>
+                                            <input type="text" id="example-text" name="example-text" class="form-control" placeholder="enter your name">
                                         </div>
                                     </div>
-                                    <div class="container,form-group">
-										<div class="row">
-										<label class="col-sm-6">Speciality</label>
-											<div class="col-md-6">
-												<%-- <form:select  multiple="true" class="hosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select> --%>
-											 <%-- <form:select  multiple="multiple" class="chosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select>  --%>
-												<select  multiple="multiple" class="chosen-select" name="specMenu" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</select>  
-										</div>
-										</div>
-									</div>
-									<hr>
-									 <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="col-md-12" for="bdate">Date of Birth</span></label>
+                                        <div class="col-md-12">
+                                            <input type="text" id="bdate" name="bdate" class="form-control mydatepicker" placeholder="enter your birth date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-sm-12">Gender</label>
                                         <div class="col-sm-12">
-                                            <form:select class="form-control" path="doctor.doctorGender">
+                                            <select class="form-control">
                                                 <option>Select Gender</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
-                                            </form:select>
+                                            </select>
                                         </div>
                                     </div>
- <div class="form-group">
-                                        <label class="col-md-12" for="bdate">Date of Birth</span></label>
+                                    <div class="form-group">
+                                        <label class="col-sm-12">Profile Image</label>
+                                        <div class="col-sm-12">
+                                            <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                            <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div> <span class="input-group-addon btn btn-default btn-file"> <span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
+                                            <input type="file" name="..."> </span> <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a> </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-12" for="special">Speciality</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="bdate" path="doctor.doctorDateOfBirth" class="form-control mydatepicker" placeholder="enter your birth date"/>
+                                            <input type="text" id="special" name="special" class="form-control" placeholder="e.g. Dentist">
                                         </div>
                                     </div>
-									<div class="form-group">
+                                    <div class="form-group">
+                                        <label class="col-md-12">Description</label>
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorAddress" path="doctor.doctorAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
+                                            <input type="text" id="special" name="address" class="form-control" placeholder="Enter Street address here">
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
-                                            <form:select class="form-control" path="doctor.country.countryId" id="countryMenu" onchange="getState(this.value)" required="required">
-                                            <option>Select Country</option>
-                                            <c:forEach items="${sessionScope.list}" var="i">
-                                            <c:if test="${i.isActive == 'Yes' }">
-											<form:option value="${i.countryId}">${i.countryName}</form:option>
-											</c:if>
-											</c:forEach>
-                                            </form:select>
+                                            <select class="form-control">
+                                                <option>Select Country</option>
+                                                <option>India</option>
+                                                <option>USA</option>
+                                            </select>
                                         </div>
                                     </div>
                                       <div class="form-group">
                                         <label class="col-sm-6">State</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="doctor.state.stateId" id="stateMenu" onchange="getCity(this.value)" required="required">
+                                            <select class="form-control">
                                                 <option>Select State</option>
-                                               
-                                            </form:select>
+                                                <option>Gujarat</option>
+                                                <option>Bihar</option>
+                                            </select>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">City</label>
                                         <div class="col-sm-3">
-                                             <form:select class="form-control" path="doctor.city.cityId" id="cityMenu" required="required">
-                                                <option>Select city</option>
-                                               
-                                            </form:select>
+                                            <select class="form-control">
+                                                <option>Select City</option>
+                                                <option>Ahmedabad</option>
+                                                <option>Surat</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                     	<label class="col-sm-6">Pin</label>
                                     	<div class="col-sm-3">
-                                    		<form:input type="text" id="doctorZipCode" path="doctor.doctorZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
+                                    		<input type="text" id="pin" name="pinCode" class="form-control" placeholder="e.g. 380008">
                                     	</div>
                                     
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <form:textarea class="form-control" rows="3" path="doctor.doctorDescription" required="required"></form:textarea>
+                                            <textarea class="form-control" rows="3"></textarea>
                                         </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="url">Website URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorWebsiteUrl" path="doctor.doctorWebsiteUrl" class="form-control" placeholder="your website"/>
+                                            <input type="text" id="url" name="url" class="form-control" placeholder="your website">
                                         </div>
                                     </div>
-                                        
+                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                                </form>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="white-box">
+                                <h3 class="box-title">Doctor's Account Information</h3>
+                                <form class="form-material form-horizontal">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="email" id="doctorEmail" path="doctor.doctorEmail" class="form-control" placeholder="enter your email" required="required"/>
+                                            <input type="email" id="example-email" name="example-email" class="form-control" placeholder="enter your email">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
+                                            <input type="text" id="example-phone" name="example-phone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="pwd">Password</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="password" path="doctor.doctorPassword" class="form-control" placeholder="enter your password" required="required"/>
+                                            <input type="password" id="pwd" name="pwd" class="form-control" placeholder="enter your password">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="cpwd">Confirm Password</span>&nbsp &nbsp<span id="verifyPassword"></span></label>
+                                        <label class="col-md-12" for="cpwd">Confirm Password</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="confirmPassword" path="doctor.doctorPassword" class="form-control" placeholder="confirm your password" required="required"/>
+                                            <input type="password" id="cpwd" name="cpwd" class="form-control" placeholder="confirm your password">
                                         </div>
                                     </div>
-                                    
+                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                </form>
+                            </div>
+                        </div> 
+                    
+                        <div class="col-sm-6">
+                            <div class="white-box">
+                                <h3 class="box-title">Doctor's Social Information</h3>
+                                <form class="form-material form-horizontal">
                                     <div class="form-group">
                                         <label class="col-md-12" for="furl">Facebook URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorSocialInformation" path="doctor.doctorSocialInformation" class="form-control"/>
+                                            <input type="text" id="furl" name="furl" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="turl">Twitter URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorSocialInformation" path="doctor.doctorSocialInformation" class="form-control"/>
+                                            <input type="text" id="turl" name="turl" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="gurl">Google Plus URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorSocialInformation" path="doctor.doctorSocialInformation" class="form-control"/>
+                                            <input type="text" id="gurl" name="gurl" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="inurl">LinkedIN URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorSocialInformation" path="doctor.doctorSocialInformation" class="form-control"/>
+                                            <input type="text" id="inurl" name="inurl" class="form-control">
                                         </div>
-                                        <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
-                                         <form:input type="hidden" id="isActive" path="doctor.isActive" value="Yes" class="form-control"/>
                                     </div>
-                                    <button type="submit" id="submitBtn" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form:form>
+                                </form>
                             </div>
                         </div> 
                     </div>
@@ -323,9 +325,6 @@
         </div>
         <!-- /#wrapper -->
         <!-- jQuery -->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        
         <script src="resources/js/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="resources/js/bootstrap.min.js"></script>
@@ -337,73 +336,7 @@
         <script src="resources/js/waves.js"></script>
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
-   
-        <script src="resources/js/chosen.jquery.js"></script>
-	<script >
-	
-	$('.chosen-select').chosen();
-	
-	</script>
         <script type="text/javascript">
-        
-function getState(val){
-        	
-        	$.ajax({
-        		type: "POST",
-        		url: "getStateUsingAjax.html",
-        		data: 'countryId='+val,
-        		success: function(data){
-        		
-        		$("#stateMenu").html(data);
-        			
-        			
-        		}
-        	});
-        	
-        }
-        
-function getCity(val){
-	
-	$.ajax({
-		type: "POST",
-		url: "getCityUsingAjax.html",
-		data: 'stateId='+val,
-		success: function(data){
-		
-		$("#cityMenu").html(data);
-			
-			
-		}
-	});
-	
-}
-	$("#confirmPassword").on("change", function(){
-		//alert($(this).val());
-		$("#verifyPassword").text("");
-		if($(this).val()!=$("#password").val()){
-			$("#verifyPassword").text("Password doesnt match with the above field!!").css("color","#01c0c8");
-			$("#submitBtn").prop("disabled",true);
-			}
-		else{
-			$("#verifyPassword").text("");
-			$("#submitBtn").prop("disabled",false);
-			
-		}
-		
-		
-	});
-	$("#confirmPassword").on("keyup", function(){
-		//alert($(this).val());
-		
-		if($(this).val()=== ""){
-			
-			$("#verifyPassword").text("");
-			$("#submitBtn").prop("disabled",false);
-			
-		}
-		
-		
-	});
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>

@@ -217,7 +217,6 @@
                                             <form:input type="text" id="hospitalSocialInformation" path="hospital.hospitalSocialInformation" class="form-control"/>
                                         </div>
                                         <form:input type="hidden" id="isActiveId" path="isActive" value="Yes" class="form-control"/>
-                                         <form:input type="hidden" id="isActive" path="hospital.isActive" value="Yes" class="form-control"/>
                                     </div>
                                     <button type="submit" id="submitBtn" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
