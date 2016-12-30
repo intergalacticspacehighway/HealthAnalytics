@@ -78,34 +78,34 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Basic Information</h3>
-                                <form:form class="form-material form-horizontal" action="insertHospital.html" method="post" modelAttribute="insertHospitalSpeciality">
+                                <c:set value="${sessionScope.list }" var="i"></c:set>
+                                <form:form class="form-material form-horizontal" action="updateHospital.html" method="post" modelAttribute="editHospitalSpeciality">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Hospital Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalName" path="hospital.hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
+                                            <form:input type="text" id="hospitalName" value="${i.get(0).hospital.hospitalName }" path="hospital.hospitalName" class="form-control" placeholder="Enter your name" required="required"/>
+                                             <form:input type="hidden" id="hospitalName" value="${i.get(0).hospital.hospitalId }" path="hospital.hospitalId" class="form-control" placeholder="Enter your name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="container,form-group">
 										<div class="row">
 										<label class="col-sm-6">Speciality</label>
 											<div class="col-md-6">
-												<%-- <form:select  multiple="true" class="hosen-select" path="speciality.specialityId" required="required">
+										
+												<select  id="specMenu" multiple="multiple" class="chosen-select" name="specMenu" required="required">
 													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select> --%>
-											 <%-- <form:select  multiple="multiple" class="chosen-select" path="speciality.specialityId" required="required">
+													 <c:forEach items="${i}" var="x">
+													<option value="${x.speciality.specialityId}" selected="selected">${x.speciality.specialityName}</option>
 													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
+													<c:forEach items="${sessionScope.sList }" var="s">
+													<c:if test="${s.specialityId != x.speciality.specialityId }">
+													<option value="${s.specialityId}">${s.specialityName}</option>
+													</c:if>
 													</c:forEach>
-												</form:select>  --%>
-												<select  multiple="multiple" class="chosen-select" name="specMenu" required="required">
+													</c:forEach> 
 													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
+													
+													
 												</select>  
 										</div>
 										</div>
@@ -114,18 +114,19 @@
 									<div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalAddress" path="hospital.hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
-                                             <form:input type="hidden" value="Yes" id="hospitalAddress" path="hospital.isActive" class="form-control"/>
+                                            <form:input type="text" value="${i.get(0).hospital.hospitalAddress}" id="hospitalAddress" path="hospital.hospitalAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="col-sm-6">Country</label>
                                         <div class="col-sm-3">
                                             <form:select class="form-control" path="hospital.country.countryId" id="countryMenu" onchange="getState(this.value)" required="required">
-                                            <option>Select Country</option>
-                                            <c:forEach items="${sessionScope.list}" var="i">
-                                            <c:if test="${i.isActive == 'Yes' }">
-											<form:option value="${i.countryId}">${i.countryName}</form:option>
+                                            <option value="${i.get(0).hospital.country.countryId}">${i.get(0).hospital.country.countryName}</option>
+                                            <c:forEach items="${sessionScope.cList}" var="c">
+                                            <c:if test="${i.get(0).isActive == 'Yes' }">
+                                            <c:if test="${i.get(0).hospital.country.countryId != c.countryId }">
+											<form:option value="${c.countryId}">${c.countryName}</form:option>
+											</c:if>
 											</c:if>
 											</c:forEach>
                                             </form:select>
@@ -135,7 +136,7 @@
                                         <label class="col-sm-6">State</label>
                                         <div class="col-sm-3">
                                              <form:select class="form-control" path="hospital.state.stateId" id="stateMenu" onchange="getCity(this.value)" required="required">
-                                                <option>Select State</option>
+                                                 <option value="${i.get(0).hospital.country.countryId}">${i.get(0).hospital.state.stateName}</option>
                                                
                                             </form:select>
                                         </div>
@@ -144,7 +145,7 @@
                                         <label class="col-sm-6">City</label>
                                         <div class="col-sm-3">
                                              <form:select class="form-control" path="hospital.city.cityId" id="cityMenu" required="required">
-                                                <option>Select city</option>
+                                                  <option value="${i.get(0).hospital.country.countryId}">${i.get(0).hospital.city.cityName}</option>
                                                
                                             </form:select>
                                         </div>
@@ -152,33 +153,33 @@
                                     <div class="form-group">
                                     	<label class="col-sm-6">Pin</label>
                                     	<div class="col-sm-3">
-                                    		<form:input type="text" id="hospitalZipCode" path="hospital.hospitalZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
+                                    		<form:input type="text" id="hospitalZipCode" value="${i.get(0).hospital.hospitalZipCode}" path="hospital.hospitalZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
                                     	</div>
                                     
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <form:textarea class="form-control" rows="3" path="hospital.hospitalDescription" required="required"></form:textarea>
+                                            <form:input type="text" style="height:50px" class="form-control" value="${i.get(0).hospital.hospitalDescription}"  path="hospital.hospitalDescription" required="required"></form:input>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="url">Website URL</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="hospitalWebsiteUrl" path="hospital.hospitalWebsiteUrl" class="form-control" placeholder="your website"/>
+                                            <form:input type="text" id="hospitalWebsiteUrl" value="${i.get(0).hospital.hospitalWebsiteUrl}" path="hospital.hospitalWebsiteUrl" class="form-control" placeholder="your website"/>
                                         </div>
                                     </div>
                                         
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="email" id="hospitalEmail" path="hospital.hospitalEmail" class="form-control" placeholder="enter your email" required="required"/>
+                                            <form:input type="email" id="hospitalEmail" path="hospital.hospitalEmail" value="${i.get(0).hospital.hospitalEmail}" class="form-control" placeholder="enter your email" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="number" id="hospitalPhone" path="hospital.hospitalPhone" class="form-control" placeholder="enter your phone"  required="required"/>
+                                            <form:input type="number" value="${i.get(0).hospital.hospitalPhone}" id="hospitalPhone" path="hospital.hospitalPhone" class="form-control" placeholder="enter your phone" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -329,6 +330,7 @@
 	
 	</script>
         <script type="text/javascript">
+        
         
 function getState(val){
         	
