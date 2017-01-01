@@ -43,5 +43,24 @@ public class HospitalSpecialityDAO {
 		session.close();
 		
 	}
+	public void inActiveHospital(int hospitalId) throws Exception {
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("update from HospitalSpecialityVO set isActive = 'No' where hospital.hospitalId="+hospitalId);
+		query.executeUpdate();
+		session.close();
+		
+	}
+	public void updateIsActive(int hospitalId) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("update from HospitalSpecialityVO set isActive = 'Yes' where hospital.hospitalId="+hospitalId);
+		query.executeUpdate();
+		session.close();
+		
+	}
 
 }

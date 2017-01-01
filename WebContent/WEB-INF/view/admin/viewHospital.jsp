@@ -119,7 +119,7 @@
 										</td>
 										
 										<td><a href ="editHospital.html?hospitalId=${hospital.hospitalId}">Edit</a></td>
-										<td><a href ="deleteHospital.html?id=${hospital.hospitalName}">Delete</a></td>
+										<td><a href ="deleteHospital.html?hospitalId=${hospital.hospitalId}">Delete</a></td>
 										<td class="active">${hospital.isActive}</td> 
 										
 									</tr>

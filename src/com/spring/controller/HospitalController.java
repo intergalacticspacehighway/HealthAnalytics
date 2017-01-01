@@ -133,20 +133,17 @@ public class HospitalController {
 		// session.getAttribute("list");
 		// System.out.println(hospSpeciality);
 		this.hospital.insertHospital(editHospitalSpeciality.hospital);
+		
+		
+		this.hospitalSpeciality.updateIsActive(editHospitalSpeciality.getHospital().getHospitalId());
+		
+		
 		if(!specMenuTest.equals(testArrayString)){
 			
 			this.hospitalSpeciality.deleteHospital(editHospitalSpeciality.hospital
 				.getHospitalId());
 		
-		
-			// insertHospital(editHospitalSpeciality, specMenu);
-
-		// for(HospitalSpecialityVO hospitalSpeciality : hospSpeciality){
-		/*
-		 * HospitalSpecialityVO updateVo = new HospitalSpecialityVO(); int
-		 * updateId = hospitalSpeciality.getHospitalSpecialityid();
-		 * updateVo.setHospital(editHospitalSpeciality.getHospital());
-		 */
+	
 
 		try {
 
@@ -162,7 +159,7 @@ public class HospitalController {
 				SpecialityVO specialityVO = new SpecialityVO();
 				specialityVO.setSpecialityId(x);
 				hospitalSpecialityVO.setSpeciality(specialityVO);
-				hospitalSpecialityVO.setIsActive(editHospitalSpeciality
+				hospitalSpecialityVO.setIsActive(editHospitalSpeciality.getHospital()
 						.getIsActive());
 
 				this.hospital.insertHospital(hospitalSpecialityVO);
@@ -189,6 +186,13 @@ public class HospitalController {
 		 */
 		// return new ModelAndView("redirect:/viewHospital.html");
 
+	}
+	@RequestMapping(value="/deleteHospital.html", method = RequestMethod.GET)
+	public String deleteHospital(@Param int hospitalId) throws Exception{
+		this.hospital.deleteHospital(hospitalId);
+		this.hospitalSpeciality.inActiveHospital(hospitalId);
+		System.out.println("Done!!");
+		return ("redirect:/viewHospital.html");
 	}
 
 }

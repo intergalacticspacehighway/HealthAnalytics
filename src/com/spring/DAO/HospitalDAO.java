@@ -31,4 +31,12 @@ public class HospitalDAO {
 		session.close();
 		return list;
 	}
+	public void deleteHospital(int hospitalId) throws Exception {
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+	    Query query = session.createQuery("update from HospitalVO set isActive = 'No' where hospitalId ="+hospitalId);
+		query.executeUpdate();
+	    tr.commit();
+		session.close();
+	}
 }
