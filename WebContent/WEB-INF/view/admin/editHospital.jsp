@@ -96,12 +96,12 @@
 													
 													 <c:forEach items="${i}" var="x">
 													<option value="${x.speciality.specialityId}" selected="selected">${x.speciality.specialityName}</option>
-													
-													<c:forEach items="${sessionScope.sList }" var="s">
-													<c:if test="${s.specialityId != x.speciality.specialityId }">
-													<option value="${s.specialityId}">${s.specialityName}</option>
-													</c:if>
 													</c:forEach>
+													<c:forEach items="${sessionScope.slist }" var="s">
+												<%-- 	<c:if test="${s.specialityId != x.speciality.specialityId }"> --%>
+													<option value="${s.specialityId}">${s.specialityName}</option>
+													<%-- </c:if> --%>
+													
 													</c:forEach> 
 													
 													

@@ -9,6 +9,8 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.VO.SpecialityVO;
+
 @Repository
 public class SpecialityDAO {
 
@@ -23,11 +25,20 @@ public class SpecialityDAO {
 		session.close();
 	}
 	
-	public List<Object> getSpeciality() throws Exception {
+	public List<SpecialityVO> getSpeciality() throws Exception {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from SpecialityVO");
 		@SuppressWarnings("unchecked")
-		List<Object> list = query.list();
+		List<SpecialityVO> list = query.list();
+		session.close();
+		return list;
+	}
+	public List<SpecialityVO> getRestSpeciality(String specialityId) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from SpecialityVO where specialityId not in ("+specialityId+")");
+		@SuppressWarnings("unchecked")
+		List<SpecialityVO> list = query.list();
+		System.out.println(list);
 		session.close();
 		return list;
 	}

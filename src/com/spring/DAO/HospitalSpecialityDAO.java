@@ -8,29 +8,30 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.VO.HospitalSpecialityVO;
 import com.spring.VO.StateVO;
 @Repository
 public class HospitalSpecialityDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public List<Object> getAllHospital() throws Exception {
+	public List<HospitalSpecialityVO> getAllHospital() throws Exception {
 		Session session = sessionFactory.openSession();
 
 		Query query = session
 				.createQuery("from HospitalSpecialityVO");
 		@SuppressWarnings("unchecked")
-		List<Object> list = query.list();
+		List<HospitalSpecialityVO> list = query.list();
 		session.close();
 		return list;
 	}
-	public List<Object> getHospital(String hospitalId) throws Exception {
+	public List<HospitalSpecialityVO> getHospital(String hospitalId) throws Exception {
 		Session session = sessionFactory.openSession();
 
 		Query query = session
 				.createQuery("from HospitalSpecialityVO where hospital.hospitalId="+hospitalId);
 		@SuppressWarnings("unchecked")
-		List<Object> list = query.list();
+		List<HospitalSpecialityVO> list = query.list();
 		session.close();
 		return list;
 	}

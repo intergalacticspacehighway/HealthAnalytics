@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,9 +42,21 @@ public class HospitalController {
 
 		// System.out.println(hospitalName);
 
-		List list = this.hospitalSpeciality.getHospital(hospitalId);
+		List<HospitalSpecialityVO> list = this.hospitalSpeciality.getHospital(hospitalId);
+		StringBuilder specialityList = new StringBuilder();
+		for(HospitalSpecialityVO h : list){
+			specialityList.append(h.getSpeciality().getSpecialityId()).append(",");
+			
+			}
+		int deleteLastComma = specialityList.length() - 1;
+		specialityList.deleteCharAt(deleteLastComma);
+		System.out.println(specialityList);
+		
 		List cList = this.country.getCountry();
-		List<Object> slist = this.Speciality.getSpeciality();
+		
+		
+		List<SpecialityVO> slist = this.Speciality.getRestSpeciality(specialityList.toString());
+	
 		session.setAttribute("sList", slist);
 		session.setAttribute("list", list);
 		session.setAttribute("cList", cList);
@@ -74,7 +87,7 @@ public class HospitalController {
 	public ModelAndView addHospital(HttpSession session) throws Exception {
 		List<Object> list = this.country.getCountry();
 		session.setAttribute("list", list);
-		List<Object> slist = this.Speciality.getSpeciality();
+		List<SpecialityVO> slist = this.Speciality.getSpeciality();
 		session.setAttribute("slist", slist);
 		return new ModelAndView("admin/addHospital",
 				"insertHospitalSpeciality", new HospitalSpecialityVO());
