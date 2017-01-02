@@ -101,7 +101,7 @@
 													<option value="${i.specialityId}">${i.specialityName}</option>
 													</c:forEach>
 												</form:select>  --%>
-												<select  multiple="multiple" class="chosen-select" name="specMenu" required="required">
+												<select  multiple="multiple" class="chosen-select" id="specMenu" name="specMenu" required="required">
 													
 													<c:forEach items="${sessionScope.slist}" var="i">
 													<option value="${i.specialityId}">${i.specialityName}</option>
@@ -345,6 +345,9 @@ function getState(val){
         	});
         	
         }
+     /*  $("#specMenu").on("change",function(){
+    	alert($(this).val());  
+      }); */
         
 function getCity(val){
 	

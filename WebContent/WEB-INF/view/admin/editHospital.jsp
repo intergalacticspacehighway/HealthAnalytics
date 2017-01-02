@@ -123,7 +123,7 @@
                                             <form:select class="form-control" path="hospital.country.countryId" id="countryMenu" onchange="getState(this.value)" required="required">
                                             <option value="${i.get(0).hospital.country.countryId}">${i.get(0).hospital.country.countryName}</option>
                                             <c:forEach items="${sessionScope.cList}" var="c">
-                                            <c:if test="${i.get(0).isActive == 'Yes' }">
+                                            <c:if test="${c.isActive == 'Yes' }">
                                             <c:if test="${i.get(0).hospital.country.countryId != c.countryId }">
 											<form:option value="${c.countryId}">${c.countryName}</form:option>
 											</c:if>
@@ -347,6 +347,7 @@ function getState(val){
         	});
         	
         }
+        
         
 function getCity(val){
 	

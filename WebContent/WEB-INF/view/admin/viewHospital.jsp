@@ -63,8 +63,7 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Add Country</h4> </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="https://themeforest.net/item/elite-admin-responsive-dashboard-web-app-kit-/16750820" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
-                        <ol class="breadcrumb">
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
                             <li class="active">Add Country</li>
                         </ol>
@@ -93,7 +92,7 @@
 									<%-- <c:set value="${sessionScope.list}" var = "i"></c:set> --%>
 									
 									
-							<c:forEach items="${sessionScope.hospitalList}" var="hospital" varStatus="myindex">
+							   <c:forEach items="${sessionScope.hospitalList}" var="hospital" varStatus="myindex">
 									
 									
 										<%-- <c:if test="${hospital.isActive == 'yes' }">
@@ -186,7 +185,7 @@
       	$(".active:contains('Yes')").css("color","#5cb85c");
       	
       	$("#searchBox").animate({width:"450px"},function(){
-      		$(this).attr("placeholder","Search Using Country/State Name");
+      		$(this).attr("placeholder","Search Using Hospital/Speciality Name");
       	}).focus();
 /*       	$("#searchBox").keyup(function(){
       		
