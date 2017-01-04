@@ -83,7 +83,7 @@ public class MedicineController {
 		return("redirect:/viewMedicine.html");
 	
 	}
-	@RequestMapping(value="/deleteCountry.html" , method=RequestMethod.GET)
+	@RequestMapping(value="/deleteMedicine.html" , method=RequestMethod.GET)
 	public String deleteCountry(@Param int id)
 	{
 		this.medicine.deleteMedicine(id);
