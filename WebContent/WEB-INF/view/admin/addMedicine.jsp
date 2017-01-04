@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>  
 <html lang="en">
 
@@ -71,17 +72,18 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Medicine Information</h3>
-                                <form class="form-material form-horizontal">
+                                <form:form class="form-material form-horizontal" action="insertMedicine.html" method="post" modelAttribute="insertMedicine">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Medicine Name</span></label>
                                         <div class="col-md-12">
                                             <input type="text" id="medicineName" name="medicineName" class="form-control" placeholder="Enter medicine name">
                                         </div>
+                                        <form:input type="hidden" path="isActive" id="isActiveId" value="Yes" class="form-control"/>
                                     </div>
                                    
                                     <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
                                     <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
-                                </form>
+                                </form:form>
                             </div>
                         </div> 
                     
