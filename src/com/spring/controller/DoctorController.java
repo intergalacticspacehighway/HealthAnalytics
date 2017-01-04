@@ -40,7 +40,7 @@ public class DoctorController {
 	{
 		List<Object> list = this.country.getCountry();
 		session.setAttribute("list", list);
-		List<SpecialityVO> slist = this.Speciality.getSpeciality();
+		List<Object> slist = this.Speciality.getSpeciality();
 		session.setAttribute("slist", slist);
 		return new ModelAndView("admin/addDoctor","insertDoctorSpeciality",new DoctorSpecialityVO());
 		
