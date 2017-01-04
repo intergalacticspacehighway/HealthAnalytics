@@ -1,7 +1,10 @@
 package com.spring.VO;
 
 import javax.persistence.Column;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 07a55eb... Revert "Sync"
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 @Table(name = "doctorhospital")
+=======
+
+@Table(name="doctorhospital")
+
+>>>>>>> parent of 07a55eb... Revert "Sync"
 public class DoctorHospitalVO {
 
 	@Id

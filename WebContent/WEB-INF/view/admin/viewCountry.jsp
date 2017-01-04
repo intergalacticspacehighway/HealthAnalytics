@@ -100,6 +100,7 @@
 										<td><a href ="deleteCountry.html?id=${i.countryId}">Delete</a></td>
 										<td class="active">${i.isActive}</td>
 										<td>
+										
 										<button type="button" class="btn btn-success" onclick="window.location.href='change.html?id=${i.countryId}'">Change</button>
 										</td>
 									
@@ -179,6 +180,7 @@
       	
       		//$this = $(".jqueryCheck");
       		$var = $.trim($(this).val().toLowerCase());
+      	
       		$(".jqueryCheck").each(function(){
       			$this = $(this).text().toLowerCase();
       			//alert($this);

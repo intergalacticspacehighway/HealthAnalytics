@@ -131,7 +131,7 @@
                                             <form:input type="text" id="bdate" path="doctor.doctorDateOfBirth" class="form-control mydatepicker" placeholder="enter your birth date"/>
                                         </div>
                                     </div>
-									<div class="form-group">
+								 <%-- <div class="form-group">
                                         <label class="col-md-12" for="Address">Address</span></label>
                                         <div class="col-md-12">
                                             <form:input type="text" id="doctorAddress" path="doctor.doctorAddress" class="form-control" placeholder="Enter Street address here" required="required"/>
@@ -174,19 +174,14 @@
                                     		<form:input type="text" id="doctorZipCode" path="doctor.doctorZipCode" class="form-control" placeholder="e.g. 380008" required="required"/>
                                     	</div>
                                     
-                                    </div>
+                                    </div> --%> 
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
                                             <form:textarea class="form-control" rows="3" path="doctor.doctorDescription" required="required"></form:textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="url">Website URL</span></label>
-                                        <div class="col-md-12">
-                                            <form:input type="text" id="doctorWebsiteUrl" path="doctor.doctorWebsiteUrl" class="form-control" placeholder="your website"/>
-                                        </div>
-                                    </div>
+                                    
                                         
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
@@ -200,19 +195,7 @@
                                             <form:input type="number" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" required="required"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="pwd">Password</span></label>
-                                        <div class="col-md-12">
-                                            <form:input type="password" id="password" path="doctor.doctorPassword" class="form-control" placeholder="enter your password" required="required"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-12" for="cpwd">Confirm Password</span>&nbsp &nbsp<span id="verifyPassword"></span></label>
-                                        <div class="col-md-12">
-                                            <form:input type="password" id="confirmPassword" path="doctor.doctorPassword" class="form-control" placeholder="confirm your password" required="required"/>
-                                        </div>
-                                    </div>
-                                    
+                                  
                                     <div class="form-group">
                                         <label class="col-md-12" for="furl">Facebook URL</span></label>
                                         <div class="col-md-12">
