@@ -99,6 +99,10 @@
 										<td><a href ="editCountry.html?id=${i.countryId}">Edit</a></td>
 										<td><a href ="deleteCountry.html?id=${i.countryId}">Delete</a></td>
 										<td class="active">${i.isActive}</td>
+										<td>
+										<button type="button" class="btn btn-success" onclick="window.location.href='change.html?id=${i.countryId}'">Change</button>
+										</td>
+									
 									</tr>
 									<c:set var = "count" value="${count+1 }"></c:set>
 									</c:forEach>

@@ -193,7 +193,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" data-mask="(999) 999-9999" required="required"/>
+                                            <form:input type="number" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">

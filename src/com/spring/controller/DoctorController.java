@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.CountryDAO;
+import com.spring.DAO.DoctorDAO;
+import com.spring.DAO.DoctorSpecialityDAO;
 import com.spring.DAO.HospitalDAO;
 import com.spring.DAO.SpecialityDAO;
 import com.spring.VO.DoctorSpecialityVO;
@@ -27,10 +29,19 @@ public class DoctorController {
 	HospitalDAO hospital;
 	@Autowired
 	SpecialityDAO Speciality;
+	@Autowired
+	DoctorSpecialityDAO ds;
+	@Autowired
+	DoctorDAO doctor;
+	
    
 	@RequestMapping(value="/viewDoctor.html", method=RequestMethod.GET)
-	public String loadDoctor()
+	public String loadDoctor(HttpSession session) throws Exception
 	{
+		List<Object> dslist=this.ds.getAllDoctor();
+		session.setAttribute("dslist",dslist);
+		List<Object> dlist=this.doctor.getAllDoctor();
+		session.setAttribute("dlist",dlist);
 		return ("admin/viewDoctor");
 		
 	}
@@ -64,6 +75,38 @@ public class DoctorController {
 		}
 		
 		return new ModelAndView("redirect:/addDoctor.html");
+		
+	}
+	
+	@RequestMapping(value="/deleteDoctor.html" , method = RequestMethod.GET)
+	public String deleteDoctor(@Param int doctorId) throws Exception
+	{
+		this.doctor.deleteDoctor(doctorId);
+		this.ds.inActiveDoctor(doctorId);
+		return ("redirect:/viewDoctor.html");
+		
+	}
+	
+	@RequestMapping(value="/editDoctor.html" , method=RequestMethod.GET)
+	public ModelAndView editDoctor(@Param String doctorId, HttpSession session) throws Exception
+	{
+		List<DoctorSpecialityVO> list=this.ds.getDoctor(doctorId);
+		
+		StringBuilder sb = new StringBuilder();
+		for(DoctorSpecialityVO h : list)
+		{
+			sb.append(h.getSpeciality().getSpecialityId()).append(",");
+		}
+		int deletecomma=sb.length() - 1;
+		sb.deleteCharAt(deletecomma);
+		
+		List<SpecialityVO> slist=this.Speciality.getRestSpeciality(sb.toString());
+		List<Object> clist=this.country.getCountry();
+		
+		session.setAttribute("list",list);
+		session.setAttribute("sList",slist);
+		session.setAttribute("cList",clist);
+		return new ModelAndView("admin/editDoctor","editDoctorSpeciality",new DoctorSpecialityVO());
 		
 	}
 }
