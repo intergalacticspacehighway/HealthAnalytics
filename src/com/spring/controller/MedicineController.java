@@ -71,23 +71,25 @@ public class MedicineController {
 		return new ModelAndView("admin/editMedicine", "updateMedicine",
 				new MedicineVO());
 	}
-	@RequestMapping(value="/updateMedicine.html" , method=RequestMethod.POST)
-	public String updateMedicine(@ModelAttribute MedicineVO updateMedicine)
-	{
+
+	@RequestMapping(value = "/updateMedicine.html", method = RequestMethod.POST)
+	public String updateMedicine(@ModelAttribute MedicineVO updateMedicine) {
 		try {
 			this.medicine.insertMedicine(updateMedicine);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return("redirect:/viewMedicine.html");
-	
+		return ("redirect:/viewMedicine.html");
+
 	}
-	@RequestMapping(value="/deleteMedicine.html" , method=RequestMethod.GET)
+
+	@RequestMapping(value = "/deleteMedicine.html", method = RequestMethod.GET)
 	public String deleteMedicine(@Param int id)
+
 	{
 		this.medicine.deleteMedicine(id);
-		return("redirect:/viewMedicine.html");
-		
+		return ("redirect:/viewMedicine.html");
+
 	}
 }
