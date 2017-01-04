@@ -94,7 +94,10 @@
 									
 							   <c:forEach items="${sessionScope.hospitalList}" var="hospital" varStatus="myindex">
 									
-						
+									
+										<%-- <c:if test="${hospital.isActive == 'yes' }">
+										<c:set var = "countActive" value="${countActive+1 }"></c:set>
+										</c:if> --%>
 									<tr class="rowContent">
 										<td>${myindex.index +1 }</td>
 										<td class="jqueryCheck">${hospital.hospitalName}</td>
@@ -111,7 +114,7 @@
 										</c:if>
 									
 								</c:forEach>
-						
+										
 										</td>
 										
 										<td><a href ="editHospital.html?hospitalId=${hospital.hospitalId}">Edit</a></td>
@@ -232,7 +235,6 @@
       		var split = $(this).text().split(" ").join(",");
       		//var newDone = $(this).text().split(/[ ,]+/).join(',')
       		//$(this).text(newDone);
-      		//alert(split);
       		split = $.trim(split);
       		split = split.substring(0, split.length-1);
       		

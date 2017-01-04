@@ -17,9 +17,7 @@ import com.spring.DAO.DoctorDAO;
 import com.spring.DAO.DoctorSpecialityDAO;
 import com.spring.DAO.HospitalDAO;
 import com.spring.DAO.SpecialityDAO;
-import com.spring.VO.DoctorHospitalVO;
 import com.spring.VO.DoctorSpecialityVO;
-import com.spring.VO.HospitalVO;
 import com.spring.VO.SpecialityVO;
 
 @Controller
@@ -66,7 +64,6 @@ public class DoctorController {
 	{	
 		
 		this.hospital.insertHospital(insertDoctorSpeciality.doctor);
-		
 		String[] specid = specMenu.split(",");
 		for(int i=0;i<specid.length;i++)
 		{
@@ -80,20 +77,6 @@ public class DoctorController {
 			DoctorSpeciality.setIsActive(insertDoctorSpeciality.getIsActive());
 		this.hospital.insertHospital(DoctorSpeciality);
 		}
-		String[] hospitalId = hospitalMenu.split(",");
-		for(int i=0;i<hospitalId.length;i++)
-		{
-			DoctorHospitalVO doctorHospital=new DoctorHospitalVO();
-			doctorHospital.setDoctor(insertDoctorSpeciality.doctor);
-			int x=Integer.parseInt(hospitalId[i]);
-			HospitalVO hospitalVO = new HospitalVO();
-			hospitalVO.setHospitalId(x);
-			
-			doctorHospital.setHospital(hospitalVO);
-			doctorHospital.setIsActive(insertDoctorSpeciality.getIsActive());
-		this.hospital.insertHospital(doctorHospital);
-		}
-		
 		
 		return new ModelAndView("redirect:/addDoctor.html");
 		
@@ -120,10 +103,6 @@ public class DoctorController {
 		}
 		int deletecomma=sb.length() - 1;
 		sb.deleteCharAt(deletecomma);
-		//List<DoctorHospitalVO> list=this.dh.getDoctor(doctorId);
-		
-		StringBuilder s = new StringBuilder();
-		
 		
 		List<SpecialityVO> slist=this.Speciality.getRestSpeciality(sb.toString());
 		List<Object> clist=this.country.getCountry();
