@@ -34,29 +34,29 @@ public class HospitalController {
 	@Autowired
 	HospitalSpecialityDAO hospitalSpeciality;
 
-
-
 	@RequestMapping(value = "/editHospital.html", method = RequestMethod.GET)
 	public ModelAndView editHospital(@Param String hospitalId,
 			HttpSession session) throws Exception {
 
 		// System.out.println(hospitalName);
 
-		List<HospitalSpecialityVO> list = this.hospitalSpeciality.getHospital(hospitalId);
+		List<HospitalSpecialityVO> list = this.hospitalSpeciality
+				.getHospital(hospitalId);
 		StringBuilder specialityList = new StringBuilder();
-		for(HospitalSpecialityVO h : list){
-			specialityList.append(h.getSpeciality().getSpecialityId()).append(",");
-			
-			}
+		for (HospitalSpecialityVO h : list) {
+			specialityList.append(h.getSpeciality().getSpecialityId()).append(
+					",");
+
+		}
 		int deleteLastComma = specialityList.length() - 1;
 		specialityList.deleteCharAt(deleteLastComma);
 		System.out.println(specialityList);
-		
+
 		List cList = this.country.getCountry();
-		
-		
-		List<SpecialityVO> slist = this.Speciality.getRestSpeciality(specialityList.toString());
-	
+
+		List<SpecialityVO> slist = this.Speciality
+				.getRestSpeciality(specialityList.toString());
+
 		session.setAttribute("sList", slist);
 		session.setAttribute("list", list);
 		session.setAttribute("cList", cList);
@@ -71,7 +71,7 @@ public class HospitalController {
 		try {
 			List list = hospitalSpeciality.getAllHospital();
 			List hospitalList = hospital.getAllhospital();
-			//List hospitalList = hospitalSpeciality.getAllHospital();
+			// List hospitalList = hospitalSpeciality.getAllHospital();
 			session.setAttribute("list", list);
 			session.setAttribute("hospitalList", hospitalList);
 		} catch (Exception e) {
@@ -130,57 +130,55 @@ public class HospitalController {
 	public ModelAndView updateHospital(
 			@ModelAttribute HospitalSpecialityVO editHospitalSpeciality,
 			@Param String specMenu, HttpSession session) throws Exception {
-		
+
 		// no use String[] specId = specMenu.split(",");
-		List<HospitalSpecialityVO> hospSpeciality = (List)session.getAttribute("list");
+		List<HospitalSpecialityVO> hospSpeciality = (List) session
+				.getAttribute("list");
 		int[] testArray = new int[hospSpeciality.size()];
 		String[] specId = specMenu.split(",");
-		for(int i = 0; i<hospSpeciality.size(); i++){
-			testArray[i] = hospSpeciality.get(i).getSpeciality().getSpecialityId();
+		for (int i = 0; i < hospSpeciality.size(); i++) {
+			testArray[i] = hospSpeciality.get(i).getSpeciality()
+					.getSpecialityId();
 		}
 		String testArrayString = Arrays.toString(testArray);
 		String specMenuTest = Arrays.toString(specId);
 		System.out.println(testArrayString);
 		System.out.println(specMenuTest);
-		
+
 		// session.getAttribute("list");
 		// System.out.println(hospSpeciality);
 		this.hospital.insertHospital(editHospitalSpeciality.hospital);
-		
-		
-		this.hospitalSpeciality.updateIsActive(editHospitalSpeciality.getHospital().getHospitalId());
-		
-		
-		if(!specMenuTest.equals(testArrayString)){
-			
-			this.hospitalSpeciality.deleteHospital(editHospitalSpeciality.hospital
-				.getHospitalId());
-		
-	
 
-		try {
+		this.hospitalSpeciality.updateIsActive(editHospitalSpeciality
+				.getHospital().getHospitalId());
 
-		
-			
-			this.hospital.insertHospital(editHospitalSpeciality.hospital);
-			for (int i = 0; i < specId.length; i++) {
+		if (!specMenuTest.equals(testArrayString)) {
 
-				HospitalSpecialityVO hospitalSpecialityVO = new HospitalSpecialityVO();
-				hospitalSpecialityVO
-						.setHospital(editHospitalSpeciality.hospital);
-				int x = Integer.parseInt(specId[i]);
-				SpecialityVO specialityVO = new SpecialityVO();
-				specialityVO.setSpecialityId(x);
-				hospitalSpecialityVO.setSpeciality(specialityVO);
-				hospitalSpecialityVO.setIsActive(editHospitalSpeciality.getHospital()
-						.getIsActive());
+			this.hospitalSpeciality
+					.deleteHospital(editHospitalSpeciality.hospital
+							.getHospitalId());
 
-				this.hospital.insertHospital(hospitalSpecialityVO);
+			try {
+
+				this.hospital.insertHospital(editHospitalSpeciality.hospital);
+				for (int i = 0; i < specId.length; i++) {
+
+					HospitalSpecialityVO hospitalSpecialityVO = new HospitalSpecialityVO();
+					hospitalSpecialityVO
+							.setHospital(editHospitalSpeciality.hospital);
+					int x = Integer.parseInt(specId[i]);
+					SpecialityVO specialityVO = new SpecialityVO();
+					specialityVO.setSpecialityId(x);
+					hospitalSpecialityVO.setSpeciality(specialityVO);
+					hospitalSpecialityVO.setIsActive(editHospitalSpeciality
+							.getHospital().getIsActive());
+
+					this.hospital.insertHospital(hospitalSpecialityVO);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		}
 
 		return new ModelAndView("redirect:/viewHospital.html");
@@ -200,8 +198,9 @@ public class HospitalController {
 		// return new ModelAndView("redirect:/viewHospital.html");
 
 	}
-	@RequestMapping(value="/deleteHospital.html", method = RequestMethod.GET)
-	public String deleteHospital(@Param int hospitalId) throws Exception{
+
+	@RequestMapping(value = "/deleteHospital.html", method = RequestMethod.GET)
+	public String deleteHospital(@Param int hospitalId) throws Exception {
 		this.hospital.deleteHospital(hospitalId);
 		this.hospitalSpeciality.inActiveHospital(hospitalId);
 		System.out.println("Done!!");
