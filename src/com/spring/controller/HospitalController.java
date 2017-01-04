@@ -87,7 +87,7 @@ public class HospitalController {
 	public ModelAndView addHospital(HttpSession session) throws Exception {
 		List<Object> list = this.country.getCountry();
 		session.setAttribute("list", list);
-		List<SpecialityVO> slist = this.Speciality.getSpeciality();
+		List<Object> slist = this.Speciality.getSpeciality();
 		session.setAttribute("slist", slist);
 		return new ModelAndView("admin/addHospital",
 				"insertHospitalSpeciality", new HospitalSpecialityVO());

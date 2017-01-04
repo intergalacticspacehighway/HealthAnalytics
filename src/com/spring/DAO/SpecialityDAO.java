@@ -25,11 +25,11 @@ public class SpecialityDAO {
 		session.close();
 	}
 	
-	public List<SpecialityVO> getSpeciality() throws Exception {
+	public List<Object> getSpeciality() throws Exception {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from SpecialityVO");
 		@SuppressWarnings("unchecked")
-		List<SpecialityVO> list = query.list();
+		List<Object> list = query.list();
 		session.close();
 		return list;
 	}
