@@ -13,6 +13,10 @@
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="resources/css/stylesheet.css" rel="stylesheet">
+	<script src="resources/js/jquery.min.js"></script>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
     <link href="resources/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
@@ -81,7 +85,6 @@
 										<th>Count</th>
 										<th>Country</th>
 										<th>Edit</th>
-										<th>Delete</th>
 										<th>isActive</th>
 										
 									</tr>
@@ -97,10 +100,18 @@
 										<td>${myindex.index +1 }</td>
 										<td class="jqueryCheck">${i.countryName}</td>
 										<td><a href ="editCountry.html?id=${i.countryId}">Edit</a></td>
-										<td><a href ="deleteCountry.html?id=${i.countryId}">Delete</a></td>
-										<td class="active">${i.isActive}</td>
+										
 										<td>
-										<button type="button" class="btn btn-success" onclick="window.location.href='change.html?id=${i.countryId}'">Change</button>
+										<c:if test="${i.isActive == 'Yes' }">
+										
+											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteCountry.html?id=${i.countryId}'">
+			
+    									</c:if>
+										<c:if test="${i.isActive == 'No' }">
+										
+											<input type="checkbox"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='change.html?id=${i.countryId}'">
+			
+    									</c:if>
 										</td>
 									
 									</tr>
@@ -114,7 +125,7 @@
 										<td color="bg-primary"><strong>Total Records</strong></td>
 										<td></td>
 										<td></td>
-										<td></td>
+										
 										<td><strong id="totalCount"><c:out value="${count}"/></strong></td>
 										
 									</tr>
@@ -122,7 +133,7 @@
 									
 										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
 										<td></td>
-										<td></td>
+										
 										<td></td>
 										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
 										
@@ -155,6 +166,23 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
+/* function getState(){
+        	
+        	$.ajax({
+        		type: "GET",
+        		url: "deleteCountry.html",
+        		data: 'countryId=',
+        		success: function(data){
+        		
+        			alert(data);
+        		$("#stateMenu").html(data);
+        		
+        			
+        			
+        		}
+        	});
+        	
+        } */
     
       	$(".active:contains('No')").css("color","#d9534f");	
       	$(".active:contains('Yes')").css("color","#5cb85c");
@@ -209,6 +237,7 @@
         jQuery('.mydatepicker').datepicker();
         </script>
         <!-- Custom Theme JavaScript -->
+        <script src="resources/js/bootstrap-toggle.js"></script>
         <script src="resources/js/custom.min.js"></script>
         <script src="resources/js/jasny-bootstrap.js"></script>
         <script src="resources/js/mask.js"></script>
