@@ -1,7 +1,9 @@
 package com.spring.VO;
 
+<<<<<<< HEAD
+=======
 import javax.persistence.Column;
-
+>>>>>>> 91f52d0e91dcac8b6a37af90f87576be9545714f
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
+@Table(name="doctorhospital")
+
+public class DoctorHospitalVO {
+	
+=======
 @Table(name = "doctorhospital")
 public class DoctorHospitalVO {
 
+>>>>>>> 91f52d0e91dcac8b6a37af90f87576be9545714f
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int doctorhospitalId;
@@ -20,7 +29,11 @@ public class DoctorHospitalVO {
 	DoctorVO doctor;
 	@ManyToOne
 	HospitalVO hospital;
-
+<<<<<<< HEAD
+	
+	
+	
+=======
 	@Column
 	private String isActive;
 
@@ -55,5 +68,6 @@ public class DoctorHospitalVO {
 	public void setIsActive(String isActive) {
 		this.isActive = isActive;
 	}
+>>>>>>> 91f52d0e91dcac8b6a37af90f87576be9545714f
 
 }
