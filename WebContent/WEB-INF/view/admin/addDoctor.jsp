@@ -89,22 +89,26 @@
 										<div class="row">
 										<label class="col-sm-6">Speciality</label>
 											<div class="col-md-6">
-												<%-- <form:select  multiple="true" class="hosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select> --%>
-											 <%-- <form:select  multiple="multiple" class="chosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select>  --%>
+												
 												<select  multiple="multiple" class="chosen-select" name="specMenu" required="required">
 													
 													<c:forEach items="${sessionScope.slist}" var="i">
 													<option value="${i.specialityId}">${i.specialityName}</option>
+													</c:forEach>
+												</select>  
+										</div>
+										</div>
+									</div>
+									<hr>
+									 <div class="container,form-group">
+										<div class="row">
+										<label class="col-sm-6">Select Clinic/Hospital</label>
+											<div class="col-md-6">
+												
+												<select  multiple="multiple" class="chosen-select" name="hospitalMenu" required="required">
+													
+													<c:forEach items="${sessionScope.hospitalList}" var="i">
+													<option value="${i.hospitalId}">${i.hospitalName}</option>
 													</c:forEach>
 												</select>  
 										</div>
@@ -121,7 +125,7 @@
                                             </form:select>
                                         </div>
                                     </div>
- <div class="form-group">
+ 									<div class="form-group">
                                         <label class="col-md-12" for="bdate">Date of Birth</span></label>
                                         <div class="col-md-12">
                                             <form:input type="text" id="bdate" path="doctor.doctorDateOfBirth" class="form-control mydatepicker" placeholder="enter your birth date"/>
@@ -402,8 +406,11 @@ function getCity(val){
 			
 		}
 		
-		
+	
 	});
+	/* $("#specMenu").on("change",function(){
+		alert($(this).val());
+	}); */
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
@@ -413,6 +420,6 @@ function getCity(val){
         <script src="resources/js/mask.js"></script>
         <!--Style Switcher -->
         <script src="resources/js/jQuery.style.switcher.js"></script>
-</body>
+</body>	
 
 </html>

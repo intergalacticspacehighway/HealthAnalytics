@@ -70,7 +70,7 @@ public class HospitalController {
 	public String loadHospital(HttpSession session) {
 		try {
 			List list = hospitalSpeciality.getAllHospital();
-			List hospitalList = hospital.getAllhospital();
+			List hospitalList = hospital.getAllHospital();
 			// List hospitalList = hospitalSpeciality.getAllHospital();
 			session.setAttribute("list", list);
 			session.setAttribute("hospitalList", hospitalList);

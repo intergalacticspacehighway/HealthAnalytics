@@ -25,7 +25,7 @@ public class DoctorController {
 	
 	@Autowired
 	CountryDAO country;
-	@Autowired
+	@Autowired	
 	HospitalDAO hospital;
 	@Autowired
 	SpecialityDAO Speciality;
@@ -53,12 +53,16 @@ public class DoctorController {
 		session.setAttribute("list", list);
 		List<Object> slist = this.Speciality.getSpeciality();
 		session.setAttribute("slist", slist);
+		List<Object> hospitalList = this.hospital.getAllHospital();
+		session.setAttribute("hospitalList",hospitalList);
+		session.setAttribute("slist", slist);
 		return new ModelAndView("admin/addDoctor","insertDoctorSpeciality",new DoctorSpecialityVO());
 		
 	}
 	@RequestMapping(value="/insertDoctor.html" , method=RequestMethod.POST)
-	public ModelAndView insertDoctor(@ModelAttribute DoctorSpecialityVO insertDoctorSpeciality,@Param String specMenu) throws Exception
-	{
+	public ModelAndView insertDoctor(@ModelAttribute DoctorSpecialityVO insertDoctorSpeciality,@Param String specMenu, @Param String hospitalMenu) throws Exception
+	{	
+		
 		this.hospital.insertHospital(insertDoctorSpeciality.doctor);
 		String[] specid = specMenu.split(",");
 		for(int i=0;i<specid.length;i++)

@@ -23,7 +23,7 @@ public class HospitalDAO {
 		tr.commit();
 		session.close();
 	}
-	public List<Object> getAllhospital() throws Exception {
+	public List<Object> getAllHospital() throws Exception {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from HospitalVO ");
 		@SuppressWarnings("unchecked")
