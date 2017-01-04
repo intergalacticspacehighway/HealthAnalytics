@@ -40,8 +40,8 @@ public class HospitalController {
 
 		// System.out.println(hospitalName);
 
-		List<HospitalSpecialityVO> list = this.hospitalSpeciality
-				.getHospital(hospitalId);
+		List<HospitalSpecialityVO> list = this.hospitalSpeciality.getHospital(hospitalId);	
+				
 		StringBuilder specialityList = new StringBuilder();
 		for (HospitalSpecialityVO h : list) {
 			specialityList.append(h.getSpeciality().getSpecialityId()).append(

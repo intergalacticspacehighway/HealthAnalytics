@@ -72,7 +72,7 @@ public class MedicineController {
 				new MedicineVO());
 	}
 	@RequestMapping(value="/updateMedicine.html" , method=RequestMethod.POST)
-	public String updateCountry(@ModelAttribute MedicineVO updateMedicine)
+	public String updateMedicine(@ModelAttribute MedicineVO updateMedicine)
 	{
 		try {
 			this.medicine.insertMedicine(updateMedicine);
@@ -83,8 +83,8 @@ public class MedicineController {
 		return("redirect:/viewMedicine.html");
 	
 	}
-	@RequestMapping(value="/deleteCountry.html" , method=RequestMethod.GET)
-	public String deleteCountry(@Param int id)
+	@RequestMapping(value="/deleteMedicine.html" , method=RequestMethod.GET)
+	public String deleteMedicine(@Param int id)
 	{
 		this.medicine.deleteMedicine(id);
 		return("redirect:/viewMedicine.html");
