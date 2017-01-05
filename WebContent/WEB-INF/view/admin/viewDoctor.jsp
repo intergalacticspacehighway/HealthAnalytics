@@ -13,7 +13,10 @@
 	href="resources/images/title.jpe">
 <title>Health Analytics | Admin</title>
 <!-- Bootstrap Core CSS -->
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="resources/css/stylesheet.css" rel="stylesheet">
+	<script src="resources/js/jquery.min.js"></script>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <!-- Menu CSS -->
 <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
 <link href="resources/css/bootstrap-datepicker.min.css" rel="stylesheet"
@@ -94,7 +97,7 @@
 
 										<th>Speciality</th>
 										<th>Edit</th>
-										<th>Delete</th>
+										
 										<th>isActive</th>
 
 									</tr>
@@ -106,9 +109,10 @@
 
 
 									<%--   <c:forEach items="${sessionScope.dlist}" var="doctor" varStatus="myindex"> --%>
-									<c:forEach items="${sessionScope.dlist}" var="x"
-										varStatus="myindex">
-
+									<c:forEach items="${sessionScope.dlist}" var="x" varStatus="myindex">
+										<c:if test="${x.isActive == 'Yes' }">
+										<c:set var = "countActive" value="${countActive+1 }"></c:set>
+										</c:if>
 
 										<%-- <c:if test="${hospital.isActive == 'yes' }">
 										<c:set var = "countActive" value="${countActive+1 }"></c:set>
@@ -137,9 +141,20 @@
 												</c:forEach></td>
 
 											<td><a href="editDoctor.html?doctorId=${x.doctorId}">Edit</a></td>
-											<td><a href="deleteDoctor.html?doctorId=${x.doctorId}">Delete</a></td>
-											<td class="active">${x.isActive}</td>
+											<td class = "active">
 
+										<c:if test="${x.isActive == 'Yes' }">
+										
+											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteDoctor.html?doctorId=${x.doctorId}'">
+			
+    									</c:if>
+										<c:if test="${x.isActive == 'No' }">
+										
+											<input type="checkbox"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteDoctorisActive.html?id=${x.doctorId}'">
+			
+    									</c:if>
+
+										</td>
 										</tr>
 										<c:set var="count" value="${count+1 }"></c:set>
 
@@ -169,7 +184,7 @@
 										<td></td>
 										<td></td>
 										<td><strong id="countActive">
-												<%-- <c:out value="${countActive }"/> --%>
+												<c:out value="${countActive }"/>
 										</strong></td>
 
 									</tr>
@@ -202,7 +217,7 @@
 	<script src="resources/js/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript">
         
-        $("#countActive").text( $(".active:visible:contains('Yes')").length);
+       
     
       	$(".active:contains('No')").css("color","#d9534f");	
       	$(".active:contains('Yes')").css("color","#5cb85c");
@@ -279,6 +294,7 @@
         jQuery('.mydatepicker').datepicker();
         </script>
 	<!-- Custom Theme JavaScript -->
+	 <script src="resources/js/bootstrap-toggle.js"></script>
 	<script src="resources/js/custom.min.js"></script>
 	<script src="resources/js/jasny-bootstrap.js"></script>
 	<script src="resources/js/mask.js"></script>

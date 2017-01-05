@@ -32,4 +32,14 @@ public class DoctorDAO {
 	    tr.commit();
 		session.close();
 	}
+	public void updateIsactive(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE DoctorVO set isActive = :x "
+				+ "WHERE id = :id");
+		query.setParameter("x","Yes");
+		query.setParameter("id",id);
+		query.executeUpdate();
+		session.close();
+	}
 }

@@ -242,4 +242,13 @@ public class DoctorController {
 		}
 		return new ModelAndView("redirect:/viewDoctor.html");
 	}
+	@RequestMapping(value="/deleteDoctorisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id) throws Exception
+	{
+		this.doctor.updateIsactive(id);
+		
+		return("redirect:/viewDoctor.html");
+		
+	}
+	
 }
