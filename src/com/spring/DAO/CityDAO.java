@@ -64,5 +64,16 @@ public class CityDAO {
 		session.close();
 		return list;
 	}
+	
+	public void updateIsactive(int id)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE CityVO set isActive = :x "
+				+ "WHERE id = :id");
+		query.setParameter("x","Yes");
+		query.setParameter("id",id);
+		query.executeUpdate();
+		session.close();
+	}
 
 }

@@ -12,6 +12,9 @@
 	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
+	<link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="resources/css/stylesheet.css" rel="stylesheet">
+	<script src="resources/js/jquery.min.js"></script>
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
@@ -82,7 +85,6 @@
 										<th>Country</th>
 										<th>State Name</th>
 										<th>Edit</th>
-										<th>Delete</th>
 										<th>isActive</th>
 										
 									</tr>
@@ -91,7 +93,7 @@
 									<c:set var = "count" value="0"></c:set>
 									<c:set var = "countActive" value="0"></c:set>
 									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
-										<c:if test="${i.isActive == 'yes' }">
+										<c:if test="${i.isActive == 'Yes' }">
 										<c:set var = "countActive" value="${countActive+1 }"></c:set>
 										</c:if>
 									<tr class="rowContent">
@@ -99,8 +101,18 @@
 										<td class="jqueryCheck">${i.country.countryName}</td>
 										<td class="jqueryCheck2">${i.stateName}</td>
 										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
-										<td><a href ="deleteState.html?id=${i.stateId}">Delete</a></td>
-										<td class="active">${i.isActive}</td>
+										<td>
+										<c:if test="${i.isActive == 'Yes' }">
+										
+											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteState.html?id=${i.stateId}'">
+			
+    									</c:if>
+										<c:if test="${i.isActive == 'No' }">
+										
+											<input type="checkbox"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteStateisActive.html?id=${i.stateId}'">
+			
+    									</c:if>
+    									</td>
 									</tr>
 									<c:set var = "count" value="${count+1 }"></c:set>
 									</c:forEach>
@@ -110,7 +122,7 @@
 									<tr class="rowCountTotal">
 									
 										<td color="bg-primary"><strong>Total Records</strong></td>
-										<td></td>
+										
 										<td></td>
 										<td></td>
 										<td></td>
@@ -122,7 +134,7 @@
 										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
 										<td></td>
 										<td></td>
-										<td></td>
+										
 										<td></td>
 										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
 										
@@ -209,6 +221,7 @@
         jQuery('.mydatepicker').datepicker();
         </script>
         <!-- Custom Theme JavaScript -->
+        <script src="resources/js/bootstrap-toggle.js"></script>
         <script src="resources/js/custom.min.js"></script>
         <script src="resources/js/jasny-bootstrap.js"></script>
         <script src="resources/js/mask.js"></script>

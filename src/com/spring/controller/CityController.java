@@ -104,4 +104,12 @@ public class CityController {
 		
 	}
 
+	@RequestMapping(value="/deleteCityisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id) throws Exception
+	{
+		this.city.updateIsactive(id);
+		
+		return("redirect:/viewCity.html");
+		
+	}
 }

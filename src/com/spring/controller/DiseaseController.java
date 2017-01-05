@@ -46,14 +46,6 @@ public class DiseaseController {
 		
 	}
 	
-	@RequestMapping(value="/DiseaseisActivechange.html" , method=RequestMethod.GET)
-	public String updateisActive(@Param int id, HttpSession session) throws Exception
-	{
-		this.disease.updateIsactive(id);
-		return("redirect:/viewDisease.html");
-		
-	}
-	
 	@RequestMapping(value="/deleteDisease.html" , method=RequestMethod.GET)
 	public String deleteDisease(@Param int id)
 	{
@@ -77,6 +69,15 @@ public class DiseaseController {
 	{
 		disease.insertDisease(updateDisease);
 		return new ModelAndView("redirect:/viewDisease.html");
+		
+	}
+	
+	@RequestMapping(value="/deleteDiseaseisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id) throws Exception
+	{
+		this.disease.updateIsactive(id);
+		
+		return("redirect:/viewDisease.html");
 		
 	}
 }

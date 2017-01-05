@@ -65,5 +65,13 @@ public class SpecialityController {
 		return new ModelAndView("redirect:/viewSpeciality.html");
 		
 	}
+	@RequestMapping(value="/deleteSpecialityisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id) throws Exception
+	{
+		this.speciality.updateIsactive(id);
+		
+		return("redirect:/viewSpeciality.html");
+		
+	}
 	
 }

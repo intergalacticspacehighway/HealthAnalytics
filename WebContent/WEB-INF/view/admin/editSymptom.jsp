@@ -1,20 +1,17 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-
 <!DOCTYPE html>  
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="health">
     <meta name="author" content="">
-	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+  <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
-     <link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
-	<link href="resources/css/stylesheet.css" rel="stylesheet">
-	<script src="resources/js/jquery.min.js"></script>
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
@@ -22,7 +19,6 @@
     <!-- animation CSS -->
     <link href="resources/css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
-    
     <link href="resources/css/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="resources/css/megna.css" id="theme" rel="stylesheet">
@@ -30,7 +26,6 @@
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
     <script>
@@ -65,81 +60,41 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">View Disease</h4> </div>
+                        <h4 class="page-title">Edit Symptom</h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> 
                         <ol class="breadcrumb">
                             <li><a href="index.html">Hospital</a></li>
-                            <li class="active">View Country</li>
+                            <li class="active">Add Country</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
                     </div>
+                 
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="white-box">
-                                <h3 class="box-title">Disease Information</h3>
-							<table class="table table-hover">
-								<thead class="thead-inverse">
-									<tr>
-										<th>Count</th>
-										<th>Disease</th>
-										<th>Edit</th>
-										
-										<th>isActive</th>
-										
-									</tr>
-								</thead>
-								<tbody class="rowBody">
-									<c:set var = "count" value="0"></c:set>
-									<c:set var = "countActive" value="0"></c:set>
-									<c:forEach items="${sessionScope.list }" var = "i" varStatus="myindex">
-										<c:if test="${i.isActive == 'Yes' }">
-										<c:set var = "countActive" value="${countActive+1 }"></c:set>
-										</c:if>
-									<tr class="rowContent">
-										<td>${myindex.index +1 }</td>
-										<td class="jqueryCheck">${i.diseaseName}</td>
-										<td><a href ="editDisease.html?id=${i.diseaseId}">Edit</a></td>
-										<td class="active">
-										<c:if test="${i.isActive == 'Yes' }">
-										
-											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteDisease.html?id=${i.diseaseId}'">
-			
-    									</c:if>
-										<c:if test="${i.isActive == 'No' }">
-										
-											<input type="checkbox"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteDiseaseisActive.html?id=${i.diseaseId}'">
-			
-    									</c:if>
-    									</td>
-									
-									</tr>
-									<c:set var = "count" value="${count+1 }"></c:set>
-									</c:forEach>
-								
-									
-									
-									<tr class="rowCountTotal">
-									
-										<td color="bg-primary"><strong>Total Records</strong></td>
-										<td></td>
-										<td></td>
-										
-										<td><strong id="totalCount"><c:out value="${count}"/></strong></td>
-										
-									</tr>
-									<tr class="rowCountActive">
-									
-										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
-										<td></td>
-										
-										<td></td>
-										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
-										
-									</tr>
-								</tbody>
-							</table>
-						</div>
+                                <h3 class="box-title">Symptom Information</h3>
+                                <form:form class="form-material form-horizontal" action="updateSymptom.html" method="post" modelAttribute="updateSymptom">
+                                
+                           
+									<c:forEach items="${sessionScope.list}" var="i">
+											
+                           
+                                    <div class="form-group">
+                                        <label class="col-md-12" for="example-text">Symptom Name</span></label>
+                                        <div class="col-md-12">
+                                            <form:input type="hidden" path="symptomId" class="form-control" value="${i.symptomId }"/>  
+                                            <form:input type="hidden" path="isActive" class="form-control" value="Yes"/> 
+                                            
+                                            <form:input type="text" id="symptomName" path="symptomName" class="form-control" value="${i.symptomName}"/>
+                                        </div>
+                                    </div>
+                                   
+                                    <button type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>    
+                                </c:forEach>
+                                </form:form>
+                            </div>
                         </div> 
                     
                          
@@ -165,61 +120,10 @@
         <!-- Date Picker Plugin JavaScript -->
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
-    
-      	$(".active:contains('No')").css("color","#d9534f");	
-      	$(".active:contains('Yes')").css("color","#5cb85c");
-      	
-      	$("#searchBox").animate({width:"450px"},function(){
-      		$(this).attr("placeholder","Search Disease");
-      	}).focus();
-/*       	$("#searchBox").keyup(function(){
-      		
-      		$.ajax({
-      			type: "POST",
-      			url: "searchStateDataUsingAjax.html",
-      			data: 'keywords='+$(this).val(),
-      			sucess: function(data){
-      				alert("hello");
-      				$(".rowBody").replaceWith(data);
-      				
-      			}
-      		});
-      	}); */
-      	$("#searchBox").on("keyup",function(){
-      	
-      		//$this = $(".jqueryCheck");
-      		$var = $.trim($(this).val().toLowerCase());
-      		$(".jqueryCheck").each(function(){
-      			$this = $(this).text().toLowerCase();
-      			//alert($this);
-      			if($this.indexOf($var) === -1 && $(this).siblings(".jqueryCheck2").text().toLowerCase().indexOf($var) === -1){
-      				$(this).closest(".rowContent").hide();
-      			}
-      			else{
-      				$(this).closest(".rowContent").show();
-      			}
-      		
-      			
-      			
-      			//alert($activeCount);
-      			$("#countActive").text( $(".active:visible:contains('Yes')").length);
-      			 
-          		$("#totalCount").text($(".rowContent:visible").length);
-      		
-      			
-      		});
-      		
-      		
-      		
-      		
-      	});
-      	//$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
-      	
         // Date Picker
         jQuery('.mydatepicker').datepicker();
         </script>
         <!-- Custom Theme JavaScript -->
-        <script src="resources/js/bootstrap-toggle.js"></script>
         <script src="resources/js/custom.min.js"></script>
         <script src="resources/js/jasny-bootstrap.js"></script>
         <script src="resources/js/mask.js"></script>

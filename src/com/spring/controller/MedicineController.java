@@ -92,4 +92,13 @@ public class MedicineController {
 		return ("redirect:/viewMedicine.html");
 
 	}
+	
+	@RequestMapping(value="/deleteMedicineisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id) throws Exception
+	{
+		this.medicine.updateIsactive(id);
+		
+		return("redirect:/viewMedicine.html");
+		
+	}
 }

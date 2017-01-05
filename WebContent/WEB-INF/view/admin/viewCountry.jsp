@@ -12,7 +12,6 @@
 	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 	<link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
 	<link href="resources/css/stylesheet.css" rel="stylesheet">
 	<script src="resources/js/jquery.min.js"></script>
@@ -101,10 +100,10 @@
 										<td class="jqueryCheck">${i.countryName}</td>
 										<td><a href ="editCountry.html?id=${i.countryId}">Edit</a></td>
 										
-										<td>
+										<td class = "active">
 
 										
-										<button type="button" class="btn btn-success" onclick="window.location.href='change.html?id=${i.countryId}'">Change</button>
+										
 
 										<c:if test="${i.isActive == 'Yes' }">
 										
@@ -188,7 +187,7 @@
         	});
         	
         } */
-    
+       
       	$(".active:contains('No')").css("color","#d9534f");	
       	$(".active:contains('Yes')").css("color","#5cb85c");
       	

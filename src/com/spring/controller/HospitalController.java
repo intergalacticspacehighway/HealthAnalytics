@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -205,6 +204,16 @@ public class HospitalController {
 		this.hospitalSpeciality.inActiveHospital(hospitalId);
 		System.out.println("Done!!");
 		return ("redirect:/viewHospital.html");
+	}
+	
+	@RequestMapping(value="/deleteHospitalisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int hospitalId) throws Exception
+	{
+		this.hospital.updateIsactive(hospitalId);
+		this.hospitalSpeciality.updateIsActive(hospitalId);
+		
+		return("redirect:/viewHospital.html");
+		
 	}
 
 }

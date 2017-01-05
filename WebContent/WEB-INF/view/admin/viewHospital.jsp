@@ -12,6 +12,9 @@
 	 <link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
     <title>Health Analytics | Admin</title>
     <!-- Bootstrap Core CSS -->
+   <link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
+	<link href="resources/css/stylesheet.css" rel="stylesheet">
+	<script src="resources/js/jquery.min.js"></script>
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="resources/css/sidebar-nav.min.css" rel="stylesheet">
@@ -81,7 +84,7 @@
 										<th>Hospital Name</th>
 										<th>Speciality</th>
 										<th>Edit</th>
-										<th>Delete</th>
+										
 										<th>isActive</th>
 										
 									</tr>
@@ -89,12 +92,12 @@
 								<tbody class="rowBody">
 									<c:set var = "count" value="0"></c:set>
 									<c:set var = "countActive" value="0"></c:set>
-									<%-- <c:set value="${sessionScope.list}" var = "i"></c:set> --%>
-									
-									
+								
 							   <c:forEach items="${sessionScope.hospitalList}" var="hospital" varStatus="myindex">
-									
-						
+									<c:if test="${hospital.isActive == 'Yes' }">
+										<c:set var = "countActive" value="${countActive+1 }"></c:set>
+										</c:if>
+										
 									<tr class="rowContent">
 										<td>${myindex.index +1 }</td>
 										<td class="jqueryCheck">${hospital.hospitalName}</td>
@@ -109,14 +112,25 @@
 									 	<%-- <c:if test="${sessionList[status.index].hospital.hospitalId != null }">,&nbsp</c:if> --%>
 									
 										</c:if>
+										
 									
 								</c:forEach>
 						
 										</td>
 										
 										<td><a href ="editHospital.html?hospitalId=${hospital.hospitalId}">Edit</a></td>
-										<td><a href ="deleteHospital.html?hospitalId=${hospital.hospitalId}">Delete</a></td>
-										<td class="active">${hospital.isActive}</td> 
+										<td class="active">
+										<c:if test="${hospital.isActive == 'Yes' }">
+										
+											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteHospital.html?hospitalId=${hospital.hospitalId}'">
+											
+    									</c:if>
+										<c:if test="${hospital.isActive == 'No' }">
+										
+											<input type="checkbox"  data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteHospitalisActive.html?hospitalId=${hospital.hospitalId}'">
+			
+    									</c:if>
+    									</td>
 										
 									</tr>
 									<c:set var = "count" value="${count+1 }"></c:set>
@@ -133,18 +147,18 @@
 										<td></td>
 										<td></td>
 										<td></td>
-										<td></td>
+										
 										<td><strong id="totalCount"><c:out value="${count}"/></strong></td>
 										
 									</tr>
 									<tr class="rowCountActive">
 									
-										<td  color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
+										<td color="bg-primary"><strong id = "countTotal">Total Active Records</strong></td>
 										<td></td>
 										<td></td>
 										<td></td>
-										<td></td>
-										<td><strong id = "countActive"><%-- <c:out value="${countActive }"/> --%></strong></td>
+										
+										<td><strong id = "countActive"><c:out value="${countActive }"/></strong></td>
 										
 									</tr>
 								</tbody>
@@ -176,7 +190,7 @@
         <script src="resources/js/bootstrap-datepicker.min.js"></script>
         <script type="text/javascript">
         
-        $("#countActive").text( $(".active:visible:contains('Yes')").length);
+      
     
       	$(".active:contains('No')").css("color","#d9534f");	
       	$(".active:contains('Yes')").css("color","#5cb85c");
@@ -223,8 +237,8 @@
       		
       		
       		
-      		
       	});
+      	
       	//$("#searchForm").attr("action","searchStateDataUsingAjax.html").attr("method","post");
       	$(".jqueryCheck2").each(function(){
       		
@@ -242,6 +256,7 @@
         jQuery('.mydatepicker').datepicker();
         </script>
         <!-- Custom Theme JavaScript -->
+        <script src="resources/js/bootstrap-toggle.js"></script>
         <script src="resources/js/custom.min.js"></script>
         <script src="resources/js/jasny-bootstrap.js"></script>
         <script src="resources/js/mask.js"></script>

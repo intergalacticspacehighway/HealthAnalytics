@@ -154,7 +154,15 @@ public class StateController {
 				}
 				
 	
+	@RequestMapping(value="/deleteStateisActive.html" , method=RequestMethod.GET)
+	public String updateisActive(@Param int id, HttpSession session) throws Exception
+	{
+		this.state.updateIsactive(id);
+		/*List<Object> ls = this.country.getCountry();
+		session.setAttribute("list",ls);*/
+		return("redirect:/viewState.html");
 		
+	}
 
 	}
 
