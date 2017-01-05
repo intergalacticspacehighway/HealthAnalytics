@@ -10,6 +10,9 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.VO.HospitalVO;
+import com.spring.VO.SpecialityVO;
+
 @Repository
 public class HospitalDAO {
 
@@ -39,6 +42,7 @@ public class HospitalDAO {
 	    tr.commit();
 		session.close();
 	}
+<<<<<<< HEAD
 	public void updateIsactive(int id)
 	{
 		Session session = sessionFactory.openSession();
@@ -48,5 +52,15 @@ public class HospitalDAO {
 		query.setParameter("id",id);
 		query.executeUpdate();
 		session.close();
+=======
+	public List<HospitalVO> getRestHospital(String hospitalId) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from HospitalVO where hospitalId not in ("+hospitalId+")");
+		@SuppressWarnings("unchecked")
+		List<HospitalVO> list = query.list();
+		System.out.println(list);
+		session.close();
+		return list;
+>>>>>>> origin/master
 	}
 }

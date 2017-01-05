@@ -78,13 +78,13 @@
                         <div class="col-sm-12">
                             <div class="white-box">
                                 <h3 class="box-title">Basic Information</h3>
-                                <c:set value="${sessionScope.list }" var="i"></c:set>
+                                <c:set value="${sessionScope.list }" var="doctorList"></c:set>
                                 <form:form class="form-material form-horizontal" action="updateDoctor.html" method="post" modelAttribute="editDoctorSpeciality">
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-text">Doctor Name</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="doctorName" value="${i.get(0).doctor.doctorName }" path="doctor.doctorName" class="form-control" placeholder="Enter your name" required="required"/>
-                                             <form:input type="hidden" id="doctorName" value="${i.get(0).doctor.doctorId }" path="doctor.doctorId" class="form-control" placeholder="Enter your name" required="required"/>
+                                            <form:input type="text" id="doctorName" value="${doctorList.get(0).doctor.doctorName }" path="doctor.doctorName" class="form-control" placeholder="Enter your name" required="required"/>
+                                             <form:input type="hidden" id="doctorName" value="${doctorList.get(0).doctor.doctorId }" path="doctor.doctorId" class="form-control" placeholder="Enter your name" required="required"/>
                                         </div>
                                     </div>
                                     <div class="container,form-group">
@@ -94,12 +94,12 @@
 										
 												<select  id="specMenu" multiple="multiple" class="chosen-select" name="specMenu" required="required">
 													
-													 <c:forEach items="${i}" var="x">
+													 <c:forEach items="${doctorList}" var="x">
 													<option value="${x.speciality.specialityId}" selected="selected">${x.speciality.specialityName}</option>
 													</c:forEach>
 													<c:forEach items="${sessionScope.sList }" var="s">
 												<%-- 	<c:if test="${s.specialityId != x.speciality.specialityId }"> --%>
-													<option value="${s.specialityId}">${s.specialityName}</option>
+														<option value="${s.specialityId}">${s.specialityName}</option>
 													<%-- </c:if> --%>
 													
 													</c:forEach> 
@@ -111,26 +111,29 @@
 										</div>
 									</div>
 									<hr>
-													 <div class="container,form-group">
-										<div class="row">
+								<div class="container,form-group">
+									<div class="row">
 										<label class="col-sm-6">Select Clinic/Hospital</label>
 											<div class="col-md-6">
 												
 												<select  multiple="multiple" class="chosen-select" name="hospitalMenu" required="required">
 													
-													<c:forEach items="${sessionScope.hospitalList}" var="i">
-													<option value="${i.hospitalId}">${i.hospitalName}</option>
+													<c:forEach items="${sessionScope.doctorHospitalList}" var="d">
+													<option value="${d.hospital.hospitalId}" selected="selected">${d.hospital.hospitalName}</option>
+													</c:forEach>
+													<c:forEach items="${sessionScope.restHospitalList}" var="r">
+													<option value="${r.hospitalId}">${r.hospitalName}</option>
 													</c:forEach>
 												</select>  
-										</div>
-										</div>
+											</div>
 									</div>
+								</div>
 									<hr>
 									 <div class="form-group">
                                         <label class="col-sm-12">Gender</label>
                                         <div class="col-sm-12">
                                             <form:select class="form-control" path="doctor.doctorGender">
-                                                <option>${i.get(0).doctor.doctorGender}</option>
+                                                <option>${doctorList.get(0).doctor.doctorGender}</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
                                                 
@@ -140,7 +143,7 @@
  										<div class="form-group">
                                         <label class="col-md-12" for="bdate">Date of Birth</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="text" id="bdate" path="doctor.doctorDateOfBirth" value="${i.get(0).doctor.doctorDateOfBirth}" class="form-control mydatepicker" placeholder="enter your birth date"/>
+                                            <form:input type="text" id="bdate" path="doctor.doctorDateOfBirth" value="${doctorList.get(0).doctor.doctorDateOfBirth}" class="form-control mydatepicker" placeholder="enter your birth date"/>
                                         </div>
                                     </div>
 									
@@ -150,7 +153,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Description</label>
                                         <div class="col-md-12">
-                                            <form:input type="text" style="height:50px" class="form-control" value="${i.get(0).doctor.doctorDescription}"  path="doctor.doctorDescription" required="required"></form:input>
+                                            <form:input type="text" style="height:50px" class="form-control" value="${doctorList.get(0).doctor.doctorDescription}"  path="doctor.doctorDescription" required="required"></form:input>
                                         </div>
                                     </div>
                                     
@@ -158,13 +161,13 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-email">Email</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="email" id="doctorEmail" path="doctor.doctorEmail" value="${i.get(0).doctor.doctorEmail}" class="form-control" placeholder="enter your email" required="required"/>
+                                            <form:input type="email" id="doctorEmail" path="doctor.doctorEmail" value="${doctorList.get(0).doctor.doctorEmail}" class="form-control" placeholder="enter your email" required="required"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-12" for="example-phone">Phone</span></label>
                                         <div class="col-md-12">
-                                            <form:input type="number" value="${i.get(0).doctor.doctorPhone}" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" required="required"/>
+                                            <form:input type="number" value="${doctorList.get(0).doctor.doctorPhone}" id="doctorPhone" path="doctor.doctorPhone" class="form-control" placeholder="enter your phone" required="required"/>
                                         </div>
                                     </div>
                                    

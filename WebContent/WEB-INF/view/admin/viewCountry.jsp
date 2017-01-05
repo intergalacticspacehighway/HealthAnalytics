@@ -103,8 +103,11 @@
 										<td class = "active">
 
 										
+<<<<<<< HEAD
 										
 
+=======
+>>>>>>> origin/master
 										<c:if test="${i.isActive == 'Yes' }">
 										
 											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteCountry.html?id=${i.countryId}'">

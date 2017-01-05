@@ -48,4 +48,14 @@ public class DoctorSpecialityDAO {
 		session.close();
 		return list;
 	}
+
+	public void deleteDoctor(int doctorId) throws Exception {
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("delete from DoctorSpecialityVO where doctor.doctorId="+doctorId);
+		query.executeUpdate();
+		session.close();
+		
+	}
 }

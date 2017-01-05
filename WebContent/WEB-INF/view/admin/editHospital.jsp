@@ -191,7 +191,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12" for="cpwd">Confirm Password</span>&nbsp &nbsp<span id="verifyPassword"></span></label>
                                         <div class="col-md-12">
-                                            <form:input type="password" id="confirmPassword" path="hospital.hospitalPassword" class="form-control" placeholder="confirm your password" required="required"/>
+                                            <form:input type="password" id="confirmPassword" path="" class="form-control" placeholder="confirm your password" required="required"/>
                                         </div>
                                     </div>
                                     
