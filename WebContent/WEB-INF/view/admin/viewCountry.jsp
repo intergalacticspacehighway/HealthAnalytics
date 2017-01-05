@@ -104,8 +104,6 @@
 										<td>
 
 										
-										<button type="button" class="btn btn-success" onclick="window.location.href='change.html?id=${i.countryId}'">Change</button>
-
 										<c:if test="${i.isActive == 'Yes' }">
 										
 											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteCountry.html?id=${i.countryId}'">
