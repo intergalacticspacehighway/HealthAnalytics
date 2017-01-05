@@ -42,7 +42,7 @@ public class HospitalDAO {
 	    tr.commit();
 		session.close();
 	}
-<<<<<<< HEAD
+
 	public void updateIsactive(int id)
 	{
 		Session session = sessionFactory.openSession();
@@ -52,7 +52,8 @@ public class HospitalDAO {
 		query.setParameter("id",id);
 		query.executeUpdate();
 		session.close();
-=======
+	}
+
 	public List<HospitalVO> getRestHospital(String hospitalId) throws Exception {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("from HospitalVO where hospitalId not in ("+hospitalId+")");
@@ -61,6 +62,6 @@ public class HospitalDAO {
 		System.out.println(list);
 		session.close();
 		return list;
->>>>>>> origin/master
+
 	}
 }
