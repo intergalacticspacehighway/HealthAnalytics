@@ -10,7 +10,7 @@ public class MainController {
 	@RequestMapping(value="/index.html" , method=RequestMethod.GET)
 public String loadIndex()
 {
-		return("admin/index");
+		return("client/index");
 }
 	
 }
