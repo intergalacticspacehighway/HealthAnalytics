@@ -48,6 +48,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
                 <value>com.spring.VO.HospitalSpecialityVO</value>
                 <value>com.spring.VO.DoctorSpecialityVO</value>
                 <value>com.spring.VO.DoctorHospitalVO</value>
+                <value>com.spring.VO.AdminVO</value>
                 
                 <!-- <value>com.malhar.model.Login</value> -->
             </list>
