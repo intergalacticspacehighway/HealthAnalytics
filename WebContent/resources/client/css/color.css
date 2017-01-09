@@ -86,8 +86,8 @@ p a,
 .tg-userschedule ul li.current a,
 .tg-userschedule ul li.current a span,
 .tg-userschedule ul li.current a em,
-.tg-usercontactinfo .tg-doccontactinfo li:last-child a{color: #7dbb00;}
-.tg-doctor-detail2 .tg-findbycategory ul li a:hover{color: #7dbb00 !important;}
+.tg-usercontactinfo .tg-doccontactinfo li:last-child a{color: rgb(82, 146, 231);}
+.tg-doctor-detail2 .tg-findbycategory ul li a:hover{color: rgb(82, 146, 231) !important;}
 /* =============================================
 			Theme Background Color
 ============================================= */
@@ -156,7 +156,7 @@ p a,
 .tg-userrating li:hover label,
 .tg-radio input[type="radio"]:checked + label,
 .tg-userrating li:after
-{background:#7dbb00;}
+{background:rgb(82, 146, 231);}
 {background:rgba(125, 187, 0, 0.9);}
 .tg-featureverified li.tg-varified a{background:#10a64a;}
 
@@ -188,11 +188,12 @@ p a,
 .tg-radio input[type="radio"] + label,
 .tg-radio input[type="radio"]:checked + label,
 .tg-mapmarker figure
-{border-color: #7dbb00;}
+{border-color: rgb(82, 146, 231);
+z-index: 100000}
 .tg-map-marker .tg-docimg .tg-show,
 .tg-docimg .tg-uploadimg{border-bottom-color: #7dbb00;}
 .tg-login-logout li ul,
-.tg-nav ul{border-top-color: #7dbb00 !important;}
+.tg-nav ul{border-top-color: rgb(82, 146, 231) !important;}
 
 .tg-appointmenttime .tg-doctimeslot .tg-box,
 .tg-appointmenttime .tg-doctimeslot.tg-available .tg-box:hover{border-color: #7dbb00;}

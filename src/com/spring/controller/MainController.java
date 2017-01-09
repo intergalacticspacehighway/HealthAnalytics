@@ -12,5 +12,10 @@ public String loadIndex()
 {
 		return("client/index");
 }
+	@RequestMapping(value="/index2.html" , method=RequestMethod.GET)
+public String loadIndex2()
+{
+		return("admin/index");
+}
 	
 }

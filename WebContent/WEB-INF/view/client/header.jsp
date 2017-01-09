@@ -1,3 +1,6 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +15,7 @@
 <link rel="alternate" type="application/rss+xml"
 	title="DocDirect &raquo; Feed"
 	href="https://themographics.com/wordpress/docdirect/feed/" />
+	
 <link rel="alternate" type="application/rss+xml"
 	title="DocDirect &raquo; Comments Feed"
 	href="https://themographics.com/wordpress/docdirect/comments/feed/" />
@@ -25,6 +29,7 @@
 <link rel='stylesheet' id='bootstrap.min-css'
 	href='resources/client/css/bootstrap.min.css'
 	type='text/css' media='all' />
+<link href="resources/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 <link rel='stylesheet' id='fontawesome-css'
 	href='resources/client/css/font-awesome.min.css'
 	type='text/css' media='all' />
@@ -104,6 +109,7 @@
 	href="https://themographics.com/wordpress/docdirect/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml"
 	href="https://themographics.com/wordpress/docdirect/wp-includes/wlwmanifest.xml" />
+ <script src="resources/js/bootstrap-datepicker.min.js"></script>
 <meta name="generator" content="WordPress 4.7" />
 <link rel="canonical"
 	href="https://themographics.com/wordpress/docdirect/" />
@@ -115,6 +121,9 @@
 	href="https://themographics.com/wordpress/docdirect/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthemographics.com%2Fwordpress%2Fdocdirect%2F&#038;format=xml" />
 
 <style>
+a:hover{
+	color: #fff				
+}
 </style>
 
 </head>
@@ -126,7 +135,7 @@
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="tg-navigationarea">
-							<strong class="logo"> <argb(4, 123, 142)><img class="" src="download.jpe" alt="DocDirect"><Strong>Health </Strong>Analytics</a>
+							<strong class="logo"> <a style="color:#fff"><img class="" src="resources/images/title.jpe" alt="DocDirect"><Strong>Health </Strong>Analytics</a>
 			</strong>
 							<nav id="tg-nav" class="tg-nav">
 								<div class="navbar-header">
@@ -245,4 +254,5 @@
 					</div>
 				</div>
 			</div>
+			
 		</header>
