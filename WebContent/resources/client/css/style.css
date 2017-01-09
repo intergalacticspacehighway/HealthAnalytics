@@ -1351,7 +1351,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 .form-searchdoctors{
 	width: 100%;
 	float: left;
-	margin-top: -100px;
+	margin-top: -50px;
 	/*padding: 120px 0 120px 1px;*/
 }
 .form-searchdoctors .form-group{margin: 0;}

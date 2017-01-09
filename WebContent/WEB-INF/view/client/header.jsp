@@ -132,7 +132,7 @@ a:hover{
 <body class="home page-template-default page page-id-2 home  sample-page mec-home ">
 	
 	<div id="wrapper" class="tg-haslayout">
-		<header id="header" class="tg-haslayout tg-inner-header">
+		<header id="header" class="tg-haslayout tg-inner-header" style="z-index: 9999; position: fixed">
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12">
