@@ -4,7 +4,7 @@ box-radius: 10%;
 </style>
 <div style="margin: 0 auto; ">
 	<div style="margin: auto; width: 50%"  class="sc-contact-form">
-		<div class="tg-refinesearcharea contact_wrap" style="box-shadow: 0 2px 4px 1px rgba(0,0,0,0.25); background:#fff; margin-top: 50px;">
+		<div class="tg-refinesearcharea contact_wrap" style="box-shadow: 0 2px 4px 1px rgba(0,0,0,0.25); background:#fff; margin-top: 110px;">
 			<div class="tg-heading-border tg-small">
 				<h2>User | Registration</h2>
 			</div>
@@ -86,7 +86,7 @@ box-radius: 10%;
 		</div>
 	</div>
 </div>
-<jsp:include page="footer.jsp"></jsp:include>
+
 <script>
 
 $('.mydatepicker').datepicker();

@@ -134,7 +134,7 @@ a:hover{
 	<div id="wrapper" class="tg-haslayout">
 		<header id="header" class="tg-haslayout tg-inner-header" style="z-index: 9999; position: fixed">
 			<div class="container">
-				<div class="row">
+				<div class="row" style="margin-top: -10px">
 					<div class="col-xs-12">
 						<div class="tg-navigationarea">
 							<strong class="logo"> <a style="color:#fff"><Strong>Health </Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
