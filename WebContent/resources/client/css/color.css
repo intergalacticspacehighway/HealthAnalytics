@@ -189,6 +189,7 @@ p a,
 .tg-radio input[type="radio"]:checked + label,
 .tg-mapmarker figure
 {border-color: rgb(82, 146, 231);
+background: #fff;
 z-index: 100000}
 .tg-map-marker .tg-docimg .tg-show,
 .tg-docimg .tg-uploadimg{border-bottom-color: #7dbb00;}
