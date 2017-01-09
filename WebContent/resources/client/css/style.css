@@ -1016,7 +1016,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 			Header Style
 ============================================= */
 #header{
-	background-color: rgb(82, 146, 231);
+	background-color: #fff;
 }
 .logo {
 	float: left;
@@ -1055,7 +1055,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	height: 14px;
 	margin: -7px 0 0;
 	position: absolute;
-	background: #5d5955;
+	/* background: #5d5955; */
 	
 }
 .tg-nav ul li span{display: none;}
@@ -1063,7 +1063,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 .tg-nav #tg-navigation > ul > li:last-child:after{display: none;}
 .tg-nav ul li a{
 	display: block;
-	color: #fff;
+	/* color: #fff; */
 	line-height: inherit;
 }
 .tg-nav ul li:last-child a i:first-child{display: block;}
@@ -1143,7 +1143,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	float:left;
 	font-size:14px;
 	line-height:20px;
-	color: #fff;
+	/* color: #fff; */
 	text-transform:uppercase;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	position:relative;
@@ -1963,6 +1963,7 @@ body.tg-comming-soon #main{
 .tg-inner-header .tg-navigationarea{
 	width: 100%;
 	float: left;
+	height: 100px;
 	border-bottom: 1px solid #ddd;
 	text-align: right;
 }

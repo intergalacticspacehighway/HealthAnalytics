@@ -135,7 +135,7 @@ a:hover{
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="tg-navigationarea">
-							<strong class="logo"> <a style="color:#fff"><img class="" src="resources/images/title.jpe" alt="DocDirect"><Strong>Health </Strong>Analytics</a>
+							<strong class="logo"> <a style="color:#fff"><Strong>Health </Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
 			</strong>
 							<nav id="tg-nav" class="tg-nav">
 								<div class="navbar-header">
