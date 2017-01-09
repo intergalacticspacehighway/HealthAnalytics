@@ -88,7 +88,6 @@ box-radius: 10%;
 </div>
 <jsp:include page="footer.jsp"></jsp:include>
 <script>
-$("#header").css("background-color", "#5292e7")
-$("a").css("color", "#11111")
+
 $('.mydatepicker').datepicker();
 </script>

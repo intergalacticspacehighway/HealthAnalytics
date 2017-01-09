@@ -7,7 +7,9 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback"
 	href="https://themographics.com/wordpress/docdirect/xmlrpc.php">
-<title>DocDirect &#8211; Medical Directory</title>
+<link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
+  
+<title>Health Analytics</title>
 <meta name='robots' content='noindex,follow' />
 <link rel='dns-prefetch' href='//www.google.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
