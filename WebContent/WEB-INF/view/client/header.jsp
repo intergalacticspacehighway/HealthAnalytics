@@ -243,12 +243,19 @@ a:hover{
 							</nav>
 							<div class="doc-menu">
 								<ul class="tg-login-logout">
+									<!-- 
 									<li class="session-user-info"><a href="javascript:;"
-										data-toggle="modal" data-target=".tg-user-modal"><span
-											class="s-user">Login/Register</span><img alt="Login"
+										data-toggle="modal" data-target=".tg-user-modal"> -->
+										<form action="logout" method="post">
+										<input type="submit" value="logout"/>
+										<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
+										<!-- 
+										<span
+											class="s-user">Logout</span><img alt="Login"
 											src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
 										<span><a href="javascript:;" data-toggle="modal"
-											data-target=".tg-user-modal"></a></span></li>
+											data-target=".tg-user-modal"></a></span></li> -->
+									</form>
 								</ul>
 							</div>
 

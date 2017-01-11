@@ -10,12 +10,17 @@ public class MainController {
 	@RequestMapping(value="/index.html" , method=RequestMethod.GET)
 public String loadIndex()
 {
-		return("client/index");
+		return("client/home");
 }
-	@RequestMapping(value="/index2.html" , method=RequestMethod.GET)
+	@RequestMapping(value="/admin.html" , method=RequestMethod.GET)
 public String loadIndex2()
 {
 		return("admin/index");
+}
+	@RequestMapping(value="/authorize.html" , method=RequestMethod.GET)
+public String authorize()
+{
+		return("client/home");
 }
 	
 }
