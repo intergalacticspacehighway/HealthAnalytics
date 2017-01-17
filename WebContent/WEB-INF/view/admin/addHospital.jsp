@@ -89,18 +89,7 @@
 										<div class="row">
 										<label class="col-sm-6">Speciality</label>
 											<div class="col-md-6">
-												<%-- <form:select  multiple="true" class="hosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select> --%>
-											 <%-- <form:select  multiple="multiple" class="chosen-select" path="speciality.specialityId" required="required">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</form:select>  --%>
+										
 												<select  multiple="multiple" class="chosen-select" id="specMenu" name="specMenu" required="required">
 													
 													<c:forEach items="${sessionScope.slist}" var="i">
@@ -301,8 +290,9 @@
                     <!-- /.right-sidebar -->
                 </div>
                 <!-- /.container-fluid -->
-                <footer class="footer text-center"> 2016 &copy; Elite Admin brought to you by themedesigner.in </footer>
-            </div>
+                <jsp:include page="footer.jsp"></jsp:include>
+                
+                </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->

@@ -149,8 +149,9 @@
                  
                 </div>
                 <!-- /.container-fluid -->
-                <footer class="footer text-center"> 2016 &copy; </footer>
-            </div>
+             <jsp:include page="footer.jsp"></jsp:include>
+             
+             </div>
             <!-- /#page-wrapper -->
         </div>
         <!-- /#wrapper -->

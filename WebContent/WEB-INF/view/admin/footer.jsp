@@ -1,1 +1,1 @@
- <footer class="footer text-center"> 2016 &copy; E </footer>
+ <footer class="footer text-center"> 2016 &copy; Health Analytics </footer>

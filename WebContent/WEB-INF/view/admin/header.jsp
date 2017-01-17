@@ -4,10 +4,9 @@
 		<a class="navbar-toggle hidden-sm hidden-md hidden-lg "
 			href="javascript:void(0)" data-toggle="collapse"
 			data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-		<div class="top-left-part">
-			<a class="logo" href="/health"><b><img style= "width :100px;height:70px;position:relative;top:-3px;left:-10px;"
-					src="https://s30.postimg.org/x7idrakvl/h_logo.png" alt="home" /></b><span
-				class="hidden-xs"><strong>ealth</strong><span style="color:#ff5698;"><strong style="font-size: 25px; position:relative;top:2px">A</strong></span>nalytics</span></a>
+		<div class="top-left-part" style="margin-top: 15px">&nbsp &nbsp
+			<a class="logo" href="/health"><span
+				class="hidden-xs"><strong>Health</strong><span style="color:#000;">&nbsp<strong>Analytics</strong></a>
 		
 		</div>
 		<ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -88,7 +87,7 @@
 			
 			<!-- /.dropdown -->
 			<li class="dropdown"><a class="dropdown-toggle profile-pic"
-				data-toggle="dropdown" href="#"> <b class="hidden-xs">Admin Name</b>
+				data-toggle="dropdown" href="#"> <b class="hidden-xs">Admin</b>
 			</a>
 				<ul class="dropdown-menu dropdown-user animated flipInY">
 					<li><a href="javascript:void(0)"><i class="ti-user"></i>

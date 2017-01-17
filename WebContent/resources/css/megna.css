@@ -53,7 +53,7 @@ body {
   color: #ffffff;
 }
 .navbar-header {
-  background: #01c0c8;
+  background: rgb(82, 146, 231);
 }
 .navbar-top-links > li > a {
   color: #ffffff;
@@ -64,7 +64,7 @@ body {
 }
 /*Bread Crumb*/
 .bg-title .breadcrumb .active {
-  color: #01c0c8;
+  color: rgb(82, 146, 231);
 }
 /*Sidebar*/
 .sidebar {

@@ -1,5 +1,5 @@
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<c:url value="/login" var="loginProcessingUrl"></c:url>
+
 <div style="margin: 0 auto;">
 	<div style="margin: auto; width: 50%" class="sc-contact-form">
 		<div class="tg-refinesearcharea contact_wrap"
@@ -10,17 +10,7 @@
 
 			<form action="authorize.html" method="post"
 				class="form-refinesearch tg-haslayout contact_form">
-				<c:if test="${param.error != null }">
-					<div class="message_contact theme-notification"></div>
-					
-						<c:if test="${SPRING_SECURITY_LAST_EXCEPTION != null }">
-					Reason: <c:out value="${ SPRING_SECURITY_LAST_EXCEPTION.message}"></c:out>
-						</c:if>
-					
-				</c:if>
-				<c:if test="${param.logout!=null }">
-					<div>You have been logout</div>
-				</c:if>
+			<input type="hidden" value="login" name="flag"/>
 				<div class="row form-group">
 					<label class="col-md-12" for="username">Username</label>
 					<div class="col-md-6">
@@ -48,7 +38,6 @@
 	
 				</div>
 				<div class="row col-sm-12">
-					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
 					<button type="submit" class="tg-btn contact_now">Login</button>
 		
 				</div>
