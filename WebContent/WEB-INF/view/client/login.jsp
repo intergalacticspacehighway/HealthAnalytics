@@ -8,7 +8,7 @@
 				<h2>User | Login</h2>
 			</div>
 
-			<form action="authorize.html" method="post"
+			<form action="index.html" method="get"
 				class="form-refinesearch tg-haslayout contact_form">
 			<input type="hidden" value="login" name="flag"/>
 				<div class="row form-group">
