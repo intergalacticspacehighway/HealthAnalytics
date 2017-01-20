@@ -39,7 +39,7 @@ License URI:
 body {
   width:100%;
   float:left;
-	color: #5d5955;
+	color: #fff;
 	/* background: #fff; */
 	/*height: 100%;
   position: relative;*/
@@ -319,7 +319,7 @@ address { font-style: italic; }
 .tg-btn-invoices,
 .tg-btn{
 	border: 2px solid;
-	color: #5d5955;
+	color:#ff8001;
 	padding: 0 35px;
 	text-align:center;
 	display: inline-block;
@@ -401,6 +401,9 @@ input[type="submit"].tg-btn{background: none;}
 	display:inline-block;
 	vertical-align:top;
 	overflow:hidden;
+}
+button.tg-btn.tg-btn-lg.do-login-button {
+    margin-top: 17px;
 }
 .tg-socialicon li a{
 	width:30px;
@@ -929,9 +932,9 @@ input[type="submit"].tg-btn{background: none;}
 .tg-modal-content{
 	top: 10%;
 	left: 50%;
-	width: 430px;
+	width: 350px;
 	position: absolute;
-	margin: 0 0 0 -215px;
+	margin: 100px 0 0 -215px;
 }
 .tg-modaltabs-nav{
 	width: 100%;

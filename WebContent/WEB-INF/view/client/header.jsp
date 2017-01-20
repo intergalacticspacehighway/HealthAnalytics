@@ -28,6 +28,7 @@
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/themographics.com\/wordpress\/docdirect\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7"}};
 			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
+		<link rel="stylesheet" href="resources/client/css/themestyle.css">
 <link rel='stylesheet' id='bootstrap.min-css'
 	href='resources/client/css/bootstrap.min.css'
 	type='text/css' media='all' />
@@ -153,21 +154,8 @@ a:hover{
 									<ul id="menu-main-menu" class="">
 										<li id="menu-item-654"
 											class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654"><a
-											href="#">Home</a>
-											<ul class="">
-												<li id="menu-item-14"
-													class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-14"><a
-													href="https://themographics.com/wordpress/docdirect/">Home
-														1</a></li>
-												<li id="menu-item-151"
-													class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a
-													href="https://themographics.com/wordpress/docdirect/home-2/">Home
-														2</a></li>
-												<li id="menu-item-639"
-													class="menu-item menu-item-type-post_type menu-item-object-page menu-item-639"><a
-													href="https://themographics.com/wordpress/docdirect/home-3/">Home
-														3</a></li>
-											</ul></li>
+											href="home.html">Home</a>
+											</li>
 										<li id="menu-item-333"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-333"><a
 											href="#">Categories</a>
@@ -199,11 +187,11 @@ a:hover{
 											<ul class="">
 												<li id="menu-item-341"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?view=list">List
+													href="listview.html">List
 														View</a></li>
 												<li id="menu-item-342"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?view=grid">Grid
+													href="gridview.html">Grid
 														View</a></li>
 												<li id="menu-item-343"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343"><a
@@ -220,15 +208,15 @@ a:hover{
 											<ul class="">
 												<li id="menu-item-220"
 													class="menu-item menu-item-type-post_type menu-item-object-page menu-item-220"><a
-													href="https://themographics.com/wordpress/docdirect/blog-list/">Blog
+													href="bloglist.html">Blog
 														List</a></li>
 												<li id="menu-item-219"
 													class="menu-item menu-item-type-post_type menu-item-object-page menu-item-219"><a
-													href="https://themographics.com/wordpress/docdirect/blog-grid/">Blog
+													href="bloggrid.html">Blog
 														Grid</a></li>
 												<li id="menu-item-224"
 													class="menu-item menu-item-type-post_type menu-item-object-post menu-item-224"><a
-													href="https://themographics.com/wordpress/docdirect/family-clinic/">Detail
+													href="blogdetail.html">Detail
 														Blog</a></li>
 											</ul></li>
 										<li id="menu-item-21"
@@ -236,30 +224,21 @@ a:hover{
 											href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li>
 										<li id="menu-item-20"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a
-											href="https://themographics.com/wordpress/docdirect/contact-us/">Contact
+											href="contactus.html">Contact
 												Us</a></li>
 									</ul>
 								</div>
 							</nav>
 							<div class="doc-menu">
-								<ul class="tg-login-logout">
-									<!-- 
-									<li class="session-user-info"><a href="javascript:;"
-										data-toggle="modal" data-target=".tg-user-modal"> -->
-										<form action="logout" method="post">
-										<input type="submit" value="logout"/>
-										<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"/>
-										<!-- 
-										<span
-											class="s-user">Logout</span><img alt="Login"
-											src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
-										<span><a href="javascript:;" data-toggle="modal"
-											data-target=".tg-user-modal"></a></span></li> -->
-									</form>
-								</ul>
-							</div>
-
-						</div>
+											<ul class="tg-login-logout">
+				                    <li class="session-user-info">
+                        <a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"><span class="s-user">Login/Register</span><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
+                        <span><a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"></a></span>
+                     </li>
+							</ul>
+			                            </div>
+                            
+                        </div>
 					</div>
 				</div>
 			</div>
