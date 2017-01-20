@@ -30,7 +30,7 @@ public class LoginVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	private String userName;
+	public String userName;
 	private String userType;
 	public String getUserType() {
 		return userType;
@@ -38,6 +38,6 @@ public class LoginVO {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-	private String password;
+	public String password;
 	
 }

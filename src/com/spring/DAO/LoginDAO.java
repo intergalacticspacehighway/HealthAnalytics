@@ -13,15 +13,5 @@ import org.springframework.stereotype.Repository;
 public class LoginDAO {
 	@Autowired
 	SessionFactory sessionFactory;
-	public List<Object> authentication(String username, String password){
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from LoginVO where userName='"+username+"' and"
-				+ " password = '"+password+"' ");
-		@SuppressWarnings("unchecked")
 	
-		List<Object> list = query.list();
-		System.out.println(list);
-		session.close();
-		return list;
-	}
 }
