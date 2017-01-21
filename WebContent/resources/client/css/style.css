@@ -319,7 +319,7 @@ address { font-style: italic; }
 .tg-btn-invoices,
 .tg-btn{
 	border: 2px solid;
-	color:#ff8001;
+	color:rgb(82, 146, 231);
 	padding: 0 35px;
 	text-align:center;
 	display: inline-block;
@@ -5577,7 +5577,7 @@ input#location-address{
 	font-size:20px;
 }
 .catagories-types .tg-packages a:hover i,
-.catagories-types .tg-packages a:hover {color:#fff;}
+.catagories-types .tg-packages a:hover {color:rgb(82, 146, 231);}
 .tg-buynowbox h3{float:left;}
 .tg-buynowbox .tg-btn{float:right;}
 .tg-share-icons{

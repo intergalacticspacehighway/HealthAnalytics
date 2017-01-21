@@ -102,7 +102,7 @@
 										<td class="jqueryCheck2">${i.stateName}</td>
 										<td><a href ="editState.html?id=${i.stateId}">Edit</a></td>
 										<td>
-										<c:if test="${i.isActive == 'Yes' }">
+										<c:if test="${i.isActive.toLowerCase() == 'yes' }">
 										
 											<input type="checkbox" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger" onchange="window.location.href='deleteState.html?id=${i.stateId}'">
 			

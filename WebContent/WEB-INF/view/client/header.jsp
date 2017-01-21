@@ -162,26 +162,26 @@ a:hover{
 											<ul class="">
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=doctor">Doctors</a></li>
+													href="#">Doctors</a></li>
 												<li id="menu-item-339"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-339"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=hospital">Hospitals</a></li>
+													href="#">Hospitals</a></li>
 												<li id="menu-item-338"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-338"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=clinic">Clinics</a></li>
+													href="#">Clinics</a></li>
 												<li id="menu-item-337"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-337"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=pharmacy">Pharmacies</a></li>
+													href="#">Pharmacies</a></li>
 												<li id="menu-item-523"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-523"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=blood-bank">Blood
+													href="#">Blood
 														Banks</a></li>
 												<li id="menu-item-335"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-335"><a
-													href="//themographics.com/wordpress/docdirect/dir-search/?directory_type=fitness-center">Fitness
+													href="#">Fitness
 														Centers</a></li>
 											</ul></li>
-										<li id="menu-item-340"
+										<!-- <li id="menu-item-340"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-340"><a
 											href="#">Listing</a>
 											<ul class="">
@@ -201,7 +201,7 @@ a:hover{
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-344"><a
 													href="//themographics.com/wordpress/docdirect/dir-search/?view=list-left">List
 														With Left Map</a></li>
-											</ul></li>
+											</ul></li> -->
 										<li id="menu-item-13"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13"><a
 											href="#">Blogs</a>
@@ -219,12 +219,12 @@ a:hover{
 													href="blogdetail.html">Detail
 														Blog</a></li>
 											</ul></li>
-										<li id="menu-item-21"
+									<!-- 	<li id="menu-item-21"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a
-											href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li>
+											href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li> -->
 										<li id="menu-item-20"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a
-											href="contactus.html">Contact
+											href="#">Contact
 												Us</a></li>
 									</ul>
 								</div>

@@ -400,15 +400,15 @@
 							class="col-xs-12 col-md-6 builder-column col-sm-12 col-lg-6  pull-left">
 
 							<figure class="frame-img">
-								<img
+								<!-- <img
 									src="//themographics.com/wordpress/docdirect/wp-content/uploads/2016/03/img-01.png"
-									alt="Image Frame" />
+									alt="Image Frame" /> -->
 							</figure>
 						</div>
 					</div>
 				</section>
 				<div class="section-current-width"></div>
-				<section class="tg-main-section haslayout  default"
+				<!-- <section class="tg-main-section haslayout  default"
 					style="padding-bottom: 0px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;">
 					<div class="builder-items">
 						<div class="col-xs-12 col-md-6 builder-column ">
@@ -451,7 +451,7 @@
 							</figure>
 						</div>
 					</div>
-				</section>
+				</section> -->
 				<section class="tg-main-section haslayout  stretch_section"
 					data-speed="0.5" data-bleed="0" data-appear-top-offset="600"
 					data-parallax="scroll" data-position="center 0"
@@ -684,7 +684,7 @@
 						</div>
 					</div>
 				</section>
-				<section class="tg-main-section haslayout  stretch_section"
+				<!-- <section class="tg-main-section haslayout  stretch_section"
 					style="background-image: url(https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/08/bgparallax-03.jpg); padding-top: 50px; padding-bottom: 50px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;">
 					<div class="builder-items">
 						<div class="col-xs-12 col-md-12 builder-column ">
@@ -698,19 +698,19 @@
 				</section>
 				<div class="section-current-width"></div>
 				<section class="tg-main-section haslayout  default"
-					style="padding-bottom: 0px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;">
-					<div class="builder-items">
+					style="padding-bottom: 0px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;"> -->
+					<!-- <div class="builder-items">
 						<div class="col-xs-12 col-md-12 builder-column ">
 							<div class="sc-teams-grid">
 								<div class="tg-team-members">
 									<div class="col-sm-10 col-sm-offset-1 col-xs-12">
 										<div class="tg-section-head">
 											<div class="tg-theme-heading">
-												<h2>TEAM BEHIND DOCDIRECT</h2>
+												<h2>TEAM BEHIND HEALTHANALITICS</h2>
 												<span class="tg-roundbox"></span>
 											</div>
 											<div class="tg-description">
-												<p>In just three simple steps, DocDirect will help you
+												<p>In just three simple steps, HealthAnalytics will help you
 													find your nearest healthcare setting without having to
 													signup. We aim to facilitate you in finding your right
 													doctor with just three clicks without having to ask around
@@ -799,7 +799,8 @@
 															<li class="tg-facebook"><a
 																style="background: #cb2027" href="#"><i
 																	class="fa fa-google-plus"></i></a></li>
-														</ul>
+														</ul>the
+														
 													</figcaption>
 												</figure>
 												<div class="tg-contentbox">
@@ -813,7 +814,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</section>
 			</div>
 		</div>
