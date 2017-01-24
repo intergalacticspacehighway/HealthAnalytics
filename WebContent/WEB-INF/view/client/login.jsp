@@ -8,8 +8,8 @@
 				<h2>User | Login</h2>
 			</div>
 
-			<form action="index.html" method="get"
-				class="form-refinesearch tg-haslayout contact_form">
+			<form action="j_spring_security_check" method="post"
+				class="form-refinesearch tg-haslayout contact_form" name="form">
 			<input type="hidden" value="login" name="flag"/>
 				<div class="row form-group">
 					<label class="col-md-12" for="username">Username</label>
@@ -29,6 +29,8 @@
 							style="height: 40px" class="form-control" />
 					</div>
 				</div>
+				<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
 				<div class="row col-sm-12">
 					<label class="col-md-12" for="remember-me ">Remember Me</label>
 					<div class="col-md-6">

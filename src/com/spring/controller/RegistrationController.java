@@ -18,6 +18,8 @@ public class RegistrationController {
 
 	@Autowired	
 	private InsertDAO insert;
+	
+	
 	@RequestMapping(value="/registration.html" , method=RequestMethod.GET)
 	public ModelAndView loadRegistration()
 	{	
@@ -31,9 +33,10 @@ public class RegistrationController {
 			@Param String password, @Param String userType,@Param String gender) throws Exception
 	{	
 		LoginVO login = new LoginVO();
-		login.setUserName(userName);
+		login.setUsername(userName);
 		login.setPassword(password);
-		login.setUserType(userType);
+		login.setRole("ROLE_USER");
+		login.setEnabled(1);
 		insert.insertObject(login);
 		insertUser.setLogin(login);
 		insertUser.setGender(gender);

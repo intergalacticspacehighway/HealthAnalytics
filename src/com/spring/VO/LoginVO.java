@@ -1,10 +1,12 @@
 package com.spring.VO;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.ws.rs.DefaultValue;
 
 @Entity
 @Table(name="login")
@@ -12,32 +14,57 @@ public class LoginVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int loginId;
+	@Column
+	private String username;
+	@Column
+	private String password;
+	@Column
+private String role;
+	
+	@Column
+private int enabled;
+
 	public int getLoginId() {
 		return loginId;
 	}
+
 	public void setLoginId(int loginId) {
 		this.loginId = loginId;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String userName;
-	private String userType;
-	public String getUserType() {
-		return userType;
+
+	public String getRole() {
+		return role;
 	}
-	public void setUserType(String userType) {
-		this.userType = userType;
+
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public String password;
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+
+		
+	
 	
 }
