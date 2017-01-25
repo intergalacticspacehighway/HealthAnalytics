@@ -1,57 +1,45 @@
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<jsp:include page="header.jsp"></jsp:include>
+<div class="abcd">
+		
+		<div class="contact">
 
-<div style="margin: 0 auto;">
-	<div style="margin: auto; width: 50%" class="sc-contact-form">
-		<div class="tg-refinesearcharea contact_wrap"
-			style="box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.25); background: #fff; margin-top: 110px;">
-			<div class="tg-heading-border tg-small">
-				<h2>User | Login</h2>
+			<div class="right-w3">
+				<h2 style="color:#5292e7;text-transform: capitalize">Health</h2>
+				<h2 style="margin-left: -250px;text-transform: capitalize;">Analytics</h2>
+                
 			</div>
-
-			<form action="j_spring_security_check" method="post"
-				class="form-refinesearch tg-haslayout contact_form" name="form">
+			<form action="j_spring_security_check" method="post" name="form">
 			<input type="hidden" value="login" name="flag"/>
-				<div class="row form-group">
-					<label class="col-md-12" for="username">Username</label>
-					<div class="col-md-6">
-						<input type="text" name="username" id="username"
-							style="height: 40px" class="form-control" />
+
+				<div class="left">
+					<div class="name">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<input type="text" name="username" class="username" placeholder="Your Username" required="">
 					</div>
-
-				</div>
-			
-
-
-				<div class="row form-group">
-					<label class="col-md-12" for="password">Password</label>
-					<div class="col-md-6">
-						<input type="text" id="password" name="password"
-							style="height: 40px" class="form-control" />
+					<div class="password">
+						<i class="fa fa-envelope" aria-hidden="true"></i>
+						<input type="password" name="password" class="password" placeholder="Your password" required="">
+					</div><br>
+					<div class="group">
+						<input id="check" type="checkbox" class="check" checked="">
+						<label for="check"><span class="icon"></span> <font style="color:#5292e7">Keep me
+							Signed in</font></label>
+							<a href="" style="padding-left:130px;color:#5292e7">Forgot Password?</a>
+					</div><br>
+					<div class="col-sm-12">
+						<button type="submit" style="width: 100%"
+							class="tg-btn contact_now">Sign in</button>
 					</div>
+					<a href="registration.html" style="padding-left:100px;color:#5292e7">Not a member yet? Sign up now!</a>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-				<div class="row col-sm-12">
-					<label class="col-md-12" for="remember-me ">Remember Me</label>
-					<div class="col-md-6">
-						<input type="checkbox" id="remember-me" name="remember-me"
-							style="height: 40px" class="form-control" />
-					</div>
-	
-				</div>
-				<div class="row col-sm-12">
-					<button type="submit" class="tg-btn contact_now">Login</button>
-		
-				</div>
-		
+			value="${_csrf.token}" />		
 			</form>
+			
 		</div>
+		<!---728x90--->
 		
-
+		<!---728x90--->
 	</div>
-</div>
-
-
-
-
-
+	
+	 

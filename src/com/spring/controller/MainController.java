@@ -18,11 +18,7 @@ public String loadIndex2()
 {
 		return("admin/index");
 }
-	@RequestMapping(value="/authorize.html" , method=RequestMethod.GET)
-public String authorize()
-{
-		return("client/home");
-}
+	
 	@RequestMapping(value="/listview.html" , method=RequestMethod.GET)
 public String loadlistview()
 	{
