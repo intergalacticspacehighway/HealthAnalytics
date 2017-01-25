@@ -233,8 +233,8 @@ a:hover{
 							<div class="doc-menu">
 											<ul class="tg-login-logout">
 				                    <li class="session-user-info">
-                        <a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"><span class="s-user">Login/Register</span><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
-                        <span><a href="javascript:;" data-toggle="modal" data-target=".tg-user-modal"></a></span>
+                        <a href="login.html">Sign in/Register</a><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
+                       
                      </li>
 							</ul>
 			                            </div>
