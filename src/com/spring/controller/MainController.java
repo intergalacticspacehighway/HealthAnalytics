@@ -1,6 +1,9 @@
 package com.spring.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -50,8 +53,11 @@ public String loadlistview()
 			return("client/blogdetail");
 	}
 	@RequestMapping(value="/home.html" , method=RequestMethod.GET)
-	public String loadhome()
-	{
+	public String loadhome(ModelMap model)
+	{		
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			String name = auth.getName(); 
+			model.addAttribute("username", name);
 			return("client/home");
 	}
 }

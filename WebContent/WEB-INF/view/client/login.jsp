@@ -1,4 +1,7 @@
 <jsp:include page="header.jsp"></jsp:include>
+<script>
+$("#loginHeader").hide();
+</script>
 <div class="abcd">
 		
 		<div class="contact">
@@ -21,7 +24,7 @@
 						<input type="password" name="password" class="password" placeholder="Your password" required="">
 					</div><br>
 					<div class="group">
-						<input id="check" type="checkbox" class="check" checked="">
+						<input id="check" name="remember-me" type="checkbox" class="check" checked="">
 						<label for="check"><span class="icon"></span> <font style="color:#5292e7">Keep me
 							Signed in</font></label>
 							<a href="" style="padding-left:130px;color:#5292e7">Forgot Password?</a>
@@ -33,7 +36,7 @@
 					<a href="registration.html" style="padding-left:100px;color:#5292e7">Not a member yet? Sign up now!</a>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />		
+			value="${_csrf.token}" />	
 			</form>
 			
 		</div>
@@ -41,5 +44,13 @@
 		
 		<!---728x90--->
 	</div>
+
+	<script>
+		$(".username").focus();
+	
+	
+	</script>
+	</body>
+	</html>
 	
 	 

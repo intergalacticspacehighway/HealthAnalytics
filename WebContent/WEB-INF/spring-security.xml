@@ -16,13 +16,15 @@
 		    login-page="/login.html" 
 		    default-target-url="/home.html"
 		    login-processing-url="/j_spring_security_check"
-			authentication-failure-url="/login.html?error" 
+			authentication-failure-url="/login.html?error=1" 
 			username-parameter="username"
 			password-parameter="password" 
 			authentication-success-handler-ref="Handler"
 			always-use-default-target="true"  />
- 		<logout logout-success-url="/" logout-url="/j_spring_security_logout" /> 
- 		<csrf/> 
+ 		<logout logout-success-url="/" logout-url="/j_spring_security_logout" delete-cookies="JSESSIONID"/> 
+ 		<csrf/>
+ 		<remember-me token-validity-seconds="1209600"
+			remember-me-parameter="remember-me" data-source-ref="dataSource" /> 
  </http>
   <authentication-manager>
          <!--    <authentication-provider>

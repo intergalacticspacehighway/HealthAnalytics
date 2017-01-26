@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -24,6 +24,7 @@
 <link rel="alternate" type="application/rss+xml"
 	title="DocDirect &raquo; Home Comments Feed"
 	href="https://themographics.com/wordpress/docdirect/sample-page/feed/" />
+<script type="text/javascript" src="resources/js/jquery.min.js">
 <script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/themographics.com\/wordpress\/docdirect\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7"}};
 			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -233,8 +234,37 @@ a:hover{
 							<div class="doc-menu">
 											<ul class="tg-login-logout">
 				                    <li class="session-user-info">
-                        <a href="login.html">Sign in/Register</a><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
-                       
+				                  
+				                  <c:choose>
+				                  	<c:when test="${not empty username}">
+				                  		 <a href="login.html"> <c:out value="${username }"></c:out></a>
+				                  		 <ul class="">
+												<li id="menu-item-334"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
+													href="#">Profile</a></li>
+												<li id="menu-item-339"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-339">
+													<form action="j_spring_security_logout" method="post" name="form">
+														<input style="margin-left: 0px; margin-top: 0px; background-color: rgb(82, 146, 231)" type="submit" value="Sign out">
+														<input type="hidden" name="${_csrf.parameterName}"
+														value="${_csrf.token}" />	
+														
+													
+													</form>	
+													
+												</li>
+												
+										</ul>
+				                  	
+				                  	</c:when>
+				                  <c:otherwise>
+				                
+				                  	  <a  id="loginHeader" href="login.html">Sign in/Register</a><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
+                      			  </c:otherwise>
+				                  
+				                  
+				                  </c:choose>  
+				                   
                      </li>
 							</ul>
 			                            </div>
