@@ -20,6 +20,7 @@ import com.spring.VO.CityVO;
 import com.spring.VO.StateVO;
 
 @Controller
+@RequestMapping("/admin")
 public class CityController {
 	@Autowired
 	CityDAO city;
