@@ -1321,6 +1321,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	vertical-align: middle;
 }
 .tg-tabs-nav li label i{
+	color: rgb(82, 146, 231);
 	font-size: 30px;
 	line-height: 32px;
 	padding: 0 15px 0 0;

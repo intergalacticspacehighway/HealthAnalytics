@@ -242,6 +242,10 @@ a:hover{
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
 													href="#">Profile</a></li>
+												<li id="menu-item-334"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
+													href="#">Profile Settings</a></li>
+												
 												<li id="menu-item-339"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-339">
 													<form action="j_spring_security_logout" method="post" name="form">

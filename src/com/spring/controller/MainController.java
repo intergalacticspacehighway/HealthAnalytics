@@ -1,5 +1,10 @@
 package com.spring.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -7,14 +12,28 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sun.jersey.api.core.HttpResponseContext;
+
 @Controller
 public class MainController {
 
 	@RequestMapping(value="/index.html" , method=RequestMethod.GET)
-public String loadIndex()
-{
-		return("client/home");
+public String loadIndex(HttpServletResponse response ) throws IOException
+{		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		List name = (List) auth.getAuthorities();
+		System.out.println(name);
+		if(name.get(0).toString().equals("ROLE_USER")){
+			System.out.println(name);
+			response.sendRedirect("home.html");
+			return null;
+		}
+		else if(name.get(0).toString().equals("ROLE_ADMIN")	){
+			response.sendRedirect("admin.html");
+			return null;
+		}
 	
+		return("client/home");
 }
 	@RequestMapping(value="/admin.html" , method=RequestMethod.GET)
 public String loadIndex2()

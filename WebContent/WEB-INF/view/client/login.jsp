@@ -11,7 +11,9 @@ $("#loginHeader").hide();
 				<h2 style="margin-left: -250px;text-transform: capitalize;">Analytics</h2>
                 
 			</div>
+		
 			<form action="j_spring_security_check" method="post" name="form">
+			
 			<input type="hidden" value="login" name="flag"/>
 
 				<div class="left">
@@ -24,9 +26,9 @@ $("#loginHeader").hide();
 						<input type="password" name="password" class="password" placeholder="Your password" required="">
 					</div><br>
 					<div class="group">
-						<input id="check" name="remember-me" type="checkbox" class="check" checked="">
+						<!-- <input id="check" name="remember-me" type="checkbox" class="check" checked="">
 						<label for="check"><span class="icon"></span> <font style="color:#5292e7">Keep me
-							Signed in</font></label>
+							Signed in</font></label> -->
 							<a href="" style="padding-left:130px;color:#5292e7">Forgot Password?</a>
 					</div><br>
 					<div class="col-sm-12">
