@@ -241,7 +241,7 @@ a:hover{
 				                  		 <ul class="">
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="${username}/profile.html">Profile</a></li>
+													href="#">Profile</a></li>
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
 													href="#">Profile Settings</a></li>

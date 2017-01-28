@@ -22,7 +22,6 @@ import com.spring.VO.HospitalVO;
 import com.spring.VO.SpecialityVO;
 
 @Controller
-@RequestMapping("/admin")
 public class HospitalController {
 
 	@Autowired
@@ -83,7 +82,7 @@ public class HospitalController {
 
 	}
 
-	@RequestMapping("/addHospital.html")
+	@RequestMapping(value = "/addHospital.html", method = RequestMethod.GET)
 	public ModelAndView addHospital(HttpSession session) throws Exception {
 		List<Object> list = this.country.getCountry();
 		session.setAttribute("list", list);
