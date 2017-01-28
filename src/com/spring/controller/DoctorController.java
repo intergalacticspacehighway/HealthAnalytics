@@ -26,6 +26,7 @@ import com.spring.VO.HospitalVO;
 import com.spring.VO.SpecialityVO;
 
 @Controller
+@RequestMapping("/admin")
 public class DoctorController {
 
 	@Autowired
@@ -101,7 +102,7 @@ public class DoctorController {
 			this.hospital.insertHospital(doctorHospital);
 		}
 
-		return new ModelAndView("redirect:/addDoctor.html");
+		return new ModelAndView("redirect:/admin/addDoctor.html");
 
 	}
 

@@ -17,6 +17,7 @@ import com.spring.VO.MedicineVO;
 import com.spring.VO.SymptomVO;
 
 @Controller
+@RequestMapping("/admin")
 public class SymptomController {
 
 	@Autowired

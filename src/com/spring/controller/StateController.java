@@ -21,6 +21,7 @@ import com.spring.VO.CountryVO;
 import com.spring.VO.StateVO;
 
 @Controller
+@RequestMapping("/admin")
 public class StateController {
 
 	@Autowired
@@ -105,7 +106,7 @@ public class StateController {
 		return new ModelAndView("redirect:/viewState.html");
 
 	}
-	@RequestMapping(value="/getStateUsingAjax.html", method=RequestMethod.POST)
+	@RequestMapping(value="/getStateUsingAjax.html", method=RequestMethod.GET)
 	public String getStateUsingAjax(@RequestParam("countryId") int countryId, HttpSession session){
 		try {
 			List list = state.getStateAjax(countryId);

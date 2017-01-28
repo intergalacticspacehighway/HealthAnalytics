@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller  
+@Controller 
+@RequestMapping("/admin")
 public class ImageController {
 	private static final String UPLOAD_DIRECTORY ="/resources/images";  
     

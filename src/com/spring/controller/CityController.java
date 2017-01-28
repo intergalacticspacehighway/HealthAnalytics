@@ -20,6 +20,7 @@ import com.spring.VO.CityVO;
 import com.spring.VO.StateVO;
 
 @Controller
+@RequestMapping("/admin")
 public class CityController {
 	@Autowired
 	CityDAO city;
@@ -88,7 +89,7 @@ public class CityController {
 		
 	}
 	
-	@RequestMapping(value="/getCityUsingAjax.html", method=RequestMethod.POST)
+	@RequestMapping(value="/getCityUsingAjax.html", method=RequestMethod.GET)
 	public String getStateUsingAjax(@Param int stateId, HttpSession session){
 		try {
 			List<Object> list = this.city.getCityAjax(stateId);

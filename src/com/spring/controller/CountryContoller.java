@@ -17,6 +17,7 @@ import com.spring.VO.CountryVO;
 import com.spring.VO.StateVO;
 
 @Controller
+@RequestMapping("/admin")
 public class CountryContoller {
 	
 	@Autowired
@@ -61,7 +62,7 @@ public class CountryContoller {
 		}
 		
 		
-		ModelAndView model = new ModelAndView("redirect:/addCountry.html");
+		ModelAndView model = new ModelAndView("redirect:/admin/addCountry.html");
 		
 		return model;
 		

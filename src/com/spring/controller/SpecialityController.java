@@ -16,6 +16,7 @@ import com.spring.DAO.SpecialityDAO;
 import com.spring.VO.SpecialityVO;
 
 @Controller
+@RequestMapping("/admin")
 public class SpecialityController {
 	
 	@Autowired

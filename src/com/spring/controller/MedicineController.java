@@ -16,6 +16,7 @@ import com.spring.DAO.MedicineDAO;
 import com.spring.VO.MedicineVO;
 
 @Controller
+@RequestMapping("/admin")
 public class MedicineController {
 
 	@Autowired

@@ -36,4 +36,11 @@ org.springframework.web.filter.DelegatingFilterProxy
 </filter-mapping>
 
 
+<error-page>
+<error-code>404</error-code>
+<location>/WEB-INF/view/client/404.jsp</location>
+  </error-page>
+
+
+
 </web-app>

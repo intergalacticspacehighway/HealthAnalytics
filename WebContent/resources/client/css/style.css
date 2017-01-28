@@ -2460,7 +2460,7 @@ body.tg-comming-soon #main{
 	padding: 20px;
 	font-size: 16px;
 	line-height: 16px;
-	background: #505050;
+	background: rgb(82, 146, 231);
 	text-transform: uppercase;
 }
 .tg-widget > div{
@@ -2555,7 +2555,7 @@ body.tg-comming-soon #main{
 	float: left;
 	position: relative;
 }
-.tg-widget.tg-widget-accordions ul{background: #f7f7f7; position:relative;}
+.tg-widget.tg-widget-accordions ul{background: white; position:relative;}
 .tg-widget.tg-widget-accordions ul li{background: none; position:relative;}
 .tg-widget.tg-widget-accordions ul li .tg-panel-heading h3,
 .tg-widget ul li .tg-panel-heading h3 a{display: block;}
@@ -3916,7 +3916,7 @@ div.canvas{
 	margin:0;
 	padding:0;
 }
-.docdirect-menu li.active a{color:#7dbb00;}
+.docdirect-menu li.active a{rgb(82, 146, 231);}
 .sticky-queue{
 	z-index:9999;
 	position:fixed;
