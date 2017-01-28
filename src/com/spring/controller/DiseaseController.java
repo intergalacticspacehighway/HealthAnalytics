@@ -17,6 +17,7 @@ import com.spring.VO.CountryVO;
 import com.spring.VO.DiseaseVO;
 
 @Controller
+@RequestMapping("/admin")
 public class DiseaseController {
 	
 	@Autowired

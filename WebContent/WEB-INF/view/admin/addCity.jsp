@@ -141,7 +141,7 @@
         function getState(val){
         	
         	$.ajax({
-        		type: "POST",
+        		type: "GET",
         		url: "getStateUsingAjax.html",
         		data: 'countryId='+val,
         		success: function(data){

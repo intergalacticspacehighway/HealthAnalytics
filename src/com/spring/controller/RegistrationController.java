@@ -44,6 +44,7 @@ public class RegistrationController {
 			@Param String password,@Param String userType,@Param String gender , HttpServletRequest request) throws Exception
 	{	
 		LoginVO login = new LoginVO();
+		login.setUsername(userType);
 		login.setUsername(userName);
 		login.setPassword(password);
 		login.setRole("ROLE_USER");
@@ -66,7 +67,7 @@ public class RegistrationController {
 		  Session session = Session.getDefaultInstance(props,  
 		   new javax.mail.Authenticator() {  
 		   protected PasswordAuthentication getPasswordAuthentication() {  
-		   return new PasswordAuthentication("parththakkar02@gmail.com","parthpart");//change accordingly  
+		   return new PasswordAuthentication("","");//change accordingly  
 		   }  
 		  });  
 		  

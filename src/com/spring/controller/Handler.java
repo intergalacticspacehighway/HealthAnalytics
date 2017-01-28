@@ -35,7 +35,7 @@ public class Handler implements AuthenticationSuccessHandler{
 
 		Set<String> authorities = AuthorityUtils.authorityListToSet(arg2.getAuthorities());
         if (authorities.contains("ROLE_ADMIN")) {
-        	return "/admin.html";
+        	return "/admin/index.html";
         } 
         else if (authorities.contains("ROLE_USER")) {
         	return "/home.html";

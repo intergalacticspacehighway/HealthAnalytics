@@ -31,17 +31,17 @@ box-radius: 10%;
 					<div class="row form-group">
                       <label class="col-md-12" for="name">Name</span></label>
                           <div class="col-md-6">
-                             <form:input type="text" path="firstName"  name="firstName" id="name" style= "height: 40px" placeholder="First" class="form-control"/>
+                             <form:input type="text" path="firstName" id="name" style= "height: 40px" placeholder="First" class="form-control"/>
                           </div>
                            <div class="col-md-6">
-                             <form:input type="text" id="lname" path="lastName" name="lastName" style= "height: 40px" placeholder="Last" class="form-control"/>
+                             <form:input type="text" id="lname" path="lastName" style= "height: 40px" placeholder="Last" class="form-control"/>
                           </div>
                      </div>
                    
                      <div  class=" row form-group">
                       <label class="col-md-12" for="email">Email</span></label>
                           <div class="col-md-12">
-                             <form:input path="email" type="text" id="email" name="email" style= "height: 40px" placeholder="Email"  class="form-control"/>
+                             <form:input path="email" type="text" id="email" style= "height: 40px" placeholder="Email"  class="form-control"/>
                           </div>
                    </div>
                     <div class="row form-group"> 

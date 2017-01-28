@@ -29,13 +29,13 @@ public String loadIndex(HttpServletResponse response ) throws IOException
 			return null;
 		}
 		else if(name.get(0).toString().equals("ROLE_ADMIN")	){
-			response.sendRedirect("admin.html");
-			return null;
+			return("redirect:/admin/index.html");
 		}
-	
+		
 		return("client/home");
 }
-	@RequestMapping(value="/admin.html" , method=RequestMethod.GET)
+	
+	@RequestMapping(value="/admin/index.html" , method=RequestMethod.GET)
 public String loadIndex2()
 {
 		return("admin/index");

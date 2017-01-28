@@ -34,7 +34,7 @@
 <link rel='stylesheet' id='bootstrap.min-css'
 	href='resources/client/css/bootstrap.min.css'
 	type='text/css' media='all' />
-<link href="resources/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="resources/client/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 <link rel='stylesheet' id='fontawesome-css'
 	href='resources/client/css/font-awesome.min.css'
 	type='text/css' media='all' />
@@ -241,7 +241,7 @@ a:hover{
 				                  		 <ul class="">
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="#">Profile</a></li>
+													href="profile.html">Profile</a></li>
 												<li id="menu-item-334"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
 													href="#">Profile Settings</a></li>

@@ -312,7 +312,7 @@
 function getState(val){
         	
         	$.ajax({
-        		type: "POST",
+        		type: "GET",
         		url: "getStateUsingAjax.html",
         		data: 'countryId='+val,
         		success: function(data){
@@ -329,7 +329,7 @@ function getState(val){
 function getCity(val){
 	
 	$.ajax({
-		type: "POST",
+		type: "GET",
 		url: "getCityUsingAjax.html",
 		data: 'stateId='+val,
 		success: function(data){
