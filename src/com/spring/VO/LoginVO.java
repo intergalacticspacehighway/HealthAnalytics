@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.ws.rs.DefaultValue;
 
 @Entity
-@Table(name="login")
+@Table(name = "login")
 public class LoginVO {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,10 +19,11 @@ public class LoginVO {
 	@Column
 	private String password;
 	@Column
-private String role;
-	
+	private String role;
+    @Column
+	private int enabled;
 	@Column
-private int enabled;
+	private String userType;
 
 	public int getLoginId() {
 		return loginId;
@@ -64,7 +65,12 @@ private int enabled;
 		this.enabled = enabled;
 	}
 
-		
-	
-	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
 }

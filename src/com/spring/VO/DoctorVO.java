@@ -105,8 +105,15 @@ public class DoctorVO {
 	
 	@Column
 	private String isActive;
+	@Column
+	private String doctorprofileImage;
+	public String getDoctorprofileImage() {
+		return doctorprofileImage;
+	}
 
-
+	public void setDoctorprofileImage(String doctorprofileImage) {
+		this.doctorprofileImage = doctorprofileImage;
+	}
 	
 
 }

@@ -44,16 +44,24 @@ public class RegistrationController {
 			@Param String password,@Param String userType,@Param String gender , HttpServletRequest request) throws Exception
 	{	
 		LoginVO login = new LoginVO();
-		login.setUsername(userType);
+		login.setUserType(userType);
 		login.setUsername(userName);
 		login.setPassword(password);
+		if(userType.equalsIgnoreCase("patient"))
+		{
 		login.setRole("ROLE_USER");
+		}
+		else
+		{
+			login.setRole("ROLE_DOCTOR");
+		}
 		login.setEnabled(1);
 		insert.insertObject(login);
 		insertUser.setLogin(login);
 		insertUser.setGender(gender);
 		insert.insertObject(insertUser);
-		String email=request.getParameter("email");
+		
+		/*String email=request.getParameter("email");
 		
 		String to=email;
 		 Properties props = new Properties();  
@@ -67,7 +75,7 @@ public class RegistrationController {
 		  Session session = Session.getDefaultInstance(props,  
 		   new javax.mail.Authenticator() {  
 		   protected PasswordAuthentication getPasswordAuthentication() {  
-		   return new PasswordAuthentication("","");//change accordingly  
+		   return new PasswordAuthentication("parththakkar02@gmail.com","monster1234");//change accordingly  
 		   }  
 		  });  
 		  
@@ -87,7 +95,7 @@ public class RegistrationController {
 			   
 			  } catch (MessagingException e) {throw new RuntimeException(e);}  
 			   
-			  
+			  */
 		
 		return("redirect:/login.html");
 		

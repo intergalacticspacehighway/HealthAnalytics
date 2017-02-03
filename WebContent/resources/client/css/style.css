@@ -502,6 +502,7 @@ button.tg-btn.tg-btn-lg.do-login-button {
 	margin: 0 0 20px;
 	line-height: 30px;
 	text-transform: uppercase;
+	padding-left: 5px;
 }
 .tg-roundbox{
 	width: 10px;
