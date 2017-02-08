@@ -44,7 +44,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/editImage.html", method = RequestMethod.POST)
-	public String editProfileImage(@RequestParam CommonsMultipartFile file,@Param int id,HttpSession session) throws Exception
+	public String editProfileImage(@RequestParam CommonsMultipartFile file,@Param int id,@Param int id1,HttpSession session) throws Exception
 	{	
 		String path=session.getServletContext().getRealPath("/doc");  
         String filename=file.getOriginalFilename(); 
@@ -63,6 +63,7 @@ public class UserController {
         }
   catch(Exception e){System.out.println(e);} 
         
+        System.out.println(id1);
         List<Object> slist = this.Speciality.getSpeciality();
 		session.setAttribute("slist", slist);
 		return("redirect:/profile.html");

@@ -8,24 +8,21 @@
 			<aside id="tg-sidebar" class="dashboard-sidebar">
 				<div class="tg-widget tg-widget-doctor">
 					<div class="col-sm-4 col-xs-12 tg-expectwidth">
-					
-											<div class="tg-search-category" style="height:210px;width:180px;margin-left: 30px">
+											<div class="tg-search-category" style="height: 224px;width:180px;margin-left: 30px;">
 												<div class="tg-displaytable">
-                                                   
+
 													<div class="tg-displaytablecell">
+													<c:forEach items="${sessionScope.list}" var="i">
+													<img src="doc/${i.registration.login.userprofileImage}" style="height: 222px;width: 178px;position:center;margin-top: -49px;"/>
+														</c:forEach>
 														<div class="tg-box" style="padding:0px 0px;margin-top: -50px">
-														<c:forEach items="${sessionScope.list}" var="i">
-														 <img src="doc/${i.registration.login.userprofileImage}" style="height:250px;width:180px;position:center"/>
-													</c:forEach>
-													<a href="javascript:;"  data-toggle="modal" data-target="#myModal">	
-													<span
+																<a href="javascript:;"  data-toggle="modal" data-target="#myModal"> <span
 																class="tg-show" style="background:none"><em class="icon-add"></em></span></a>
 														</div>
 													</div>
 
 												</div>
 											</div>
-										
 										</div>
 				</div>
 				<div class="tg-widget tg-widget-accordions">
@@ -539,6 +536,7 @@
 				</div>
 				<c:forEach items="${sessionScope.list}" var="i">
 				<input type="hidden" name="id" id="id" value="${i.registration.login.loginId}">
+				<input type="hidden" name="id1" id="id1" value="${i.doctorId}">
 				</c:forEach>
 				<div class="box1">
 				
