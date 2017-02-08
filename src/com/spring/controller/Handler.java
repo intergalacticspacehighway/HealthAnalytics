@@ -38,7 +38,7 @@ public class Handler implements AuthenticationSuccessHandler{
         	return "/admin/index.html";
         } 
         else if (authorities.contains("ROLE_USER") || authorities.contains("ROLE_DOCTOR")) {
-        	return "/home.html";
+        	return "/profile.html";
         }
 	
 	else {

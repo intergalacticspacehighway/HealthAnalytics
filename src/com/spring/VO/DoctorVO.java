@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,44 +20,14 @@ public class DoctorVO {
 		this.doctorId = doctorId;
 	}
 
-	public String getDoctorName() {
-		return doctorName;
+	
+
+	public RegistrationVO getRegistration() {
+		return registration;
 	}
 
-	public void setDoctorName(String doctorName) {
-		this.doctorName = doctorName;
-	}
-
-	public String getDoctorDateOfBirth() {
-		return doctorDateOfBirth;
-	}
-
-	public void setDoctorDateOfBirth(String doctorDateOfBirth) {
-		this.doctorDateOfBirth = doctorDateOfBirth;
-	}
-
-	public String getDoctorGender() {
-		return doctorGender;
-	}
-
-	public void setDoctorGender(String doctorGender) {
-		this.doctorGender = doctorGender;
-	}
-
-	public String getDoctorEmail() {
-		return doctorEmail;
-	}
-
-	public void setDoctorEmail(String doctorEmail) {
-		this.doctorEmail = doctorEmail;
-	}
-
-	public String getDoctorPhone() {
-		return doctorPhone;
-	}
-
-	public void setDoctorPhone(String doctorPhone) {
-		this.doctorPhone = doctorPhone;
+	public void setRegistration(RegistrationVO registration) {
+		this.registration = registration;
 	}
 
 	public String getDoctorSocialInformation() {
@@ -87,33 +58,15 @@ public class DoctorVO {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int doctorId;
 	@Column
-	private String doctorName;
-	@Column
-	private String doctorDateOfBirth;
-	@Column
-	private String doctorGender;
-	
-	@Column
-	private String doctorEmail;
-	@Column
-	private String doctorPhone;
-
-	@Column
 	private String doctorSocialInformation;
 	@Column
 	private String doctorDescription;
 	
 	@Column
 	private String isActive;
-	@Column
-	private String doctorprofileImage;
-	public String getDoctorprofileImage() {
-		return doctorprofileImage;
-	}
-
-	public void setDoctorprofileImage(String doctorprofileImage) {
-		this.doctorprofileImage = doctorprofileImage;
-	}
+	@ManyToOne
+	private RegistrationVO registration;
+	
 	
 
 }

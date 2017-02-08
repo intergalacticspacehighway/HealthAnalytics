@@ -52,6 +52,7 @@ box-radius: 10%;
                           </div>
                      
                       </div>
+                      <input type="hidden" name="userprofileImage" id="userprofileImage" value="user.png"/>
 					<div class="row form-group">
                       <label class="col-md-12" for="password">Password</span></label>
                           <div class="col-md-6">

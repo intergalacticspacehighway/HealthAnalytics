@@ -127,52 +127,6 @@
 		</div>
 	</div>
 </footer>
-
-
-	<form action="j_spring_security_check" method="post"
-				class="form-refinesearch tg-haslayout contact_form" name="form">
-			<input type="hidden" value="login" name="flag"/>
-			<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
-				<div class="login-wrap">
-		<div class="login-html">
-			<div class="login-form">
-				<div class="sign-in-htm,sign-in">
-					<div class="group">
-						<label for="username" class="label">Username</label> <input id="username" name="username"
-							type="text" class="input">
-					</div>
-					<div class="group">
-						<label for="password" class="label">Password</label> <input id="password" name="password"
-							type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<input id="check" type="checkbox" class="check" checked="">
-						<label for="check"><span class="icon"></span> Keep me
-							Signed in</label>
-					</div>
-					<div class="col-sm-12">
-						<button type="submit" style="width: 100%"
-							class="tg-btn contact_now">Sign in</button>
-					</div>
-					<div class="foot-lnk">
-						<a href="#forgot">Forgot Password?</a>
-					</div>
-					<div class="foot-lnk">
-						<a href="registration.html">Sign up</a>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	</div>
-
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />	
-				
-		
-			</form>
-<script src='resources/client/js/jquery.min.js'></script><script>
 <script type='text/javascript'
 	src='resources/client/js/functions.js?ver=2.0'></script>
 <script type='text/javascript'

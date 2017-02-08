@@ -1,52 +1,32 @@
 
 <jsp:include page="header.jsp"></jsp:include>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <main id="main" class="tg-page-wrapper tg-haslayout">
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
 			<aside id="tg-sidebar" class="dashboard-sidebar">
 				<div class="tg-widget tg-widget-doctor">
-					<figure class="tg-docprofile-img">
-						<figcaption>
-							<h4>Rodrigo Londoño</h4>
-							<span>Salud y Belleza</span>
-						</figcaption>
-						<span class="user-verified"> <svg id="Icon"
-								xmlns="http://www.w3.org/2000/svg" width="74.875" height="21"
-								viewBox="0 0 74.875 21"> <defs>
-							<style>
-.cls-1 {
-	fill: rgb(82, 146, 231);
-}
+					<div class="col-sm-4 col-xs-12 tg-expectwidth">
+					
+											<div class="tg-search-category" style="height:210px;width:180px;margin-left: 30px">
+												<div class="tg-displaytable">
+                                                   
+													<div class="tg-displaytablecell">
+														<div class="tg-box" style="padding:0px 0px;margin-top: -50px">
+														<c:forEach items="${sessionScope.list}" var="i">
+														 <img src="doc/${i.registration.login.userprofileImage}" style="height:250px;width:180px;position:center"/>
+													</c:forEach>
+													<a href="javascript:;"  data-toggle="modal" data-target="#myModal">	
+													<span
+																class="tg-show" style="background:none"><em class="icon-add"></em></span></a>
+														</div>
+													</div>
 
-.cls-2 {
-	font-size: 16px;
-	text-anchor: middle;
-	font-family: FontAwesome;
-	text-transform: uppercase
-}
-
-.cls-2, .cls-3 {
-	fill: #fff
-}
-
-.cls-3 {
-	font-size: 14.437px;
-	font-family: Montserrat
-}
-</style></defs> 
-							<rect id="BG" class="cls-1" width="74.875" height="21" rx="3"
-									ry="3" /> <text id="_" data-name="" class="cls-2"
-									transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-							<text id="Verified" class="cls-3"
-									transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-
-						</span>
-						<a><img
-							src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/user300x300.jpg"
-							alt="Avatar" /></a>
-					</figure>
+												</div>
+											</div>
+										
+										</div>
 				</div>
 				<div class="tg-widget tg-widget-accordions">
 					<h3>Dashboard</h3>
@@ -65,9 +45,7 @@
 						<li class=""><a
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=schedules&#038;identity=340">My
 								Schedules</a></li>
-						<li class=""><a
-							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=bookings&#038;identity=340">Booking
-								Listings</a></li>
+						<li class=""><a href="javascript:;"  data-toggle="modal" data-target="#myModal1">Manage Specialities</a></li>
 						<li class=""><a
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=booking-schedules&#038;identity=340"></i>Booking
 								Schedules</a></li>
@@ -206,6 +184,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<script>
 	var lineChartData  = {
 		labels: ["January","February","March","April","May","June","July","August","September","October","November","December"],
@@ -427,7 +406,9 @@
 		</tbody>
 		<# } ); #>
 	<# } #>
-</script> <!--Experience--> <script type="text/template"
+</script> <!--Experience-->
+
+ <script type="text/template"
 	id="tmpl-load-experiences">
 	<tbody class="experiences_item">
 	  <tr>
@@ -527,160 +508,97 @@
 		</tbody>
 		<# } ); #>
 	<# } #>
-</script> </main>
-<footer id="footer" class="tg-haslayout">
-	<div class="tg-threecolumn">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="tg-footercol">
-						<div id="address_widget-2" class="address-column tg-widget">
-							<strong class="logo"> <img
-								src="http://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/logo2.png"
-								alt="logo">
-							</strong>
-							<div class="tg-description">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-									sed do eiusmod tempor incididunt ut laboret dolore magna
-									aliqua.</p>
-							</div>
-							<ul class="tg-info">
-								<li><i class="fa fa-home"></i>
-									<address>123 Eccles Old Road, New Salford Road, East
-										London, Uk, M6 7AF</address></li>
-								<li><i class="fa fa-phone"></i> <em><a
-										href="tel:+4412356788-9">+4412356788-9</a></em></li>
-								<li><i class="fa fa-envelope"></i> <em><a
-										href="info@domain.com">info@domain.com</a></em></li>
+</script> 
 
-							</ul>
-						</div>
-					</div>
+</main>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <div class="tg-widget tg-widget-doctor">
+					<div class="col-sm-4 col-xs-12 tg-expectwidth">
+					
+											
+												<div class="tg-displaytable">
+                                                   
+													<div class="tg-displaytablecell">
+														<div class="tg-box" style="padding:0px 0px;margin-top: -50px">
+														<c:forEach items="${sessionScope.list}" var="i">
+														 <img src="doc/${i.registration.login.userprofileImage}"id="output" style="height:250px;width:178px;position:center;margin-top: 30px;
+    margin-left: 30px;"/></c:forEach>
+													
+								<form action="editImage.html" method="post" enctype="multipart/form-data">
+													<div class="box">
+					<input type="file"  onchange="loadFile(event)"  name="file" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
+					<label for="file-5"><span class="glyphicon glyphicon-pencil"></span><span>Change Photo</span></label>
+			
 				</div>
-				<div class="col-sm-4">
-					<div class="tg-footercol">
-						<div id="tg_featured_doctor-2"
-							class="tg-featured-doctore tg-widget">
-							<div class="tg-heading-border tg-small">
-								<h4>Featured Users</h4>
-							</div>
-							<ul>
-								<li>
-									<figure class="tg-imgdoc">
-										<img
-											src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-07-1-150x150.jpg"
-											alt="User">
-										<div class="tg-img-hover">
-											<a
-												href="https://themographics.com/wordpress/docdirect/doctor/celia/"><i
-												class="icon-zoom"></i></a>
-										</div>
-									</figure>
-									<div class="tg-docinfo">
-										<span class="tg-docname"><a
-											href="https://themographics.com/wordpress/docdirect/doctor/celia/">Dr
-												Celia</a></span> <span class="tg-stars"> <em>Ranking:</em> <span
-											class="tg-stars star-rating"> <span style="width: 60%"></span>
-										</span>
-										</span>
-										<div class="tg-designation">
-											<p>
-												<a href="javascript:;">Doctor</a>
-											</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<figure class="tg-imgdoc">
-										<img
-											src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-05-1-150x150.jpg"
-											alt="User">
-										<div class="tg-img-hover">
-											<a
-												href="https://themographics.com/wordpress/docdirect/doctor/delia/"><i
-												class="icon-zoom"></i></a>
-										</div>
-									</figure>
-									<div class="tg-docinfo">
-										<span class="tg-docname"><a
-											href="https://themographics.com/wordpress/docdirect/doctor/delia/">Dr
-												Delia</a></span> <span class="tg-stars"> <em>Ranking:</em> <span
-											class="tg-stars star-rating"> <span style="width: 60%"></span>
-										</span>
-										</span>
-										<div class="tg-designation">
-											<p>
-												<a href="javascript:;">Doctor</a>
-											</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
+				<c:forEach items="${sessionScope.list}" var="i">
+				<input type="hidden" name="id" id="id" value="${i.registration.login.loginId}">
+				</c:forEach>
+				<div class="box1">
+				
+					<button type="submit" style="background-color: #fff";>
+					<span class="glyphicon glyphicon-save" style="color:#5292e7"></span><span style="font-size: 1.25rem; text-overflow: ellipsis;font-weight: 700;color:#5292e7;">Save Photo</span>
+			</button>
 				</div>
-				<div class="col-sm-4">
-					<div class="tg-footercol">
-						<div id="nav_menu-2" class="widget_nav_menu tg-widget">
-							<div class="tg-heading-border tg-small">
-								<h4>USEFUL LINKS</h4>
-							</div>
-							<div class="menu-userfull-links-container">
-								<ul id="menu-userfull-links" class="menu">
-									<li id="menu-item-144"
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a
-										href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li>
-									<li id="menu-item-214"
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-214"><a
-										href="https://themographics.com/wordpress/docdirect/blog-list/">Latest
-											Blogs</a></li>
-									<li id="menu-item-143"
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-143"><a
-										href="https://themographics.com/wordpress/docdirect/contact-us/">Contact
-											Us</a></li>
-									<li id="menu-item-450"
-										class="menu-item menu-item-type-post_type menu-item-object-post menu-item-450"><a
-										href="https://themographics.com/wordpress/docdirect/yoga-centers/">Yoga
-											Centers</a></li>
-									<li id="menu-item-451"
-										class="menu-item menu-item-type-post_type menu-item-object-post menu-item-451"><a
-										href="https://themographics.com/wordpress/docdirect/family-clinic/">Family
-											clinic</a></li>
-									<li id="menu-item-628"
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-628"><a
-										href="https://themographics.com/wordpress/docdirect/home-3/">Home
-											3</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+				</form>
+													<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+														</div>
+													</div>
+
+												</div>
+											
+										
+										</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tg-footerbar tg-haslayout">
-		<div class="tg-copyrights">
-			<p>2015 All Rights Reserved &copy; DocDirect</p>
-		</div>
-	</div>
-</footer>
-<div class="modal fade tg-user-modal" tabindex="-1" role="dialog">
-	<div class="tg-modal-content">
-		<ul class="tg-modaltabs-nav" role="tablist">
-			<li role="presentation" class="active"><a
-				href="#tg-signin-formarea" aria-controls="tg-signin-formarea"
-				role="tab" data-toggle="tab">Sign In</a></li>
-			<li role="presentation"><a href="#tg-signup-formarea"
-				aria-controls="tg-signup-formarea" role="tab" data-toggle="tab">Sign
-					Up</a></li>
-		</ul>
-		<div class="tab-content tg-haslayout">
-			<div role="tabpanel" class="tab-pane tg-haslayout active"
-				id="tg-signin-formarea"></div>
-			<div role="tabpanel" class="tab-pane tg-haslayout"
-				id="tg-signup-formarea"></div>
-		</div>
-	</div>
+      </div>
+      
+    </div>
+
+  </div>
 </div>
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog"  style="width: 600px;">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Speciality</h4>
+      </div>
+      <div class="modal-body" style="height: 130px;background-color: #5292e7;">
+      
+        <div class="container">
+        
+	<div class="row">
+	<div class="col-md-6" style="margin-left: 10px;">
+	<i class="fa fa-user-md" style="font-size: 90px;"></i>
+												
+												<select  multiple="multiple" class="chosen-select" name="specMenu">
+													
+													<c:forEach items="${sessionScope.slist}" var="i">
+													<option value="${i.specialityId}">${i.specialityName}</option>
+													</c:forEach>
+												</select>  
+										</div>
+										</div>
+									</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+
+  </div>
 </div>
 <jsp:include page="footer.jsp"></jsp:include>

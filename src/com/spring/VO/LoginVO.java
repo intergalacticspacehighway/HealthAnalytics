@@ -24,6 +24,16 @@ public class LoginVO {
 	private int enabled;
 	@Column
 	private String userType;
+	@Column
+	private String userprofileImage;
+
+	public String getUserprofileImage() {
+		return userprofileImage;
+	}
+
+	public void setUserprofileImage(String userprofileImage) {
+		this.userprofileImage = userprofileImage;
+	}
 
 	public int getLoginId() {
 		return loginId;

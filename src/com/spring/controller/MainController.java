@@ -23,7 +23,7 @@ public String loadIndex(HttpServletResponse response ) throws IOException
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		List name = (List) auth.getAuthorities();
 		System.out.println(name);
-		if(name.get(0).toString().equals("ROLE_USER")){
+		if(name.get(0).toString().equals("ROLE_USER") || name.get(0).toString().equals("ROLE_DOCTOR")){
 			System.out.println(name);
 			response.sendRedirect("home.html");
 			return null;

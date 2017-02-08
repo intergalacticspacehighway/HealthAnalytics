@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.InsertDAO;
+import com.spring.VO.DoctorVO;
 import com.spring.VO.LoginVO;
 import com.spring.VO.RegistrationVO;
 
@@ -41,12 +42,13 @@ public class RegistrationController {
 	}
 	@RequestMapping(value="/register.html" , method=RequestMethod.POST)
 	public String registerUser(@ModelAttribute RegistrationVO insertUser, @Param String userName,
-			@Param String password,@Param String userType,@Param String gender , HttpServletRequest request) throws Exception
+			@Param String password,@Param String userType,@Param String gender ,@Param String userprofileImage, HttpServletRequest request) throws Exception
 	{	
 		LoginVO login = new LoginVO();
 		login.setUserType(userType);
 		login.setUsername(userName);
 		login.setPassword(password);
+		login.setUserprofileImage(userprofileImage);
 		if(userType.equalsIgnoreCase("patient"))
 		{
 		login.setRole("ROLE_USER");
@@ -60,7 +62,16 @@ public class RegistrationController {
 		insertUser.setLogin(login);
 		insertUser.setGender(gender);
 		insert.insertObject(insertUser);
-		
+		if(userType.equalsIgnoreCase("doctor"))
+		{
+		DoctorVO doctor=new DoctorVO();
+		doctor.setRegistration(insertUser);
+		insert.insertObject(doctor);
+		}
+		else
+		{
+			
+		}
 		/*String email=request.getParameter("email");
 		
 		String to=email;

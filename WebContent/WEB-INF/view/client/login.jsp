@@ -39,13 +39,13 @@ $("#loginHeader").hide();
 						<input id="check" name="remember-me" type="checkbox" class="check" checked="">
 						<label for="check"><span class="icon"></span> <font style="color:#5292e7">Keep me
 							Signed in</font></label> 
-							<a href="" style="padding-left:130px;color:#5292e7">Forgot Password?</a>
+							<a href="" style="padding-left:80px;color:#5292e7">Forgot Password?</a>
 					</div><br>
 					<div class="col-sm-12">
 						<button type="submit" style="width: 100%"
 							class="tg-btn contact_now">Sign in</button>
 					</div>
-					<a href="registration.html" style="padding-left:100px;color:#5292e7">Not a member yet? Sign up now!</a>
+					<a href="registration.html" style="padding-left:80px;color:#5292e7">Not a member yet? Sign up now!</a>
 				</div>
 				<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />	

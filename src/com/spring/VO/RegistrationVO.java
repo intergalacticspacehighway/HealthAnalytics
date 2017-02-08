@@ -18,6 +18,7 @@ public class RegistrationVO {
 	private String firstName;
 	private String lastName;
 	private String email;
+	
 	@OneToOne
 	private LoginVO login;
 	public LoginVO getLogin() {
@@ -65,5 +66,6 @@ public class RegistrationVO {
 	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
+	
 	private String birthDate;
 }

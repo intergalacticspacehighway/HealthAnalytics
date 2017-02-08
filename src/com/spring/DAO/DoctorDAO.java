@@ -42,4 +42,20 @@ public class DoctorDAO {
 		query.executeUpdate();
 		session.close();
 	}
+	public List<Object> getDoctor(String name) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from LoginVO where username='"+name+"'");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
+	public void updateImage(int id,String path)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE LoginVO set userprofileImage ='"+path+"'"
+				+ "WHERE loginId =" +id);
+		query.executeUpdate();
+		session.close();
+	}
 }

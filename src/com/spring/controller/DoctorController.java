@@ -9,7 +9,10 @@ import javax.servlet.http.HttpSession;
 
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,6 +28,7 @@ import com.spring.DAO.HospitalDAO;
 import com.spring.DAO.SpecialityDAO;
 import com.spring.VO.DoctorHospitalVO;
 import com.spring.VO.DoctorSpecialityVO;
+import com.spring.VO.DoctorVO;
 import com.spring.VO.HospitalVO;
 import com.spring.VO.SpecialityVO;
 
@@ -79,21 +83,24 @@ public class DoctorController {
 			throws Exception {
 
 
-		   String path=session.getServletContext().getRealPath("/doc");  
+		  /* String path=session.getServletContext().getRealPath("/doc");  
 	        String filename=file.getOriginalFilename(); 
-	        System.out.println(path+" "+filename); 
+	       
 	        try{  
-	            byte barr[]=file.getBytes();  
+	            byte barr[]=file.getBytes(); 
 	              
 	            BufferedOutputStream bout=new BufferedOutputStream(  
-	                     new FileOutputStream(path+"/"+filename));  
+	                     new FileOutputStream(path+"/"+filename));
+	            DoctorSpecialityVO DoctorSpeciality = new DoctorSpecialityVO();
+				 DoctorSpeciality.setDoctor(insertDoctorSpeciality.doctor);
+				 DoctorSpeciality.doctor.setDoctorprofileImage(filename);
+				 this.hospital.insertHospital(insertDoctorSpeciality.doctor);
 	            bout.write(barr);  
 	            bout.flush();  
 	            bout.close();  
 	        }
-	  catch(Exception e){System.out.println(e);}  
-	       this.hospital.insertHospital(insertDoctorSpeciality.doctor);
-      
+	  catch(Exception e){System.out.println(e);}  */
+		 this.hospital.insertHospital(insertDoctorSpeciality.doctor);
 		String[] specid = specMenu.split(",");
 		for (int i = 0; i < specid.length; i++) {
 			DoctorSpecialityVO DoctorSpeciality = new DoctorSpecialityVO();
@@ -267,5 +274,6 @@ public class DoctorController {
 		return("redirect:/viewDoctor.html");
 		
 	}
+	
 	
 }

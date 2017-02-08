@@ -2468,7 +2468,7 @@ body.tg-comming-soon #main{
 	width:100%;
 	float:left;
 	padding:10px;
-	border:1px solid #ddd;
+	
 }
 .tg-widget > ul{
 	margin: 0;
@@ -4754,12 +4754,6 @@ button[type="button"] .fa-refresh.fa-spin{
 .table-striped > tbody > tr:nth-of-type(2n+1){background: none;}
 .tg-education-detail tbody tr td{padding: 15px 32px;}
 .chosen-container{width: 379px!important;}
-.chosen-container.chosen-container-multi ul.chosen-choices{
-	width: 500px !important;
-	padding: 5px !important;
-	overflow:visible !important;
-	float:left;
-}
 .tg-formsection .chosen-container,
 .tg-formsection .chosen-container.chosen-container-multi ul.chosen-choices{width: 100% !important;}
 .chosen-container-multi .chosen-choices{
@@ -4794,46 +4788,31 @@ button[type="button"] .fa-refresh.fa-spin{
 .experiences_item,
 .educations_item{border: none !important;}
 .chosen-container-multi .chosen-choices li.search-choice{
-	background: #5d5955 !important;
-	border: none !important;
-	line-height: 40px !important;
-	height: 40px !important;
-	padding: 0 20px !important;
-	text-transform: uppercase !important;
-	border-radius: 0 !important;
-	color: #fff !important;
-	font-size: 14px !important;
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
-	cursor: pointer !important;
-	box-shadow: none !important;
-	margin:5px !important;
+	 -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 100%);
+    background-image: -o-linear-gradient(top, white 0%, #eeeeee 100%);
+    background-image: linear-gradient(to bottom, white 0%, #eeeeee 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFEEEEEE', GradientType=0);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    color: #333333;
+    cursor: default;
+    line-height: 13px;
+    margin: 6px 0 3px 5px;
+    padding: 3px 20px 3px 5px;
+    position: relative;
 }
-.chosen-container-multi .chosen-choices li.search-choice .search-choice-close{
-	width: 18px !important;
-	height: 18px !important;
-	top: -7px !important;
-	right:-7px !important;
-	background: #be3500 !important;
-	line-height: 18px;
-	color: #fff;
-	text-align:center !important;
-	border-radius: 50%;
-	position: absolute !important;
-	background-image:none !important;
-}
-.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:after{
-	position: absolute;
-	content: '\f00d';
-	left: 0;
-	display:block;
-	top: 0;
-	width:100% !important;
-	text-align:center !important;
-	font-size: 12px;
-	line-height: 17px !important;
-	font-family: 'FontAwesome';
-	color: #fff;
-}
+
+
 .tg-system-packages{
 	width: 100%;
 	float: left;
@@ -5071,7 +5050,10 @@ body.page-template-user-profile .tg-ratingbox .tg-stars.star-rating{padding:0;}
 body.page-template-user-profile .tg-reviewscrol .tg-reviews{ margin:0 !important;}
 body.page-template-user-profile .tg-reviewscrol .tg-reviews li{ padding:0;}
 body.page-template-user-profile .tg-reviewscrol .tg-reviews li + li{ padding:30px 0 0 !important;}
-.chosen-container.chosen-container-multi{ height:auto !important;}
+.chosen-container.chosen-container-multi{ height:auto !important;
+margin-left: 120px;
+    margin-top: -100px;
+}
 .tg-stars #jRate{
 	width: auto;
 	height: 50px;
@@ -9204,7 +9186,9 @@ select option:disabled {
 	width:100%;
 	float:left;
 }
-.tg-heading-border.tg-small:after{ width:60%;}
+.tg-heading-border.tg-small:after{
+	width:60%;
+	 }
 .tg-userdetail .tg-location-map{
 	margin-top:0;
 	position:relative;
