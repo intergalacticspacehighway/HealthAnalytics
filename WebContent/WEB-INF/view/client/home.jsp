@@ -25,13 +25,12 @@
 										<div class="tg-displaytable">
 											<div class="tg-displaytablecell">
 												<div class="container">
-													<form class="form-searchdoctors directory-map"
-														id="directory-map">
+													<form action="search.html?q=" method="post">
 														<div class="col-md-3 col-sm-5 col-xs-3 tg-verticalmiddle">
 															<div class="row">
 																<ul id="tg-sortable" class="tg-tabs-nav tg-sortable"
 																	role="tablist">
-																	<li data-dir_name="Doctor" data-id="127"
+																	<li data-dir_name="Doctor" data-id="127" id="doctor"
 																		class="active current-directory"><input
 																		type="radio" checked name="directory_type" id="127"
 																		value="127" /> <label for="127"> <i
@@ -40,7 +39,7 @@
 
 																		</span>
 																	</label></li>
-																	<li data-dir_name="hospital" data-id="126"
+																	<li data-dir_name="hospital" data-id="126" id="hospital"
 																		class=" current-directory"><input type="radio"
 																		name="directory_type" id="126" value="126" /> <label
 																		for="126"> <i class=" fa fa-hospital-o"></i> <span
@@ -49,7 +48,7 @@
 
 																		</span>
 																	</label></li>
-																	<li data-dir_name="clinic" data-id="125"
+																	<li data-dir_name="clinic" data-id="125" id="clinic"
 																		class=" current-directory"><input type="radio"
 																		name="directory_type" id="125" value="125" /> <label
 																		for="125"> <i class="fa fa-stethoscope"></i> <span
@@ -58,7 +57,7 @@
 
 																		</span>
 																	</label></li>
-																	<li data-dir_name="Pharmacy" data-id="123"
+																	<li data-dir_name="Pharmacy" data-id="123" id="symptomChecker"
 																		class=" current-directory"><input type="radio"
 																		name="directory_type" id="123" value="123" /> <label
 																		for="123"> <i class=" fa fa-heartbeat"></i> <span
@@ -104,8 +103,10 @@
 																		<div role="tabpanel" class="tab-pane active"
 																			id="nephrologist">
 																			<div class="row">
+																			
 																				<div
 																					class="col-md-6 col-sm-12 col-xs-12 tg-verticalmiddle">
+																				
 																					<div class="form-group">
 																						<span class="select"> <select
 																							class="group subcats" name="dir_subcat">
@@ -148,10 +149,11 @@
 																							placeholder="Search users by zip code">
 																					</div>
 																					<div class="form-group">
-																						<a class="search_banner tg-btn pull-right"
-																							href="javascript:;">Search</a>
+																					<input type="submit" class="btn btn-success" value="submit">
 																					</div>
+																					
 																				</div>
+																				
 																				<div
 																					class="col-md-6 col-sm-12 col-xs-12 tg-verticalmiddle">
 																					<h1>
@@ -177,6 +179,21 @@
 							</div>
 						</div>
 					</div>
+					 <script>
+						$("form").attr(
+								"action",
+								"search.html?q="
+										+ $(".active").attr("data-dir_name"));
+						$(".current-directory").on(
+								"click",
+								function() {
+									$("form").attr(
+											"action",
+											"search.html?q="
+													+ $(".active").attr(
+															"data-dir_name"));
+								});
+					</script> 
 				</section>
 				<div class="section-current-width"></div>
 				<section class="tg-main-section haslayout  default"
@@ -699,7 +716,7 @@
 				<div class="section-current-width"></div>
 				<section class="tg-main-section haslayout  default"
 					style="padding-bottom: 0px; background-repeat: no-repeat; background-position: 0% 100%; background-size: cover;"> -->
-					<!-- <div class="builder-items">
+				<!-- <div class="builder-items">
 						<div class="col-xs-12 col-md-12 builder-column ">
 							<div class="sc-teams-grid">
 								<div class="tg-team-members">
@@ -820,4 +837,6 @@
 	</div>
 </div>
 </main>
+
+
 <jsp:include page="footer.jsp"></jsp:include>
