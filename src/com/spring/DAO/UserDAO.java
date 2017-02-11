@@ -57,5 +57,14 @@ public class UserDAO {
 		session.close();
 		
 	}
+	public void deleteDoctorSpeciality(int doctorId)
+	{
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("delete DoctorSpecialityVO  where doctor.doctorId=" +doctorId);
+		query.executeUpdate();
+		session.close();
+	}
+	
+	
 	
 }

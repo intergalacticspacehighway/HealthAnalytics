@@ -1,29 +1,32 @@
 
 <jsp:include page="header.jsp"></jsp:include>
-<main id="main" class="tg-page-wrapper tg-haslayout">
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<main id="main" class="tg-page-wrapper tg-haslayout"> <%@taglib
+	uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 ">
 			<aside id="tg-sidebar" class="dashboard-sidebar">
 				<div class="tg-widget tg-widget-doctor">
 					<div class="col-sm-4 col-xs-12 tg-expectwidth">
-											<div class="tg-search-category" style="height: 224px;width:180px;margin-left: 30px;">
-												<div class="tg-displaytable">
+						<div class="tg-search-category"
+							style="height: 224px; width: 180px; margin-left: 30px;">
+							<div class="tg-displaytable">
 
-													<div class="tg-displaytablecell">
-													<c:forEach items="${sessionScope.list}" var="i">
-													<img src="doc/${i.registration.login.userprofileImage}" style="height: 222px;width: 178px;position:center;margin-top: -49px;"/>
-														</c:forEach>
-														<div class="tg-box" style="padding:0px 0px;margin-top: -50px">
-																<a href="javascript:;"  data-toggle="modal" data-target="#myModal"> <span
-																class="tg-show" style="background:none"><em class="icon-add"></em></span></a>
-														</div>
-													</div>
+								<div class="tg-displaytablecell">
+									<c:forEach items="${sessionScope.list}" var="i">
+										<img src="doc/${i.registration.login.userprofileImage}"
+											style="height: 222px; width: 178px; position: center; margin-top: -49px;" />
+									</c:forEach>
+									<div class="tg-box" style="padding: 0px 0px; margin-top: -50px">
+										<a href="javascript:;" data-toggle="modal"
+											data-target="#myModal"> <span class="tg-show"
+											style="background: none"><em class="icon-add"></em></span></a>
+									</div>
+								</div>
 
-												</div>
-											</div>
-										</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="tg-widget tg-widget-accordions">
 					<h3>Dashboard</h3>
@@ -42,9 +45,11 @@
 						<li class=""><a
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=schedules&#038;identity=340">My
 								Schedules</a></li>
-						<li class=""><a href="javascript:;"  data-toggle="modal" data-target="#myModal1">Manage Specialities</a></li>
-						
-						<li class=""><a href="javascript:;"  data-toggle="modal" data-target="#myModal2">Manage Hospitals</a></li>
+						<li class=""><a href="javascript:;" data-toggle="modal"
+							data-target="#myModal1">Manage Specialities</a></li>
+
+						<li class=""><a href="javascript:;" data-toggle="modal"
+							data-target="#myModal2">Manage Hospitals</a></li>
 						<li class=""><a
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=booking-settings&#038;identity=340">Booking
 								Settings</a></li>
@@ -73,7 +78,10 @@
 							<div class="tg-docinfo tg-haslayout">
 								<div class="tg-box">
 									<div class="tg-heading-border tg-small">
-										<h3>welcome,  <c:out value="${username }"/></h3>
+										<h3>
+											welcome,
+											<c:out value="${username }" />
+										</h3>
 									</div>
 									<div class="tg-description">
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -87,8 +95,8 @@
 											<em>Regards,</em> <strong>Team Health Analytics</strong>
 										</div>
 										<div class="tg-regardsright">
-											<strong class="logo">
-											<a style="color:#fff"><Strong>Health </Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
+											<strong class="logo"> <a style="color: #fff"><Strong>Health
+												</Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
 											</strong>
 										</div>
 									</div>
@@ -104,8 +112,8 @@
 								</div>
 								<ul class="tg-doccontactinfo">
 									<li><i class="fa fa-map-marker"></i>
-									<address>23 Eccles Old Road, New Salford Road, Uk, M6
-											7AF</address></li>
+										<address>23 Eccles Old Road, New Salford Road, Uk,
+											M6 7AF</address></li>
 									<li><i class="fa fa-phone"></i><a
 										href="tel:+44 235 8568432">+44 235 8568432</a></li>
 									<li><i class="fa fa-envelope-o"></i><a
@@ -401,9 +409,7 @@
 		</tbody>
 		<# } ); #>
 	<# } #>
-</script> <!--Experience-->
-
- <script type="text/template"
+</script> <!--Experience--> <script type="text/template"
 	id="tmpl-load-experiences">
 	<tbody class="experiences_item">
 	  <tr>
@@ -447,9 +453,7 @@
 	    </td>
 	  </tr>
 	</tbody>
-</script> 
-
-<script type="text/template" id="tmpl-append-experiences">
+</script> <script type="text/template" id="tmpl-append-experiences">
 	<# if( _.isArray(data) && ! _.isEmpty(data) ) { #>
 		<table class="table-striped experience_wrap" id="table-striped">
 		<thead class="cf">
@@ -505,49 +509,58 @@
 		</tbody>
 		<# } ); #>
 	<# } #>
-</script> 
- 
-</main>
+</script> </main>
 <!------------------------------------------------------------------------------------------------------------------- -->
 <!--                                  Doctor Profile Image                                                            -->
 <!------------------------------------------------------------------------------------------------------------------- -->
 
 <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	<div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-     
-      <div class="modal-body">
-        <div class="tg-widget tg-widget-doctor">
+		<!-- Modal content-->
+		<div class="modal-content">
+
+			<div class="modal-body">
+				<div class="tg-widget tg-widget-doctor">
 					<div class="col-sm-4 col-xs-12 tg-expectwidth">
-					
-											
-												<div class="tg-displaytable">
-                                                   
-													<div class="tg-displaytablecell">
-														<div class="tg-box" style="padding:0px 0px;margin-top: -50px">
-														<c:forEach items="${sessionScope.list}" var="i">
-														 <img src="doc/${i.registration.login.userprofileImage}"id="output" style="height:250px;width:178px;position:center;margin-top: 30px;
-    margin-left: 30px;"/></c:forEach>
-													
-								<form action="editImage.html" method="post" enctype="multipart/form-data">
-													<div class="box">
-					<input type="file"  onchange="loadFile(event)"  name="file" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
-					<label for="file-5"><span class="glyphicon glyphicon-pencil"></span><span>Change Photo</span></label>
-			
-				</div>
-				<c:forEach items="${sessionScope.list}" var="i">
-				<input type="hidden" name="id" id="id" value="${i.registration.login.loginId}">
-				</c:forEach>
-				<div class="box1">
-				
-					<button type="submit" style="background-color: #fff;">
-					<span class="glyphicon glyphicon-save" style="color:#5292e7"></span><span style="font-size: 1.25rem; text-overflow: ellipsis;font-weight: 700;color:#5292e7;">Save Photo</span>
-			</button>
-				</div>
-				</form>
-													<script>
+
+
+						<div class="tg-displaytable">
+
+							<div class="tg-displaytablecell">
+								<div class="tg-box" style="padding: 0px 0px; margin-top: -50px">
+									<c:forEach items="${sessionScope.list}" var="i">
+										<img src="doc/${i.registration.login.userprofileImage}"
+											id="output"
+											style="height: 250px; width: 178px; position: center; margin-top: 30px; margin-left: 30px;" />
+									</c:forEach>
+
+									<form action="editImage.html" method="post"
+										enctype="multipart/form-data">
+										<div class="box">
+											<input type="file" onchange="loadFile(event)" name="file"
+												id="file-5" class="inputfile inputfile-4"
+												data-multiple-caption="{count} files selected" multiple />
+											<label for="file-5"><span
+												class="glyphicon glyphicon-pencil"></span><span>Change
+													Photo</span></label>
+
+										</div>
+										<c:forEach items="${sessionScope.list}" var="i">
+											<input type="hidden" name="id" id="id"
+												value="${i.registration.login.loginId}">
+										</c:forEach>
+										<div class="box1">
+
+											<button type="submit" style="background-color: #fff;">
+												<span class="glyphicon glyphicon-save"
+													style="color: #5292e7"></span><span
+													style="font-size: 1.25rem; text-overflow: ellipsis; font-weight: 700; color: #5292e7;">Save
+													Photo</span>
+											</button>
+										</div>
+									</form>
+									<script>
   var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
@@ -555,19 +568,19 @@
 </script>
 
 
-														</div>
-													</div>
+								</div>
+							</div>
 
-												</div>
-											
-										
-										</div>
+						</div>
+
+
+					</div>
 				</div>
-      </div>
-      
-    </div>
+			</div>
 
-  </div>
+		</div>
+
+	</div>
 </div>
 <!---------------------------------------------------------------------------------------------------------------------->
 <!--                                  Doctor Profile Image End                                                           -->
@@ -577,65 +590,70 @@
 <!--                                  Doctor Speciality                                                           -->
 <!---------------------------------------------------------------------------------------------------------------------->
 <div id="myModal1" class="modal fade" role="dialog">
-  <div class="modal-dialog"  style="width: 600px;">
+	<div class="modal-dialog" style="width: 600px;">
 
-    <!-- Modal content-->
-     
-    <div class="modal-content">
-    <form action="addDoctorSpeciality.html" method="post">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Speciality</h4>
-      </div>
-      <div class="modal-body" style="height: 130px;background-color: #5292e7;">
-     
-        <div class="container">
-        
-	<div class="row">
-	  <c:set value="${sessionScope.dslist }" var="doctorList"></c:set>
-	  <c:forEach items="${sessionScope.list}" var="i">
-	  <input type="hidden" name="id1" id="id1" value="${i.doctorId}">
-	  </c:forEach>
-	<div class="col-md-6" style="margin-left: 10px;">
-	<i class="fa fa-user-md" style="font-size: 90px;"></i>
-												<c:if test="${not empty doctorList}">
-												<select  multiple="multiple" class="chosen-select" name="specMenu1">
-												<c:forEach items="${doctorList}" var="x">
-													<option value="${x.speciality.specialityId}" selected="selected">${x.speciality.specialityName}</option>
-													</c:forEach>
-													<c:forEach items="${sessionScope.speclist }" var="s">
-													<%-- <c:if test="${s.specialityId != x.speciality.specialityId }"> --%>
-														<option value="${s.specialityId}">${s.specialityName}</option>
-														</c:forEach>
-												
-												
-												</select>
-												
-												</c:if>
-												<c:if test="${empty doctorList}">
-												<select  multiple="multiple" class="chosen-select" name="specMenu">
-													
-													<c:forEach items="${sessionScope.slist}" var="i">
-													<option value="${i.specialityId}">${i.specialityName}</option>
-													</c:forEach>
-												</select>  
-												</c:if>
-												
-												
-										</div>
-										
-										</div>
-									</div>
-									
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-default">Save</button>
-      </div>
-   </form>
-    
-    </div>
+		<!-- Modal content-->
 
-  </div>
+		<div class="modal-content">
+			<form action="addDoctorSpeciality.html" method="post">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Speciality</h4>
+				</div>
+				<div class="modal-body"
+					style="height: 130px; background-color: #5292e7;">
+
+					<div class="container">
+
+						<div class="row">
+							<c:set value="${sessionScope.dslist }" var="doctorList"></c:set>
+							<c:forEach items="${sessionScope.list}" var="i">
+								<input type="hidden" name="doctorid" id="id1"
+									value="${i.doctorId}">
+							</c:forEach>
+							<div class="col-md-6" style="margin-left: 10px;">
+								<i class="fa fa-user-md" style="font-size: 90px;"></i>
+								<c:if test="${not empty doctorList}">
+									<select multiple="multiple" class="chosen-select"
+										name="specMenu1">
+										<c:forEach items="${doctorList}" var="x">
+											<option value="${x.speciality.specialityId}"
+												selected="selected">${x.speciality.specialityName}</option>
+										</c:forEach>
+										<c:forEach items="${sessionScope.speclist }" var="s">
+											<%-- <c:if test="${s.specialityId != x.speciality.specialityId }"> --%>
+											<option value="${s.specialityId}">${s.specialityName}</option>
+										</c:forEach>
+
+
+									</select>
+
+								</c:if>
+								<c:if test="${empty doctorList}">
+									<select multiple="multiple" class="chosen-select"
+										name="specMenu">
+
+										<c:forEach items="${sessionScope.slist}" var="i">
+											<option value="${i.specialityId}">${i.specialityName}</option>
+										</c:forEach>
+									</select>
+								</c:if>
+
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default">Save</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
 </div>
 <!---------------------------------------------------------------------------------------------------------------------->
 <!--                                  Doctor Speciality End                                                          -->
@@ -644,119 +662,149 @@
 <!---------------------------------------------------------------------------------------------------------------------->
 <!--                                  Doctor Hospital                                                        -->
 <!---------------------------------------------------------------------------------------------------------------------->
- 
+
 <div id="myModal2" class="modal fade" role="dialog">
-  <div class="modal-dialog" style="width: 600px;margin-top: 120px">
+	<div class="modal-dialog" style="width: 600px; margin-top: 120px">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-<form action="addDoctorHospital.html" method="post">   
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Hospital</h4>
-        
-      </div>
-      
-      <div class="modal-body" style="height: 360px;background-color: #5292e7;">
-       
-         <i class="fa fa-hospital-o" style="font-size: 120px;margin-left:25px;"></i>
-        <div class="form-group">
-                                       
-                                        <div class="col-md-12" Style="margin-left: 175px;margin-top: -125px;">
-                                            <input type="text" id="hospitalName" name="hospitalName" class="form-control1" placeholder="Enter name" required="required" style="width: 350px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                        </div>
-                                        
-                                    </div>
-      
-        <div class="form-group">
-                                        
-                                        <div class="col-md-12" Style="margin-left: 175px;margin-top: -95px;">
-                                            <input type="text" id="hospitalAddress" name="hospitalAddress" class="form-control1" placeholder="Enter Address" required="required" style="width: 350px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                        </div>
-                                        
-                                    </div>
-        <div class="form-group">
-                                       
-                                        <div class="col-sm-3" style="margin-left: 175px;margin-top: -52px;">
-                                            <select class="form-control" name="countryMenu" id="countryMenu" onchange="getState(this.value)" required="required"
-                                            style="width: 160px; height: 30px;margin-top: 10px;border-width: 0px 0px 1px 0px;background-color: #5292e7;padding: 0px;padding-left: 13px;color: white;border-color:#fff;"
-                                            
-                                            >
-                                            <option>Select Country</option>
-                                            <c:forEach items="${sessionScope.clist}" var="i">
-                                            <c:if test="${i.isActive == 'Yes' }">
-											<option value="${i.countryId}">${i.countryName}</option>
-											</c:if>
-											</c:forEach>
-                                            </select>
-                                        </div>
-                                        </div>
-                <div class="form-group">
-                                  
-                                        <div class="col-sm-3" style="margin-left: 365px;margin-top: -52px;">
-                                             <select class="form-control" name="stateMenu" id="stateMenu"  required="required" onchange="getCity(this.value)"
-                                             style="width: 160px; height: 30px;margin-top: 10px;border-width: 0px 0px 1px 0px;background-color: #5292e7;padding: 0px;padding-left: 13px;color: white;border-color:#fff;">
-                                                <option>Select State</option>
-                                               
-                                            </select>
-                                           
-                                        </div>
-                                        
-                                        
-                                    </div>
-                                   
-               <div class="form-group">
-                                        
-                                        <div class="col-sm-3" style="margin-left: 175px;margin-top: -7px;">
-                                             <select class="form-control" name="cityMenu" id="cityMenu" required="required"
-                                              style="width: 160px; height: 30px;margin-top: 10px;border-width: 0px 0px 1px 0px;background-color: #5292e7;padding: 0px;padding-left: 13px;color: white;border-color:#fff;">
-                                                <option>Select City</option>
-                                               
-                                            </select>
-                                        </div>
-                                    </div>
-              <div class="form-group">
-                                    	
-                                    	<div class="col-sm-3" style="margin-left: 365px;margin-top: -37px;">
-                                    		<input type="tel" id="hospitalZipCode"  name="hospitalZipCode" class="form-control1" placeholder="Postal Code" required="required" style="width: 160px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                    	</div>
-                                    
-                                    </div>
-                                      <div class="form-group">
-                                        
-                                        <div class="col-md-12" Style="margin-left: 175px;margin-top: 8px;">
-                                            <input type="email" id="hospitalEmail" name="hospitalEmail" class="form-control1" placeholder="Enter Email" required="required" style="width: 350px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                        </div>
-                                        
-                                    </div>
-              <div class="form-group">
-                                        
-                                        <div class="col-md-12" style="margin-left: 175px;margin-top: 10px;">
-                                            <input type="tel" id="hospitalPhone" name="hospitalPhone" class="form-control1" placeholder="Enter PhoneNo"  required="required" style="width: 350px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                        </div>
-                                    </div>
-                                     <div class="form-group">
-                                       
-                                        <div class="col-md-12" style="margin-left: 175px;margin-top: 10px;">
-                                            <input type="text" id="hospitalWebsite" name="hospitalWebsite" class="form-control1" placeholder="Enter Website" style="width: 350px; height: 0px;border-width: 0px 0px 1px 0px;border-color: #fff;background-color: #5292e7;color: #fff;"/>
-                                        <c:forEach items="${sessionScope.list}" var="i">
-	                                    <input type="hidden" name="doctorid" id="doctorid" value="${i.doctorId}">
-	                                     </c:forEach>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                    
-      </div>
-     <div class="modal-footer">
-          <button type="submit" class="btn btn-default">Save</button>
-      </div>
-     </form>
-      </div>
-      
-    </div>
+		<!-- Modal content-->
+		<div class="modal-content">
+			<form action="addDoctorHospital.html" method="post">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Hospital</h4>
 
-  </div>
+				</div>
+
+				<div class="modal-body"
+					style="height: 360px; background-color: #5292e7;">
+
+					<i class="fa fa-hospital-o"
+						style="font-size: 120px; margin-left: 25px;"></i>
+					<div class="form-group">
+
+						<div class="col-md-12"
+							Style="margin-left: 175px; margin-top: -125px;">
+							<input type="text" id="hospitalName" name="hospitalName"
+								class="form-control1" placeholder="Enter name"
+								required="required"
+								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+						</div>
+
+					</div>
+
+					<div class="form-group">
+
+						<div class="col-md-12"
+							Style="margin-left: 175px; margin-top: -95px;">
+							<input type="text" id="hospitalAddress" name="hospitalAddress"
+								class="form-control1" placeholder="Enter Address"
+								required="required"
+								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<div class="col-sm-3"
+							style="margin-left: 175px; margin-top: -52px;">
+							<select class="form-control" name="countryMenu" id="countryMenu"
+								onchange="getState(this.value)" required="required"
+								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								<option>Select Country</option>
+								<c:forEach items="${sessionScope.clist}" var="i">
+									<c:if test="${i.isActive == 'Yes' }">
+										<option value="${i.countryId}">${i.countryName}</option>
+									</c:if>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+
+						<div class="col-sm-3"
+							style="margin-left: 365px; margin-top: -52px;">
+							<select class="form-control" name="stateMenu" id="stateMenu"
+								required="required" onchange="getCity(this.value)"
+								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								<option>Select State</option>
+
+							</select>
+
+						</div>
+
+
+					</div>
+
+					<div class="form-group">
+
+						<div class="col-sm-3"
+							style="margin-left: 175px; margin-top: -7px;">
+							<select class="form-control" name="cityMenu" id="cityMenu"
+								required="required"
+								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								<option>Select City</option>
+
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+
+						<div class="col-sm-3"
+							style="margin-left: 365px; margin-top: -37px;">
+							<input type="tel" id="hospitalZipCode" name="hospitalZipCode"
+								class="form-control1" placeholder="Postal Code"
+								required="required"
+								style="width: 160px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<div class="col-md-12"
+							Style="margin-left: 175px; margin-top: 8px;">
+							<input type="email" id="hospitalEmail" name="hospitalEmail"
+								class="form-control1" placeholder="Enter Email"
+								required="required"
+								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+						</div>
+
+					</div>
+					<div class="form-group">
+
+						<div class="col-md-12"
+							style="margin-left: 175px; margin-top: 10px;">
+							<input type="tel" id="hospitalPhone" name="hospitalPhone"
+								class="form-control1" placeholder="Enter PhoneNo"
+								required="required"
+								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+						</div>
+					</div>
+					<div class="form-group">
+
+						<div class="col-md-12"
+							style="margin-left: 175px; margin-top: 10px;">
+							<input type="text" id="hospitalWebsite" name="hospitalWebsite"
+								class="form-control1" placeholder="Enter Website"
+								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+							<c:forEach items="${sessionScope.list}" var="i">
+								<input type="hidden" name="doctorid" id="doctorid"
+									value="${i.doctorId}">
+							</c:forEach>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default">Save</button>
+				</div>
+			</form>
+		</div>
+
+	</div>
+
+</div>
 
 <script type="text/javascript">
                                         function getState(val){

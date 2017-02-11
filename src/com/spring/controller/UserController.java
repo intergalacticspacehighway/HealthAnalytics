@@ -121,15 +121,38 @@ public class UserController {
 		return("client/profileSettings");
 	}
 	@RequestMapping(value="/addDoctorSpeciality.html", method = RequestMethod.POST)
-	public String insertDoctorSpeciality(@Param String specMenu,@Param String specMenu1,@Param int id1,HttpSession session) throws Exception
+	public String insertDoctorSpeciality(@Param String specMenu,@Param String specMenu1,@Param int doctorid,HttpSession session) throws Exception
 	{	
 //		 insert Doctor Speciality
+		if(specMenu!=null)
+		{
 		String[] specid = specMenu.split(",");
 		for (int i = 0; i < specid.length; i++) 
 		{
 			DoctorVO doctor =new DoctorVO();
 			DoctorSpecialityVO DoctorSpeciality = new DoctorSpecialityVO();
-			doctor.setDoctorId(id1);
+			doctor.setDoctorId(doctorid);
+			DoctorSpeciality.setDoctor(doctor);
+			int x = Integer.parseInt(specid[i]);
+			SpecialityVO speciality = new SpecialityVO();
+			speciality.setSpecialityId(x);
+			DoctorSpeciality.setSpeciality(speciality);
+			this.user.insertDoctorSpeciality(DoctorSpeciality);
+			System.out.println(specMenu1);
+		}
+		}
+		else
+		{
+			
+//		insert Doctor Speciality completed
+//		update Doctor Speciality
+		this.user.deleteDoctorSpeciality(doctorid);
+		String[] specid = specMenu1.split(",");
+		for (int i = 0; i < specid.length; i++) 
+		{
+			DoctorVO doctor =new DoctorVO();
+			DoctorSpecialityVO DoctorSpeciality = new DoctorSpecialityVO();
+			doctor.setDoctorId(doctorid);
 			DoctorSpeciality.setDoctor(doctor);
 			int x = Integer.parseInt(specid[i]);
 			SpecialityVO speciality = new SpecialityVO();
@@ -137,8 +160,7 @@ public class UserController {
 			DoctorSpeciality.setSpeciality(speciality);
 			this.user.insertDoctorSpeciality(DoctorSpeciality);
 		}
-//		insert Doctor Speciality completed
-//		update Doctor Speciality
+		}
 		
 		
 		return("redirect:/profile.html");
