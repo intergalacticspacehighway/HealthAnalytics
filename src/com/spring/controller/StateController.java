@@ -53,7 +53,7 @@ public class StateController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return ("redirect:/viewState.html");
+		return ("redirect:/admin/viewState.html");
 	}
 
 	@RequestMapping(value = "/addState.html", method = RequestMethod.GET)
@@ -92,7 +92,7 @@ public class StateController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:/addState.html");
+		return new ModelAndView("redirect:/admin/addState.html");
 
 	}
 	@RequestMapping(value = "/updateState.html", method = RequestMethod.POST)
@@ -109,7 +109,7 @@ public class StateController {
 	@RequestMapping(value="/getStateUsingAjax.html", method=RequestMethod.GET)
 	public String getStateUsingAjax(@RequestParam("countryId") int countryId, HttpSession session){
 		try {
-			List list = state.getStateAjax(countryId);
+			List<Object> list = state.getStateAjax(countryId);
 			session.setAttribute("list", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -161,7 +161,7 @@ public class StateController {
 		this.state.updateIsactive(id);
 		/*List<Object> ls = this.country.getCountry();
 		session.setAttribute("list",ls);*/
-		return("redirect:/viewState.html");
+		return("redirect:/admin/viewState.html");
 		
 	}
 

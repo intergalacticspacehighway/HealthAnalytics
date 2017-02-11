@@ -80,8 +80,8 @@ public class HospitalVO {
 		return hospitalPhone;
 	}
 
-	public void setHospitalPhone(String hospitalPhone) {
-		this.hospitalPhone = hospitalPhone;
+	public void setHospitalPhone(String hospitalPhone2) {
+		this.hospitalPhone = hospitalPhone2;
 	}
 
 	public String getHospitalPassword() {

@@ -150,6 +150,7 @@ var _wpUtilSettings = {"ajax":{"url":"\/wordpress\/docdirect\/wp-admin\/admin-aj
 </script>
 <script type='text/javascript'
 	src='resources/client/js/wp-util.min.js?ver=4.7.1'></script>
+	
 <script type='text/javascript'>
 /* <![CDATA[ */
 var scripts_vars = {"ajaxurl":"https:\/\/themographics.com\/wordpress\/docdirect\/wp-admin\/admin-ajax.php"};

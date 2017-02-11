@@ -2883,6 +2883,11 @@ output {
 .form-control::-webkit-input-placeholder {
 	color: #999
 }
+.form-control1::-webkit-input-placeholder {
+	color: #fff
+}
+
+
 
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control
 	{

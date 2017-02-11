@@ -171,7 +171,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12" for="pwd">Password</span></label>
+                                        <label class="col-md-12" for="pwd">Password</label>
                                         <div class="col-md-12">
                                             <form:input type="password" id="password" path="hospital.hospitalPassword" class="form-control" placeholder="enter your password" required="required"/>
                                         </div>

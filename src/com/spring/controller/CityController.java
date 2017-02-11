@@ -62,14 +62,14 @@ public class CityController {
 	@RequestMapping(value = "/insertCity.html", method = RequestMethod.POST)
 	public String insertCity(@ModelAttribute CityVO insertCity) {
 		city.insertCity(insertCity);
-		return ("redirect:/addCity.html");
+		return ("redirect:/admin/addCity.html");
 	}
 	
 	@RequestMapping(value="/deleteCity.html" , method=RequestMethod.GET)
 	public String deleteCity(@Param int id)
 	{
 		city.deleteCity(id);
-		return("redirect:/viewCity.html");
+		return("redirect:/admin/viewCity.html");
 		
 	}
 	
@@ -85,7 +85,7 @@ public class CityController {
 	public String updateCity(@ModelAttribute CityVO updateCity)
 	{
 		this.city.insertCity(updateCity);
-		return("redirect:/viewCity.html");
+		return("redirect:/admin/viewCity.html");
 		
 	}
 	
@@ -110,7 +110,7 @@ public class CityController {
 	{
 		this.city.updateIsactive(id);
 		
-		return("redirect:/viewCity.html");
+		return("redirect:/admin/viewCity.html");
 		
 	}
 }
