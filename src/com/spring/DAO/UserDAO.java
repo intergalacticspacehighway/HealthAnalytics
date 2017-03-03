@@ -94,10 +94,10 @@ public class UserDAO {
 		session.close();
 		return list;
 	}
-	public void changePassword(String email,String password)
+	public void changePassword(int loginId,String password)
 	{
 		Session session = sessionFactory.openSession();
-		Query query=session.createQuery("UPDATE RegistrationVO set login.password ='"+password+"' WHERE email ='"+email+"'");
+		Query query=session.createQuery("UPDATE LoginVO set password ='"+password+"' WHERE loginId=" +loginId);
 		query.executeUpdate();
 		session.close();
 	}

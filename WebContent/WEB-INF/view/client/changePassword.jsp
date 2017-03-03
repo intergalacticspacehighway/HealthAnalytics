@@ -19,7 +19,7 @@
 				<h2 style="text-transform: none; margin-left: -110px;">Create new password</h2>
 			</div>
 		
-			<form class="form-refinesearch tg-haslayout contact_form" action="verifyEmail.html" method="get" >
+			<form class="form-refinesearch tg-haslayout contact_form" action="verifyPassword.html" method="post" >
 			
 				<fieldset>
 				<p style="color:black;">We'll ask for this password whenever you sign in.</p>
@@ -30,8 +30,8 @@
 						<input type="text"  class="username" placeholder=" re-enter Password" required="required" style="height: 0px;">
 					</div>
 					<input type="submit" class="btn btn-succes" value="Save changes" style="height: 30px;line-height: 1px;width: 100%;margin-left: 0px;margin-top: 30px;color: white;background-color: #5292e7;"/>
-				<c:forEach items="${sessionScope.email1}" var = "i">
-				<input type="hidden" name="email1" value="${i}}"/>
+				<c:forEach items="${sessionScope.registrationlist}" var = "i">
+				<input type="hidden" name="loginid" value="${i.login.loginId}"/>
 				</c:forEach>
 				</fieldset>
 			</form>

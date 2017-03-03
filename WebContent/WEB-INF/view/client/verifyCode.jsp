@@ -19,7 +19,7 @@
 				<h2 style="text-transform: none; margin-left: -110px;">Verifying it's you...</h2>
 			</div>
 		
-			<form class="form-refinesearch tg-haslayout contact_form" action="verifyEmail.html" method="get" >
+			<form class="form-refinesearch tg-haslayout contact_form" action="verifyCode.html" method="post" >
 			
 				<fieldset>
 				<c:forEach items="${sessionScope.email}" var = "i">
@@ -35,7 +35,10 @@
 					</div>
 					<input type="submit" class="btn btn-succes" value="Continue" style="height: 30px;line-height: 1px;width: 100%;margin-left: 0px;margin-top: 30px;color: white;background-color: #5292e7;"/>
 				<c:forEach items="${sessionScope.email}" var = "i">
-				<input type="hidden" name="email" value="${i}}"/>
+				<input type="hidden" name="verifycodeSemail" value="${i}"/>
+				</c:forEach>
+				<c:forEach items="${sessionScope.code}" var = "i">
+				<input type="hidden" name="code" value="${i}"/>
 				</c:forEach>
 				</fieldset>
 				

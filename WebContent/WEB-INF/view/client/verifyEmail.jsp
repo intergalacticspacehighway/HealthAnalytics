@@ -19,7 +19,7 @@
 				<h2 style="text-transform: none; margin-left: -110px;">Password assistance</h2>
 			</div>
 		
-			<form class="form-refinesearch tg-haslayout contact_form" action="verifyEmail.html" method="get" >
+			<form class="form-refinesearch tg-haslayout contact_form" action="verifyEmail.html" method="post" >
 			
 				<fieldset>
 				<p style="color:black">Enter the email address associated with your Health Analytics account.</p>

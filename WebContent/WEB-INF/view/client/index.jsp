@@ -1,6 +1,6 @@
 
 <jsp:include page="header.jsp"></jsp:include>
-
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <main id="main" class="tg-page-wrapper tg-haslayout">
 <div class="container">
 	<div class="row">
@@ -110,31 +110,9 @@
 																						<span class="select"> <select
 																							class="group subcats" name="dir_subcat">
 																								<option value="all">Doctor&nbsp;Specialities</option>
-																								<option value="cardiologist">Cardiologist</option>
-																								<option value="colorectal-surgeon">Colorectal
-																									surgeon</option>
-																								<option value="dentist">Dentist</option>
-																								<option value="dermatologist">Dermatologist</option>
-																								<option value="dietician">Dietician</option>
-																								<option value="eye-doctor">Eye Doctor</option>
-																								<option value="eye-nose-ear-ent-specialist">Eye,
-																									Nose, Ear (ENT) specialist</option>
-																								<option value="nephrologist">Nephrologist</option>
-																								<option value="neurosurgeon">Neurosurgeon</option>
-																								<option value="nutritionist">Nutritionist</option>
-																								<option value="oncologist">Oncologist</option>
-																								<option value="ophthalmologist">Ophthalmologist</option>
-																								<option value="orthodontist">Orthodontist</option>
-																								<option value="orthopedic-surgeon">Orthopedic
-																									Surgeon</option>
-																								<option value="pediatrician">Pediatrician</option>
-																								<option value="physiotherapist">Physiotherapist</option>
-																								<option value="plastic-surgeon">Plastic
-																									surgeon</option>
-																								<option value="primary-care-doctor">Primary
-																									care doctor</option>
-																								<option value="psychiatrist">Psychiatrist</option>
-																								<option value="psychologist">Psychologist</option>
+																								<c:forEach items="${sessionScope.specialitylist}" var = "i">
+																								<option value="${i.specialityId}"> ${i.specialityName}</option>
+																								</c:forEach>
 																						</select>
 																						</span>
 																					</div>

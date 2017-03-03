@@ -1,5 +1,6 @@
 package com.spring.controller;
 
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -26,17 +27,20 @@ public class ForgotpasswordController {
 	@Autowired
 	UserDAO user;
 	
-	@RequestMapping(value="/verifyEmail.html",method=RequestMethod.GET)
-	public String forgetpassword(@Param String userEmail,HttpSession session,@Param String userCode,@Param String userPassword,@Param String email,@Param String email1)
+	@RequestMapping(value="/forgotPassword.html",method=RequestMethod.GET)
+	public String forgotPassword()
+	{
+		return "client/verifyEmail";
+		
+	}
+	@RequestMapping(value="/verifyEmail.html",method=RequestMethod.POST)
+	public String forgetpassword(@Param String userEmail,HttpSession session)
 	{
 		Random ran=new Random();
-		ran.setSeed(1);
 		 int num=ran.nextInt(999999-100000+1);
 		  String s=Integer.toString(num);
 			System.out.println(s);
-	
-		if(userEmail != null && userCode == null && userPassword == null && email == null && email1 == null)
-		{	
+		session.setAttribute("code",s);
 			String to=userEmail;
 			Properties props = new Properties();  
 			  props.put("mail.smtp.host", "smtp.gmail.com");  
@@ -71,38 +75,32 @@ public class ForgotpasswordController {
 			return "client/verifyCode";	
 		}
 		
-		else if(userCode!=null && userEmail == null && userPassword == null && email != null && email1 == null)
+	@RequestMapping(value="/verifyCode.html",method=RequestMethod.POST)
+	public String verifyCode(@Param String verifycodeSemail,@Param String userCode,@Param String code,HttpSession session) throws Exception
+	{
+		System.out.println(verifycodeSemail);
+		System.out.println(code);
+		
+		if(userCode.equals(code))
 		{
-			System.out.println(email);
-			if(userCode.equals(s))
-			{
-				session.setAttribute("email1",email);
-				return "client/changePassword";	
-			}
-			else
-			{
-				System.out.println("hello");
-				return "client/login";
-			}
-			
-		}
-		else if(userEmail == null && userCode == null && userPassword != null && email==null && email1 != null)
-		{
-			System.out.println(email1);
-			this.user.changePassword(email1, userPassword);
-			return "client/login" ;
-		}
-		else if(userEmail == null && userCode == null && userPassword == null && email==null && email1 == null)
-		{
-			return "client/verifyEmail";
+			List<Object> registrationlist=this.user.viewRegistration(verifycodeSemail);
+			session.setAttribute("registrationlist", registrationlist);
+			return "client/changePassword";	
 		}
 		else
 		{
-			return "client/verifyEmail";
+			System.out.println("hello");
+			return "client/login";
 		}
 		
 		
+	}
+	@RequestMapping(value="/verifyPassword.html",method=RequestMethod.POST)
+	public String verifyPassword(@Param int loginid,@Param String userPassword)
+	{
+		System.out.println(loginid);
+		this.user.changePassword(loginid,userPassword);
+		return "client/login";
 		
 	}
-	
 }

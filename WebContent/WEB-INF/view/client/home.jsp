@@ -90,12 +90,9 @@
 																							class="group subcats" name="dir_subcat">
 
 																								<option id="commonOption" value="all">Doctor&nbsp;Specialities</option>
-																								<c:forEach items="${specialityVO}"
-																									var="specialityVO">
-																									<option value="${specialityVO.specialityId}">${specialityVO.specialityName}</option>
-
+																								<c:forEach items="${sessionScope.specialitylist}" var = "i">
+																								<option value="${i.specialityId}"> ${i.specialityName}</option>
 																								</c:forEach>
-
 																						</select>
 																						</span>
 																					</div>
