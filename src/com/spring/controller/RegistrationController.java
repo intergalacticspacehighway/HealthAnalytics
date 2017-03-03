@@ -1,6 +1,7 @@
 package com.spring.controller;
 
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -11,6 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.jboss.logging.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.InsertDAO;
+import com.spring.DAO.RegistationDAO;
 import com.spring.VO.DoctorVO;
 import com.spring.VO.LoginVO;
+import com.spring.VO.PatientVO;
 import com.spring.VO.RegistrationVO;
 
 @Controller
@@ -30,12 +34,14 @@ public class RegistrationController {
 
 	@Autowired	
 	private InsertDAO insert;
-	
+	@Autowired
+	RegistationDAO registration;
 	
 	@RequestMapping(value="/registration.html" , method=RequestMethod.GET)
-	public ModelAndView loadRegistration()
+	public ModelAndView loadRegistration(HttpSession session) throws Exception
 	{	
-		
+		List<Object> loginlist=this.registration.getUsername();
+		session.setAttribute("loginlist",loginlist);
 		
 		return new ModelAndView("client/registration","insertUser", new RegistrationVO());
 		
@@ -68,11 +74,13 @@ public class RegistrationController {
 		doctor.setRegistration(insertUser);
 		insert.insertObject(doctor);
 		}
-		else
+		else if(userType.equalsIgnoreCase("patient"))
 		{
-			
+			PatientVO patient =new PatientVO();
+			patient.setRegistration(insertUser);
+			insert.insertObject(patient);
 		}
-		/*String email=request.getParameter("email");
+		String email=request.getParameter("email");
 		
 		String to=email;
 		 Properties props = new Properties();  
@@ -106,7 +114,7 @@ public class RegistrationController {
 			   
 			  } catch (MessagingException e) {throw new RuntimeException(e);}  
 			   
-			  */
+			  
 		
 		return("redirect:/login.html");
 		

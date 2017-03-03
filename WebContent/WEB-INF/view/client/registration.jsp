@@ -46,9 +46,10 @@ box-radius: 10%;
                    </div>
                     <div class="row form-group"> 
 					
-                      <label class="col-md-12" for="username">Choose your username</span></label>
+                      <label class="col-md-12" for="username">Choose your username</label>
                           <div class="col-md-12">
-                             <input type="text" name ="userName" id="username" placeholder="Username" style= "height: 40px" class="form-control"/>
+                             <input type="text" name ="userName" id="username" onkeyup="myFunction()" placeholder="Username" style= "height: 40px" class="form-control"/>
+                          <font id="demo"></font>
                           </div>
                      
                       </div>
@@ -102,3 +103,4 @@ box-radius: 10%;
 
 $('.mydatepicker').datepicker();
 </script>
+

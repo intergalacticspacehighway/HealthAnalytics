@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.VO.DoctorHospitalVO;
 import com.spring.VO.DoctorSpecialityVO;
 import com.spring.VO.LoginVO;
 
@@ -65,6 +66,47 @@ public class UserDAO {
 		session.close();
 	}
 	
-	
-	
+	public List<Object> getPatient(String name) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from PatientVO where registration.login.username='"+name+"'");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
+	public List<Object> getDoctorClinic(String username)
+	{
+		Session session = sessionFactory.openSession();
+
+		Query query = session
+				.createQuery("from DoctorClinicVO where doctor.registration.login.username='"+username+"'");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+		
+	}	
+	public List<Object> viewClinic(int id) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from DoctorClinicVO where clinic.clinicId=" +id);
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
+	public void changePassword(String email,String password)
+	{
+		Session session = sessionFactory.openSession();
+		Query query=session.createQuery("UPDATE RegistrationVO set login.password ='"+password+"' WHERE email ='"+email+"'");
+		query.executeUpdate();
+		session.close();
+	}
+	public List<Object> viewRegistration(String email) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from RegistrationVO where email='"+email+"'");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
 }

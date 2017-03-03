@@ -3418,10 +3418,11 @@ textarea.form-control{
 	margin: 0 0 30px;
 }
 .tg-profilehits{
-	width: 100%;
-	float: left;
-	border: 1px solid #ddd;
-	padding: 30px;
+	width: 30%;
+    float: left;
+    border: 1px solid #ddd;
+    padding: 30px;
+    height: 257px;
 }
 .tg-docrank {
 	border: 1px solid #ddd;
@@ -9187,7 +9188,7 @@ select option:disabled {
 	float:left;
 }
 .tg-heading-border.tg-small:after{
-	width:60%;
+	width:100%;
 	 }
 .tg-userdetail .tg-location-map{
 	margin-top:0;

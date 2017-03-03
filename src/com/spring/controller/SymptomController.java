@@ -47,7 +47,7 @@ public class SymptomController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ModelAndView("redirect:/addSymptom.html");
+		return new ModelAndView("redirect:/admin/addSymptom.html");
 	}
 	
 	@RequestMapping(value="/deleteSymptom.html",method=RequestMethod.GET)

@@ -76,6 +76,8 @@ public String loadlistview()
 	{		
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			String name = auth.getName(); 
+			List authoritesname = (List) auth.getAuthorities();
+			model.addAttribute("authoritesname",authoritesname);
 			model.addAttribute("username", name);
 			return("client/home");
 	}

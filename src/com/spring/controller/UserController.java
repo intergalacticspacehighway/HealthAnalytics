@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,15 +21,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.DAO.CityDAO;
 import com.spring.DAO.CountryDAO;
+import com.spring.DAO.DoctorHospitalDAO;
 import com.spring.DAO.SpecialityDAO;
 import com.spring.DAO.StateDAO;
+import com.spring.DAO.SymptomDAO;
 import com.spring.DAO.UserDAO;
 import com.spring.VO.CityVO;
+import com.spring.VO.ClinicVO;
 import com.spring.VO.CountryVO;
+import com.spring.VO.DoctorClinicVO;
 import com.spring.VO.DoctorHospitalVO;
 import com.spring.VO.DoctorSpecialityVO;
 import com.spring.VO.DoctorVO;
 import com.spring.VO.HospitalVO;
+import com.spring.VO.PatientRecordVO;
+import com.spring.VO.PatientVO;
 import com.spring.VO.SpecialityVO;
 import com.spring.VO.StateVO;
 
@@ -45,14 +52,25 @@ public class UserController {
 	StateDAO state;
 	@Autowired
 	CityDAO city;
+	@Autowired
+	SymptomDAO symptom;
+	@Autowired
+	DoctorHospitalDAO doctorhospital;
 	
-	@RequestMapping(value = "/profile.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/doctorProfile.html", method = RequestMethod.GET)
 	public String displayProfile(ModelMap model,HttpSession session) throws Exception
 	{	
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
 		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		List<DoctorHospitalVO> doctorhospital = this.doctorhospital.getDoctorHospital(name);
+		session.setAttribute("doctorhospital",doctorhospital);
+		List<Object> doctorclinic = this.user.getDoctorClinic(name);
+		session.setAttribute("doctorclinic",doctorclinic);
+		
 		
 //		get Doctor Speciality
 		
@@ -76,6 +94,8 @@ public class UserController {
 		List<Object> ls= this.user.getDoctor(name);
 		session.setAttribute("list",ls);
 		session.setAttribute("clist", clist);
+		
+		
 		}
 // 		get Doctor Speciality completed
 		else if(dslist.isEmpty() == true)
@@ -110,9 +130,17 @@ public class UserController {
         }
   catch(Exception e){System.out.println(e);} 
         
-        List<Object> slist = this.Speciality.getSpeciality();
-		session.setAttribute("slist", slist);
-		return("redirect:/profile.html");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		List name = (List) auth.getAuthorities();
+		if(name.get(0).toString().equals("ROLE_DOCTOR"))
+		{
+			return("redirect:/doctorProfile.html");
+		}
+		else if(name.get(0).toString().equals("ROLE_USER"))
+		{
+			return("redirect:/patientProfile.html");
+		}
+		return null;
 	}
 	@RequestMapping(value = "/profileSettings.html", method = RequestMethod.GET)
 	public String displayProfileSettings()
@@ -163,7 +191,7 @@ public class UserController {
 		}
 		
 		
-		return("redirect:/profile.html");
+		return("redirect:/doctorProfile.html");
 	}
 	@RequestMapping(value="/getStateUsingAjax.html", method=RequestMethod.GET)
 	public String getStateUsingAjax(@RequestParam("countryId") int countryId, HttpSession session){
@@ -222,8 +250,115 @@ public class UserController {
 		doctorhospital.setDoctor(doctor);
 		doctorhospital.setHospital(hospital);
 		this.user.insertDoctorSpeciality(doctorhospital);
-		return("redirect:/profile.html");
+		return("redirect:/doctorProfile.html");
 		
 	}
+	
+	@RequestMapping(value="viewDoctorHosptial.html", method=RequestMethod.GET)
+	public ModelAndView viewDoctorHospital(HttpSession session,ModelMap model,@Param int id) throws Exception
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
+		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		List<Object> viewHospital = this.doctorhospital.getHospital(id); 
+		session.setAttribute("hospitallist", viewHospital);
+		List<Object> clist = this.country.getCountry();
+		session.setAttribute("clist", clist);
+		return new ModelAndView("client/viewDoctorHospital","editDoctorhospital",new HospitalVO());
+		
+	}
+	
+	@RequestMapping(value="editDoctorHospital.html", method=RequestMethod.POST)
+	public String editDoctorHospital(@Param int hospitalId,@Param String hospitalName,@Param String hospitalAddress,@Param int hospitalZipCode,@Param String hospitalEmail,@Param String hospitalWebsite,@Param String hospitalPhone,@Param int countryMenu,@Param int stateMenu,@Param int cityMenu) throws Exception
+	{
+		this.doctorhospital.editDoctorhospital(hospitalId);
+		return "redirect:/viewDoctorHospital.html";
+		
+	}
+	
+	@RequestMapping(value="deleteDoctorHospital.html", method=RequestMethod.GET)
+	public String deleteDoctorHospital(@Param int hospitalid) throws Exception
+	{
+		this.doctorhospital.deleteDoctorHospital(hospitalid);
+		this.doctorhospital.deleteHospital(hospitalid);
+		
+		return("redirect:/doctorProfile.html");
+	}
+	
+	@RequestMapping(value="/addDoctorClinic.html",method=RequestMethod.POST)
+	public String insertDoctorClinic(@Param String clinicName,@Param int doctorid,@Param String clinicAddress,@Param int clinicPostalCode,@Param String clinicEmailId,@Param String clinicWebsite,@Param String clinicPhoneNo,@Param int countryMenu,@Param int stateMenu1,@Param int cityMenu1 )
+	{
+		CountryVO country=new CountryVO();
+		country.setCountryId(countryMenu);
+		StateVO state=new StateVO();
+		state.setStateId(stateMenu1);
+		CityVO city=new CityVO();
+		city.setCityId(cityMenu1);
+		ClinicVO clinic =new ClinicVO();
+		clinic.setCountry(country);
+		clinic.setState(state);
+		clinic.setCity(city);
+		clinic.setClinicName(clinicName);
+		clinic.setClinicAddress(clinicAddress);
+		clinic.setClinicEmailId(clinicEmailId);
+		clinic.setClinicPhoneNo(clinicPhoneNo);
+		clinic.setClinicPostalCode(clinicPostalCode);
+		clinic.setClinicWebsite(clinicWebsite);
+		this.user.insertDoctorSpeciality(clinic);
+		DoctorVO doctor=new DoctorVO();
+		doctor.setDoctorId(doctorid);
+		DoctorClinicVO doctorclinic=new DoctorClinicVO();
+		doctorclinic.setDoctor(doctor);
+		doctorclinic.setClinic(clinic);
+		this.user.insertDoctorSpeciality(doctorclinic);
+		
+		
+		return("redirect:/doctorProfile.html");
+		
+	}
+	@RequestMapping(value="/viewDoctorClinic.html" , method=RequestMethod.GET)
+	public String viewDoctorClinic(HttpSession session,ModelMap model,@Param int id) throws Exception
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
+		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		List<Object> viewClinic = this.user.viewClinic(id);
+				session.setAttribute("clinicList", viewClinic);
+		return "client/viewDoctorClinic";
+		
+	}
+	@RequestMapping(value="/patientProfile.html",method=RequestMethod.GET)
+	public String patientProfile(ModelMap model,HttpSession session) throws Exception
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
+		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		
+		List<Object> patientlist =this.user.getPatient(name);
+		session.setAttribute("patientList",patientlist);
+		return "client/patientProfile";
+		
+	}
+	@RequestMapping(value="/patientRecord.html" , method=RequestMethod.GET)
+	public ModelAndView patientRecord(ModelMap model,HttpSession session) throws Exception
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
+		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		List<Object> Symptom=this.symptom.getSymptom();
+		session.setAttribute("Symptomlist",Symptom);
+		
+		return new ModelAndView("client/patientRecord","patientrecord", new PatientRecordVO());
+		
+	}
+	
 	
 }
