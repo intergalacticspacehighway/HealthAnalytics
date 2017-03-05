@@ -106,5 +106,12 @@ public class StateDAO {
 		query.executeUpdate();
 		session.close();
 	}
+	public List<Object> getState() throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from StateVO");
+		List<Object> ls = query.list();
+		session.close();
+		return ls;
 
+	}
 }

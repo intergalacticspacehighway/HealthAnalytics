@@ -1,6 +1,5 @@
 package com.spring.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,13 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.DAO.SpecialityDAO;
-import com.sun.jersey.api.core.HttpResponseContext;
+import com.spring.DAO.StateDAO;
 
 @Controller
 public class MainController {
 
 	@Autowired
 	SpecialityDAO speciality;
+	@Autowired
+	StateDAO state;
 	
 	@RequestMapping(value="/index.html" , method=RequestMethod.GET)
 public String loadIndex(HttpServletResponse response,HttpSession session ) throws Exception
@@ -39,6 +40,8 @@ public String loadIndex(HttpServletResponse response,HttpSession session ) throw
 		}
 		List<Object> specialitylist=this.speciality.getSpeciality();
 		session.setAttribute("specialitylist",specialitylist);
+		List<Object> statelist=this.state.getState();
+		session.setAttribute("statelist",statelist);
 		return("client/home");
 }
 	
@@ -88,6 +91,8 @@ public String loadlistview()
 			model.addAttribute("username", name);
 			List<Object> specialitylist=this.speciality.getSpeciality();
 			session.setAttribute("specialitylist",specialitylist);
+			List<Object> statelist=this.state.getState();
+			session.setAttribute("statelist",statelist);
 			return("client/home");
 	}
 }

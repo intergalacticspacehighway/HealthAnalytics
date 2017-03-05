@@ -1,9 +1,13 @@
 package com.spring.VO;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +30,9 @@ public class PatientRecordVO {
 	private String renalfunctiontest;
 	private String livalfunctiontest;
 	private String urine;
+	private Date currentdate;
+	@ManyToOne
+	PatientVO patient;
 	public int getPatientrecordId() {
 		return patientrecordId;
 	}
@@ -110,6 +117,19 @@ public class PatientRecordVO {
 	public void setUrine(String urine) {
 		this.urine = urine;
 	}
+	public PatientVO getPatient() {
+		return patient;
+	}
+	public void setPatient(PatientVO patient) {
+		this.patient = patient;
+	}
+	public Date getCurrentdate() {
+		return currentdate;
+	}
+	public void setCurrentdate(Date currentdate) {
+		this.currentdate = currentdate;
+	}
+	
 	
 	
 	

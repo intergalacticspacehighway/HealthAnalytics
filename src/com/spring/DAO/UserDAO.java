@@ -109,4 +109,13 @@ public class UserDAO {
 		session.close();
 		return list;
 	}
+	public List<Object> getPatientRecord(String name) throws Exception {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from PatientRecordVO where patient.registration.login.username='"+name+"'");
+		@SuppressWarnings("unchecked")
+		List<Object> list = query.list();
+		session.close();
+		return list;
+	}
+	
 }

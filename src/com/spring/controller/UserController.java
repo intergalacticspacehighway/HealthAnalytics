@@ -342,6 +342,8 @@ public class UserController {
 		
 		List<Object> patientlist =this.user.getPatient(name);
 		session.setAttribute("patientList",patientlist);
+		List<Object> patientrecordList =this.user.getPatientRecord(name);
+		session.setAttribute("patientrecordList",patientrecordList);
 		return "client/patientProfile";
 		
 	}
@@ -353,12 +355,34 @@ public class UserController {
 		List authoritesname = (List) auth.getAuthorities();
 		model.addAttribute("username", name);
 		model.addAttribute("authoritesname",authoritesname);
-		List<Object> Symptom=this.symptom.getSymptom();
-		session.setAttribute("Symptomlist",Symptom);
+		List<Object> patientList=this.user.getPatient(name);
+		session.setAttribute("patientList",patientList);
 		
-		return new ModelAndView("client/patientRecord","patientrecord", new PatientRecordVO());
+		return new ModelAndView("client/patientRecord","patientRecord", new PatientRecordVO());
+		
+	}
+	@RequestMapping(value="/addpatientRecord.html" , method=RequestMethod.POST)
+	public String addPatientRecord(@ModelAttribute PatientRecordVO patientRecord)
+	{
+		
+		this.user.insertDoctorSpeciality(patientRecord);
+		return "redirect:/patientProfile.html";
 		
 	}
 	
+	@RequestMapping(value="/viewPatientRecord.html" , method=RequestMethod.GET)
+	public String viewPatientRecord(ModelMap model,HttpSession session) throws Exception
+	{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String name = auth.getName(); 
+		List authoritesname = (List) auth.getAuthorities();
+		model.addAttribute("username", name);
+		model.addAttribute("authoritesname",authoritesname);
+		List<Object> patientrecordList =this.user.getPatientRecord(name);
+		session.setAttribute("patientrecordList",patientrecordList);
+		
+		return "client/viewPatientRecord";
+		
+	}
 	
 }

@@ -208,7 +208,7 @@ a:hover{
 </style>
 
 </head>
-<body class="home page-template-default page page-id-2 home  sample-page mec-home ">
+<body class="home page-template-default page page-id-2 home  sample-page mec-home " onload="myFunction()">
 	
 	<div id="wrapper" class="tg-haslayout">
 		<header id="header" class="tg-haslayout tg-inner-header" style="z-index: 9999; position: fixed">

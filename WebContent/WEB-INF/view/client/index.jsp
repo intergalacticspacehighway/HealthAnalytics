@@ -116,15 +116,44 @@
 																						</select>
 																						</span>
 																					</div>
-																					<div class="form-group">
-																						<input type="text" name="by_name"
-																							class="form-control"
-																							placeholder="Type Keyword...">
+																					<div class="form-group doctorSpeciality">
+																						<span class="select"> <select
+																							class="group subcats" name="dir_subcat" onchange="getCity1(this.value)">
+
+																								<option id="commonOption" value="all">Select&nbsp;State</option>
+																								<c:forEach items="${sessionScope.statelist}" var = "i">
+																								<option value="${i.stateId}"> ${i.stateName}</option>
+																								</c:forEach>
+																						</select>
+																						</span>
 																					</div>
-																					<div class="form-group">
-																						<input type="text" name="zip" class="form-control"
-																							placeholder="Search users by zip code">
+																					<div class="form-group doctorSpeciality">
+																						<span class="select"> <select
+																							class="group subcats" name="dir_subcat" name="cityMenu1" id="cityMenu1">
+
+																								<option id="commonOption" value="all">Select&nbsp;City</option>
+																								
+																						</select>
+																						</span>
 																					</div>
+																					<script type="text/javascript">
+																					function getCity1(val){
+											                                        	
+											                                        	$.ajax({
+											                                        		type: "GET",
+											                                        		url: "getCityUsingAjax.html",
+											                                        		data: 'stateId='+val,
+											                                        		success: function(data){
+											                                        		
+											                                        		$("#cityMenu1").html(data);
+											                                        			
+											                                        			
+											                                        		}
+											                                        	});
+											                                        
+											                                        }
+																					</script>
+
 																					<div class="form-group">
 																						<a class="search_banner tg-btn pull-right"
 																							href="javascript:;">Search</a>

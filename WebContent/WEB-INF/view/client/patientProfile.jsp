@@ -1,5 +1,39 @@
 
 <jsp:include page="header.jsp"></jsp:include>
+<script>
+	var x = $("p");
+	function getLocation() {
+		alert("hiiiii");
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML = "Geolocation is not supported by this browser.";
+		}
+	}
+
+	function showPosition(position) {
+
+		alert("hiiiiiiiiiiiiiii");
+		var coordinates = {
+			"latitude" : position.coords.latitude,
+			"longitude" : position.coords.longitude
+		};
+
+
+		$.ajax({
+			type : "POST",
+			url : "emsServiceController/setCoordinates.html",
+			data : JSON.stringify(coordinates),
+			success : function(response) {
+				alert(response);
+			},
+			/* dataType : "json",
+			 */
+			 contentType : "application/json"
+		});
+	}
+</script>
+
 <main id="main" class="tg-page-wrapper tg-haslayout"> <%@taglib
 	uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <div class="container">
@@ -29,6 +63,13 @@
 					</div>
 				</div>
 				<div class="tg-widget tg-widget-accordions">
+
+					<button onclick="getLocation()"
+						style="width: 100%; margin-bottom: 10%" class="btn btn-danger">
+						Request Service <i style="width: 100%; height: 100%"
+							class="fa fa-ambulance" aria-hidden="true"></i>
+					</button>
+
 					<h3>Dashboard</h3>
 					<ul class="docdirect-menu">
 						<li class="active"><a
@@ -37,10 +78,10 @@
 						<li class=""><a
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=settings&#038;identity=340">Profile
 								Settings</a></li>
-						
+
 						<li class=""><a href="patientRecord.html">Manage Records</a></li>
 
-							</ul>
+					</ul>
 				</div>
 			</aside>
 
@@ -104,12 +145,26 @@
 			</div>
 
 			<div class="tg-graph tg-haslayout">
-				<div class="tg-profilehits">
-					<div class="tg-heading-border tg-small">
-						<h3>Profile Hits</h3>
+			
+				<div class="tg-profilehits" style="width: 80%;margin-left: 84px;height: 220px;margin-top: -4px">
+				<img src="resources/client/images/patientrecord.png" style="height: 200px;margin-top: -20px;margin-left: -650px;">
+					<div class="tg-heading-border tg-small" style="width: 470px;margin-left: 170px;">
+						<h3>Your Records</h3>
+						
 					</div>
-					<canvas id="canvas" class="canvas"></canvas>
+					
+				<div style="margin-left: 180px;margin-top: -127px;">
+					<c:forEach items="${sessionScope.patientrecordList}" var="i">
+					<c:if test="${not empty patientrecordList }">
+					<b><a href="viewPatientRecord.html">Record</a></b>
+					<b><p style="margin-left: 350px;margin-top: -20px;">${i.currentdate}</p></b>
+					</c:if>
+					</c:forEach>
+					</div>
+					
 				</div>
+				
+				
 			</div>
 			<div class="tg-docrank tg-haslayout">
 				<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
@@ -165,27 +220,29 @@
 				</div>
 			</div>
 			<script>
-	var lineChartData  = {
-		labels: ["January","February","March","April","May","June","July","August","September","October","November","December"],
-		datasets: [
-			{
-				label: "Profile Hits",
-				fillColor : "rgba(220,220,220,0)",
-				strokeColor : "rgba(203,202,201,1)",
-				pointColor : "rgba(93,89,85,1)",
-				pointStrokeColor : "rgba(238,238,238,1)",
-				pointHighlightFill : "rgba(125,187,0,1)",
-				pointHighlightStroke : "rgba(220,220,220,1)",
-				data : [264,0,0,0,0,0,0,0,0,0,0,0]		},
-		]
-	};
-	window.onload = function(){
-		var ctx = document.getElementById("canvas").getContext("2d");
-		window.myLine = new Chart(ctx).Line(lineChartData, {
-			responsive: true
-		});
-	}
-</script>
+				var lineChartData = {
+					labels : [ "January", "February", "March", "April", "May",
+							"June", "July", "August", "September", "October",
+							"November", "December" ],
+					datasets : [ {
+						label : "Profile Hits",
+						fillColor : "rgba(220,220,220,0)",
+						strokeColor : "rgba(203,202,201,1)",
+						pointColor : "rgba(93,89,85,1)",
+						pointStrokeColor : "rgba(238,238,238,1)",
+						pointHighlightFill : "rgba(125,187,0,1)",
+						pointHighlightStroke : "rgba(220,220,220,1)",
+						data : [ 264, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+					}, ]
+				};
+				window.onload = function() {
+					var ctx = document.getElementById("canvas")
+							.getContext("2d");
+					window.myLine = new Chart(ctx).Line(lineChartData, {
+						responsive : true
+					});
+				}
+			</script>
 
 		</div>
 
@@ -537,11 +594,13 @@
 										</div>
 									</form>
 									<script>
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-</script>
+										var loadFile = function(event) {
+											var output = document
+													.getElementById('output');
+											output.src = URL
+													.createObjectURL(event.target.files[0]);
+										};
+									</script>
 
 
 								</div>
