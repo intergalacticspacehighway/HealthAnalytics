@@ -7,8 +7,9 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback"
 	href="https://themographics.com/wordpress/docdirect/xmlrpc.php">
-<link rel="icon" type="image/png" sizes="16x16" href="resources/images/title.jpe">
-  
+<link rel="icon" type="image/png" sizes="16x16"
+	href="resources/images/title.jpe">
+
 <title>Health Analytics</title>
 <meta name='robots' content='noindex,follow' />
 <link rel='dns-prefetch' href='//www.google.com' />
@@ -17,7 +18,7 @@
 <link rel="alternate" type="application/rss+xml"
 	title="DocDirect &raquo; Feed"
 	href="https://themographics.com/wordpress/docdirect/feed/" />
-	
+
 <link rel="alternate" type="application/rss+xml"
 	title="DocDirect &raquo; Comments Feed"
 	href="https://themographics.com/wordpress/docdirect/comments/feed/" />
@@ -29,7 +30,7 @@
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/themographics.com\/wordpress\/docdirect\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7"}};
 			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
-		<script type="text/javascript">
+<script type="text/javascript">
 
 		function onAddTag(tag) {
 			alert("Added a tag: " + tag);
@@ -96,8 +97,8 @@
 		});
 
 	</script>
-	
-	<script>
+
+<script>
 $(document).ready(function(){
 	$("#show").hide();
     $("#tag").click(function(){
@@ -105,88 +106,77 @@ $(document).ready(function(){
     });
 });
 </script>
-		<link rel="stylesheet" type="text/css" href="resources/client/css/jquery.tagsinput.css" />
-		<link rel="stylesheet" type="text/css" href="resources/client/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="resources/client/css/component.css" />
-		<link rel="stylesheet" href="resources/client/css/style4.css">
-		<link rel="stylesheet" href="resources/client/css/themestyle.css">
+<link rel="stylesheet" type="text/css"
+	href="resources/client/css/jquery.tagsinput.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/client/css/demo.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/client/css/component.css" />
+<link rel="stylesheet" href="resources/client/css/style4.css">
+<link rel="stylesheet" href="resources/client/css/themestyle.css">
 <link rel='stylesheet' id='bootstrap.min-css'
-	href='resources/client/css/bootstrap.min.css'
-	type='text/css' media='all' />
-<link href="resources/client/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-<link href="resources/client/css/bootstrap-chosen.css" rel="stylesheet" type="text/css" />
+	href='resources/client/css/bootstrap.min.css' type='text/css'
+	media='all' />
+<link href="resources/client/css/bootstrap-datepicker.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="resources/client/css/bootstrap-chosen.css" rel="stylesheet"
+	type="text/css" />
 <link rel='stylesheet' id='fontawesome-css'
-	href='resources/client/css/font-awesome.min.css'
-	type='text/css' media='all' />
+	href='resources/client/css/font-awesome.min.css' type='text/css'
+	media='all' />
 <link rel='stylesheet' id='docdirect_normalize-css'
-	href='resources/client/css/normalize.css'
-	type='text/css' media='all' />
+	href='resources/client/css/normalize.css' type='text/css' media='all' />
 <link rel='stylesheet' id='icomoon-css'
-	href='resources/client/css/icomoon.css'
-	type='text/css' media='all' />
+	href='resources/client/css/icomoon.css' type='text/css' media='all' />
 <link rel='stylesheet' id='owl.carousel-css'
-	href='resources/client/css/owl.carousel.css'
-	type='text/css' media='all' />
+	href='resources/client/css/owl.carousel.css' type='text/css'
+	media='all' />
 <link rel='stylesheet' id='owl.theme-css'
-	href='resources/client/css/owl.theme.css'
-	type='text/css' media='all' />
+	href='resources/client/css/owl.theme.css' type='text/css' media='all' />
 <link rel='stylesheet' id='prettyPhoto-css'
-	href='resources/client/css/prettyPhoto.css'
-	type='text/css' media='all' />
+	href='resources/client/css/prettyPhoto.css' type='text/css' media='all' />
 <link rel='stylesheet' id='docdirect_theme_style-css'
-	href='resources/client/css/style.css'
-	type='text/css' media='all' />
+	href='resources/client/css/style.css' type='text/css' media='all' />
 <link rel='stylesheet' id='docdirect_typo_style-css'
-	href='resources/client/css/typo.css'
-	type='text/css' media='all' />
+	href='resources/client/css/typo.css' type='text/css' media='all' />
 <link rel='stylesheet' id='docdirect_transitions-css'
-	href='resources/client/css/transitions.css'
-	type='text/css' media='all' />
+	href='resources/client/css/transitions.css' type='text/css' media='all' />
 <link rel='stylesheet' id='docdirect_responsive_style-css'
-	href='resources/client/css/responsive.css'
-	type='text/css' media='all' />
+	href='resources/client/css/responsive.css' type='text/css' media='all' />
 <link rel='stylesheet' id='jquery-ui-css'
-	href='resources/client/css/jquery-ui.css'
-	type='text/css' media='all' />
+	href='resources/client/css/jquery-ui.css' type='text/css' media='all' />
 <link rel='stylesheet' id='docdirect_theme_colors-css'
-	href='resources/client/css/color.css'
-	type='text/css' media='all' />
+	href='resources/client/css/color.css' type='text/css' media='all' />
 <link rel='stylesheet' id='jquery.datetimepicker-css'
-	href='resources/client/css/datetimepicker.css'
-	type='text/css' media='all' />
+	href='resources/client/css/datetimepicker.css' type='text/css'
+	media='all' />
 <link rel='stylesheet' id='choosen-css'
-	href='resources/client/css/chosen.css'
-	type='text/css' media='all' />
+	href='resources/client/css/chosen.css' type='text/css' media='all' />
 <link rel='stylesheet' id='fw-ext-breadcrumbs-add-css-css'
 	href='https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/framework-customizations/extensions/breadcrumbs/static/css/style.css?ver=4.7'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='fw-ext-builder-frontend-grid-css'
-	href='resources/client/css/frontend-grid.css'
-	type='text/css' media='all' />
+	href='resources/client/css/frontend-grid.css' type='text/css'
+	media='all' />
 <link rel='stylesheet' id='fw-ext-forms-default-styles-css'
-	href='resources/client/css/frontend.css'
-	type='text/css' media='all' />
+	href='resources/client/css/frontend.css' type='text/css' media='all' />
 <link rel='stylesheet' id='fw-shortcode-section-backround-video-css'
-	href='resources/client/css/jquery.fs.wallpaper.css'
-	type='text/css' media='all' />
+	href='resources/client/css/jquery.fs.wallpaper.css' type='text/css'
+	media='all' />
 <link rel='stylesheet' id='fw-shortcode-section-css'
-	href='resources/client/css/styles.css'
-	type='text/css' media='all' />
+	href='resources/client/css/styles.css' type='text/css' media='all' />
 <link rel='stylesheet' id='fw-shortcode-button-css'
-	href='resources/client/css/styles1.css'
-	type='text/css' media='all' />
+	href='resources/client/css/styles1.css' type='text/css' media='all' />
 <link rel='stylesheet' id='fw-shortcode-call-to-action-css'
-	href='resources/client/css/styles2.css'
-	type='text/css' media='all' />
-<script type="text/javascript" src="resources/client/js/jquery.tagsinput.js"></script>
-<script type='text/javascript'
-	src='resources/client/js/jquery.js'></script>
+	href='resources/client/css/styles2.css' type='text/css' media='all' />
+<script type="text/javascript"
+	src="resources/client/js/jquery.tagsinput.js"></script>
+<script type='text/javascript' src='resources/client/js/jquery.js'></script>
 <script type='text/javascript'
 	src='resources/client/js/jquery-migrate.min.js'></script>
 <script type='text/javascript'
 	src='resources/client/js/plupload.full.min.js'></script>
-<script type='text/javascript'
-	src='resources/client/js/countdown.js'></script>
+<script type='text/javascript' src='resources/client/js/countdown.js'></script>
 <script type='text/javascript'
 	src='resources/client/js/fw-form-helpers.js'></script>
 <link rel='https://api.w.org/'
@@ -195,7 +185,7 @@ $(document).ready(function(){
 	href="https://themographics.com/wordpress/docdirect/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml"
 	href="https://themographics.com/wordpress/docdirect/wp-includes/wlwmanifest.xml" />
- <script src="resources/js/bootstrap-datepicker.min.js"></script>
+<script src="resources/js/bootstrap-datepicker.min.js"></script>
 <meta name="generator" content="WordPress 4.7" />
 <link rel="canonical"
 	href="https://themographics.com/wordpress/docdirect/" />
@@ -207,22 +197,26 @@ $(document).ready(function(){
 	href="https://themographics.com/wordpress/docdirect/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fthemographics.com%2Fwordpress%2Fdocdirect%2F&#038;format=xml" />
 
 <style>
-a:hover{
-	color: #5292e7				
+a:hover {
+	color: #5292e7
 }
 </style>
 
 </head>
-<body class="home page-template-default page page-id-2 home  sample-page mec-home " onload="myFunction()">
-	
+<body
+	class="home page-template-default page page-id-2 home  sample-page mec-home "
+	onload="myFunction()">
+
 	<div id="wrapper" class="tg-haslayout">
-		<header id="header" class="tg-haslayout tg-inner-header" style="z-index: 9999; position: fixed">
+		<header id="header" class="tg-haslayout tg-inner-header"
+			style="z-index: 9999; position: fixed">
 			<div class="container">
 				<div class="row" style="margin-top: -10px">
 					<div class="col-xs-12">
 						<div class="tg-navigationarea">
-							<strong class="logo"> <a style="color:#fff"><Strong>Health </Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
-			</strong>
+							<strong class="logo"> <a style="color: #fff"><Strong>Health
+								</Strong><span style="color: rgb(82, 146, 231)">Analytics</span></a>
+							</strong>
 							<nav id="tg-nav" class="tg-nav">
 								<div class="navbar-header">
 									<button type="button" class="navbar-toggle collapsed"
@@ -233,12 +227,12 @@ a:hover{
 											class="icon-bar"></span>
 									</button>
 								</div>
-								<div class="collapse navbar-collapse" id="tg-navigation" style="margin-left: -15%">
+								<div class="collapse navbar-collapse" id="tg-navigation"
+									style="margin-left: -15%">
 									<ul id="menu-main-menu" class="">
 										<li id="menu-item-654"
 											class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654"><a
-											href="index.html">Home</a>
-											</li>
+											href="home.html">Home</a></li>
 										<li id="menu-item-333"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-333"><a
 											href="#">Categories</a>
@@ -257,12 +251,10 @@ a:hover{
 													href="#">Pharmacies</a></li>
 												<li id="menu-item-523"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-523"><a
-													href="#">Blood
-														Banks</a></li>
+													href="#">Blood Banks</a></li>
 												<li id="menu-item-335"
 													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-335"><a
-													href="#">Fitness
-														Centers</a></li>
+													href="#">Fitness Centers</a></li>
 											</ul></li>
 										<!-- <li id="menu-item-340"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-340"><a
@@ -302,74 +294,76 @@ a:hover{
 													href="blogdetail.html">Detail
 														Blog</a></li>
 											</ul></li> -->
-									<!-- 	<li id="menu-item-21"
+										<!-- 	<li id="menu-item-21"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a
 											href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li> -->
 										<li id="menu-item-20"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a
-											href="contactus.html">Contact
-												Us</a></li>
-												 <li id="menu-item-340"
- 
+											href="contactus.html">Contact Us</a></li>
+										<li id="menu-item-340"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-340">
 											<c:choose>
-				                  	<c:when test="${not empty username}">
-											<a
-											href="#"><c:out value="${username }"></c:out></a>
-											<ul class="">
-											<c:if test="${authoritesname.get(0).toString().equals('ROLE_DOCTOR')}">
-												<li id="menu-item-341"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
-													href="doctorProfile.html">Profile</a></li>
-												<li id="menu-item-342"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
-													href="accountSettings.html">Profile Settings</a></li>
-												<li id="menu-item-343"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
-													<form action="j_spring_security_logout" method="post" name="form">
-													<button type=submit class="btn btn-primary" style="width: 100%;">Sign out</button>
-													<input type="hidden" name="${_csrf.parameterName}"
-														value="${_csrf.token}" />
-													</form>
-												</li>
+												<c:when test="${not empty username}">
+													<a href="#"><c:out value="${username }"></c:out></a>
+													<ul class="">
+														<c:if test="${authoritesname.get(0) != null}">
+															<li id="menu-item-341"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
+																href="doctorProfile.html">Profile</a></li>
+															<li id="menu-item-342"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
+																href="accountSettings.html">Profile Settings</a></li>
+															<li id="menu-item-343"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
+																<form action="j_spring_security_logout" method="post"
+																	name="form">
+																	<button type=submit class="btn btn-primary"
+																		style="width: 100%;">Sign out</button>
+																	<input type="hidden" name="${_csrf.parameterName}"
+																		value="${_csrf.token}" />
+																</form>
+															</li>
 														</c:if>
-														<c:if test="${authoritesname.get(0).toString().equals('ROLE_USER')}">
-														<li id="menu-item-341"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
-													href="patientProfile.html">Profile</a></li>
-												<li id="menu-item-342"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
-													href="profileSettings.html">Profile Settings</a></li>
-												<li id="menu-item-343"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
-													<form action="j_spring_security_logout" method="post" name="form">
-													<button type=submit class="btn btn-primary" style="width: 100%;">Sign out</button>
-													<input type="hidden" name="${_csrf.parameterName}"
-														value="${_csrf.token}" />
-													</form>
-													</li>
+														<%-- <c:if
+															test="${authoritesname.get(0).toString().equals('ROLE_USER')}">
+															<li id="menu-item-341"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
+																href="patientProfile.html">Profile</a></li>
+															<li id="menu-item-342"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
+																href="profileSettings.html">Profile Settings</a></li>
+															<li id="menu-item-343"
+																class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
+																<form action="j_spring_security_logout" method="post"
+																	name="form">
+																	<button type=submit class="btn btn-primary"
+																		style="width: 100%;">Sign out</button>
+																	<input type="hidden" name="${_csrf.parameterName}"
+																		value="${_csrf.token}" />
+																</form>
+															</li>
 														</c:if>
-											</ul>
-											</c:when>
-											<c:otherwise>
-				                
-				                  	  <a  id="loginHeader" href="login.html">Sign in/Register</a>
-                      			  </c:otherwise>
-				                  
-				                  
-				                  </c:choose> 
-											
-											</li> 
+													</ul> --%>
+												</c:when>
+												<c:otherwise>
+
+													<a id="loginHeader" href="login.html">Sign in/Register</a>
+												</c:otherwise>
+
+
+											</c:choose>
+
+										</li>
 									</ul>
 								</div>
-								
+
 							</nav>
-							
-                            
-                        </div>
+
+
+						</div>
 					</div>
 				</div>
 			</div>
-			
+
 		</header>
-		</div>
+	</div>

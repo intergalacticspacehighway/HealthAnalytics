@@ -83,10 +83,12 @@ public String loadlistview()
 	}
 	@RequestMapping(value="/home.html" , method=RequestMethod.GET)
 	public String loadhome(ModelMap model,HttpSession session) throws Exception
-	{		
+	{	
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			String name = auth.getName(); 
+			System.out.println("Name::"+ name);
 			List authoritesname = (List) auth.getAuthorities();
+			System.out.println(authoritesname.get(0).toString());
 			model.addAttribute("authoritesname",authoritesname);
 			model.addAttribute("username", name);
 			List<Object> specialitylist=this.speciality.getSpeciality();

@@ -41,8 +41,9 @@ public class EMSController {
 	}
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String emsDashBoard(ModelMap model) throws Exception {
-		model.addAttribute("username", "EMS");
+	public String emsDashBoard(ModelMap model, Principal principal) throws Exception {
+		String userName = principal.getName();
+		model.addAttribute("username", userName);
 		return ("client/emsDashboard");
 	}
 }

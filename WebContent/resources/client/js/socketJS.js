@@ -81,3 +81,8 @@ var recurfun = function(message) {
 	alert("heyyy u got disconnected");
 	console.log("Message for desconnected")
 };
+function emsTrackLocation(){
+	var interval = setInterval(function(){
+		
+	},1000);
+}
