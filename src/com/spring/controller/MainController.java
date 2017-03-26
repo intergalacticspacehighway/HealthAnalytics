@@ -24,7 +24,7 @@ public class MainController {
 	@Autowired
 	StateDAO state;
 	
-	@RequestMapping(value="/index.html" , method=RequestMethod.GET)
+	@RequestMapping(value="/" , method=RequestMethod.GET)
 public String loadIndex(HttpServletResponse response,HttpSession session ) throws Exception
 {		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
