@@ -640,6 +640,7 @@ button.tg-btn.tg-btn-lg.do-login-button {
 	position: absolute;
 	background: transparent;
 }
+
 .tg-featuredicon{
 	top: 0;
 	left: 0;
@@ -1081,7 +1082,7 @@ form fieldset .form-group.tg-checkbox input.form-control[type='checkbox'] {
 	margin: 0;
 	opacity: 0;
 	z-index: 3;
-	width: 250px;
+	width: 220px;
 	text-align:left;
 	visibility: hidden;
 	position: absolute;
@@ -4754,7 +4755,7 @@ button[type="button"] .fa-refresh.fa-spin{
 
 .table-striped > tbody > tr:nth-of-type(2n+1){background: none;}
 .tg-education-detail tbody tr td{padding: 15px 32px;}
-.chosen-container{width: 379px!important;}
+.chosen-container{width: 235px!important;}
 .tg-formsection .chosen-container,
 .tg-formsection .chosen-container.chosen-container-multi ul.chosen-choices{width: 100% !important;}
 .chosen-container-multi .chosen-choices{
@@ -5052,8 +5053,8 @@ body.page-template-user-profile .tg-reviewscrol .tg-reviews{ margin:0 !important
 body.page-template-user-profile .tg-reviewscrol .tg-reviews li{ padding:0;}
 body.page-template-user-profile .tg-reviewscrol .tg-reviews li + li{ padding:30px 0 0 !important;}
 .chosen-container.chosen-container-multi{ height:auto !important;
-margin-left: 120px;
-    margin-top: -100px;
+margin-left: 0px;
+    margin-top:0px;
 }
 .tg-stars #jRate{
 	width: auto;

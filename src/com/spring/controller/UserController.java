@@ -1,9 +1,15 @@
 package com.spring.controller;
 
 import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jboss.logging.annotations.Param;
@@ -13,6 +19,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +42,6 @@ import com.spring.VO.DoctorSpecialityVO;
 import com.spring.VO.DoctorVO;
 import com.spring.VO.HospitalVO;
 import com.spring.VO.PatientRecordVO;
-import com.spring.VO.PatientVO;
 import com.spring.VO.SpecialityVO;
 import com.spring.VO.StateVO;
 
@@ -362,10 +368,81 @@ public class UserController {
 		
 	}
 	@RequestMapping(value="/addpatientRecord.html" , method=RequestMethod.POST)
-	public String addPatientRecord(@ModelAttribute PatientRecordVO patientRecord)
+	public String addPatientRecord(@ModelAttribute PatientRecordVO patientRecord,@RequestParam CommonsMultipartFile cbcfile,@RequestParam CommonsMultipartFile rftfile,@RequestParam CommonsMultipartFile lftfile,@RequestParam CommonsMultipartFile urinefile,HttpSession session,@Param int patientid)
 	{
-		
 		this.user.insertDoctorSpeciality(patientRecord);
+		String path=session.getServletContext().getRealPath("/records/"+patientid);  
+        String filename="Complete Blood Count.pdf"; 
+       
+        try{  
+            byte barr[]=cbcfile.getBytes(); 
+              
+            BufferedOutputStream bout=new BufferedOutputStream(  
+                     new FileOutputStream(path+"/"+filename));
+            String s=path+"/"+filename;
+            System.out.println(s);
+           
+           patientRecord.setCompletebloodcount(s);
+            bout.write(barr);  
+            bout.flush();  
+            bout.close();  
+        }
+  catch(Exception e){System.out.println(e);} 
+        String rftfilepath=session.getServletContext().getRealPath("/records/"+patientid);  
+        String rftfilefilename="Renal Function Test.pdf"; 
+       
+        try{  
+            byte barr[]=rftfile.getBytes(); 
+              
+            BufferedOutputStream bout=new BufferedOutputStream(  
+                     new FileOutputStream(rftfilepath+"/"+rftfilefilename));
+            String s=rftfilepath+"/"+rftfilefilename;
+            System.out.println(s);
+           
+           patientRecord.setRenalfunctiontest(s);
+            bout.write(barr);  
+            bout.flush();  
+            bout.close();  
+        }
+  catch(Exception e){System.out.println(e);}
+        
+        String lftfilepath=session.getServletContext().getRealPath("/records/"+patientid);  
+        String lftfilefilename="Liver Function Test.pdf"; 
+       
+        try{  
+            byte barr[]=lftfile.getBytes(); 
+              
+            BufferedOutputStream bout=new BufferedOutputStream(  
+                     new FileOutputStream(lftfilepath+"/"+lftfilefilename));
+            String s=lftfilepath+"/"+lftfilefilename;
+            System.out.println(s);
+           
+           patientRecord.setLiverfunctiontest(s);
+            bout.write(barr);  
+            bout.flush();  
+            bout.close();  
+        }
+  catch(Exception e){System.out.println(e);}
+        
+        String urinefilepath=session.getServletContext().getRealPath("/records/"+patientid);  
+        String urinefilefilename="Urine.pdf"; 
+       
+        try{  
+            byte barr[]=urinefile.getBytes(); 
+              
+            BufferedOutputStream bout=new BufferedOutputStream(  
+                     new FileOutputStream(urinefilepath+"/"+urinefilefilename));
+            String s=urinefilepath+"/"+urinefilefilename;
+            System.out.println(s);
+           
+           patientRecord.setUrine(s);
+            bout.write(barr);  
+            bout.flush();  
+            bout.close();  
+        }
+  catch(Exception e){System.out.println(e);}
+    
+        this.user.insertDoctorSpeciality(patientRecord);
 		return "redirect:/patientProfile.html";
 		
 	}
@@ -382,6 +459,100 @@ public class UserController {
 		session.setAttribute("patientrecordList",patientrecordList);
 		
 		return "client/viewPatientRecord";
+		
+	}
+	
+	@RequestMapping(value="/downloadFile.html" , method=RequestMethod.GET)
+	public String downloadFile(HttpServletRequest request, HttpServletResponse response, @Param String cbcfile,@Param String rftfile,@Param String lftfile,@Param String urinefile) throws Exception
+	{
+		if(cbcfile != null && rftfile == null && lftfile == null && urinefile == null)
+		{
+		File file = new File(cbcfile);
+        InputStream is = new FileInputStream(file);
+ 
+        // MIME type of the file
+        response.setContentType("application/octet-stream");
+        // Response header
+        response.setHeader("Content-Disposition", "attachment; filename=\""
+                + file.getName() + "\"");
+        // Read from the file and write into the response
+        OutputStream os = response.getOutputStream();
+        byte[] buffer = new byte[1024];
+        int len;
+        while ((len = is.read(buffer)) != -1) {
+            os.write(buffer, 0, len);
+        }
+        os.flush();
+        os.close();
+        is.close();
+		}
+		else if(cbcfile == null && rftfile != null && lftfile == null && urinefile == null)
+		{
+			File file = new File(rftfile);
+	        InputStream is = new FileInputStream(file);
+	 
+	        // MIME type of the file
+	        response.setContentType("application/octet-stream");
+	        // Response header
+	        response.setHeader("Content-Disposition", "attachment; filename=\""
+	                + file.getName() + "\"");
+	        // Read from the file and write into the response
+	        OutputStream os = response.getOutputStream();
+	        byte[] buffer = new byte[1024];
+	        int len;
+	        while ((len = is.read(buffer)) != -1) {
+	            os.write(buffer, 0, len);
+	        }
+	        os.flush();
+	        os.close();
+	        is.close();
+			
+		}
+		else if(cbcfile == null && rftfile == null && lftfile != null && urinefile == null)
+		{
+			File file = new File(lftfile);
+	        InputStream is = new FileInputStream(file);
+	 
+	        // MIME type of the file
+	        response.setContentType("application/octet-stream");
+	        // Response header
+	        response.setHeader("Content-Disposition", "attachment; filename=\""
+	                + file.getName() + "\"");
+	        // Read from the file and write into the response
+	        OutputStream os = response.getOutputStream();
+	        byte[] buffer = new byte[1024];
+	        int len;
+	        while ((len = is.read(buffer)) != -1) {
+	            os.write(buffer, 0, len);
+	        }
+	        os.flush();
+	        os.close();
+	        is.close();
+	
+		}
+		else if(cbcfile == null && rftfile == null && lftfile == null && urinefile != null)
+		{
+			File file = new File(urinefile);
+	        InputStream is = new FileInputStream(file);
+	 
+	        // MIME type of the file
+	        response.setContentType("application/octet-stream");
+	        // Response header
+	        response.setHeader("Content-Disposition", "attachment; filename=\""
+	                + file.getName() + "\"");
+	        // Read from the file and write into the response
+	        OutputStream os = response.getOutputStream();
+	        byte[] buffer = new byte[1024];
+	        int len;
+	        while ((len = is.read(buffer)) != -1) {
+	            os.write(buffer, 0, len);
+	        }
+	        os.flush();
+	        os.close();
+	        is.close();
+			
+		}
+		return "redirect:/viewPatientRecord.html";
 		
 	}
 	

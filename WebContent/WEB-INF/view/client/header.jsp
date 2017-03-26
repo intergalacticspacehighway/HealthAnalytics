@@ -80,6 +80,11 @@
 					height: '40px',
 					
 				});
+				$('#tags_6').tagsInput({
+					width: 'auto',
+					height: '40px',
+					
+				});
 
 
 
@@ -228,7 +233,7 @@ a:hover{
 											class="icon-bar"></span>
 									</button>
 								</div>
-								<div class="collapse navbar-collapse" id="tg-navigation">
+								<div class="collapse navbar-collapse" id="tg-navigation" style="margin-left: -15%">
 									<ul id="menu-main-menu" class="">
 										<li id="menu-item-654"
 											class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654"><a
@@ -280,7 +285,7 @@ a:hover{
 													href="//themographics.com/wordpress/docdirect/dir-search/?view=list-left">List
 														With Left Map</a></li>
 											</ul></li> -->
-										<li id="menu-item-13"
+										<!-- <li id="menu-item-13"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13"><a
 											href="#">Blogs</a>
 											<ul class="">
@@ -296,7 +301,7 @@ a:hover{
 													class="menu-item menu-item-type-post_type menu-item-object-post menu-item-224"><a
 													href="blogdetail.html">Detail
 														Blog</a></li>
-											</ul></li>
+											</ul></li> -->
 									<!-- 	<li id="menu-item-21"
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a
 											href="https://themographics.com/wordpress/docdirect/packages/">Packages</a></li> -->
@@ -304,59 +309,62 @@ a:hover{
 											class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a
 											href="contactus.html">Contact
 												Us</a></li>
-									</ul>
-								</div>
-							</nav>
-							<div class="doc-menu">
-											<ul class="tg-login-logout">
-				                    <li class="session-user-info">
-				                  
-				                  <c:choose>
+												 <li id="menu-item-340"
+ 
+											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-340">
+											<c:choose>
 				                  	<c:when test="${not empty username}">
-				                  		 <a href="login.html"> <c:out value="${username }"></c:out></a>
-				                  		 <ul class="">
-										<c:if test="${authoritesname.get(0).toString().equals('ROLE_DOCTOR')}">
-												<li id="menu-item-334"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
+											<a
+											href="#"><c:out value="${username }"></c:out></a>
+											<ul class="">
+											<c:if test="${authoritesname.get(0).toString().equals('ROLE_DOCTOR')}">
+												<li id="menu-item-341"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
 													href="doctorProfile.html">Profile</a></li>
-												<li id="menu-item-334"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="profileSettings.html">Profile Settings</a></li>
-												</c:if>
-												<c:if test="${authoritesname.get(0).toString().equals('ROLE_USER')}">
-												<li id="menu-item-334"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="patientProfile.html">Profile</a></li>
-												<li id="menu-item-334"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-334"><a
-													href="profileSettings.html">Profile Settings</a></li>
-												</c:if>
-												<li id="menu-item-339"
-													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-339">
+												<li id="menu-item-342"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
+													href="accountSettings.html">Profile Settings</a></li>
+												<li id="menu-item-343"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
 													<form action="j_spring_security_logout" method="post" name="form">
-														<input style="margin-left: 0px; margin-top: 0px; background-color: rgb(82, 146, 231)" type="submit" value="Sign out">
-														<input type="hidden" name="${_csrf.parameterName}"
-														value="${_csrf.token}" />	
-														
-													
-													</form>	
-													
+													<button type=submit class="btn btn-primary" style="width: 100%;">Sign out</button>
+													<input type="hidden" name="${_csrf.parameterName}"
+														value="${_csrf.token}" />
+													</form>
 												</li>
-												
-										</ul>
-				                  	
-				                  	</c:when>
-				                  <c:otherwise>
+														</c:if>
+														<c:if test="${authoritesname.get(0).toString().equals('ROLE_USER')}">
+														<li id="menu-item-341"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-341"><a
+													href="patientProfile.html">Profile</a></li>
+												<li id="menu-item-342"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-342"><a
+													href="profileSettings.html">Profile Settings</a></li>
+												<li id="menu-item-343"
+													class="menu-item menu-item-type-custom menu-item-object-custom menu-item-343">
+													<form action="j_spring_security_logout" method="post" name="form">
+													<button type=submit class="btn btn-primary" style="width: 100%;">Sign out</button>
+													<input type="hidden" name="${_csrf.parameterName}"
+														value="${_csrf.token}" />
+													</form>
+													</li>
+														</c:if>
+											</ul>
+											</c:when>
+											<c:otherwise>
 				                
-				                  	  <a  id="loginHeader" href="login.html">Sign in/Register</a><img alt="Login" src="https://themographics.com/wordpress/docdirect/wp-content/themes/docdirect/images/singin_icon.png"></a>
+				                  	  <a  id="loginHeader" href="login.html">Sign in/Register</a>
                       			  </c:otherwise>
 				                  
 				                  
-				                  </c:choose>  
-				                   
-                     </li>
-							</ul>
-			                            </div>
+				                  </c:choose> 
+											
+											</li> 
+									</ul>
+								</div>
+								
+							</nav>
+							
                             
                         </div>
 					</div>
@@ -364,3 +372,4 @@ a:hover{
 			</div>
 			
 		</header>
+		</div>

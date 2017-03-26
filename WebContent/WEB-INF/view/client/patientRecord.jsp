@@ -13,7 +13,7 @@ box-radius: 10%;
 				<h2 style="margin-left: 100px;">Records</h2>
 			</div>
 		
-			<form:form class="form-refinesearch tg-haslayout contact_form" action="addpatientRecord.html" method="post" modelAttribute="patientRecord">
+			<form:form class="form-refinesearch tg-haslayout contact_form" action="addpatientRecord.html" method="post" modelAttribute="patientRecord" enctype="multipart/form-data">
 			
 				<fieldset>
 				
@@ -85,21 +85,22 @@ box-radius: 10%;
                          <div class="col-md-12">
                            
 								<b style="margin-left: 30px;">Complete Blood Count:</b>
-								<input type="file" style="margin-top: -20px;margin-left: 230px;"/> 
+								<input type="file" name="cbcfile" style="margin-top: -20px;margin-left: 230px;"/> 
 								<br>
 								<b style="margin-left: 30px;">Renal Function Test:</b>
-								<input type="file" style="margin-top: -20px;margin-left: 230px;"/>
+								<input type="file" name="rftfile" style="margin-top: -20px;margin-left: 230px;"/>
 								<br>
-								<b style="margin-left: 30px;">Lival Function Test:</b>
-								<input type="file" style="margin-top: -20px;margin-left: 230px;"/>
+								<b style="margin-left: 30px;">Liver Function Test:</b>
+								<input type="file" name="lftfile" style="margin-top: -20px;margin-left: 230px;"/>
 								<br>
 								<b style="margin-left: 30px;">Urine:</b>
-								<input type="file" style="margin-top: -20px;margin-left: 230px;"/>						
+								<input type="file" name="urinefile" style="margin-top: -20px;margin-left: 230px;"/>						
 						
 							</div>
                           </div>
                           <c:forEach items="${sessionScope.patientList}" var="i">
                            <form:input type="hidden" path="patient.patientId" value="${i.patientId}"/>
+                           <input type="hidden" name="patientid" value="${i.patientId}"/>
                            </c:forEach>
                            <form:input path="currentdate" type="hidden" id="date" value=""/>
                           

@@ -20,8 +20,6 @@ public class DoctorVO {
 		this.doctorId = doctorId;
 	}
 
-	
-
 	public RegistrationVO getRegistration() {
 		return registration;
 	}
@@ -61,12 +59,52 @@ public class DoctorVO {
 	private String doctorSocialInformation;
 	@Column
 	private String doctorDescription;
-	
+
 	@Column
 	private String isActive;
+	@Column
+	private String doctorExperience;
+	@Column
+	private String doctorDegree;
+	@Column
+	private String doctorEducation;
+	@Column
+	private String doctorAward;
+	
+	
+	public String getDoctorEducation() {
+		return doctorEducation;
+	}
+
+	public void setDoctorEducation(String doctorEducation) {
+		this.doctorEducation = doctorEducation;
+	}
+
+	public String getDoctorAward() {
+		return doctorAward;
+	}
+
+	public void setDoctorAward(String doctorAward) {
+		this.doctorAward = doctorAward;
+	}
+
+	public String getDoctorExperience() {
+		return doctorExperience;
+	}
+
+	public void setDoctorExperience(String doctorExperience) {
+		this.doctorExperience = doctorExperience;
+	}
+
+	public String getDoctorDegree() {
+		return doctorDegree;
+	}
+
+	public void setDoctorDegree(String doctorDegree) {
+		this.doctorDegree = doctorDegree;
+	}
+
 	@ManyToOne
 	private RegistrationVO registration;
-	
-	
 
 }

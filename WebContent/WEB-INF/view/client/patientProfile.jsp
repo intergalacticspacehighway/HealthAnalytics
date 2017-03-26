@@ -1,37 +1,16 @@
 
 <jsp:include page="header.jsp"></jsp:include>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js">
+	
+</script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script type="text/javascript" src="resources/client/js/socketJS.js"></script>
 <script>
-	var x = $("p");
-	function getLocation() {
-		alert("hiiiii");
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-		} else {
-			x.innerHTML = "Geolocation is not supported by this browser.";
-		}
-	}
-
-	function showPosition(position) {
-
-		alert("hiiiiiiiiiiiiiii");
-		var coordinates = {
-			"latitude" : position.coords.latitude,
-			"longitude" : position.coords.longitude
-		};
-
-
-		$.ajax({
-			type : "POST",
-			url : "emsServiceController/setCoordinates.html",
-			data : JSON.stringify(coordinates),
-			success : function(response) {
-				alert(response);
-			},
-			/* dataType : "json",
-			 */
-			 contentType : "application/json"
-		});
-	}
+	connect();
 </script>
 
 <main id="main" class="tg-page-wrapper tg-haslayout"> <%@taglib
@@ -63,12 +42,12 @@
 					</div>
 				</div>
 				<div class="tg-widget tg-widget-accordions">
-
 					<button onclick="getLocation()"
 						style="width: 100%; margin-bottom: 10%" class="btn btn-danger">
 						Request Service <i style="width: 100%; height: 100%"
 							class="fa fa-ambulance" aria-hidden="true"></i>
 					</button>
+
 
 					<h3>Dashboard</h3>
 					<ul class="docdirect-menu">
@@ -144,57 +123,33 @@
 				</div>
 			</div>
 
-			<div class="tg-graph tg-haslayout">
-			
-				<div class="tg-profilehits" style="width: 80%;margin-left: 84px;height: 220px;margin-top: -4px">
-				<img src="resources/client/images/patientrecord.png" style="height: 200px;margin-top: -20px;margin-left: -650px;">
-					<div class="tg-heading-border tg-small" style="width: 470px;margin-left: 170px;">
-						<h3>Your Records</h3>
-						
-					</div>
-					
-				<div style="margin-left: 180px;margin-top: -127px;">
-					<c:forEach items="${sessionScope.patientrecordList}" var="i">
-					<c:if test="${not empty patientrecordList }">
-					<b><a href="viewPatientRecord.html">Record</a></b>
-					<b><p style="margin-left: 350px;margin-top: -20px;">${i.currentdate}</p></b>
-					</c:if>
-					</c:forEach>
-					</div>
-					
-				</div>
-				
-				
-			</div>
 			<div class="tg-docrank tg-haslayout">
 				<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
 					<div class="tg-costumerreview">
 						<div class="tg-heading-border tg-small">
-							<h3>Customer Reviews</h3>
+							<h3>Your Records</h3>
 						</div>
 						<div id="tg-reviewscrol" class="tg-reviewscrol">
 							<ul class="tg-reviews">
-								<li>
-									<div class="tg-review">
-										<figure class="tg-reviwer-img">
-											<a
-												href="https://themographics.com/wordpress/docdirect/doctor/steve/"><img
-												src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-01-1-140x89.jpg"
-												alt="Reviewer"></a>
+								<li style="width: 170%">
+									<div class="tg-review" style="width: 170%">
+										<figure class="tg-reviwer-img" style="width: 6%;">
+											<img src="resources/client/images/patientrecord.png">
 										</figure>
 										<div class="tg-reviewcontet">
 											<div class="comment-head">
-												<div class="pull-left">
-													<h3>Dr Steve</h3>
-												</div>
-												<span>Posted on October 18, 2016 at 12:43 pm</span>
-												<div class="tg-stars star-rating pull-left">
-													<span style="width: 80%"></span>
-												</div>
+
+												<c:forEach items="${sessionScope.patientrecordList}" var="i">
+													<c:if test="${not empty patientrecordList }">
+														<span style="margin-top: 18px;"><b><a
+																href="viewPatientRecord.html" class="col-md-5"
+																style="color: #5292e7;">Record</a></b> <b
+															style="color: black">${i.currentdate}</b></span>
+													</c:if>
+												</c:forEach>
+
 											</div>
-											<div class="tg-description">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore...</div>
+
 										</div>
 									</div>
 								</li>
@@ -202,23 +157,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-					<div class="row">
-						<div class="tg-heading-border tg-small">
-							<h3>Overall Rank</h3>
-						</div>
-						<div class="tg-ratingbox">
-							<div class="tg-stars star-rating">
-								<span style="width: 80%"></span>
-							</div>
-							<strong>very good</strong>
-						</div>
-						<a class="tg-btn"
-							href="https://themographics.com/wordpress/docdirect/doctor/professional/">Read
-							More</a>
-					</div>
-				</div>
+
 			</div>
+
 			<script>
 				var lineChartData = {
 					labels : [ "January", "February", "March", "April", "May",

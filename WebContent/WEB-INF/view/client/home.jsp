@@ -25,7 +25,7 @@
 									<div class="tg-banner-content">
 										<div class="tg-displaytable">
 											<div class="tg-displaytablecell">
-												<div class="container">
+												<div class="container" style="margin-top: -10%;">
 													<form id="searchForm" action="search.html?q=" method="post">
 														<div class="col-md-3 col-sm-5 col-xs-3 tg-verticalmiddle">
 															<div class="row">
@@ -87,7 +87,7 @@
 																					class="col-md-6 col-sm-12 col-xs-12 tg-verticalmiddle">
 																					<div class="form-group doctorSpeciality">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat">
+																							class="group subcats" name="speciality">
 
 																								<option id="commonOption" value="all">Doctor&nbsp;Specialities</option>
 																								<c:forEach items="${sessionScope.specialitylist}" var = "i">
@@ -99,7 +99,7 @@
 
 																					<div class="form-group doctorSpeciality">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat" onchange="getCity1(this.value)">
+																							class="group subcats" name="stateMenu" onchange="getCity1(this.value)">
 
 																								<option id="commonOption" value="all">Select&nbsp;State</option>
 																								<c:forEach items="${sessionScope.statelist}" var = "i">
@@ -110,42 +110,26 @@
 																					</div>
 																					<div class="form-group doctorSpeciality">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat" name="cityMenu1" id="cityMenu1">
+																							class="group subcats"  name="cityMenu1" id="cityMenu1">
 
 																								<option id="commonOption" value="all">Select&nbsp;City</option>
 																								
 																						</select>
 																						</span>
 																					</div>
-																					<script type="text/javascript">
-																					function getCity1(val){
-											                                        	
-											                                        	$.ajax({
-											                                        		type: "GET",
-											                                        		url: "getCityUsingAjax.html",
-											                                        		data: 'stateId='+val,
-											                                        		success: function(data){
-											                                        		
-											                                        		$("#cityMenu1").html(data);
-											                                        			
-											                                        			
-											                                        		}
-											                                        	});
-											                                        
-											                                        }
-																					</script>
+																					
 																					<div class="form-group">
-																						<input type="submit" class="btn btn-success"
-																							value="submit">
+																						<button type="submit" class="btn btn-primary" style="margin-left: 64%;width: 30%;"
+																							>Search</button>
 																					</div>
 
 																				</div>
 
 																				<div
 																					class="col-md-6 col-sm-12 col-xs-12 tg-verticalmiddle">
-																					<h1>
-																						FIND YOUR <span>NEAREST</span> <em
-																							class="current_directory"></em>
+																					<h1 style="font-size: 36px;margin-top: -10%;"><b>
+																						FIND YOUR </b><span><br><b>NEAREST</b></span> <br>
+																						<em class="current_directory"></em>
 																					</h1>
 																				</div>
 																			</div>
@@ -825,6 +809,22 @@
 	</div>
 </div>
 </main>
-
+<script type="text/javascript">
+																					function getCity1(val){
+											                                        	
+											                                        	$.ajax({
+											                                        		type: "GET",
+											                                        		url: "getCityUsingAjax.html",
+											                                        		data: 'stateId='+val,
+											                                        		success: function(data){
+											                                        		
+											                                        		$("#cityMenu1").html(data);
+											                                        			
+											                                        			
+											                                        		}
+											                                        	});
+											                                        
+											                                        }
+																					</script>
 
 <jsp:include page="footer.jsp"></jsp:include>

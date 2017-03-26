@@ -35,7 +35,7 @@
 							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=dashboard&#038;identity=340">My
 								Profile</a></li>
 						<li class=""><a
-							href="https://themographics.com/wordpress/docdirect/dashboard/?ref=settings&#038;identity=340">Profile
+							href="accountSettings.html">Profile
 								Settings</a></li>
 						
 						<li class=""><a href="javascript:;" data-toggle="modal"
@@ -109,74 +109,26 @@
 				</div>
 			</div>
 
-			<div class="tg-graph tg-haslayout">
-				<div class="tg-profilehits">
-					<div class="tg-heading-border tg-small">
-						<h3>Your Hospitals</h3>
-							
-					</div>
-					<c:set value="${sessionScope.doctorhospital}" var="doctorhospital"></c:set>
-					<c:if test="${not empty doctorhospital }">
-						<c:forEach items="${doctorhospital}" var="x">
-							<a href="viewDoctorHosptial.html?id=${x.hospital.hospitalId}"><b><p style="text-transform: uppercase;">${x.hospital.hospitalName}</p></b></a>				
-											
-						</c:forEach>
-						</c:if>
-					<canvas id="canvas" class="canvas"></canvas>
-				</div>
-				<div class="tg-profilehits" style="margin-left: 42px;">
-					<div class="tg-heading-border tg-small">
-						<h3>Your Clinic</h3>
-					</div>
-					<c:set value="${sessionScope.doctorclinic}" var="doctorclinic"></c:set>
-					<c:if test="${not empty doctorclinic }">
-						<c:forEach items="${doctorclinic}" var="y">
-							<a href="viewDoctorClinic.html?id=${y.clinic.clinicId}"><b><p style="text-transform: uppercase;">${y.clinic.clinicName}</p></b></a>				
-											
-						</c:forEach>
-						</c:if>
-					<canvas id="canvas" class="canvas"></canvas>
-				</div>
-				<div class="tg-profilehits" style="margin-left: 42px;">
-					<div class="tg-heading-border tg-small">
-						<h3>Your Speciality</h3>
-					</div>
-					<c:set value="${sessionScope.dslist }" var="doctorList"></c:set>
-					<c:forEach items="${doctorList}" var="x">
-						<a href=""><b><p>${x.speciality.specialityName}</p></b></a>
-										</c:forEach>
-					<canvas id="canvas" class="canvas"></canvas>
-				</div>
-			</div>
+		
 			<div class="tg-docrank tg-haslayout">
-				<div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+				<div class="col-md-4">
 					<div class="tg-costumerreview">
 						<div class="tg-heading-border tg-small">
-							<h3>Customer Reviews</h3>
+							<h3>your hospitals</h3>
 						</div>
 						<div id="tg-reviewscrol" class="tg-reviewscrol">
 							<ul class="tg-reviews">
 								<li>
 									<div class="tg-review">
-										<figure class="tg-reviwer-img">
-											<a
-												href="https://themographics.com/wordpress/docdirect/doctor/steve/"><img
-												src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/img-01-1-140x89.jpg"
-												alt="Reviewer"></a>
-										</figure>
+										
 										<div class="tg-reviewcontet">
-											<div class="comment-head">
-												<div class="pull-left">
-													<h3>Dr Steve</h3>
-												</div>
-												<span>Posted on October 18, 2016 at 12:43 pm</span>
-												<div class="tg-stars star-rating pull-left">
-													<span style="width: 80%"></span>
-												</div>
-											</div>
-											<div class="tg-description">Lorem ipsum dolor sit amet,
-												consectetur adipisicing elit, sed do eiusmod tempor
-												incididunt ut labore...</div>
+										<c:set value="${sessionScope.doctorhospital}" var="doctorhospital"></c:set>
+					<c:if test="${not empty doctorhospital }">
+						<c:forEach items="${doctorhospital}" var="x">
+							<p style="text-transform: uppercase;"><a href="viewDoctorHosptial.html?id=${x.hospital.hospitalId}"><b>${x.hospital.hospitalName}</b></a><br></br></p>				
+											
+						</c:forEach>
+						</c:if>	
 										</div>
 									</div>
 								</li>
@@ -184,20 +136,51 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-					<div class="row">
+				<div class="col-md-4">
+					<div class="tg-costumerreview">
 						<div class="tg-heading-border tg-small">
-							<h3>Overall Rank</h3>
+							<h3>your clinic</h3>
 						</div>
-						<div class="tg-ratingbox">
-							<div class="tg-stars star-rating">
-								<span style="width: 80%"></span>
-							</div>
-							<strong>very good</strong>
+						<div id="tg-reviewscrol" class="tg-reviewscrol">
+							<ul class="tg-reviews">
+								<li>
+									<div class="tg-review">
+										
+										<div class="tg-reviewcontet">
+								<c:set value="${sessionScope.doctorclinic}" var="doctorclinic"></c:set>
+					<c:if test="${not empty doctorclinic }">
+						<c:forEach items="${doctorclinic}" var="y">
+							<p style="text-transform: uppercase;"><a href="viewDoctorClinic.html?id=${y.clinic.clinicId}"><b>${y.clinic.clinicName}</b></a><br></br></p>				
+											
+						</c:forEach>
+						</c:if>
+										</div>
+									</div>
+								</li>
+							</ul>
 						</div>
-						<a class="tg-btn"
-							href="https://themographics.com/wordpress/docdirect/doctor/professional/">Read
-							More</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="tg-costumerreview">
+						<div class="tg-heading-border tg-small">
+							<h3>your speciality</h3>
+						</div>
+						<div id="tg-reviewscrol" class="tg-reviewscrol">
+							<ul class="tg-reviews">
+								<li>
+									<div class="tg-review">
+										
+										<div class="tg-reviewcontet">
+					<c:set value="${sessionScope.dslist }" var="doctorList"></c:set>
+					<c:forEach items="${doctorList}" var="x">
+						<p style="text-transform: uppercase;"><a href=""><b>${x.speciality.specialityName}</b></a><br></br></p>
+										</c:forEach>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -527,7 +510,7 @@
 <!--                                  Doctor Profile Image                                                            -->
 <!------------------------------------------------------------------------------------------------------------------- -->
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog"><br><br><br><br><br>
 	<div class="modal-dialog">
 
 		<!-- Modal content-->
@@ -675,54 +658,31 @@
 <!---------------------------------------------------------------------------------------------------------------------->
 <!--                                  Doctor Hospital                                                        -->
 <!---------------------------------------------------------------------------------------------------------------------->
-
-<div id="myModal2" class="modal fade" role="dialog">
-	<div class="modal-dialog" style="width: 600px; margin-top: 120px">
-
-		<!-- Modal content-->
-		<div class="modal-content">
-			<form action="addDoctorHospital.html" method="post">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Hospital</h4>
-
-				</div>
-
-				<div class="modal-body"
-					style="height: 360px; background-color: #5292e7;">
-
-					<i class="fa fa-hospital-o"
-						style="font-size: 120px; margin-left: 25px;"></i>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: -125px;">
-							<input type="text" id="hospitalName" name="hospitalName"
-								class="form-control1" placeholder="Enter name"
-								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: -95px;">
-							<input type="text" id="hospitalAddress" name="hospitalAddress"
-								class="form-control1" placeholder="Enter Address"
-								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 175px; margin-top: -52px;">
-							<select class="form-control" name="countryMenu" id="countryMenu"
+<!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog"><br><br><br><br>
+    <div class="modal-dialog" style="margin-top: 5%">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      <form action="addDoctorHospital.html" method="post">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">Hospital</h4>
+        </div>
+        <div class="modal-body" style="background-color: #5292e7;height: 460px">
+       <i class="fa fa-hospital-o"
+						style="font-size: 100px;"></i>
+         <div class="form-group">
+         
+    		<input type="text" class="form-control1" id="hospitalName" name="hospitalName" placeholder="Enter name" style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+  		 </div>
+  		 <div class="form-group">
+    		<input type="text" class="form-control1" id="hospitalAddress" name="hospitalAddress" placeholder="Enter Address" style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+  		 </div> 
+  		 <div class="form-group">
+    		<select class="form-control" name="countryMenu" id="countryMenu"
 								onchange="getState(this.value)" required="required"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="height: 30px;width:49%;border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select Country</option>
 								<c:forEach items="${sessionScope.clist}" var="i">
 									<c:if test="${i.isActive == 'Yes' }">
@@ -730,95 +690,60 @@
 									</c:if>
 								</c:forEach>
 							</select>
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 365px; margin-top: -52px;">
-							<select class="form-control" name="stateMenu" id="stateMenu"
+							<select class="form-control pull-right" name="stateMenu" id="stateMenu"
 								required="required" onchange="getCity(this.value)"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="width: 49%; height: 30px;  border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select State</option>
 
 							</select>
-
-						</div>
-
-
-					</div>
-
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 175px; margin-top: -7px;">
-							<select class="form-control" name="cityMenu" id="cityMenu"
+  		 </div>
+  		 <div class="form-group">
+  		 <select class="form-control" name="cityMenu" id="cityMenu"
 								required="required"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="width: 49%; height: 30px;border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select City</option>
 
 							</select>
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 365px; margin-top: -37px;">
 							<input type="tel" id="hospitalZipCode" name="hospitalZipCode"
-								class="form-control1" placeholder="Postal Code"
+								class="form-control1 pull-right" placeholder="Postal Code"
 								required="required"
-								style="width: 160px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: 8px;">
-							<input type="email" id="hospitalEmail" name="hospitalEmail"
+								style="width: 49%; margin-top:-7px ;height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="email" id="hospitalEmail" name="hospitalEmail"
 								class="form-control1" placeholder="Enter Email"
 								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							style="margin-left: 175px; margin-top: 10px;">
-							<input type="tel" id="hospitalPhone" name="hospitalPhone"
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="tel" id="hospitalPhone" name="hospitalPhone"
 								class="form-control1" placeholder="Enter PhoneNo"
 								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							style="margin-left: 175px; margin-top: 10px;">
-							<input type="text" id="hospitalWebsite" name="hospitalWebsite"
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="text" id="hospitalWebsite" name="hospitalWebsite"
 								class="form-control1" placeholder="Enter Website"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
 							<c:forEach items="${sessionScope.list}" var="i">
 								<input type="hidden" name="doctorid" id="doctorid"
 									value="${i.doctorId}">
 							</c:forEach>
-						</div>
-
-					</div>
-
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-default">Save</button>
-				</div>
-			</form>
-		</div>
-
-	</div>
-
-</div>
-<script type="text/javascript">
+  		 </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default">Save</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+  <script type="text/javascript">
                                         function getState(val){
                                         	
                                         	$.ajax({
@@ -852,6 +777,7 @@
                                         	
                                         }
                                         </script>
+  
 
 
 <!---------------------------------------------------------------------------------------------------------------------->
@@ -861,54 +787,31 @@
 <!---------------------------------------------------------------------------------------------------------------------->
 <!--                                  Doctor Clinic                                                     -->
 <!---------------------------------------------------------------------------------------------------------------------->
-
-<div id="myModal3" class="modal fade" role="dialog">
-	<div class="modal-dialog" style="width: 600px; margin-top: 120px">
-
-		<!-- Modal content-->
-		<div class="modal-content">
-			<form action="addDoctorClinic.html" method="post">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Clinic</h4>
-
-				</div>
-
-				<div class="modal-body"
-					style="height: 360px; background-color: #5292e7;">
-
-					<i class="fa fa-stethoscope"
-						style="font-size: 120px; margin-left: 25px;"></i>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: -125px;">
-							<input type="text" id="clinicName" name="clinicName"
-								class="form-control1" placeholder="Enter name"
-								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: -95px;">
-							<input type="text" id="clinicAddress" name="clinicAddress"
-								class="form-control1" placeholder="Enter Address"
-								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 175px; margin-top: -52px;">
-							<select class="form-control" name="countryMenu" id="countryMenu"
+<!-- Modal -->
+  <div class="modal fade" id="myModal3" role="dialog"><br><br><br><br>
+    <div class="modal-dialog" style="margin-top: 5%">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+      <form action="addDoctorClinic.html" method="post">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">Clinic</h4>
+        </div>
+        <div class="modal-body" style="background-color: #5292e7;height: 460px">
+       <i class="fa fa-stethoscope"
+						style="font-size: 100px;"></i>
+         <div class="form-group">
+         
+    		<input type="text" class="form-control1"  id="clinicName" name="clinicName" placeholder="Enter name" style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+  		 </div>
+  		 <div class="form-group">
+    		<input type="text" class="form-control1"  id="clinicAddress" name="clinicAddress" placeholder="Enter Address" style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+  		 </div> 
+  		 <div class="form-group">
+    		<select class="form-control" name="countryMenu" id="countryMenu"
 								onchange="getState1(this.value)" required="required"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="height: 30px;width:49%;border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select Country</option>
 								<c:forEach items="${sessionScope.clist}" var="i">
 									<c:if test="${i.isActive == 'Yes' }">
@@ -916,96 +819,60 @@
 									</c:if>
 								</c:forEach>
 							</select>
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 365px; margin-top: -52px;">
-							<select class="form-control" name="stateMenu1" id="stateMenu1"
+							<select class="form-control pull-right" name="stateMenu1" id="stateMenu1"
 								required="required" onchange="getCity1(this.value)"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="width: 49%; height: 30px;  border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select State</option>
 
 							</select>
-
-						</div>
-
-
-					</div>
-
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 175px; margin-top: -7px;">
-							<select class="form-control" name="cityMenu1" id="cityMenu1"
+  		 </div>
+  		 <div class="form-group">
+  		 <select class="form-control" name="cityMenu1" id="cityMenu1"
 								required="required"
-								style="width: 160px; height: 30px; margin-top: 10px; border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
+								style="width: 49%; height: 30px;border-width: 0px 0px 1px 0px; background-color: #5292e7; padding: 0px; padding-left: 13px; color: white; border-color: #fff;">
 								<option>Select City</option>
 
 							</select>
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-sm-3"
-							style="margin-left: 365px; margin-top: -37px;">
-							<input type="tel" id="clinicPostalCode" name="clinicPostalCode"
-								class="form-control1" placeholder="Postal Code"
+							<input type="tel"  id="clinicPostalCode" name="clinicPostalCode"
+								class="form-control1 pull-right" placeholder="Postal Code"
 								required="required"
-								style="width: 160px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							Style="margin-left: 175px; margin-top: 8px;">
-							<input type="email" id="clinicEmailId" name="clinicEmailId"
+								style="width: 49%; margin-top:-7px ;height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="email" id="clinicEmailId" name="clinicEmailId"
 								class="form-control1" placeholder="Enter Email"
 								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							style="margin-left: 175px; margin-top: 10px;">
-							<input type="tel" id="clinicPhoneNo" name="clinicPhoneNo"
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="tel" id="clinicPhoneNo" name="clinicPhoneNo"
 								class="form-control1" placeholder="Enter PhoneNo"
 								required="required"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
-						</div>
-					</div>
-					<div class="form-group">
-
-						<div class="col-md-12"
-							style="margin-left: 175px; margin-top: 10px;">
-							<input type="text" id="clinicWebsite" name="clinicWebsite"
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+					
+  		 </div>
+  		 <div class="form-group">
+  		 <input type="text" id="clinicWebsite" name="clinicWebsite"
 								class="form-control1" placeholder="Enter Website"
-								style="width: 350px; height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
+								style="height: 0px; border-width: 0px 0px 1px 0px; border-color: #fff; background-color: #5292e7; color: #fff;" />
 							<c:forEach items="${sessionScope.list}" var="i">
 								<input type="hidden" name="doctorid" id="doctorid"
 									value="${i.doctorId}">
 							</c:forEach>
-						</div>
-
-					</div>
-
-
-				</div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-default">Save</button>
-				</div>
-			</form>
-		</div>
-
-	</div>
-
-</div>
-
-<script type="text/javascript">
+  		 </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default">Save</button>
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+ <script type="text/javascript">
                                         function getState1(val){
                                         	
                                         	$.ajax({

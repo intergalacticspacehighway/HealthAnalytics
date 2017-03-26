@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <jsp:include page="header.jsp"></jsp:include>
+ <%@taglib
+	uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 	 <main id="main" class="tg-page-wrapper tg-haslayout"> 
 <div class="container">
   <div class="row">
@@ -347,410 +349,37 @@
             </div>
       	<div class="tg-view tg-list-view">
           <div class="row">
+          <c:forEach items="${sessionScope.cliniclist}" var="i">
           	                            <article class="tg-doctor-profile user-305">
                               <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/clinic/trustcare/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/8-1-270x270.jpg" alt="Trust Care Center"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/clinic/trustcare/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/8-1-370x200.jpg" alt="Trust Care Center"></a>
+                                <figure class="tg-docprofile-img" style="width: 178px">
+                                    <a href="https://themographics.com/wordpress/docdirect/clinic/trustcare/" class="list-avatar"><img src="doc/${i.doctor.registration.login.userprofileImage}" style="height: 222px;width: 178px;"></a>
+                                    <a href="https://themographics.com/wordpress/docdirect/clinic/trustcare/"  class="grid-avatar"><img src="doc/${i.doctor.registration.login.userprofileImage}"></a>
                                     
-                                    <a class="tg-like add-to-fav" data-wl_id="305" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:80%"></span>
-            </span>
-            
-            					<em>4.0<sub>/5</sub></em>
-			        </div>
+                                  
+			       
                                         </figure>
                                 <div class="tg-docprofile-content">
                                   
                                   <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/clinic/trustcare/">Trust Care Center</a></h3>
+                                    <h3><a href="doctordetails.html?doctorId=${i.doctor.doctorId}" style="text-transform: capitalize;">Dr &nbsp;${i.doctor.registration.firstName}&nbsp;${i.doctor.registration.lastName}</a></h3>
                                   </div>
                                                                         <div class="tg-description">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
                                       </div>
                                                                     <ul class="tg-doccontactinfo">
                                                                             <li><i class="fa fa-map-marker"></i><address>
-										217A Bramley Rd, London N14 4XB, UK</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:trust@docdirect.com?subject:Hello">trust@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0142</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
+										${i.clinic.clinicAddress},${i.clinic.city.cityName},${i.clinic.state.stateName}-${i.clinic.clinicPostalCode},${i.clinic.country.countryName}.</address></li>
+                                                                                                                <li><i class="fa fa-phone"></i><span>${i.clinic.clinicPhoneNo}</span></li>
+                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:trust@docdirect.com?subject:Hello">${i.clinic.clinicEmailId}</a></li>
+                                    									                                       
+                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">${i.clinic.clinicWebsite}</a></li>
                                                                       </ul>
                                 </div>
                               </div>
                             </article>
-                                                <article class="tg-doctor-profile user-297">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/dumbells/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/10-270x270.jpg" alt="Dumbells Smart"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/dumbells/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/10-370x200.jpg" alt="Dumbells Smart"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="297" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:80%"></span>
-            </span>
-            
-            					<em>4.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/fitness-center/dumbells/">Dumbells Smart</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										28-32 Blinco Ln, George Green, Slou...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:dumbells@docdirect.com?subject:Hello">dumbells@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0134</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-290">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/smart/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/3-270x270.jpg" alt="Smart Gym"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/smart/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/3-370x200.jpg" alt="Smart Gym"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="290" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:100%"></span>
-            </span>
-            
-            					<em>5.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/fitness-center/smart/">Smart Gym</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										245 Watford Rd, Harrow, Greater Lon...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>46 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:smart@docdirect.com?subject:Hello">smart@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0127</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-289">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/slim/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/2-270x270.jpg" alt="Slim Gym"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/slim/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/2-370x200.jpg" alt="Slim Gym"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="289" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:80%"></span>
-            </span>
-            
-            					<em>4.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/fitness-center/slim/">Slim Gym</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										109 A4088, London NW10, UK</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>45 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:slim@docdirect.com?subject:Hello">slim@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0126</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-321">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/blood-bank/shifa/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/9-1-270x270.jpg" alt="Shifa Blood Bank"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/blood-bank/shifa/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/9-1-370x200.jpg" alt="Shifa Blood Bank"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="321" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:80%"></span>
-            </span>
-            
-            					<em>4.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/blood-bank/shifa/">Shifa Blood Bank</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										College Green Court, 55-57 Barringt...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:shifa@docdirect.com?subject:Hello">shifa@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0158</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-319">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/blood-bank/san/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/7-3-270x270.jpg" alt="San Diego Blood Bank"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/blood-bank/san/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/7-3-370x200.jpg" alt="San Diego Blood Bank"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="319" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:60%"></span>
-            </span>
-            
-            					<em>3.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/blood-bank/san/">San Diego Blood Bank</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										1A Queen&#039;s Gate, Kensington, L...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:san@docdirect.com?subject:Hello">san@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0156</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-308">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/hospital/redwood/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/3-1-270x270.jpg" alt="Redwood Street Medical Center"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/hospital/redwood/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/3-1-370x200.jpg" alt="Redwood Street Medical Center"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="308" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:40%"></span>
-            </span>
-            
-            					<em>2.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/hospital/redwood/">Redwood Street Medical Center</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										656 Harrow Rd, Wembley, Greater Lon...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:redwood@docdirect.com?subject:Hello">redwood@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0145</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-296">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/popular/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/9-270x270.jpg" alt="Popular Gym"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/popular/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/9-370x200.jpg" alt="Popular Gym"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="296" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                    <span class="tg-featuredtags">
-            <a class="tg-featured" href="javascript:;">featured</a>
-        </span>
-                                                                                                    <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:100%"></span>
-            </span>
-            
-            					<em>5.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/fitness-center/popular/">Popular Gym</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										N Circular Rd, London N11, UK</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>52 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:popular@docdirect.com?subject:Hello">popular@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0133</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-295">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/nowe/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/8-270x270.jpg" alt="No Weight"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/fitness-center/nowe/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/8-370x200.jpg" alt="No Weight"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="295" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:60%"></span>
-            </span>
-            
-            					<em>3.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/fitness-center/nowe/">No Weight</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										146 Enfield Rd, Enfield, Greater Lo...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>51 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:noweight@docdirect.com?subject:Hello">noweight@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0132</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                                <article class="tg-doctor-profile user-298">
-                              <div class="tg-box">
-                                <figure class="tg-docprofile-img">
-                                    <a href="https://themographics.com/wordpress/docdirect/clinic/mivine/" class="list-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/01-1-270x270.jpg" alt="Mivine Health Center"></a>
-                                    <a href="https://themographics.com/wordpress/docdirect/clinic/mivine/"  class="grid-avatar"><img src="https://themographics.com/wordpress/docdirect/wp-content/uploads/2016/04/01-1-370x200.jpg" alt="Mivine Health Center"></a>
-                                    
-                                    <a class="tg-like add-to-fav" data-wl_id="298" href="javascript:;"><i class="fa fa-heart"></i></a>                                                                                            <span class="user-verified">
-                        <svg id="Icon" xmlns="http://www.w3.org/2000/svg" width="74.875" height="21" viewBox="0 0 74.875 21"> <defs>
-						<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}</style></defs> 
-						<rect id="BG" class="cls-1" width="74.875" height="21" rx="3" ry="3"/> <text id="_" data-name="" class="cls-2" transform="translate(14.829 14.99) scale(0.737 0.762)"></text> 
-						<text id="Verified" class="cls-3" transform="translate(22.787 15.191) scale(0.737 0.762)">Verified</text> </svg>
-    
-                    </span>
-				                                            <div class="feature-rating user-star-rating">
-            <span class="tg-stars star-rating">
-                <span style="width:60%"></span>
-            </span>
-            
-            					<em>3.0<sub>/5</sub></em>
-			        </div>
-                                        </figure>
-                                <div class="tg-docprofile-content">
-                                  
-                                  <div class="tg-heading-border tg-small">
-                                    <h3><a href="https://themographics.com/wordpress/docdirect/clinic/mivine/">Mivine Health Center</a></h3>
-                                  </div>
-                                                                        <div class="tg-description">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. </p>
-                                      </div>
-                                                                    <ul class="tg-doccontactinfo">
-                                                                            <li><i class="fa fa-map-marker"></i><address>
-										211 Shenley Rd, Borehamwood, Hertfo...</address></li>
-                                                                                                                <li><i class="fa fa-phone"></i><span>53 235 856843</span></li>
-                                                                                                                <li><i class="fa fa-envelope-o"></i><a href="mailto:mivine@docdirect.com?subject:Hello">mivine@docdirect.com</a></li>
-                                    									                                        <li><i class="fa fa-fax"></i><span>202-555-0135</span></li>
-                                                                                                            	<li><i class="fa fa-link"></i><a href="http://www.company.com">http://www.company.com</a></li>
-                                                                      </ul>
-                                </div>
-                              </div>
-                            </article>
-                                    				<script>
+                            </c:forEach>
+                                                                                   				<script>
 					jQuery(document).ready(function() {
 						 /* Init Markers */
 						docdirect_init_map_script({"status":"found","users_list":[{"latitude":"51.649663","longitude":"-0.128196","fax":"202-555-0142","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Trust Care Center","name":"Trust Care Center","email":"trust@docdirect.com","phone_number":"53 235 856843","address":"217A Bramley Rd, London N14 4XB, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Clinic.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/clinic\/trustcare\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/8-1-270x270.jpg\" alt=\"Trust Care Center\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"305\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:80%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>4.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/clinic\/trustcare\/\">Trust Care Center<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:trust@docdirect.com?Subject=hello\"  target=\"_top\">trust@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>217A Bramley Rd, London N14 4XB, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.521923","longitude":"-0.556294","fax":"202-555-0134","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Smart-Dumbells","name":"Dumbells Smart","email":"dumbells@docdirect.com","phone_number":"53 235 856843","address":"28-32 Blinco Ln, George Green, Slough, Buckinghamshire SL3, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Fitness.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/dumbells\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/10-270x270.jpg\" alt=\"Dumbells Smart\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"297\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:80%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>4.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/dumbells\/\">Dumbells Smart<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:dumbells@docdirect.com?Subject=hello\"  target=\"_top\">dumbells@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>28-32 Blinco Ln, George Green, Slough, Buckinghamshire SL3, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.567966","longitude":"-0.321633","fax":"202-555-0127","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Smart Gym","name":"Smart Gym","email":"smart@docdirect.com","phone_number":"46 235 856843","address":"245 Watford Rd, Harrow, Greater London HA1 3TU, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Fitness.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/smart\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/3-270x270.jpg\" alt=\"Smart Gym\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"290\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:100%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>5.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/smart\/\">Smart Gym<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:smart@docdirect.com?Subject=hello\"  target=\"_top\">smart@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">46 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>245 Watford Rd, Harrow, Greater London HA1 3TU, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.552726","longitude":"-0.243218","fax":"202-555-0126","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Slim Gym","name":"Slim Gym","email":"slim@docdirect.com","phone_number":"45 235 856843","address":"109 A4088, London NW10, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Fitness.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/slim\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/2-270x270.jpg\" alt=\"Slim Gym\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"289\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:80%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>4.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/slim\/\">Slim Gym<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:slim@docdirect.com?Subject=hello\"  target=\"_top\">slim@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">45 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>109 A4088, London NW10, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.464071","longitude":"-0.107486","fax":"202-555-0158","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Shifa Blood Bank","name":"Shifa Blood Bank","email":"shifa@docdirect.com","phone_number":"53 235 856843","address":"College Green Court, 55-57 Barrington Rd, Brixton, London SW9 7JG, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Bloog-Bank.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/blood-bank\/shifa\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/9-1-270x270.jpg\" alt=\"Shifa Blood Bank\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"321\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:80%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>4.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/blood-bank\/shifa\/\">Shifa Blood Bank<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:shifa@docdirect.com?Subject=hello\"  target=\"_top\">shifa@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>College Green Court, 55-57 Barrington Rd, Brixton, London SW9 7JG, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.500826","longitude":"-0.180544","fax":"202-555-0156","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"San Diego Blood Bank","name":"San Diego Blood Bank","email":"san@docdirect.com","phone_number":"53 235 856843","address":"1A Queen&#039;s Gate, Kensington, London SW7 5EH, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Bloog-Bank.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/blood-bank\/san\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/7-3-270x270.jpg\" alt=\"San Diego Blood Bank\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"319\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:60%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>3.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/blood-bank\/san\/\">San Diego Blood Bank<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:san@docdirect.com?Subject=hello\"  target=\"_top\">san@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>1A Queen&#039;s Gate, Kensington, London SW7 5EH, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.552102","longitude":"-0.311115","fax":"202-555-0145","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Redwood Street Medical Center","name":"Redwood Street Medical Center","email":"redwood@docdirect.com","phone_number":"53 235 856843","address":"656 Harrow Rd, Wembley, Greater London HA0 2HB, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/03.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/hospital\/redwood\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/3-1-270x270.jpg\" alt=\"Redwood Street Medical Center\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"308\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:40%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>2.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/hospital\/redwood\/\">Redwood Street Medical Center<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:redwood@docdirect.com?Subject=hello\"  target=\"_top\">redwood@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>656 Harrow Rd, Wembley, Greater London HA0 2HB, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.60988","longitude":"-0.140305","fax":"202-555-0133","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"Popular-Gym","name":"Popular Gym","email":"popular@docdirect.com","phone_number":"52 235 856843","address":"N Circular Rd, London N11, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Fitness.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/popular\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/9-270x270.jpg\" alt=\"Popular Gym\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"296\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>        <span class=\"tg-featuredtags\">\r\n            <a class=\"tg-featured\" href=\"javascript:;\">featured<\/a>\r\n        <\/span>\r\n                            <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:100%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>5.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/popular\/\">Popular Gym<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:popular@docdirect.com?Subject=hello\"  target=\"_top\">popular@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">52 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>N Circular Rd, London N11, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.653482","longitude":"-0.115183","fax":"202-555-0132","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"No Weight Gym","name":"No Weight","email":"noweight@docdirect.com","phone_number":"51 235 856843","address":"146 Enfield Rd, Enfield, Greater London EN2 7HB, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Fitness.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/nowe\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/8-270x270.jpg\" alt=\"No Weight\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"295\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:60%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>3.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/fitness-center\/nowe\/\">No Weight<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:noweight@docdirect.com?Subject=hello\"  target=\"_top\">noweight@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">51 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>146 Enfield Rd, Enfield, Greater London EN2 7HB, UK<\/address> <\/li><\/ul><\/div><\/div>"}},{"latitude":"51.657965","longitude":"0.271685","fax":"202-555-0135","description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquat enim ad minim veniam. Eascxcepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.","title":"MivineHealth Center","name":"Mivine Health Center","email":"mivine@docdirect.com","phone_number":"53 235 856843","address":"211 Shenley Rd, Borehamwood, Hertfordshire WD6 1AT, UK","group":"","icon":"\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/Clinic.png","html":{"content":"<div class=\"tg-map-marker\"><figure class=\"tg-docimg\"><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/clinic\/mivine\/\"><img src=\"https:\/\/themographics.com\/wordpress\/docdirect\/wp-content\/uploads\/2016\/04\/01-1-270x270.jpg\" alt=\"Mivine Health Center\"><\/a><a class=\"tg-like add-to-fav\" data-wl_id=\"298\" href=\"javascript:;\"><i class=\"fa fa-heart\"><\/i><\/a>                    <span class=\"user-verified\">\r\n                        <svg id=\"Icon\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"74.875\" height=\"21\" viewBox=\"0 0 74.875 21\"> <defs>\r\n\t\t\t\t\t\t<style>.cls-1{fill:#10a64a}.cls-2{font-size:16px;text-anchor:middle;font-family:FontAwesome;text-transform:uppercase}.cls-2,.cls-3{fill:#fff}.cls-3{font-size:14.437px;font-family:Montserrat}<\/style><\/defs> \r\n\t\t\t\t\t\t<rect id=\"BG\" class=\"cls-1\" width=\"74.875\" height=\"21\" rx=\"3\" ry=\"3\"\/> <text id=\"_\" data-name=\"\uf132\" class=\"cls-2\" transform=\"translate(14.829 14.99) scale(0.737 0.762)\">\uf132<\/text> \r\n\t\t\t\t\t\t<text id=\"Verified\" class=\"cls-3\" transform=\"translate(22.787 15.191) scale(0.737 0.762)\">Verified<\/text> <\/svg>\r\n    \r\n                    <\/span>\r\n\t\t\t\t        <div class=\"feature-rating user-star-rating\">\r\n            <span class=\"tg-stars star-rating\">\r\n                <span style=\"width:60%\"><\/span>\r\n            <\/span>\r\n            \r\n            \t\t\t\t\t<em>3.0<sub>\/5<\/sub><\/em>\r\n\t\t\t        <\/div>\r\n        <\/figure><div class=\"tg-mapmarker-content\"><div class=\"tg-heading-border tg-small\"><h3><a class=\"userlink\" href=\"https:\/\/themographics.com\/wordpress\/docdirect\/clinic\/mivine\/\">Mivine Health Center<\/a><\/h3><\/div><ul class=\"tg-info\"><li> <i class=\"fa fa-envelope\"><\/i> <em><a href=\"mailto:mivine@docdirect.com?Subject=hello\"  target=\"_top\">mivine@docdirect.com<\/a><\/em> <\/li><li> <i class=\"fa fa-phone\"><\/i> <em><a href=\"javascript:;\">53 235 856843<\/a><\/em> <\/li><li> <i class=\"fa fa-home\"><\/i> <address>211 Shenley Rd, Borehamwood, Hertfordshire WD6 1AT, UK<\/address> <\/li><\/ul><\/div><\/div>"}}]});

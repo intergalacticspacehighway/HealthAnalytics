@@ -108,7 +108,7 @@
 																					class="col-md-6 col-sm-12 col-xs-12 tg-verticalmiddle">
 																					<div class="form-group">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat">
+																							class="group subcats" name="speciality">
 																								<option value="all">Doctor&nbsp;Specialities</option>
 																								<c:forEach items="${sessionScope.specialitylist}" var = "i">
 																								<option value="${i.specialityId}"> ${i.specialityName}</option>
@@ -118,7 +118,7 @@
 																					</div>
 																					<div class="form-group doctorSpeciality">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat" onchange="getCity1(this.value)">
+																							class="group subcats" name="stateMenu" onchange="getCity1(this.value)">
 
 																								<option id="commonOption" value="all">Select&nbsp;State</option>
 																								<c:forEach items="${sessionScope.statelist}" var = "i">
@@ -129,7 +129,7 @@
 																					</div>
 																					<div class="form-group doctorSpeciality">
 																						<span class="select"> <select
-																							class="group subcats" name="dir_subcat" name="cityMenu1" id="cityMenu1">
+																							class="group subcats"  name="cityMenu1" id="cityMenu1">
 
 																								<option id="commonOption" value="all">Select&nbsp;City</option>
 																								

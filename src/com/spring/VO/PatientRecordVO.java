@@ -28,7 +28,7 @@ public class PatientRecordVO {
 	private String familyHistory;
 	private String completebloodcount;
 	private String renalfunctiontest;
-	private String livalfunctiontest;
+	private String liverfunctiontest;
 	private String urine;
 	private Date currentdate;
 	@ManyToOne
@@ -105,11 +105,11 @@ public class PatientRecordVO {
 	public void setRenalfunctiontest(String renalfunctiontest) {
 		this.renalfunctiontest = renalfunctiontest;
 	}
-	public String getLivalfunctiontest() {
-		return livalfunctiontest;
+	public String getLiverfunctiontest() {
+		return liverfunctiontest;
 	}
-	public void setLivalfunctiontest(String livalfunctiontest) {
-		this.livalfunctiontest = livalfunctiontest;
+	public void setLiverfunctiontest(String liverfunctiontest) {
+		this.liverfunctiontest = liverfunctiontest;
 	}
 	public String getUrine() {
 		return urine;
