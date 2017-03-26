@@ -55,6 +55,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
           		<value>com.spring.VO.ClinicVO</value>
           		<value>com.spring.VO.DoctorClinicVO</value>
           		<value>com.spring.VO.PatientRecordVO</value>
+          		<value>com.spring.VO.EMSRegistrationVO</value>
                 
            
                 

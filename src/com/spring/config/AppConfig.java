@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan({ "com.spring.*" })
+@ComponentScan({ "com.spring" })
 /*@EnableTransactionManagement*/
 
 public class AppConfig extends WebMvcConfigurerAdapter {

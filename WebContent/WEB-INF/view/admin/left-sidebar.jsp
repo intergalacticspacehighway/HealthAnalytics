@@ -74,19 +74,26 @@
 				<ul class="nav nav-second-level">
 					<li><a href="addDoctor.html">Add</a></li>
 					<li><a href="viewDoctor.html">View</a></li>
-					</ul></li>
-			<li><a href="javascript:void(0);" class="waves-effect"><i class="fa fa-stethoscope" aria-hidden="true"></i>
- &nbsp &nbsp <span
-				class="hide-menu"> Speciality </span></a>
-			<ul class="nav nav-second-level">
-				<li><a href="addSpeciality.html">Add</a></li>
-				<li><a href="viewSpeciality.html">View</a></li>
-			</ul></li>
+				</ul></li>
+			<li><a href="javascript:void(0);" class="waves-effect"><i
+					class="fa fa-user-md" aria-hidden="true"></i> &nbsp &nbsp <span
+					class="hide-menu"> EMS </span></a>
+				<ul class="nav nav-second-level">
+					<li><a href="addEMS.html">Add</a></li>
+				</ul></li>
+
+			<li><a href="javascript:void(0);" class="waves-effect"><i
+					class="fa fa-stethoscope" aria-hidden="true"></i> &nbsp &nbsp <span
+					class="hide-menu"> Speciality </span></a>
+				<ul class="nav nav-second-level">
+					<li><a href="addSpeciality.html">Add</a></li>
+					<li><a href="viewSpeciality.html">View</a></li>
+				</ul></li>
 			<li><a href="javascript:void(0);" class="waves-effect"> <i
 					class="fa fa-user" aria-hidden="true"></i>&nbsp &nbsp <span
 					class="hide-menu"> Patients </span></a>
 				<ul class="nav nav-second-level">
-					
+
 					<li><a href="viewPatient.html">View</a></li>
 				</ul></li>
 			<li><a href="javascript:void(0);" class="waves-effect"> <i
@@ -128,6 +135,5 @@
 					<li><a href="#">View</a></li>
 
 				</ul></li>
-								
 	</div>
 </div>

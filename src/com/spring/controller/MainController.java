@@ -23,78 +23,79 @@ public class MainController {
 	SpecialityDAO speciality;
 	@Autowired
 	StateDAO state;
-	
-	@RequestMapping(value="/" , method=RequestMethod.GET)
-public String loadIndex(HttpServletResponse response,HttpSession session ) throws Exception
-{		
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String loadIndex(HttpServletResponse response, HttpSession session)
+			throws Exception {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
 		List name = (List) auth.getAuthorities();
 		System.out.println(name);
-		if(name.get(0).toString().equals("ROLE_USER") || name.get(0).toString().equals("ROLE_DOCTOR")){
+		if (name.get(0).toString().equals("ROLE_USER")
+				|| name.get(0).toString().equals("ROLE_DOCTOR")) {
 			System.out.println(name);
 			response.sendRedirect("home.html");
 			return null;
+		} else if (name.get(0).toString().equals("ROLE_ADMIN")) {
+			return ("redirect:/admin/index.html");
 		}
-		else if(name.get(0).toString().equals("ROLE_ADMIN")	){
-			return("redirect:/admin/index.html");
-		}
-		List<Object> specialitylist=this.speciality.getSpeciality();
-		session.setAttribute("specialitylist",specialitylist);
-		List<Object> statelist=this.state.getState();
-		session.setAttribute("statelist",statelist);
-		return("client/home");
-}
-	
-	@RequestMapping(value="/admin/index.html" , method=RequestMethod.GET)
-public String loadIndex2()
-{
-		return("admin/index");
-}
-	
-	@RequestMapping(value="/listview.html" , method=RequestMethod.GET)
-public String loadlistview()
-	{
-			return("client/listview");
+		List<Object> specialitylist = this.speciality.getSpeciality();
+		session.setAttribute("specialitylist", specialitylist);
+		List<Object> statelist = this.state.getState();
+		session.setAttribute("statelist", statelist);
+		return ("client/home");
 	}
-	@RequestMapping(value="/gridview.html" , method=RequestMethod.GET)
-	public String loadgridview()
-	{
-			return("client/gridview");
+
+	@RequestMapping(value = "/admin/index.html", method = RequestMethod.GET)
+	public String loadIndex2() {
+		return ("admin/index");
 	}
-	@RequestMapping(value="/contactus.html" , method=RequestMethod.GET)
-	public String loadcontactus()
-	{
-			return("client/contactus");
+
+	@RequestMapping(value = "/listview.html", method = RequestMethod.GET)
+	public String loadlistview() {
+		return ("client/listview");
 	}
-	@RequestMapping(value="/bloglist.html" , method=RequestMethod.GET)
-	public String loadbloglist()
-	{
-			return("client/bloglist");
+
+	@RequestMapping(value = "/gridview.html", method = RequestMethod.GET)
+	public String loadgridview() {
+		return ("client/gridview");
 	}
-	@RequestMapping(value="/bloggrid.html" , method=RequestMethod.GET)
-	public String loadbloggrid()
-	{
-			return("client/bloggrid");
+
+	@RequestMapping(value = "/contactus.html", method = RequestMethod.GET)
+	public String loadcontactus() {
+		return ("client/contactus");
 	}
-	@RequestMapping(value="/blogdetail.html" , method=RequestMethod.GET)
-	public String loadblogdetail()
-	{
-			return("client/blogdetail");
+
+	@RequestMapping(value = "/bloglist.html", method = RequestMethod.GET)
+	public String loadbloglist() {
+		return ("client/bloglist");
 	}
-	@RequestMapping(value="/home.html" , method=RequestMethod.GET)
-	public String loadhome(ModelMap model,HttpSession session) throws Exception
-	{	
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			String name = auth.getName(); 
-			System.out.println("Name::"+ name);
-			List authoritesname = (List) auth.getAuthorities();
-			System.out.println(authoritesname.get(0).toString());
-			model.addAttribute("authoritesname",authoritesname);
-			model.addAttribute("username", name);
-			List<Object> specialitylist=this.speciality.getSpeciality();
-			session.setAttribute("specialitylist",specialitylist);
-			List<Object> statelist=this.state.getState();
-			session.setAttribute("statelist",statelist);
-			return("client/home");
+
+	@RequestMapping(value = "/bloggrid.html", method = RequestMethod.GET)
+	public String loadbloggrid() {
+		return ("client/bloggrid");
+	}
+
+	@RequestMapping(value = "/blogdetail.html", method = RequestMethod.GET)
+	public String loadblogdetail() {
+		return ("client/blogdetail");
+	}
+
+	@RequestMapping(value = "/home.html", method = RequestMethod.GET)
+	public String loadhome(ModelMap model, HttpSession session)
+			throws Exception {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String name = auth.getName();
+		System.out.println("Name::" + name);
+		List authoritesname = (List) auth.getAuthorities();
+		System.out.println(authoritesname.get(0).toString());
+		model.addAttribute("authoritesname", authoritesname);
+		model.addAttribute("username", name);
+		List<Object> specialitylist = this.speciality.getSpeciality();
+		session.setAttribute("specialitylist", specialitylist);
+		List<Object> statelist = this.state.getState();
+		session.setAttribute("statelist", statelist);
+		return ("client/home");
 	}
 }

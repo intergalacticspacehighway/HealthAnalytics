@@ -232,7 +232,7 @@ a:hover {
 									<ul id="menu-main-menu" class="">
 										<li id="menu-item-654"
 											class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-654"><a
-											href="home.html">Home</a></li>
+											href="/health/">Home</a></li>
 										<li id="menu-item-333"
 											class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-333"><a
 											href="#">Categories</a>
