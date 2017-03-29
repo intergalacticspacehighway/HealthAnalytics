@@ -9,17 +9,15 @@ function getLocation() {
 }
 var coordinates = null;
 function showPosition(position) {
-	alert(JSON.stringify(coordinates));
-	alert("hiiii");
 	coordinates = {
 		"latitude" : position.coords.latitude,
 		"longitude" : position.coords.longitude
 
 	};
-	alert("Coordinates : : " + JSON.stringify(coordinates));
 	stompClient.send("/app/chat", {}, JSON.stringify(coordinates));
 
 }
+
 
 function connect() {
 	var socket = new SockJS('/health/chat');
@@ -50,9 +48,6 @@ function disconnect() {
 	console.log("Disconnected");
 }
 
-function sendMessage() {
-	stompClient.send("/app/chat", {}, JSON.stringify(coordinates));
-}
 
 function showMessageOutput(messageOutput) {
 	alert(messageOutput.longitude + ": " + messageOutput.latitude + " by "
@@ -83,6 +78,6 @@ var recurfun = function(message) {
 };
 function emsTrackLocation(){
 	var interval = setInterval(function(){
-		
-	},5000);
+		getLocation();
+	},1000);
 }

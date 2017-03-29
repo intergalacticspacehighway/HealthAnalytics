@@ -8,17 +8,23 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js">
-	
-</script>
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
 
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.2/sockjs.min.js">
+	
 </script>
+
+<script type="text/javascript" src="resources/client/js/emssocket.js"></script>
+<script>
+	connect();
+</script>
+
 <link href="resources/css/bootstrap-toggle.css" rel="stylesheet">
 <script src="resources/js/bootstrap-toggle.js"></script>
 
@@ -34,7 +40,6 @@
 	}
 	var coordinates = null;
 	function showPosition(position) {
-		alert(JSON.stringify(coordinates));
 		alert("hiiii");
 		coordinates = {
 			"latitude" : position.coords.latitude,
@@ -42,19 +47,8 @@
 
 		};
 		alert("Coordinates : : " + JSON.stringify(coordinates));
-		stompClient.send("/app/chat", {}, JSON.stringify(coordinates));
+		stompClient.send("/app/updateLoc", {}, JSON.stringify(coordinates));
 
-	}
-
-	function connect() {
-		var socket = new SockJS('/health/chat');
-		stompClient = Stomp.over(socket);
-		stompClient.connect({}, function(frame) {
-			console.log('Connected: ' + frame);
-			stompClient.subscribe('/user/queue/chat', function(messageOutput) {
-				showMessageOutput(JSON.parse(messageOutput.body));
-			});
-		});
 	}
 
 	function disconnect() {
@@ -65,14 +59,15 @@
 		console.log("Disconnected");
 	}
 
-	function sendMessage() {
+	/* function sendMessage() {
 		stompClient.send("/app/chat", {}, JSON.stringify(coordinates));
-	}
+	} */
 
 	function showMessageOutput(messageOutput) {
 		var userName = document.getElementById("userName");
-		var  name = document.getElementById("name");
-		document.getElementById("patientRecords").href = "viewPatientRecord.html?userName="+messageOutput.sender;
+		var name = document.getElementById("name");
+		document.getElementById("patientRecords").href = "viewPatientRecord.html?userName="
+				+ messageOutput.sender;
 		userName.innerHTML = messageOutput.sender;
 		name.innerHTML = messageOutput.name;
 		alert(messageOutput.longitude + ": " + messageOutput.latitude + " by "
@@ -83,6 +78,7 @@
 
 <script>
 	connect();
+	emsTrackLocation();
 </script>
 <main id="main" class="tg-page-wrapper tg-haslayout"> <%@taglib
 	uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
@@ -106,11 +102,10 @@
 									<form>
 										<div class="form-group">
 											<label for="userName">User Name : <span id="userName"
-												name="userName">Chirag</span></label>
+												name="userName"></span></label>
 										</div>
 										<div class="form-group">
-											<label for="name">Name : <span id="name">Chirag
-													Mulchandani</span></label>
+											<label for="name">Name : <span id="name"></span></label>
 										</div>
 										<div class="form-group">
 											<label for="viewRecords"><a id="patientRecords"
